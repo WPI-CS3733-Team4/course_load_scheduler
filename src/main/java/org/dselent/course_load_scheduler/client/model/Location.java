@@ -11,7 +11,7 @@ public class Location extends Model
     private String room;
     private Integer roomSize;
     private Instant createdAt;
-    private Instant modifiedAt;
+    private Instant updatedAt;
 
     public Integer getId() {
         return id;
@@ -53,12 +53,12 @@ public class Location extends Model
         this.createdAt = createdAt;
     }
 
-    public Instant getModifiedAt() {
-        return modifiedAt;
+    public Instant getUpdatedAt() {
+        return updatedAt;
     }
 
-    public void setModifiedAt(Instant modifiedAt) {
-        this.modifiedAt = modifiedAt;
+    public void setUpdatedAt(Instant updatedAt) {
+        this.updatedAt = updatedAt;
     }
 
     public void setCreatedAt(Timestamp createdAt)
@@ -93,5 +93,17 @@ public class Location extends Model
     public int hashCode() {
 
         return Objects.hash(super.hashCode(), id, building, room, roomSize, createdAt, modifiedAt);
+    }
+
+    @java.lang.Override
+    public java.lang.String toString() {
+        return "Location{" +
+                "id=" + id +
+                ", building='" + building + '\'' +
+                ", room='" + room + '\'' +
+                ", roomSize=" + roomSize +
+                ", createdAt=" + createdAt +
+                ", modifiedAt=" + modifiedAt +
+                '}';
     }
 }
