@@ -3,6 +3,7 @@ package org.dselent.course_load_scheduler.client.model;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.lang.*;
+import java.util.Objects;
 
 /* Created by Nathan Siegel */
 
@@ -73,20 +74,15 @@ public class UserPermission extends Model {
     }
 
     @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        if (!super.equals(object)) return false;
-
-        Term term = (Term) object;
-
-        if (id != null ? !id.equals(term.id) : term.id != null) return false;
-        if (usersId != null ? !usersId.equals(term.usersId) : term.usersId != null) return false;
-        if (role != null ? !role.equals(term.role) : term.role != null) return false;
-        if (createdAt != null ? !createdAt.equals(term.createdAt) : term.createdAt != null) return false;
-        if (updatedAt != null ? !updatedAt.equals(term.updatedAt) : term.updatedAt != null) return false;
-
-        return true;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserPermission that = (UserPermission) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(usersId, that.usersId) &&
+                Objects.equals(role, that.role) &&
+                Objects.equals(createdAt, that.createdAt) &&
+                Objects.equals(updatedAt, that.updatedAt);
     }
 
     @Override
