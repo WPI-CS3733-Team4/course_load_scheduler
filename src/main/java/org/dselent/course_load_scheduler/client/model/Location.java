@@ -2,6 +2,7 @@ package org.dselent.course_load_scheduler.client.model;
 
 import java.sql.Timestamp;
 import java.time.Instant;
+import java.util.Objects;
 
 
 public class Location extends Model
@@ -87,12 +88,13 @@ public class Location extends Model
                 java.util.Objects.equals(room, location.room) &&
                 java.util.Objects.equals(roomSize, location.roomSize) &&
                 java.util.Objects.equals(createdAt, location.createdAt) &&
-                java.util.Objects.equals(modifiedAt, location.modifiedAt);
+                java.util.Objects.equals(updatedAt, location.updatedAt);
     }
 
+    @Override
     public int hashCode() {
 
-        return Objects.hash(super.hashCode(), id, building, room, roomSize, createdAt, modifiedAt);
+        return Objects.hash(id, building, room, roomSize, createdAt, updatedAt);
     }
 
     @java.lang.Override
@@ -103,7 +105,7 @@ public class Location extends Model
                 ", room='" + room + '\'' +
                 ", roomSize=" + roomSize +
                 ", createdAt=" + createdAt +
-                ", modifiedAt=" + modifiedAt +
+                ", modifiedAt=" + updatedAt +
                 '}';
     }
 }
