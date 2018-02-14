@@ -10,8 +10,11 @@ public class CourseSection extends Model {
 
     // Attributes
     private Integer id;
-    private Integer coursesId;
-    private String sectionType;
+    private Integer courseSectionsId;
+    private Integer dayOfWeek;
+    private Integer startTime;
+    private Integer endTime;
+    private Integer locationID;
     private Instant createdAt;
     private Instant updatedAt;
 
@@ -23,20 +26,44 @@ public class CourseSection extends Model {
         this.id = id;
     }
 
-    public Integer getCoursesId() {
-        return coursesId;
+    public Integer getCourseSectionsId() {
+        return courseSectionsId;
     }
 
-    public void setCoursesId(Integer coursesId) {
-        this.coursesId = coursesId;
+    public void setCourseSectionsId(Integer courseSectionsId) {
+        this.courseSectionsId = courseSectionsId;
     }
 
-    public String getSectionType() {
-        return sectionType;
+    public Integer getDayOfWeek() {
+        return dayOfWeek;
     }
 
-    public void setSectionType(String sectionType) {
-        this.sectionType = sectionType;
+    public void setDayOfWeek(Integer dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+    }
+
+    public Integer getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Integer startTime) {
+        this.startTime = startTime;
+    }
+
+    public Integer getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Integer endTime) {
+        this.endTime = endTime;
+    }
+
+    public Integer getLocationID() {
+        return locationID;
+    }
+
+    public void setLocationID(Integer locationID) {
+        this.locationID = locationID;
     }
 
     public Instant getCreatedAt() {
@@ -80,8 +107,12 @@ public class CourseSection extends Model {
         CourseSection that = (CourseSection) object;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
-        if (coursesId != null ? !coursesId.equals(that.coursesId) : that.coursesId != null) return false;
-        if (sectionType != null ? !sectionType.equals(that.sectionType) : that.sectionType != null) return false;
+        if (courseSectionsId != null ? !courseSectionsId.equals(that.courseSectionsId) : that.courseSectionsId != null)
+            return false;
+        if (dayOfWeek != null ? !dayOfWeek.equals(that.dayOfWeek) : that.dayOfWeek != null) return false;
+        if (startTime != null ? !startTime.equals(that.startTime) : that.startTime != null) return false;
+        if (endTime != null ? !endTime.equals(that.endTime) : that.endTime != null) return false;
+        if (locationID != null ? !locationID.equals(that.locationID) : that.locationID != null) return false;
         if (createdAt != null ? !createdAt.equals(that.createdAt) : that.createdAt != null) return false;
         if (updatedAt != null ? !updatedAt.equals(that.updatedAt) : that.updatedAt != null) return false;
 
@@ -92,8 +123,11 @@ public class CourseSection extends Model {
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + (id != null ? id.hashCode() : 0);
-        result = 31 * result + (coursesId != null ? coursesId.hashCode() : 0);
-        result = 31 * result + (sectionType != null ? sectionType.hashCode() : 0);
+        result = 31 * result + (courseSectionsId != null ? courseSectionsId.hashCode() : 0);
+        result = 31 * result + (dayOfWeek != null ? dayOfWeek.hashCode() : 0);
+        result = 31 * result + (startTime != null ? startTime.hashCode() : 0);
+        result = 31 * result + (endTime != null ? endTime.hashCode() : 0);
+        result = 31 * result + (locationID != null ? locationID.hashCode() : 0);
         result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
         result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
         return result;
@@ -103,8 +137,11 @@ public class CourseSection extends Model {
     public java.lang.String toString() {
         return "CourseSection{" +
                 "id=" + id +
-                ", coursesId=" + coursesId +
-                ", sectionType='" + sectionType + '\'' +
+                ", courseSectionsId=" + courseSectionsId +
+                ", dayOfWeek=" + dayOfWeek +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", locationID=" + locationID +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
