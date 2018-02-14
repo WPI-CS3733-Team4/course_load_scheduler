@@ -2,18 +2,16 @@ package org.dselent.course_load_scheduler.client.model;
 
 import java.sql.Timestamp;
 import java.time.Instant;
-
 import java.lang.*;
 
 /* Created by Nathan Siegel */
 
-public class Faculty extends Model
-{
+public class FacultyCourse extends Model {
     // attributes
 
     private Integer id;
-    private Integer usersId;
-    private Integer requiredCredits;
+    private Integer facultyID;
+    private Integer courseSectionID;
     private Instant createdAt;
     private Instant updatedAt;
 
@@ -25,20 +23,20 @@ public class Faculty extends Model
         this.id = id;
     }
 
-    public Integer getUsersId() {
-        return usersId;
+    public Integer getFacultyID() {
+        return facultyID;
     }
 
-    public void setUsersId(Integer usersId) {
-        this.usersId = usersId;
+    public void setFacultyID(Integer facultyID) {
+        this.facultyID = facultyID;
     }
 
-    public Integer getRequiredCredits() {
-        return requiredCredits;
+    public Integer getCourseSectionID() {
+        return courseSectionID;
     }
 
-    public void setRequiredCredits(Integer requiredCredits) {
-        this.requiredCredits = requiredCredits;
+    public void setCourseSectionID(Integer courseSectionID) {
+        this.courseSectionID = courseSectionID;
     }
 
     public Instant getCreatedAt() {
@@ -79,14 +77,14 @@ public class Faculty extends Model
         if (object == null || getClass() != object.getClass()) return false;
         if (!super.equals(object)) return false;
 
-        Faculty faculty = (Faculty) object;
+        FacultyCourse that = (FacultyCourse) object;
 
-        if (id != null ? !id.equals(faculty.id) : faculty.id != null) return false;
-        if (usersId != null ? !usersId.equals(faculty.usersId) : faculty.usersId != null) return false;
-        if (requiredCredits != null ? !requiredCredits.equals(faculty.requiredCredits) : faculty.requiredCredits != null)
+        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (facultyID != null ? !facultyID.equals(that.facultyID) : that.facultyID != null) return false;
+        if (courseSectionID != null ? !courseSectionID.equals(that.courseSectionID) : that.courseSectionID != null)
             return false;
-        if (createdAt != null ? !createdAt.equals(faculty.createdAt) : faculty.createdAt != null) return false;
-        if (updatedAt != null ? !updatedAt.equals(faculty.updatedAt) : faculty.updatedAt != null) return false;
+        if (createdAt != null ? !createdAt.equals(that.createdAt) : that.createdAt != null) return false;
+        if (updatedAt != null ? !updatedAt.equals(that.updatedAt) : that.updatedAt != null) return false;
 
         return true;
     }
@@ -95,8 +93,8 @@ public class Faculty extends Model
     public int hashCode() {
         int result = super.hashCode();
         result = 31 * result + (id != null ? id.hashCode() : 0);
-        result = 31 * result + (usersId != null ? usersId.hashCode() : 0);
-        result = 31 * result + (requiredCredits != null ? requiredCredits.hashCode() : 0);
+        result = 31 * result + (facultyID != null ? facultyID.hashCode() : 0);
+        result = 31 * result + (courseSectionID != null ? courseSectionID.hashCode() : 0);
         result = 31 * result + (createdAt != null ? createdAt.hashCode() : 0);
         result = 31 * result + (updatedAt != null ? updatedAt.hashCode() : 0);
         return result;
@@ -104,10 +102,10 @@ public class Faculty extends Model
 
     @Override
     public String toString() {
-        return "Faculty{" +
+        return "FacultyCourse{" +
                 "id=" + id +
-                ", usersId=" + usersId +
-                ", requiredCredits=" + requiredCredits +
+                ", facultyID=" + facultyID +
+                ", courseSectionID=" + courseSectionID +
                 ", createdAt=" + createdAt +
                 ", updatedAt=" + updatedAt +
                 '}';
