@@ -104,7 +104,7 @@ public class CourseTime extends Model {
         if (object == null || getClass() != object.getClass()) return false;
         if (!super.equals(object)) return false;
 
-        CourseSection that = (CourseSection) object;
+        CourseTime that = (CourseTime) object;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
         if (courseSectionsId != null ? !courseSectionsId.equals(that.courseSectionsId) : that.courseSectionsId != null)
