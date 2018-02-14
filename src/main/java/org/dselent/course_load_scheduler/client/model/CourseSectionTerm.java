@@ -3,6 +3,7 @@ package org.dselent.course_load_scheduler.client.model;
 import java.sql.Timestamp;
 import java.time.Instant;
 import java.lang.*;
+import java.util.Objects;
 
 /* Created by Nathan Siegel */
 
@@ -35,7 +36,7 @@ public class CourseSectionTerm extends Model {
         return termsId;
     }
 
-    public void setTermsId(String termsId) {
+    public void setTermsId(Integer termsId) {
         this.termsId = termsId;
     }
 
