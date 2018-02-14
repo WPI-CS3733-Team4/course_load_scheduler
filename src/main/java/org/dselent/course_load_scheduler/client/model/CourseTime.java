@@ -6,7 +6,7 @@ import java.lang.*;
 
 /* Created by Nathan Siegel */
 
-public class CourseSection extends Model {
+public class CourseTime extends Model {
 
     // Attributes
     private Integer id;
