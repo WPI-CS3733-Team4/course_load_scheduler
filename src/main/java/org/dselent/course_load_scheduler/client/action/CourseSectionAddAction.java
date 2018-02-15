@@ -2,22 +2,22 @@ package org.dselent.course_load_scheduler.client.action;
 
 public class CourseSectionAddAction
 {
-    private Integer course_id;
-    private Integer section_type;
+    private Integer courseId;
+    private Integer sectionType;
     private String term;
 
-    public CourseSectionAddAction(Integer course_id, Integer section_type, String term) {
-        this.course_id = course_id;
-        this.section_type = section_type;
+    public CourseSectionAddAction(Integer courseId, Integer sectionType, String term) {
+        this.courseId = courseId;
+        this.sectionType = sectionType;
         this.term = term;
     }
 
-    public Integer getCourse_id() {
-        return course_id;
+    public Integer getcourseId() {
+        return courseId;
     }
 
-    public Integer getSection_type() {
-        return section_type;
+    public Integer getsectionType() {
+        return sectionType;
     }
 
     public String getTerm() {
@@ -27,8 +27,8 @@ public class CourseSectionAddAction
     @Override
     public String toString() {
         return "CourseSectionAddAction{" +
-                "course_id=" + course_id +
-                ", section_type=" + section_type +
+                "courseId=" + courseId +
+                ", sectionType=" + sectionType +
                 ", term='" + term + '\'' +
                 '}';
     }

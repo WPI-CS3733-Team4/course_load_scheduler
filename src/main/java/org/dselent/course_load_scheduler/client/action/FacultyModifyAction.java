@@ -2,34 +2,34 @@ package org.dselent.course_load_scheduler.client.action;
 
 public class FacultyModifyAction
 {
-    private Integer faculty_id;
-    private Integer user_id;
-    private Integer required_credits;
+    private Integer facultyId;
+    private Integer userId;
+    private Integer requiredCredits;
 
-    public FacultyModifyAction(Integer faculty_id, Integer user_id, Integer required_credits) {
-        this.faculty_id = faculty_id;
-        this.user_id = user_id;
-        this.required_credits = required_credits;
+    public FacultyModifyAction(Integer facultyId, Integer userId, Integer requiredCredits) {
+        this.facultyId = facultyId;
+        this.userId = userId;
+        this.requiredCredits = requiredCredits;
     }
 
-    public Integer getFaculty_id() {
-        return faculty_id;
+    public Integer getfacultyId() {
+        return facultyId;
     }
 
-    public Integer getUser_id() {
-        return user_id;
+    public Integer getuserId() {
+        return userId;
     }
 
-    public Integer getRequired_credits() {
-        return required_credits;
+    public Integer getrequiredCredits() {
+        return requiredCredits;
     }
 
     @Override
     public String toString() {
         return "FacultyModifyAction{" +
-                "faculty_id=" + faculty_id +
-                ", user_id=" + user_id +
-                ", required_credits=" + required_credits +
+                "facultyId=" + facultyId +
+                ", userId=" + userId +
+                ", requiredCredits=" + requiredCredits +
                 '}';
     }
 }

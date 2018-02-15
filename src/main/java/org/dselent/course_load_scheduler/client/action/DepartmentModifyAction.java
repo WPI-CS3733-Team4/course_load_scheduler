@@ -2,16 +2,16 @@ package org.dselent.course_load_scheduler.client.action;
 
 public class DepartmentModifyAction
 {
-    private Integer department_id;
+    private Integer departmentId;
     private String department;
 
-    public DepartmentModifyAction(Integer department_id, String department) {
-        this.department_id = department_id;
+    public DepartmentModifyAction(Integer departmentId, String department) {
+        this.departmentId = departmentId;
         this.department = department;
     }
 
-    public Integer getDepartment_id() {
-        return department_id;
+    public Integer getdepartmentId() {
+        return departmentId;
     }
 
     public String getDepartment() {
@@ -21,7 +21,7 @@ public class DepartmentModifyAction
     @Override
     public String toString() {
         return "DepartmentModifyAction{" +
-                "department_id=" + department_id +
+                "departmentId=" + departmentId +
                 ", department='" + department + '\'' +
                 '}';
     }

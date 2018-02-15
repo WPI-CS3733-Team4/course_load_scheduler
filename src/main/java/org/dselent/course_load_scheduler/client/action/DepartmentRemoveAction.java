@@ -2,20 +2,20 @@ package org.dselent.course_load_scheduler.client.action;
 
 public class DepartmentRemoveAction
 {
-    private Integer department_id;
+    private Integer departmentId;
 
-    public DepartmentRemoveAction(Integer department_id) {
-        this.department_id = department_id;
+    public DepartmentRemoveAction(Integer departmentId) {
+        this.departmentId = departmentId;
     }
 
-    public Integer getDepartment_id() {
-        return department_id;
+    public Integer getdepartmentId() {
+        return departmentId;
     }
 
     @Override
     public String toString() {
         return "DepartmentRemoveAction{" +
-                "department_id=" + department_id +
+                "departmentId=" + departmentId +
                 '}';
     }
 }

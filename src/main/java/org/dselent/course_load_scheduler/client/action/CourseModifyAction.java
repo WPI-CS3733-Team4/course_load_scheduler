@@ -2,20 +2,20 @@ package org.dselent.course_load_scheduler.client.action;
 
 public class CourseModifyAction
 {
-    private Integer course_id;
+    private Integer courseId;
     private String courseName;
     private String courseDept;
     private String courseDescription;
 
-    public CourseModifyAction(Integer course_id, String courseName, String courseDept, String courseDescription) {
-        this.course_id = course_id;
+    public CourseModifyAction(Integer courseId, String courseName, String courseDept, String courseDescription) {
+        this.courseId = courseId;
         this.courseName = courseName;
         this.courseDept = courseDept;
         this.courseDescription = courseDescription;
     }
 
-    public Integer getCourse_id() {
-        return course_id;
+    public Integer getcourseId() {
+        return courseId;
     }
 
     public String getCourseName() {
@@ -33,7 +33,7 @@ public class CourseModifyAction
     @Override
     public String toString() {
         return "CourseModifyAction{" +
-                "course_id=" + course_id +
+                "courseId=" + courseId +
                 ", courseName='" + courseName + '\'' +
                 ", courseDept='" + courseDept + '\'' +
                 ", courseDescription='" + courseDescription + '\'' +
