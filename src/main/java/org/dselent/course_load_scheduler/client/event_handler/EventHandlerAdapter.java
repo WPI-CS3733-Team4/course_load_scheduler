@@ -13,15 +13,46 @@ import org.dselent.course_load_scheduler.client.event.*;
  * 
  */
 public abstract class EventHandlerAdapter
-implements SendLoginEventHandler, InvalidLoginEventHandler, DepartmentRemoveEventHandler, DepartmentModifyEventHandler, DepartmentAddEventHandler, CourseDepartmentAddEventHandler,
+implements TermRemoveEventHandler, TermModifyEventHandler, TermAddEventHandler, SendLogoutEventHandler, SendLoginEventHandler, LocationRemoveEventHandler,
+		LocationModifyEventHandler, LocationAddEventHandler, InvalidLoginEventHandler, FacultyRemoveEventHandler, FacultyModifyEventHandler,
+		FacultyAddEventHandler, DepartmentRemoveEventHandler, DepartmentModifyEventHandler, DepartmentAddEventHandler, CourseDepartmentAddEventHandler,
 		CourseAddEventHandler, ConfirmUserEventHandler, ChangeRoleEventHandler
 {
+	@Override
+	public void onTermRemove(TermRemoveEvent evt) {}
+
+	@Override
+	public void onTermModify(TermModifyEvent evt) {}
+
+	@Override
+	public void onTermAdd(TermAddEvent evt) {}
+
+	@Override
+	public void onSendLogout(SendLogoutEvent evt) {}
 
 	@Override
 	public void onSendLogin(SendLoginEvent evt) {}
 
 	@Override
+	public void onLocationRemove(LocationRemoveEvent evt) {}
+
+	@Override
+	public void onLocationModify(LocationModifyEvent evt) {}
+
+	@Override
+	public void onLocationAdd(LocationAddEvent evt) {}
+
+	@Override
 	public void onInvalidLogin(InvalidLoginEvent evt) {}
+
+	@Override
+	public void onFacultyRemove(FacultyRemoveEvent evt) {}
+
+	@Override
+	public void onFacultyModify(FacultyModifyEvent evt) {}
+
+	@Override
+	public void onFacultyAdd(FacultyAddEvent evt) {}
 	
 	@Override
 	public void onDepartmentRemove(DepartmentRemoveEvent evt) {}
