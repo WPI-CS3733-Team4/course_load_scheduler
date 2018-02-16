@@ -43,6 +43,6 @@ public class InvalidFieldEvent extends GwtEvent<InvalidFieldEventHandler>
 	@Override
 	protected void dispatch(InvalidFieldEventHandler handler)
 	{
-		handler.onInvalidLogin(this);
+		handler.onInvalidField(this);
 	}
 }
