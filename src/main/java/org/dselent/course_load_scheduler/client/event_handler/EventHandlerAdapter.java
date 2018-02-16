@@ -1,7 +1,6 @@
 package org.dselent.course_load_scheduler.client.event_handler;
 
-import org.dselent.course_load_scheduler.client.event.InvalidLoginEvent;
-import org.dselent.course_load_scheduler.client.event.SendLoginEvent;
+import org.dselent.course_load_scheduler.client.event.*;
 
 /**
  * Adapter class for convenience
@@ -14,11 +13,37 @@ import org.dselent.course_load_scheduler.client.event.SendLoginEvent;
  * 
  */
 public abstract class EventHandlerAdapter
-implements InvalidLoginEventHandler, SendLoginEventHandler
+implements SendLoginEventHandler, InvalidLoginEventHandler, DepartmentRemoveEventHandler, DepartmentModifyEventHandler, DepartmentAddEventHandler, CourseDepartmentAddEventHandler,
+		CourseAddEventHandler, ConfirmUserEventHandler, ChangeRoleEventHandler
 {
+
+	@Override
+	public void onSendLogin(SendLoginEvent evt) {}
+
 	@Override
 	public void onInvalidLogin(InvalidLoginEvent evt) {}
 	
 	@Override
-	public void onSendLogin(SendLoginEvent evt) {}
+	public void onDepartmentRemove(DepartmentRemoveEvent evt) {}
+
+	@Override
+	public void onDepartmentModify(DepartmentModifyEvent evt) {}
+
+	@Override
+	public void onDepartmentAdd(DepartmentAddEvent evt)  {}
+
+	@Override
+	public void onCourseDepartmentAdd(CourseDepartmentAddEvent evt) {}
+
+	@Override
+	public void onCourseAdd(CourseAddEvent evt) {}
+
+	@Override
+	public void onConfirmUser(ConfirmUserEvent evt) {}
+
+	@Override
+	public void onChangeRole(ChangeRoleEvent evt) {}
+
+
+
 }
