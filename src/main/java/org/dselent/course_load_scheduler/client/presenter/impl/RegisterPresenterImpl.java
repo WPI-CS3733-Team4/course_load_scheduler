@@ -6,7 +6,7 @@ import org.dselent.course_load_scheduler.client.action.UserAddAction;
 import org.dselent.course_load_scheduler.client.event.UserAddEvent;
 import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
 import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidUserAddStrings;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidUserStrings;
 import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.presenter.RegisterPresenter;
@@ -97,7 +97,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 			}
 			catch(EmptyStringException e)
 			{
-				invalidReasonList.add(InvalidUserAddStrings.NULL_USER_NAME);
+				invalidReasonList.add(InvalidUserStrings.NULL_USER_NAME);
 				fieldsAreValid = false;
 			}
 			
@@ -107,7 +107,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 			}
 			catch(EmptyStringException e)
 			{
-				invalidReasonList.add(InvalidUserAddStrings.NULL_FIRST_NAME);
+				invalidReasonList.add(InvalidUserStrings.NULL_FIRST_NAME);
 				fieldsAreValid = false;
 			}
 			
@@ -117,7 +117,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 			}
 			catch(EmptyStringException e)
 			{
-				invalidReasonList.add(InvalidUserAddStrings.NULL_LAST_NAME);
+				invalidReasonList.add(InvalidUserStrings.NULL_LAST_NAME);
 				fieldsAreValid = false;
 			}
 			
@@ -127,7 +127,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 			}
 			catch(EmptyStringException e)
 			{
-				invalidReasonList.add(InvalidUserAddStrings.NULL_EMAIL);
+				invalidReasonList.add(InvalidUserStrings.NULL_EMAIL);
 				fieldsAreValid = false;
 			}
 
@@ -137,7 +137,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 			}
 			catch(EmptyStringException e)
 			{
-				invalidReasonList.add(InvalidUserAddStrings.NULL_PASSWORD);
+				invalidReasonList.add(InvalidUserStrings.NULL_PASSWORD);
 				fieldsAreValid = false;
 			}
 			
