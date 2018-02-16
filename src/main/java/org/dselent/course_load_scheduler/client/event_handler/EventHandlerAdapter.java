@@ -98,7 +98,8 @@ implements UserRemoveEventHandler, UserModifyEventHandler, UserAddEventHandler, 
 	public void onCourseSectionModify(CourseSectionModifyEvent evt) {}
 	
 	@Override
-	public void onCourseSectionAdd(CourseSectionAdd evt) {}
+	public void onCourseSectionAdd(CourseSectionAddEvent evt) {
+	}
 	
 	@Override
 	public void onCourseRemove(CourseRemoveEvent evt) {}
