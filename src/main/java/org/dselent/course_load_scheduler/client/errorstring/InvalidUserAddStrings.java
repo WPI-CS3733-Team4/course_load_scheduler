@@ -2,7 +2,7 @@ package org.dselent.course_load_scheduler.client.errorstring;
 
 /* Created by Nathan Siegel */
 
-public class InvalidRegisterStrings
+public class InvalidUserAddStrings
 {
 	public static final String NULL_USER_NAME = "Your user name cannot be empty.";
 	public static final String NULL_FIRST_NAME = "Your first name cannot be empty.";
