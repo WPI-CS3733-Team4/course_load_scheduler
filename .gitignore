@@ -9,4 +9,5 @@
 /out
 *.iml
 /.classpath
-/war
+/war/*
+/gwt-unitCache
