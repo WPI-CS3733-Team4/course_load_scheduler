@@ -19,6 +19,9 @@
 
   <!-- Other module inherits                                      -->
 
+
+  <!-- allow Super Dev Mode -->
+  <add-linker name="xsiframe"/>
   <!-- Specify the app entry point class.                         -->
   <entry-point class='org.dselent.course_load_scheduler.client.CourseLoadScheduler'/>
 
@@ -26,8 +29,5 @@
   
   <!-- Specify the paths for translatable code                    -->
   <source path='client'/>
-
-  <!-- allow Super Dev Mode -->
-  <add-linker name="xsiframe"/>
   
 </module>
