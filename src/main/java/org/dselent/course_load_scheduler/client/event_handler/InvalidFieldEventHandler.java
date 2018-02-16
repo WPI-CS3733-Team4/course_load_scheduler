@@ -1,5 +1,5 @@
 package org.dselent.course_load_scheduler.client.event_handler;
-import org.dselent.course_load_scheduler.client.event.InvalidLoginEvent;
+import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
 
 import com.google.gwt.event.shared.EventHandler;
 
@@ -11,7 +11,7 @@ import com.google.gwt.event.shared.EventHandler;
  * @author dselent
  *
  */
-public interface InvalidLoginEventHandler extends EventHandler
+public interface InvalidFieldEventHandler extends EventHandler
 {
-	  public void onInvalidLogin(InvalidLoginEvent evt);
+	  public void onInvalidField(InvalidFieldEvent evt);
 }

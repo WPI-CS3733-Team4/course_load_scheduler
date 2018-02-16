@@ -15,7 +15,7 @@ import org.dselent.course_load_scheduler.client.event.*;
 public abstract class EventHandlerAdapter
 implements UserRemoveEventHandler, UserModifyEventHandler, UserAddEventHandler, UnrequestEventHandler, TermRemoveEventHandler, TermModifyEventHandler,
 		TermAddEventHandler, SendLogoutEventHandler, SendLoginEventHandler, RequestEventHandler, LocationRemoveEventHandler,
-		LocationModifyEventHandler, LocationAddEventHandler, InvalidLoginEventHandler, FacultyRemoveEventHandler, FacultyModifyEventHandler,
+		LocationModifyEventHandler, LocationAddEventHandler, InvalidFieldEventHandler, FacultyRemoveEventHandler, FacultyModifyEventHandler,
 		FacultyAddEventHandler, DepartmentRemoveEventHandler, DepartmentModifyEventHandler, DepartmentAddEventHandler, CourseSectionTimeRemoveEventHandler,
 		CourseSectionTimeModifyEventHandler, CourseSectionTimeAddEventHandler, CourseSectionRemoveEventHandler, CourseSectionModifyEventHandler, 
 		CourseSectionAddEventHandler, CourseRemoveEventHandler, CourseModifyEventHandler, CourseDepartmentRemoveEventHandler, CourseDepartmentModifyEventHandler,
@@ -62,7 +62,7 @@ implements UserRemoveEventHandler, UserModifyEventHandler, UserAddEventHandler, 
 	public void onLocationAdd(LocationAddEvent evt) {}
 
 	@Override
-	public void onInvalidLogin(InvalidLoginEvent evt) {}
+	public void onInvalidField(InvalidFieldEvent evt) {}
 
 	@Override
 	public void onFacultyRemove(FacultyRemoveEvent evt) {}

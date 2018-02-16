@@ -10,16 +10,16 @@ import java.util.List;
  * @author dselent
  *
  */
-public class InvalidLoginAction 
+public class InvalidFieldAction 
 {
 	private List<String> reasonList;
 	
-	public InvalidLoginAction()
+	public InvalidFieldAction()
 	{
 		reasonList = new ArrayList<>();
 	}
 	
-	public InvalidLoginAction(List<String> reasonList)
+	public InvalidFieldAction(List<String> reasonList)
 	{
 		this.reasonList = reasonList;
 	}
