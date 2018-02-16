@@ -13,11 +13,13 @@ import org.dselent.course_load_scheduler.client.event.*;
  * 
  */
 public abstract class EventHandlerAdapter
-implements UserRemoveEventHandler, UserModifyEventHandler, UserAddEventHandler, TermRemoveEventHandler, TermModifyEventHandler,
-		TermAddEventHandler, SendLogoutEventHandler, SendLoginEventHandler, LocationRemoveEventHandler,
+implements UserRemoveEventHandler, UserModifyEventHandler, UserAddEventHandler, UnrequestEventHandler, TermRemoveEventHandler, TermModifyEventHandler,
+		TermAddEventHandler, SendLogoutEventHandler, SendLoginEventHandler, RequestEventHandler, LocationRemoveEventHandler,
 		LocationModifyEventHandler, LocationAddEventHandler, InvalidLoginEventHandler, FacultyRemoveEventHandler, FacultyModifyEventHandler,
-		FacultyAddEventHandler, DepartmentRemoveEventHandler, DepartmentModifyEventHandler, DepartmentAddEventHandler, CourseDepartmentAddEventHandler,
-		CourseAddEventHandler, ConfirmUserEventHandler, ChangeRoleEventHandler
+		FacultyAddEventHandler, DepartmentRemoveEventHandler, DepartmentModifyEventHandler, DepartmentAddEventHandler, CourseSectionTimeRemoveEventHandler,
+		CourseSectionTimeModifyEventHandler, CourseSectionTimeAddEventHandler, CourseSectionRemoveEventHandler, CourseSectionModifyEventHandler, 
+		CourseSectionAddEventHandler, CourseRemoveEventHandler, CourseModifyEventHandler, CourseDepartmentRemoveEventHandler, CourseDepartmentModifyEventHandler,
+		CourseDepartmentAddEventHandler, CourseAddEventHandler, ConfirmUserEventHandler, ChangeRoleEventHandler
 {
 
 	@Override
@@ -28,6 +30,9 @@ implements UserRemoveEventHandler, UserModifyEventHandler, UserAddEventHandler, 
 
 	@Override
 	public void onUserAdd(UserAddEvent evt) {}
+	
+	@Override
+	public void onUnrequest(UnrequestEvent evt) {}
 
 	@Override
 	public void onTermRemove(TermRemoveEvent evt) {}
@@ -43,6 +48,9 @@ implements UserRemoveEventHandler, UserModifyEventHandler, UserAddEventHandler, 
 
 	@Override
 	public void onSendLogin(SendLoginEvent evt) {}
+	
+	@Override
+	public void onRequest(RequestEvent evt) {}
 
 	@Override
 	public void onLocationRemove(LocationRemoveEvent evt) {}
@@ -73,7 +81,38 @@ implements UserRemoveEventHandler, UserModifyEventHandler, UserAddEventHandler, 
 
 	@Override
 	public void onDepartmentAdd(DepartmentAddEvent evt)  {}
+	
+	@Override
+	public void onCourseSectionTimeRemove(CourseSectionTimeRemoveEvent evt) {}
+	
+	@Override
+	public void onCourseSectionTimeModify(CourseSectionTimeModifyEvent evt) {}
+	
+	@Override
+	public void onCourseSectionTimeAdd(CourseSectionTimeAddEvent evt) {}
+	
+	@Override
+	public void onCourseSectionRemove(CourseSectionRemoveEvent evt) {}
+	
+	@Override
+	public void onCourseSectionModify(CourseSectionModifyEvent evt) {}
+	
+	@Override
+	public void onCourseSectionAdd(CourseSectionAdd evt) {}
+	
+	@Override
+	public void onCourseRemove(CourseRemoveEvent evt) {}
+	
+	@Override
+	public void onCourseModify(CourseModifyEvent evt) {}
 
+	@Override
+	public void onCourseDepartmentRemove(CourseDepartmentRemoveEvent evt) {}
+	
+	@Override
+	public void onCourseDepartmentModify(CourseDepartmentModifyEvent evt) {}
+	
+	
 	@Override
 	public void onCourseDepartmentAdd(CourseDepartmentAddEvent evt) {}
 
