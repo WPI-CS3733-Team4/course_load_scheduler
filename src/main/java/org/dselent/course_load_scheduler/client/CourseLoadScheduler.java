@@ -2,11 +2,12 @@ package org.dselent.course_load_scheduler.client;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
+import com.google.gwt.user.client.ui.RootPanel;
 import org.dselent.course_load_scheduler.client.gin.Injector;
 import org.dselent.course_load_scheduler.client.presenter.impl.IndexPresenterImpl;
 import org.dselent.course_load_scheduler.client.presenter.impl.LoginPresenterImpl;
 import org.dselent.course_load_scheduler.client.view.IndexView;
-import org.dselent.course_load_scheduler.client.view.examples.*;
+import org.dselent.course_load_scheduler.client.view.LoginView;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -21,50 +22,51 @@ public class CourseLoadScheduler implements EntryPoint
 	{
 		RootLayoutPanel root = RootLayoutPanel.get();
 
-        SimplePanelExample simplePanelExample = new SimplePanelExample();
-        root.add(simplePanelExample);
-
-        SimplePanelExample2 simplePanelExample2 = new SimplePanelExample2();
-        root.add(simplePanelExample2);
-
-
-        HTMLPanelExample htmlPanelExample = new HTMLPanelExample();
-        root.add(htmlPanelExample);
-
-
-        FlowPanelExample flowPanelExample = new FlowPanelExample();
-        root.add(flowPanelExample);
-
-        VerticalPanelExample verticalPanelExample = new VerticalPanelExample();
-        root.add(verticalPanelExample);
+//        SimplePanelExample simplePanelExample = new SimplePanelExample();
+//        root.add(simplePanelExample);
 //
-        HorizontalPanelExample horizontalPanelExample = new HorizontalPanelExample();
-        root.add(horizontalPanelExample);
+//        SimplePanelExample2 simplePanelExample2 = new SimplePanelExample2();
+//        root.add(simplePanelExample2);
 //
-        DockLayoutPanelExample dockLayoutPanelExample = new DockLayoutPanelExample();
-        root.add(dockLayoutPanelExample);
 //
-        GridExample gridExample = new GridExample();
-        root.add(gridExample);
+//        HTMLPanelExample htmlPanelExample = new HTMLPanelExample();
+//        root.add(htmlPanelExample);
 //
-        TabLayoutPanelExample tabLayoutPanelExample = new TabLayoutPanelExample();
-        root.add(tabLayoutPanelExample);
 //
-        ExamplesPanel examplesPanel = new ExamplesPanel();
-        root.add(examplesPanel);
+//        FlowPanelExample flowPanelExample = new FlowPanelExample();
+//        root.add(flowPanelExample);
+//
+//        VerticalPanelExample verticalPanelExample = new VerticalPanelExample();
+//        root.add(verticalPanelExample);
+//
+//        HorizontalPanelExample horizontalPanelExample = new HorizontalPanelExample();
+//        root.add(horizontalPanelExample);
+//
+//        DockLayoutPanelExample dockLayoutPanelExample = new DockLayoutPanelExample();
+//        root.add(dockLayoutPanelExample);
+//
+//        GridExample gridExample = new GridExample();
+//        root.add(gridExample);
+//
+//        TabLayoutPanelExample tabLayoutPanelExample = new TabLayoutPanelExample();
+//        root.add(tabLayoutPanelExample);
+//
+//        ExamplesPanel examplesPanel = new ExamplesPanel();
+//        root.add(examplesPanel);
 //
 //		 Get the injector, which injected objects can be retrieved from
 		final Injector injector = Injector.INSTANCE;
 		
 		IndexPresenterImpl indexPresenter = injector.getIndexPresenter(); // on-demand injection
 		indexPresenter.init();
-		IndexView indexView = indexPresenter.getView();		
-		
+        IndexView indexView = indexPresenter.getView();
+
 		LoginPresenterImpl loginPresenter = injector.getLoginPresenter();
 		loginPresenter.init();
-		//LoginView loginView = loginPresenter.getView();	
-		
-		//indexPresenter.go(RootPanel.get("indexContainer"));
+        LoginView loginView = loginPresenter.getView();
+
+
+        indexPresenter.go(RootPanel.get("indexContainer"));
 		indexPresenter.go(root);
 		loginPresenter.go(indexView.getViewRootPanel());
 	}

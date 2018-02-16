@@ -1,24 +1,19 @@
 package org.dselent.course_load_scheduler.client.view.impl;
 
-import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
-import org.dselent.course_load_scheduler.client.view.IndexView;
-
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
-import com.google.gwt.user.client.ui.HTMLPanel;
-import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.PopupPanel;
-import com.google.gwt.user.client.ui.Widget;
+import com.google.gwt.user.client.ui.*;
+import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
+import org.dselent.course_load_scheduler.client.view.IndexView;
 
 public class IndexViewImpl extends BaseViewImpl<IndexPresenter> implements IndexView
 {
 	private static IndexViewImplUiBinder uiBinder = GWT.create(IndexViewImplUiBinder.class);
 
 	interface IndexViewImplUiBinder extends UiBinder<Widget, IndexViewImpl> {}
-	
-	@UiField
+
+    @UiField//(provided = true)
 	HTMLPanel mainPanel;
 	
 	@UiField
