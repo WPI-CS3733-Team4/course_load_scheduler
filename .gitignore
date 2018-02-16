@@ -9,4 +9,4 @@
 /out
 *.iml
 /.classpath
-/war/*
+/war
