@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.dselent.course_load_scheduler.client.action.UserAddAction;
 import org.dselent.course_load_scheduler.client.event.UserAddEvent;
-import org.dselent.course_load_scheduler.client.event.InvalidFieldAction;
+import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
 import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidFieldStrings;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidUserAddStrings;
 import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.presenter.RegisterPresenter;
@@ -15,6 +15,7 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.inject.Inject;
 
+/* Created by Nathan Siegel */
 
 public class RegisterPresenterImpl extends BasePresenterImpl implements RegisterPresenter
 {
@@ -42,8 +43,8 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 	{
 		HandlerRegistration registration;
 		
-		registration = eventBus.addHandler(InvalidRegisterEvent.TYPE, this);
-		eventBusRegistration.put(InvalidRegisterEvent.TYPE, registration);
+		registration = eventBus.addHandler(InvalidFieldEvent.TYPE, this);
+		eventBusRegistration.put(InvalidFieldEvent.TYPE, registration);
 	}
 		
 	@Override
@@ -96,7 +97,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 			}
 			catch(EmptyStringException e)
 			{
-				invalidReasonList.add(InvalidRegisterStrings.NULL_USER_NAME);
+				invalidReasonList.add(InvalidUserAddStrings.NULL_USER_NAME);
 				fieldsAreValid = false;
 			}
 			
@@ -106,7 +107,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 			}
 			catch(EmptyStringException e)
 			{
-				invalidReasonList.add(InvalidRegisterStrings.NULL_FIRST_NAME);
+				invalidReasonList.add(InvalidUserAddStrings.NULL_FIRST_NAME);
 				fieldsAreValid = false;
 			}
 			
@@ -116,7 +117,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 			}
 			catch(EmptyStringException e)
 			{
-				invalidReasonList.add(InvalidRegisterStrings.NULL_LAST_NAME);
+				invalidReasonList.add(InvalidUserAddStrings.NULL_LAST_NAME);
 				fieldsAreValid = false;
 			}
 			
@@ -126,7 +127,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 			}
 			catch(EmptyStringException e)
 			{
-				invalidReasonList.add(InvalidRegisterStrings.NULL_EMAIL);
+				invalidReasonList.add(InvalidUserAddStrings.NULL_EMAIL);
 				fieldsAreValid = false;
 			}
 
@@ -136,7 +137,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 			}
 			catch(EmptyStringException e)
 			{
-				invalidReasonList.add(InvalidRegisterStrings.NULL_PASSWORD);
+				invalidReasonList.add(InvalidUserAddStrings.NULL_PASSWORD);
 				fieldsAreValid = false;
 			}
 			
@@ -146,8 +147,8 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 			}
 			else
 			{
-				InvalidRegisterAction ila = new InvalidRegisterAction(invalidReasonList);
-				InvalidRegisterEvent ile = new InvalidRegisterEvent(ila);
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
 				eventBus.fireEvent(ile);
 			}
 		}
@@ -174,13 +175,13 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 	 * Useful for example purposes without involving server-side
 	*/
 	@Override
-	public void onInvalidLogin(InvalidRegisterEvent evt)
+	public void onInvalidField(InvalidFieldEvent evt)
 	{
 		parentPresenter.hideLoadScreen();
 		view.getRegisterButton().setEnabled(true);
 		registerClickInProgress = false;
 		
-		InvalidRegisterAction ila = evt.getAction();
+		InvalidFieldAction ila = evt.getAction();
 		view.showErrorMessages(ila.toString());
 	}
 }

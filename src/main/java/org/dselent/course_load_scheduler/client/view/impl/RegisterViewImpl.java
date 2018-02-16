@@ -16,6 +16,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+/* Created by Nathan Siegel */
 
 public class RegisterViewImpl extends BaseViewImpl<RegisterPresenter> implements RegisterView
 {
