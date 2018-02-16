@@ -1,0 +1,21 @@
+package org.dselent.course_load_scheduler.client.action;
+
+public class CourseDepartmentRemoveAction
+{
+    private Integer courseDepartmentId;
+
+    public CourseDepartmentRemoveAction(Integer courseDepartmentId) {
+        this.courseDepartmentId = courseDepartmentId;
+    }
+
+    public Integer getcourseDepartmentId() {
+        return courseDepartmentId;
+    }
+
+    @Override
+    public String toString() {
+        return "CourseDepartmentRemoveAction{" +
+                "courseDepartmentId=" + courseDepartmentId +
+                '}';
+    }
+}

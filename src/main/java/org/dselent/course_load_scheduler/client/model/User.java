@@ -15,7 +15,6 @@ public class User extends Model
 	private String email;
 	private String encryptedPassword;
 	private String salt;
-	private Integer userStateId;
 	private Instant createdAt;
 	private Instant updatedAt;
 
@@ -93,16 +92,6 @@ public class User extends Model
 		this.salt = salt;
 	}
 
-	public Integer getUserStateId()
-	{
-		return userStateId;
-	}
-
-	public void setUserStateId(Integer userStateId)
-	{
-		this.userStateId = userStateId;
-	}
-
 	public Instant getCreatedAt()
 	{
 		return createdAt;
@@ -153,7 +142,6 @@ public class User extends Model
 		result = prime * result + ((salt == null) ? 0 : salt.hashCode());
 		result = prime * result + ((updatedAt == null) ? 0 : updatedAt.hashCode());
 		result = prime * result + ((userName == null) ? 0 : userName.hashCode());
-		result = prime * result + ((userStateId == null) ? 0 : userStateId.hashCode());
 		return result;
 	}
 
@@ -272,17 +260,6 @@ public class User extends Model
 		{
 			return false;
 		}
-		if (userStateId == null)
-		{
-			if (other.userStateId != null)
-			{
-				return false;
-			}
-		}
-		else if (!userStateId.equals(other.userStateId))
-		{
-			return false;
-		}
 		return true;
 	}
 	
@@ -305,8 +282,6 @@ public class User extends Model
 		builder.append(encryptedPassword);
 		builder.append(", salt=");
 		builder.append(salt);
-		builder.append(", userStateId=");
-		builder.append(userStateId);
 		builder.append(", createdAt=");
 		builder.append(createdAt);
 		builder.append(", updatedAt=");

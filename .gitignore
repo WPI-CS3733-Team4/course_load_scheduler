@@ -1,1 +1,12 @@
-./war/*
+/logging.out
+/.gradle
+/.settings
+/bin
+/build
+/vpproject
+/gradle
+/.idea
+/out
+*.iml
+/.classpath
+/war/*
