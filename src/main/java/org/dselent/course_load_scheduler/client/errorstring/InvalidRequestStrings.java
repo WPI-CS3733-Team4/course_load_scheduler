@@ -8,7 +8,7 @@ public class InvalidRequestStrings {
 	public static final String INVALID_FACULTY_ID = "Your faculty ID must be a valid number.";
 	public static final String INVALID_COURSE_SECTION_ID = "Your course section ID must be a valid number.";
 	
-	/* Modified by Krishna Madhurkar*/
+	/* Created by Krishna Madhurkar */
 	public static final String INVALID_USER_ID = "Your User ID must be a valid number.";
 
 }

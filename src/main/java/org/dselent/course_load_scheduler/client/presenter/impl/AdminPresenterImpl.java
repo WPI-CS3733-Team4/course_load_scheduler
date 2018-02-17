@@ -351,7 +351,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 			
 			Integer requestUserId = null;
 			
-			String role = view.getRoleTextBox().getText();
+			String changeRole = view.getChangeRoleTextBox().getText();
 			
 			boolean fieldsAreValid = true;
 
@@ -363,13 +363,22 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 			}
 			catch(NumberFormatException e)
 			{
-				invalidReasonList.add(InvalidRequestStrings.INVALID_REQUEST_ID);
+				invalidReasonList.add(InvalidRequestStrings.INVALID_USER_ID);
 				fieldsAreValid = false;
 			}
 			
+			try
+			{
+				checkEmptyString(changeRole);
+			}
+			catch(EmptyStringException e)
+			{
+				invalidReasonList.add(InvalidUserStrings.NULL_CHANGE_ROLE);
+				fieldsAreValid = false;
+			}
 			if(fieldsAreValid)
 			{
-				sendUnrequest(requestId);
+				sendChangeRole(userId, changeRole );
 			}
 			else
 			{
@@ -380,12 +389,13 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		}
 	}
 	
-	private void sendUnrequest(Integer requestId)
-	{
-		UnrequestAction sla = new UnrequestAction(requestId);
-		UnrequestEvent sle = new UnrequestEvent(sla);
+	private void changeRole(String changeRole, Integer userId);
+			{
+		changeRoleAction sla = new changeRoleAction(userId, changeRole);
+		changeRoleEvent sle = new changeRoleEvent(sla);
 		eventBus.fireEvent(sle);
 	}
+	
 	/*
 	 * Currently only sent by itself
 	 * Probably did not need the event bus for this
@@ -395,12 +405,17 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	public void onInvalidField(InvalidFieldEvent evt)
 	{
 		parentPresenter.hideLoadScreen();
-		view.getRequestButton().setEnabled(true);
-		view.getUnrequestButton().setEnabled(true);
-		requestClickInProgress = false;
-		unrequestClickInProgress = false;
+		view.getAddUserButton().setEnabled(true);
+		view.getModifyUserButton().setEnabled(true);
+		view.getRemoveUserButton().setEnabled(true);
+		view.getChangeRoleButton().setEnabled(true);
+		addUserClickInProgress = (false);
+		modifyUserClickInProgress = (false);
+		removeUserClickInProgress = (false);
+		changeRoleClickInProgress = (false);
 		
 		InvalidFieldAction ila = evt.getAction();
-		view.showErrorMessages(ila.toString());
+		view.showUserErrorMessages(ila.toString());
 	}
 }
+// end
