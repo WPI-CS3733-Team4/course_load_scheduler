@@ -16,7 +16,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
-import com.google.gwt.user.cellview.client.CellList;
+import com.google.gwt.user.client.ui.FlexTable;
 
 /* Created by Nathan Siegel */
 
@@ -56,20 +56,22 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	@UiField
 	VerticalPanel facultyPanel;
 	
-	//@UiField
-	//CellList<String> cellList;
-	
-	/*public CellList<String> getCellList(){
-		return cellList;
-	}
-	
-	public void setCellList(CellList<String> cellList) {
-		this.cellList = cellList;
-	}*/
+	@UiField
+	FlexTable requestTable;
 	
 	public FacultyViewImpl()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
+		
+		FlexTable requestTable = new FlexTable();
+		requestTable.setText(0, 0, "Request Id");
+		requestTable.setText(0, 1, "Faculty Id");
+		requestTable.setText(0, 2, "Course Section Id");
+		
+		//use CourseRequest models to populate the rest of the table
+		
+		setRequestTable(requestTable);
+	
 	}
 	
 	@Override
@@ -119,6 +121,16 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	public Button getUnrequestButton()
 	{
 		return unrequestButton;
+	}
+	
+	@Override
+	public FlexTable getRequestTable() {
+		return requestTable;
+	}
+	
+	@Override
+	public void setRequestTable(FlexTable requestTable) {
+		this.requestTable = requestTable;
 	}
 
 	@Override

@@ -94,10 +94,15 @@
 		<!-- http://www.gwtproject.org/javadoc/latest/com/google/gwt/user/client/ui/Grid.html -->
 		<g:Grid>
 			<g:row>
+				<g:customCell>
+					<g:FlexTable ui:field="requestTable" width="100%" height="100%"/>
+				</g:customCell>
+			</g:row>
+			<g:row>
 				<!-- cell only works for html -->
 				<!-- customcell works for widgets -->
 				<g:customCell>
-					<g:Label ui:field="requestIdLabel" addStyleNames="{style.faculty-label}">User Name:</g:Label>
+					<g:Label ui:field="requestIdLabel" addStyleNames="{style.faculty-label}">Request Id:</g:Label>
 				</g:customCell>
 				
 				<g:customCell>
