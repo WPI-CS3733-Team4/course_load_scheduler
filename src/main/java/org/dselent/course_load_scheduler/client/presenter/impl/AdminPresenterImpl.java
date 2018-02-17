@@ -3,7 +3,13 @@ package org.dselent.course_load_scheduler.client.presenter.impl;
 import java.util.ArrayList;
 import java.util.List;
 import org.dselent.course_load_scheduler.client.action.UserAddAction;
+import org.dselent.course_load_scheduler.client.action.UserModifyAction;
+import org.dselent.course_load_scheduler.client.action.UserRemoveAction;
+import org.dselent.course_load_scheduler.client.action.ChangeRoleAction;
 import org.dselent.course_load_scheduler.client.event.UserAddEvent;
+import org.dselent.course_load_scheduler.client.event.UserModifyEvent;
+import org.dselent.course_load_scheduler.client.event.UserRemoveEvent;
+import org.dselent.course_load_scheduler.client.event.ChangeRoleEvent;
 import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
 import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidUserStrings;
@@ -21,7 +27,10 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 {
 	private IndexPresenter parentPresenter;
 	private AdminView view;
-	private boolean adminClickInProgress;
+	private boolean addUserClickInProgress;
+	private boolean modifyUserClickInProgress;
+	private boolean removeUserClickInProgress;
+	private boolean changeRoleClickInProgress;
 
 	@Inject
 	public AdminPresenterImpl(IndexPresenter parentPresenter, AdminView view)
@@ -29,8 +38,11 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		this.view = view;
 		this.parentPresenter = parentPresenter;
 		view.setPresenter(this);
-		adminClickInProgress = false;
-	}
+		addUserClickInProgress = false;
+		modifyUserClickInProgress = false;
+		removeUserClickInProgress = false;
+		changeRoleClickInProgress = false;
+		
 	
 	@Override
 	public void init()
@@ -73,7 +85,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	}
 	
 	@Override
-	public void AddUser()
+	public void addUser()
 	{
 		if(!addUserClickInProgress)
 		{
