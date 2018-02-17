@@ -73,7 +73,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	}
 	
 	@Override
-	public void addUser()
+	public void AddUser()
 	{
 		if(!addUserClickInProgress)
 		{
@@ -143,7 +143,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 			
 			if(fieldsAreValid)
 			{
-				register(userName, firstName, lastName, email, password);
+				AddUser(userName, firstName, lastName, email, password);
 			}
 			else
 			{
@@ -170,6 +170,174 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	}
 	
 // ...............
+
+	@Override
+	public void ModifyUser()
+	{
+		if(!modifyUserClickInProgress)
+		{
+			modifyUserClickInProgress = true;
+			view.getAddUserButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			String id = view.getIdTextBox().getText();
+			String userName = view.getUserNameTextBox().getText();
+			String firstName = view.getFirstNameTextBox().getText();
+			String lastName = view.getLastNameTextBox().getText();
+			String email = view.getEmailTextBox().getText();
+			String password = view.getPasswordTextBox().getText();
+			
+			boolean fieldsAreValid = true;
+
+			List<String> invalidReasonList = new ArrayList<>();
+			
+			try
+			{
+				checkEmptyString(id);
+			}
+			catch(EmptyStringException e)
+			{
+				invalidReasonList.add(InvalidUserStrings.NULL_ID);
+				fieldsAreValid = false;
+			}
+			
+			try
+			{
+				checkEmptyString(userName);
+			}
+			catch(EmptyStringException e)
+			{
+				invalidReasonList.add(InvalidUserStrings.NULL_USER_NAME);
+				fieldsAreValid = false;
+			}
+			
+			try
+			{
+				checkEmptyString(firstName);
+			}
+			catch(EmptyStringException e)
+			{
+				invalidReasonList.add(InvalidUserStrings.NULL_FIRST_NAME);
+				fieldsAreValid = false;
+			}
+			
+			try
+			{
+				checkEmptyString(lastName);
+			}
+			catch(EmptyStringException e)
+			{
+				invalidReasonList.add(InvalidUserStrings.NULL_LAST_NAME);
+				fieldsAreValid = false;
+			}
+			
+			try
+			{
+				checkEmptyString(email);
+			}
+			catch(EmptyStringException e)
+			{
+				invalidReasonList.add(InvalidUserStrings.NULL_EMAIL);
+				fieldsAreValid = false;
+			}
+
+			try
+			{
+				checkEmptyString(password);
+			}
+			catch(EmptyStringException e)
+			{
+				invalidReasonList.add(InvalidUserStrings.NULL_PASSWORD);
+				fieldsAreValid = false;
+			}
+			
+			if(fieldsAreValid)
+			{
+				modifyUser(id, userName, firstName, lastName, email, password);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	private void addUser(String id, String userName, String firstName, String lastName, String email, String password)
+	{
+		UserAddAction sla = new UserAddAction(id, userName, firstName, lastName, email, password);
+		UserAddEvent sle = new UserAddEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	private void checkEmptyString(String string) throws EmptyStringException
+	{
+		if(string == null || string.equals(""))
+		{
+			throw new EmptyStringException();
+		}
+		
+	}
+//.........
+
+	@Override
+	public void removeUser()
+	{
+		if(!removeUserClickInProgress)
+		{
+			removeUserClickInProgress = true;
+			view.getAddUserButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			String usedId = view.getIdTextBox().getText();
+			
+			
+			boolean fieldsAreValid = true;
+
+			List<String> invalidReasonList = new ArrayList<>();
+			
+			try
+			{
+				checkEmptyString(id);
+			}
+			catch(EmptyStringException e)
+			{
+				invalidReasonList.add(InvalidUserStrings.NULL_ID);
+				fieldsAreValid = false;
+			}
+			
+			
+			if(fieldsAreValid)
+			{
+				modifyUser(id);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	private void modifyUser(String id)
+	{
+		UserAddAction sla = new UserAddAction(id);
+		UserAddEvent sle = new UserAddEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	private void checkEmptyString(String string) throws EmptyStringException
+	{
+		if(string == null || string.equals(""))
+		{
+			throw new EmptyStringException();
+		}
+		
+	}
+	//.....
+	
 	@Override
 	public void onInvalidField(InvalidFieldEvent evt)
 	{
