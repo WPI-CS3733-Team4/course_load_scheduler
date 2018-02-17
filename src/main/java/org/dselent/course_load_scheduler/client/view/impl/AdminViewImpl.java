@@ -29,7 +29,7 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	Label viewLabel;
 	
 	@UiField
-	Label UserIdLabel;
+	Label userIdLabel;
 	
 	@UiField
 	Label userNameLabel;
@@ -63,7 +63,7 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	
 	
 	@UiField
-	TextBox UserIdTextBox;
+	TextBox userIdTextBox;
 	
 	@UiField
 	TextBox userNameTextBox;
