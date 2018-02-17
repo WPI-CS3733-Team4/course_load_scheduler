@@ -26,4 +26,10 @@ public interface AdminView extends BaseView<AdminPresenter>
 	void showErrorModifyingAdminMessages(String ModifyAdminErrorMessages);
 	Button getRemoveAdminButton();
 	void showErrorRemovingAdminMessages(String RemoveAdminErrorMessages);
+	Button getaddRoleButton();
+	void showErrorAddingRoleMessages(String addRoleErrorMessages);
+	Button getModifyRoleButton();
+	void showErrorModifyingRoleMessages(String ModifyRoleErrorMessages);
+	Button getRemoveRoleButton();
+	void showErrorRemovingRoleMessages(String RemoveRoleErrorMessages);
 }
