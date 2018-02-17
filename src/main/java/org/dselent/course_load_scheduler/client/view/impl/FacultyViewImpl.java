@@ -16,6 +16,8 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
 
+import com.google.gwt.user.cellview.client.CellList;
+
 /* Created by Nathan Siegel */
 
 public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements FacultyView
@@ -53,6 +55,17 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	
 	@UiField
 	VerticalPanel facultyPanel;
+	
+	//@UiField
+	//CellList<String> cellList;
+	
+	/*public CellList<String> getCellList(){
+		return cellList;
+	}
+	
+	public void setCellList(CellList<String> cellList) {
+		this.cellList = cellList;
+	}*/
 	
 	public FacultyViewImpl()
 	{

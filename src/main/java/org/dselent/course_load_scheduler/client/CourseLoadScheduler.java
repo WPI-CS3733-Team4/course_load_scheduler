@@ -9,6 +9,8 @@ import org.dselent.course_load_scheduler.client.presenter.impl.*;
 import org.dselent.course_load_scheduler.client.view.IndexView;
 import org.dselent.course_load_scheduler.client.view.*;
 
+import com.google.gwt.user.cellview.client.CellList;
+
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
