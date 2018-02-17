@@ -9,8 +9,8 @@ import com.google.gwt.user.cellview.client.CellList;
 
 public interface FacultyView extends BaseView<FacultyPresenter>
 {
-	CellList<String> getCellList();
-	void setCellList(CellList<String> cellList);
+	//CellList<String> getCellList();
+	//void setCellList(CellList<String> cellList);
 	TextBox getRequestIdTextBox();
 	void setRequestIdTextBox(TextBox requestIdTextBox);
 	TextBox getFacultyIdTextBox();
