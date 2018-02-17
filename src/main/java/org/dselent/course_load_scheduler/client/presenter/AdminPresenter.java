@@ -6,12 +6,10 @@ public interface AdminPresenter extends BasePresenter {
 	IndexPresenter getParentPresenter();
 	void setParentPresenter(IndexPresenter parentPresenter);
 	//void confirmUser();
-	void AddUser();
-	void ModifyUser();
-	void RemoveUser();
-	void AddRole();
-	void ModifyRole();
-	void RemoveRole();
+	void addUser();
+	void modifyUser();
+	void removeUser();
+	void changeRole;
 }
 
 
