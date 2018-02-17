@@ -20,6 +20,10 @@ public interface AdminView extends BaseView<AdminPresenter>
 	void setEmailTextBox(TextBox emailTextBox);
 	TextBox getPasswordTextBox();
 	void setPasswordTextBox(TextBox passwordTextBox);
-	Button getRegisterButton();
-	void showErrorMessages(String errorMessages);
+	Button getaddAdminButton();
+	void showErrorAddingAdminMessages(String addAdminErrorMessages);
+	Button getModifyAdminButton();
+	void showErrorModifyingAdminMessages(String ModifyAdminErrorMessages);
+	Button getRemoveAdminButton();
+	void showErrorRemovingAdminMessages(String RemoveAdminErrorMessages);
 }
