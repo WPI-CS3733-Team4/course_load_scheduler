@@ -1,6 +1,7 @@
 package org.dselent.course_load_scheduler.client.view.impl;
 
 import org.dselent.course_load_scheduler.client.presenter.AdminPresenter;
+import org.dselent.course_load_scheduler.client.presenter.FacultyPresenter;
 import org.dselent.course_load_scheduler.client.view.AdminView;
 
 import com.google.gwt.core.client.GWT;
@@ -28,7 +29,7 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	Label viewLabel;
 	
 	@UiField
-	Label idLabel;
+	Label UserIdLabel;
 	
 	@UiField
 	Label userNameLabel;
@@ -43,22 +44,16 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	Label emailLabel;
 	
 	@UiField
-	Label addAdminLabel;
+	Label addUserLabel;
 	
 	@UiField
-	Label modifyAdminLabel;
+	Label modifyUserLabel;
 	
 	@UiField
-	Label removeAdminLabel;
+	Label removeUserLabel;
 	
 	@UiField
-	Label addRoleLabel;
-	
-	@UiField
-	Label modifyRoleLabel;
-	
-	@UiField
-	Label removeRoleLabel;
+	Label changeRoleLabel;
 	
 	@UiField
 	Label passwordLabel;
@@ -68,7 +63,7 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	
 	
 	@UiField
-	TextBox idTextBox;
+	TextBox UserIdTextBox;
 	
 	@UiField
 	TextBox userNameTextBox;
@@ -86,43 +81,19 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	TextBox passwordTextBox;
 	
 	@UiField
-	TextBox addAdminTextBox;
+	Button addUserButton;
 	
 	@UiField
-	TextBox modifyAdminTextBox;
+	Button modifyUserButton;
 	
 	@UiField
-	TextBox removeAdminTextBox;
+	Button removeUserButton;
 	
 	@UiField
-	TextBox addRoleTextBox;
+	Button changeRoleButton;
 	
 	@UiField
-	TextBox modifyRoleTextBox;
-	
-	@UiField
-	TextBox removeRoleTextBox;
-	
-	@UiField
-	Button addAdminButton;
-	
-	@UiField
-	Button modifyAdminButton;
-	
-	@UiField
-	Button removeAdminButton;
-	
-	@UiField
-	Button addRoleButton;
-	
-	@UiField
-	Button modifyRoleButton;
-	
-	@UiField
-	Button removeRoleButton;
-	
-	@UiField
-	VerticalPanel adimPanel;
+	VerticalPanel adminPanel;
 	
 	public AdminViewImpl()
 	{
@@ -130,11 +101,15 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	}
 	
 	@Override
-	public TextBox getidBox()
+	public TextBox getUserIdTextBox()
 	{
-		return userNameTextBox;
+		return userIdTextBox;
 	}
-	
+	@Override
+	public void setUserIdTextBox(TextBox userIdTextBox)
+	{
+		this.userIdTextBox = userIdTextBox;
+	}
 	@Override
 	public TextBox getUserNameTextBox()
 	{
@@ -196,84 +171,45 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	}
 	
 	@Override
-	public TextBox getAddAdminTextBox()
+	public Button getAddUserButton()
 	{
-		return addAdminTextBox;
-	}
-	@Override
-	public void setAddAdminTextBox(TextBox addAdminTextBox)
-	{
-		this.addAdminTextBox = addAdminTextBox;
-	} 
-	
-	
-	@Override
-	public TextBox getModifyAdminTextBox()
-	{
-		return modifyAdminTextBox;
-		
-	
-	@Override
-	public void setModifyAdminTextBox(TextBox modifyAdminTextBox)
-	{
-		this.modifyAdminTextBox = modifyAdminTextBox;
+		return addUserButton;
 	}
 	
 	@Override
-	public TextBox getRemoveAdminTextBox()
+	public Button getModifyUserButton()
 	{
-		return removeAdminTextBox;
+		return modifyUserButton;
+	}
+	
+	@Override
+	public Button getRemoveUserButton()
+	{
+		return removeUserButton;
 	}
 
 	@Override
-	public void setRemoveAdminTextBox(TextBox removeAdminTextBox)
+	public Button getChangeRoleButton()
 	{
-		this.removeAdminTextBox = removeAdminTextBox;
+		return changeRoleButton;
 	}
-	
-	@Override
-	public TextBox getAddRoleTextBox()
-	{
-		return addRoleTextBox;
-	}
-
-	@Override
-	public void setaddRoleTextBox(TextBox addRoleTextBox)
-	{
-		this.addRoleTextBox = addRoleTextBox;
-	}
-	
-	@Override
-	public TextBox getModifyRoleTextBox()
-	{
-		return modifyRoleTextBox;
-	}
-
-	@Override
-	public void setModifyRoleTextBox(TextBox modifyRoleTextBox)
-	{
-		this.modifyRoleTextBox = modifyRoleTextBox;
-	}
-	
-	@Override
-	public TextBox getRemoveRoleTextBox()
-	{
-		return removeRoleTextBox;
-	}
-
-	@Override
-	public void setRemoveRoleTextBox(TextBoxremoveRoleTextBox)
-	{
-		this.TextBoxremoveRoleTextBox = TextBoxremoveRoleTextBox;
-	}
-	
-
 
 	
 	@Override
-	public void showErrorMessages(String errorMessages)
+	public void setPresenter(AdminPresenter presenter)
 	{
-		Window.alert(errorMessages);
+		this.presenter = presenter;
+	}
+	
+	@Override
+	public void showUserErrorMessages(String userErrorMessages)
+	{
+		Window.alert(UserErrorMessages);
+	}
+	@Override
+	public void showErrorChangeRoleMessages(String errorChangeRoleMessages)
+	{
+		Window.alert(ErrorChangeRoleMessages);
 	}
 	
 	@Override
@@ -285,13 +221,31 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	@Override
 	public HasWidgets getViewRootPanel()
 	{
-		return registerPanel;
+		return adminPanel;
 	}
 	
-	@UiHandler("registerButton")
-	void onloginButtonClicked(ClickEvent evt)
+	@UiHandler("addUserButton")
+	void onAddUserButtonClicked(ClickEvent evt)
 	{
-		presenter.register();
+		presenter.addUser();
+	}
+	
+	@UiHandler("modifyUserButton")
+	void onModifyUserButtonClicked(ClickEvent evt)
+	{
+		presenter.modifyUser();
+	}
+	
+	@UiHandler("removeUserButton")
+	void onRemoveUserButtonClicked(ClickEvent evt)
+	{
+		presenter.modifyUser();
+	}
+	
+	@UiHandler("changeRoleButton")
+	void onChangeRoleButtonClicked(ClickEvent evt)
+	{
+		presenter.changeRole();
 	}
 
 }
