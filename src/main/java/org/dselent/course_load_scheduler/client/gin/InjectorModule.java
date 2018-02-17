@@ -31,11 +31,13 @@ public class InjectorModule extends AbstractGinModule
         bind(IndexPresenter.class).to(IndexPresenterImpl.class).in(Singleton.class);
         bind(LoginPresenter.class).to(LoginPresenterImpl.class).in(Singleton.class);
         bind(RegisterPresenter.class).to(RegisterPresenterImpl.class).in(Singleton.class);
+        bind(FacultyPresenter.class).to(FacultyPresenterImpl.class).in(Singleton.class);
         
         // views
         bind(IndexView.class).to(IndexViewImpl.class).in(Singleton.class);
         bind(LoginView.class).to(LoginViewImpl.class).in(Singleton.class);
         bind(RegisterView.class).to(RegisterViewImpl.class).in(Singleton.class);
+        bind(FacultyView.class).to(FacultyViewImpl.class).in(Singleton.class);
 
     }
 	
