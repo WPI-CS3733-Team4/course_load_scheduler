@@ -8,8 +8,8 @@ import com.google.gwt.user.client.ui.TextBox;
 
 public interface AdminView extends BaseView<AdminPresenter>
 {
-	TextBox getidTextBox();
-	void setidTextBox(TextBox idTextBox);
+	TextBox getUserIdTextBox();
+	void setUserIdTextBox(TextBox userIdTextBox);
 	TextBox getUserNameTextBox();
 	void setUserNameTextBox(TextBox userNameTextBox);
 	TextBox getFirstNameTextBox();
@@ -20,16 +20,12 @@ public interface AdminView extends BaseView<AdminPresenter>
 	void setEmailTextBox(TextBox emailTextBox);
 	TextBox getPasswordTextBox();
 	void setPasswordTextBox(TextBox passwordTextBox);
-	Button getaddAdminButton();
-	void showErrorAddingAdminMessages(String addAdminErrorMessages);
-	Button getModifyAdminButton();
-	void showErrorModifyingAdminMessages(String ModifyAdminErrorMessages);
-	Button getRemoveAdminButton();
-	void showErrorRemovingAdminMessages(String RemoveAdminErrorMessages);
-	Button getaddRoleButton();
-	void showErrorAddingRoleMessages(String addRoleErrorMessages);
-	Button getModifyRoleButton();
-	void showErrorModifyingRoleMessages(String ModifyRoleErrorMessages);
-	Button getRemoveRoleButton();
-	void showErrorRemovingRoleMessages(String RemoveRoleErrorMessages);
+	
+	
+	Button getAddUserButton();
+	Button getModifyUserButton();
+	Button getRemoveUserButton();
+	void showErrorUserMessages(String UserErrorMessages);
+	Button getChangeRoleButton();
+	void showErrorChangeRoleMessages(String changeRoleErrorMessages);
 }
