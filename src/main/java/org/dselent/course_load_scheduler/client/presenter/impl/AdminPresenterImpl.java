@@ -11,7 +11,12 @@ import org.dselent.course_load_scheduler.client.event.UserModifyEvent;
 import org.dselent.course_load_scheduler.client.event.UserRemoveEvent;
 import org.dselent.course_load_scheduler.client.event.ChangeRoleEvent;
 import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
+import org.dselent.course_load_scheduler.client.action.RequestAction;
+import org.dselent.course_load_scheduler.client.action.UnrequestAction;
 import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
+import org.dselent.course_load_scheduler.client.event.RequestEvent;
+import org.dselent.course_load_scheduler.client.event.UnrequestEvent;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidRequestStrings;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidUserStrings;
 import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
@@ -155,7 +160,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 			
 			if(fieldsAreValid)
 			{
-				AddUser(userName, firstName, lastName, email, password);
+				addUser(userName, firstName, lastName, email, password);
 			}
 			else
 			{
@@ -173,26 +178,19 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		eventBus.fireEvent(sle);
 	}
 	
-	private void checkEmptyString(String string) throws EmptyStringException
-	{
-		if(string == null || string.equals(""))
-		{
-			throw new EmptyStringException();
-		}
-	}
-	
-// ...............
+
 
 	@Override
-	public void ModifyUser()
+	public void modifyUser()
 	{
 		if(!modifyUserClickInProgress)
 		{
 			modifyUserClickInProgress = true;
-			view.getAddUserButton().setEnabled(false);
+			view.getModifyUserButton().setEnabled(false);
 			parentPresenter.showLoadScreen();
 			
-			String id = view.getIdTextBox().getText();
+			Integer userId = null;
+			
 			String userName = view.getUserNameTextBox().getText();
 			String firstName = view.getFirstNameTextBox().getText();
 			String lastName = view.getLastNameTextBox().getText();
@@ -205,14 +203,14 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 			
 			try
 			{
-				checkEmptyString(id);
+				userId = Integer.parseInt(view.getUserIdTextBox().getText());
+			    
 			}
-			catch(EmptyStringException e)
+			catch(NumberFormatException e)
 			{
-				invalidReasonList.add(InvalidUserStrings.NULL_ID);
+				invalidReasonList.add(InvalidRequestStrings.INVALID_USER_ID);
 				fieldsAreValid = false;
 			}
-			
 			try
 			{
 				checkEmptyString(userName);
@@ -265,7 +263,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 			
 			if(fieldsAreValid)
 			{
-				modifyUser(id, userName, firstName, lastName, email, password);
+				sendModifyUser(userId, userName, firstName, lastName, email, password);
 			}
 			else
 			{
@@ -276,10 +274,10 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		}
 	}
 	
-	private void addUser(String id, String userName, String firstName, String lastName, String email, String password)
+	private void modifyUser(Integer userId, String userName, String firstName, String lastName, String email, String password)
 	{
-		UserAddAction sla = new UserAddAction(id, userName, firstName, lastName, email, password);
-		UserAddEvent sle = new UserAddEvent(sla);
+		UserModifyAction sla = new UserModifyAction(userId, userName, firstName, lastName, email, password);
+		UserModifyEvent sle = new UserModifyEvent(sla);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -291,7 +289,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		}
 		
 	}
-//.........
+
 
 	@Override
 	public void removeUser()
@@ -302,27 +300,27 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 			view.getAddUserButton().setEnabled(false);
 			parentPresenter.showLoadScreen();
 			
-			String usedId = view.getIdTextBox().getText();
+			Integer userId = null;
 			
 			
 			boolean fieldsAreValid = true;
 
 			List<String> invalidReasonList = new ArrayList<>();
-			
 			try
 			{
-				checkEmptyString(id);
+				userId = Integer.parseInt(view.getUserIdTextBox().getText());
+			    
 			}
-			catch(EmptyStringException e)
+			catch(NumberFormatException e)
 			{
-				invalidReasonList.add(InvalidUserStrings.NULL_ID);
+				invalidReasonList.add(InvalidRequestStrings.INVALID_USER_ID);
 				fieldsAreValid = false;
 			}
 			
 			
 			if(fieldsAreValid)
 			{
-				modifyUser(id);
+				sendRemoveUser(userId);
 			}
 			else
 			{
@@ -333,29 +331,74 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		}
 	}
 	
-	private void modifyUser(String id)
+	private void removeUser(Integer userId)
 	{
-		UserAddAction sla = new UserAddAction(id);
-		UserAddEvent sle = new UserAddEvent(sla);
+		UserRemoveAction sla = new UserRemoveAction(userId);
+		UserRemoveEvent sle = new UserRemoveEvent(sla);
 		eventBus.fireEvent(sle);
 	}
 	
-	private void checkEmptyString(String string) throws EmptyStringException
-	{
-		if(string == null || string.equals(""))
-		{
-			throw new EmptyStringException();
-		}
-		
+
 	}
-	//.....
+	@Override
+	public void changeRole()
+	{
+		if(!changeRoleClickInProgress)
+		{
+			changeRoleClickInProgress = true;
+			view.getChangeRoleButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			Integer requestUserId = null;
+			
+			String role = view.getRoleTextBox().getText();
+			
+			boolean fieldsAreValid = true;
+
+			List<String> invalidReasonList = new ArrayList<>();
+			try
+			{
+				requestUserId = Integer.parseInt(view.getUserIdTextBox().getText());
+			    
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidRequestStrings.INVALID_REQUEST_ID);
+				fieldsAreValid = false;
+			}
+			
+			if(fieldsAreValid)
+			{
+				sendUnrequest(requestId);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
 	
+	private void sendUnrequest(Integer requestId)
+	{
+		UnrequestAction sla = new UnrequestAction(requestId);
+		UnrequestEvent sle = new UnrequestEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	/*
+	 * Currently only sent by itself
+	 * Probably did not need the event bus for this
+	 * Useful for example purposes without involving server-side
+	*/
 	@Override
 	public void onInvalidField(InvalidFieldEvent evt)
 	{
 		parentPresenter.hideLoadScreen();
-		view.getRegisterButton().setEnabled(true);
-		adminClickInProgress = false;
+		view.getRequestButton().setEnabled(true);
+		view.getUnrequestButton().setEnabled(true);
+		requestClickInProgress = false;
+		unrequestClickInProgress = false;
 		
 		InvalidFieldAction ila = evt.getAction();
 		view.showErrorMessages(ila.toString());
