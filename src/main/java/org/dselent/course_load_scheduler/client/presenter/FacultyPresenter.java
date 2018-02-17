@@ -6,5 +6,6 @@ public interface FacultyPresenter extends BasePresenter
 {
 	IndexPresenter getParentPresenter();
 	void setParentPresenter(IndexPresenter parentPresenter);
-	void login();
+	void requestCourse();
+	void unrequestCourse();
 }
