@@ -1,10 +1,10 @@
 package org.dselent.course_load_scheduler.client.view;
 
-import org.dselent.course_load_scheduler.client.presenter.LoginPresenter;
+import org.dselent.course_load_scheduler.client.presenter.BuilderPresenter;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.TextBox;
 
-public interface BuilderView {
+public interface BuilderView extends BaseView<BuilderPresenter>{
 	TextBox getCourseIdTextBox();
 	void setCourseIdTextBox(TextBox courseIdTextBox);
 	TextBox getCourseNameTextBox();
