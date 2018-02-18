@@ -5,152 +5,67 @@
 
 <ui:style>
      
-	.center
-	{
-		position: absolute;
-		width:1000px;
-		height:250px;
-		margin-left:250px;
-	}
-	
-    .faculty-panel
-	{
-		background-color:rgb(204,234,247);
-	}
-	
-	.view-label
-	{
-		font-family:Times New Roman;
-		font-size:32px;
-	}
-	
-	.faculty-form
-	{
-		border-style:solid;
-		border-width:2px;
-		border-color:black;
-		margin-top:20px;
-		margin-left:50px;
-		margin-right:50px;
-	}
-	
-	.faculty-label
-	{
-		font-family:Times New Roman;
-		font-style:normal;
-		font-size:14px;
-		font-weight:bold;
-		font-stretch:normal;
-		font-variant:normal;
-		color:rgb(0, 0, 0);
-		float:right;
-		margin-left:0px;
-		margin-right:8px;
-		margin-top:0px;
-		margin-bottom:0px;
-		padding-left:0px;
-		padding-right:0px;
-		padding-top:0px;
-		padding-bottom:0px;
-	}
-	 
-	.faculty-text
-	{
-		font-family:Times New Roman;
-		font-size:14px;
-		font-weight: normal;
-		float:right;
-	 }
-	 
-	.warning-label
-	{
-		font-family:Times New Roman;
-		font-size:18px;
-		font-weight: bold;
-		color: rgb(255, 0, 0);
-		margin-top:4px;
-		padding-left:50px;
-		padding-right:50px;
-	}
-	
 	.faculty-button
 	{
-		font-family:Times New Roman;
-		font-size:14px;
-		float:right;
-		margin-top:10px;
-		margin-right:20px;
-		margin-bottom:4px;
+		float: right;
+		margin-right: 6px;
+		margin-left: 10px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		font-color: #000;
+		font-size: 12pt;
+		font-style: bold;
+		height: 35px;
+		width: 150px;
 	}
 	
 </ui:style>
 
-<g:VerticalPanel ui:field="facultyPanel" addStyleNames="{style.faculty-panel} {style.center}" horizontalAlignment="center">
+<g:HTMLPanel ui:field="facultyPanel">
 
-	<g:Label ui:field="viewLabel" addStyleNames="{style.view-label}">Course Load Scheduling System: Faculty Requests</g:Label>
-	 
-	<g:VerticalPanel>
-		<!-- Grid panel -->
-		<!-- http://www.gwtproject.org/javadoc/latest/com/google/gwt/user/client/ui/Grid.html -->
-		<g:Grid>
-			<g:row>
-				<g:customCell>
-					<g:FlexTable ui:field="requestTable" width="100%" height="100%"/>
-				</g:customCell>
-				<g:customCell>
-					<g:FlexTable ui:field="courseSectionTable" width="100%" height="100%"/>
-				</g:customCell>
-				<g:customCell>
-					<g:FlexTable ui:field="courseTable" width="100%" height="100%"/>
-				</g:customCell>
-			</g:row>
-		</g:Grid>
-		<g:Grid>
-			<g:row>
-				<!-- cell only works for html -->
-				<!-- customcell works for widgets -->
-				<g:customCell>
-					<g:Label ui:field="requestIdLabel" addStyleNames="{style.faculty-label}">Request Id:</g:Label>
-				</g:customCell>
-				
-				<g:customCell>
-					<g:Label ui:field="facultyIdLabel" addStyleNames="{style.faculty-label}">Faculty Id:</g:Label>
-				</g:customCell>
-				
-				<g:customCell>
-					<g:Label ui:field="courseSectionIdLabel" addStyleNames="{style.faculty-label}">Course Section Id:</g:Label>
-				</g:customCell>
-			</g:row>
-			
-			<g:row>						
-				<g:customCell>
-					<g:TextBox ui:field="requestIdTextBox" addStyleNames="{style.faculty-text}"/>
-				</g:customCell>
-				
-				<g:customCell>
-					<g:TextBox ui:field="facultyIdTextBox" addStyleNames="{style.faculty-text}"/>
-				</g:customCell>
-				
-				<g:customCell>
-					<g:TextBox ui:field="courseSectionIdTextBox" addStyleNames="{style.faculty-text}"/>
-				</g:customCell>
-			</g:row>
-			<g:row>
-				<g:customCell>
-					<g:Label> </g:Label>
-				</g:customCell>
-				<g:customCell>
-					<g:Button ui:field="requestButton" addStyleNames="{style.faculty-button}">Submit Request</g:Button>
-				</g:customCell>
-				<g:customCell>
-					<g:Button ui:field="unrequestButton" addStyleNames="{style.faculty-button}">Remove Request</g:Button>
-				</g:customCell>
-			</g:row>
-		</g:Grid>
-		
-				
-	</g:VerticalPanel>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6"><h2>Faculty Requests</h2></div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-4"><g:FlexTable ui:field="requestTable" width="100%"/></div>
+			<div class="col-md-4"><g:FlexTable ui:field="courseSectionTable" width="100%"/></div>
+			<div class="col-md-4"><g:FlexTable ui:field="courseTable" width="100%"/></div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card container" style="margin-top:40px;">
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
+							<h3 style="margin-top:20px;"> Modify Your Courses </h3>
+						</div>
+						<div class="col-md-3"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4"><p>Request ID:</p></div>
+						<div class="col-md-4"><p>Faculty ID:</p></div>
+						<div class="col-md-4"><p>Course Section ID:</p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4"><g:TextBox ui:field="requestIdTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-4"><g:TextBox ui:field="facultyIdTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-4"><g:TextBox ui:field="courseSectionIdTextBox" addStyleNames="form-control"/></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"></div>
+						<div class="col-md-6">
+							<g:Button ui:field="requestButton" addStyleNames="{style.faculty-button} btn">Submit Request</g:Button>
+							<g:Button ui:field="unrequestButton" addStyleNames="{style.faculty-button} btn">Remove Request</g:Button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	 
 	
-</g:VerticalPanel>
+</g:HTMLPanel>
 
 </ui:UiBinder>

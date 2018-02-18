@@ -13,30 +13,17 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 import com.google.gwt.user.client.ui.FlexTable;
 
 /* Created by Nathan Siegel */
-
 public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements FacultyView
 {
 	private static FacultyViewImplUiBinder uiBinder = GWT.create(FacultyViewImplUiBinder.class);
 	
 	interface FacultyViewImplUiBinder extends UiBinder<Widget, FacultyViewImpl>{}
-			
-	@UiField
-	Label viewLabel;
-	
-	@UiField
-	Label requestIdLabel;
-	
-	@UiField
-	Label facultyIdLabel;
-	
-	@UiField
-	Label courseSectionIdLabel;
 	
 	@UiField
 	TextBox requestIdTextBox;
@@ -54,7 +41,7 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	Button unrequestButton;
 	
 	@UiField
-	VerticalPanel facultyPanel;
+	HTMLPanel facultyPanel;
 	
 	@UiField
 	FlexTable requestTable;
