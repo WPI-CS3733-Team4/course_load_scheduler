@@ -155,7 +155,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	VerticalPanel builderPanel;	
 	
 	@UiField
-	Button comfirmRequestButton;
+	Button confirmRequestButton;
 
 	
 	/*
@@ -503,12 +503,12 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 		removeTermsButton = removeTermsButton;
 	}
 
-	public Button getComfirmRequestButton() {
-		return comfirmRequestButton;
+	public Button getConfirmRequestButton() {
+		return confirmRequestButton;
 	}
 
-	public void setComfirmRequestButton(Button comfirmRequestButton) {
-		comfirmRequestButton = comfirmRequestButton;
+	public void setConfirmRequestButton(Button confirmRequestButton) {
+		confirmRequestButton = confirmRequestButton;
 	}
 
 	@Override
