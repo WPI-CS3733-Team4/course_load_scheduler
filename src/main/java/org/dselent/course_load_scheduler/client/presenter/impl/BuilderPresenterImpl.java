@@ -56,7 +56,7 @@ import org.dselent.course_load_scheduler.client.errorstring.InvalidTermStrings;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidDepartmentStrings;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidLocationStrings;
 
-/* Created by Michael Capobianco */
+/* Created by Michael Capobianco and Nathan Siegel */
 
 public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPresenter
 {
