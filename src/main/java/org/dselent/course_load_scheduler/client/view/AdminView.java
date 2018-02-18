@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.view;
 
-import org.dselent.course_load_scheduler.client.presenter.RegisterPresenter;
+import org.dselent.course_load_scheduler.client.presenter.AdminPresenter;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.TextBox;
 
@@ -25,7 +25,10 @@ public interface AdminView extends BaseView<AdminPresenter>
 	Button getAddUserButton();
 	Button getModifyUserButton();
 	Button getRemoveUserButton();
-	void showErrorUserMessages(String UserErrorMessages);
+	
 	Button getChangeRoleButton();
+	
+	void showErrorUserMessages(String UserErrorMessages);
+	
 	void showErrorChangeRoleMessages(String changeRoleErrorMessages);
 }
