@@ -1,0 +1,64 @@
+
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+        xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+<ui:style>
+     	
+	.register-button
+	{
+		float: right;
+		font-color: #000;
+		font-size: 16pt;
+		font-style: bold;
+		height: 50px;
+		width: 150px;
+	}
+	
+</ui:style>
+
+<g:HTMLPanel ui:field="registerPanel">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6"> <h2>Register an Account</h2> </div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<div class="card" id="registerMenu">
+					<form>
+					  <div class="form-group">
+					    <label>Username</label>
+						<g:TextBox ui:field="userNameTextBox" addStyleNames="form-control"></g:TextBox>
+					  </div>
+					  <div class="form-group">
+					    <label>First Name</label>
+					    <g:TextBox ui:field="firstNameTextBox" addStyleNames="form-control"></g:TextBox>
+					  </div>
+					  <div class="form-group">
+					    <label>Last Name</label>
+					    <g:TextBox ui:field="lastNameTextBox" addStyleNames="form-control"></g:TextBox>
+					  </div>
+					  <div class="form-group">
+					    <label>E-Mail</label>
+					    <g:TextBox ui:field="emailTextBox" addStyleNames="form-control"></g:TextBox>
+					  </div>
+					  <div class="form-group">
+					    <label>Password</label>
+					    <g:TextBox ui:field="passwordTextBox" addStyleNames="form-control"></g:TextBox>
+					    <small class="form-text text-muted">Warning! Your information will appear as plain text and is not encrypted.</small>
+					  </div>
+					  <g:Button ui:field="registerButton" addStyleNames="{style.register-button} btn">Register</g:Button>
+					</form>
+				</div>
+			</div>
+			<div class="col-md-3"></div>
+		</div>
+	</div>
+
+</g:HTMLPanel>
+
+</ui:UiBinder>
