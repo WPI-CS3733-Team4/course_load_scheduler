@@ -69,6 +69,7 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	{
 		initWidget(uiBinder.createAndBindUi(this));
 		
+		requestTable.setBorderWidth(2);
 		requestTable.setText(0, 0, "Request Id:");
 		requestTable.setText(0, 1, "Faculty Id:");
 		requestTable.setText(0, 2, "Course Section Id:");
@@ -76,10 +77,12 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 		requestTable.setText(1, 1, "Is a");
 		requestTable.setText(1, 2, "Test");
 		
+		courseSectionTable.setBorderWidth(2);
 		courseSectionTable.setText(0, 0, "Course Section Id");
 		courseSectionTable.setText(0, 1, "Course Id");
 		courseSectionTable.setText(0, 2, "Section Type");
 		
+		courseTable.setBorderWidth(2);
 		courseTable.setText(0, 0, "Course Id");
 		courseTable.setText(0, 1, "Course Name");
 		courseTable.setText(0, 2, "Course Description");
