@@ -21,6 +21,12 @@ public interface AdminView extends BaseView<AdminPresenter>
 	TextBox getPasswordTextBox();
 	void setPasswordTextBox(TextBox passwordTextBox);
 	
+	TextBox getUserRoleIdTextBox();
+	void setUserRoleIdTextBox(TextBox userRoleIdTextBox);
+	TextBox getUserTextBox();
+	void setUserTextBox(TextBox userTextBox);
+	TextBox getRoleTextBox();
+	void setRoleTextBox(TextBox roleTextBox);
 	
 	Button getAddUserButton();
 	Button getModifyUserButton();
@@ -28,7 +34,5 @@ public interface AdminView extends BaseView<AdminPresenter>
 	
 	Button getChangeRoleButton();
 	
-	void showErrorUserMessages(String UserErrorMessages);
-	
-	void showErrorChangeRoleMessages(String changeRoleErrorMessages);
+	void showErrorMessages(String errorMessages);
 }

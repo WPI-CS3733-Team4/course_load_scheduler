@@ -2,13 +2,13 @@ package org.dselent.course_load_scheduler.client.action;
 
 public class UserRemoveAction
 {
-    private String userId;
+    private Integer userId;
 
-    public UserRemoveAction(String userId) {
+    public UserRemoveAction(Integer userId) {
         this.userId = userId;
     }
 
-    public String getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 

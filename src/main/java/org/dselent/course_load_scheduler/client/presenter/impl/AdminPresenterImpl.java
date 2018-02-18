@@ -11,13 +11,9 @@ import org.dselent.course_load_scheduler.client.event.UserModifyEvent;
 import org.dselent.course_load_scheduler.client.event.UserRemoveEvent;
 import org.dselent.course_load_scheduler.client.event.ChangeRoleEvent;
 import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
-import org.dselent.course_load_scheduler.client.action.RequestAction;
-import org.dselent.course_load_scheduler.client.action.UnrequestAction;
 import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
-import org.dselent.course_load_scheduler.client.event.RequestEvent;
-import org.dselent.course_load_scheduler.client.event.UnrequestEvent;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidRequestStrings;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidUserStrings;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidUserRoleStrings;
 import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.presenter.AdminPresenter;
@@ -47,7 +43,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		modifyUserClickInProgress = false;
 		removeUserClickInProgress = false;
 		changeRoleClickInProgress = false;
-		
+	}
 	
 	@Override
 	public void init()
@@ -208,7 +204,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 			}
 			catch(NumberFormatException e)
 			{
-				invalidReasonList.add(InvalidRequestStrings.INVALID_USER_ID);
+				invalidReasonList.add(InvalidUserStrings.INVALID_USER_ID);
 				fieldsAreValid = false;
 			}
 			try
@@ -274,7 +270,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		}
 	}
 	
-	private void modifyUser(Integer userId, String userName, String firstName, String lastName, String email, String password)
+	private void sendModifyUser(Integer userId, String userName, String firstName, String lastName, String email, String password)
 	{
 		UserModifyAction sla = new UserModifyAction(userId, userName, firstName, lastName, email, password);
 		UserModifyEvent sle = new UserModifyEvent(sla);
@@ -289,7 +285,6 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		}
 		
 	}
-
 
 	@Override
 	public void removeUser()
@@ -313,7 +308,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 			}
 			catch(NumberFormatException e)
 			{
-				invalidReasonList.add(InvalidRequestStrings.INVALID_USER_ID);
+				invalidReasonList.add(InvalidUserStrings.INVALID_USER_ID);
 				fieldsAreValid = false;
 			}
 			
@@ -331,15 +326,13 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		}
 	}
 	
-	private void removeUser(Integer userId)
+	private void sendRemoveUser(Integer userId)
 	{
 		UserRemoveAction sla = new UserRemoveAction(userId);
 		UserRemoveEvent sle = new UserRemoveEvent(sla);
 		eventBus.fireEvent(sle);
 	}
 	
-
-	}
 	@Override
 	public void changeRole()
 	{
@@ -349,36 +342,48 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 			view.getChangeRoleButton().setEnabled(false);
 			parentPresenter.showLoadScreen();
 			
-			Integer requestUserId = null;
+			Integer userId = null;
+			Integer userRoleId = null;
 			
-			String changeRole = view.getChangeRoleTextBox().getText();
+			String role = view.getRoleTextBox().getText();
 			
 			boolean fieldsAreValid = true;
 
 			List<String> invalidReasonList = new ArrayList<>();
+			
 			try
 			{
-				requestUserId = Integer.parseInt(view.getUserIdTextBox().getText());
+				userRoleId = Integer.parseInt(view.getUserRoleIdTextBox().getText());
 			    
 			}
 			catch(NumberFormatException e)
 			{
-				invalidReasonList.add(InvalidRequestStrings.INVALID_USER_ID);
+				invalidReasonList.add(InvalidUserRoleStrings.INVALID_USER_ROLE_ID);
 				fieldsAreValid = false;
 			}
 			
 			try
 			{
-				checkEmptyString(changeRole);
+				userId = Integer.parseInt(view.getUserTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidUserRoleStrings.INVALID_USER_ID);
+				fieldsAreValid = false;
+			}
+			
+			try
+			{
+				checkEmptyString(role);
 			}
 			catch(EmptyStringException e)
 			{
-				invalidReasonList.add(InvalidUserStrings.NULL_CHANGE_ROLE);
+				invalidReasonList.add(InvalidUserRoleStrings.NULL_ROLE);
 				fieldsAreValid = false;
 			}
 			if(fieldsAreValid)
 			{
-				sendChangeRole(userId, changeRole );
+				sendChangeRole(userRoleId, userId, role);
 			}
 			else
 			{
@@ -389,10 +394,10 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		}
 	}
 	
-	private void changeRole(String changeRole, Integer userId);
-			{
-		changeRoleAction sla = new changeRoleAction(userId, changeRole);
-		changeRoleEvent sle = new changeRoleEvent(sla);
+	private void sendChangeRole(Integer userRoleId, Integer userId, String changeRole)
+	{
+		ChangeRoleAction sla = new ChangeRoleAction(userRoleId, userId, changeRole);
+		ChangeRoleEvent sle = new ChangeRoleEvent(sla);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -409,13 +414,13 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		view.getModifyUserButton().setEnabled(true);
 		view.getRemoveUserButton().setEnabled(true);
 		view.getChangeRoleButton().setEnabled(true);
-		addUserClickInProgress = (false);
-		modifyUserClickInProgress = (false);
-		removeUserClickInProgress = (false);
-		changeRoleClickInProgress = (false);
+		addUserClickInProgress = false;
+		modifyUserClickInProgress = false;
+		removeUserClickInProgress = false;
+		changeRoleClickInProgress = false;
 		
 		InvalidFieldAction ila = evt.getAction();
-		view.showUserErrorMessages(ila.toString());
+		view.showErrorMessages(ila.toString());
 	}
 }
 // end

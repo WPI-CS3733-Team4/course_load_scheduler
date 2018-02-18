@@ -1,7 +1,6 @@
 package org.dselent.course_load_scheduler.client.view.impl;
 
 import org.dselent.course_load_scheduler.client.presenter.AdminPresenter;
-import org.dselent.course_load_scheduler.client.presenter.FacultyPresenter;
 import org.dselent.course_load_scheduler.client.view.AdminView;
 
 import com.google.gwt.core.client.GWT;
@@ -61,7 +60,7 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	@UiField
 	Label warningLabel;
 	
-	
+	//User
 	@UiField
 	TextBox userIdTextBox;
 	
@@ -88,6 +87,17 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	
 	@UiField
 	Button removeUserButton;
+	
+	//UserRole
+	
+	@UiField
+	TextBox userRoleIdTextBox;
+	
+	@UiField
+	TextBox userTextBox;
+	
+	@UiField
+	TextBox roleTextBox;
 	
 	@UiField
 	Button changeRoleButton;
@@ -170,6 +180,25 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 		this.passwordTextBox = passwordTextBox;
 	}
 	
+	public TextBox getUserRoleIdTextBox() {
+		return userRoleIdTextBox;
+	}
+	public void setUserRoleIdTextBox(TextBox userRoleIdTextBox) {
+		this.userRoleIdTextBox = userRoleIdTextBox;
+	}
+	public TextBox getUserTextBox() {
+		return userTextBox;
+	}
+	public void setUserTextBox(TextBox userTextBox) {
+		this.userTextBox = userTextBox;
+	}
+	public TextBox getRoleTextBox() {
+		return roleTextBox;
+	}
+	public void setRoleTextBox(TextBox roleTextBox) {
+		this.roleTextBox = roleTextBox;
+	}
+	
 	@Override
 	public Button getAddUserButton()
 	{
@@ -202,14 +231,9 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	}
 	
 	@Override
-	public void showUserErrorMessages(String userErrorMessages)
+	public void showErrorMessages(String errorMessages)
 	{
-		Window.alert(UserErrorMessages);
-	}
-	@Override
-	public void showErrorChangeRoleMessages(String errorChangeRoleMessages)
-	{
-		Window.alert(ErrorChangeRoleMessages);
+		Window.alert(errorMessages);
 	}
 	
 	@Override

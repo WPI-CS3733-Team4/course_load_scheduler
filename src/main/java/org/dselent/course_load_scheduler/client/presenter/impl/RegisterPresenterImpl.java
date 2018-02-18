@@ -143,7 +143,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 			
 			if(fieldsAreValid)
 			{
-				register(userName, firstName, lastName, email, password);
+				sendRegister(userName, firstName, lastName, email, password);
 			}
 			else
 			{
@@ -154,7 +154,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 		}
 	}
 	
-	private void register(String userName, String firstName, String lastName, String email, String password)
+	private void sendRegister(String userName, String firstName, String lastName, String email, String password)
 	{
 		UserAddAction sla = new UserAddAction(userName, firstName, lastName, email, password);
 		UserAddEvent sle = new UserAddEvent(sla);
