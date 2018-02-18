@@ -1,7 +1,8 @@
 package org.dselent.course_load_scheduler.client.presenter.impl;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.inject.Inject;
 import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
 import org.dselent.course_load_scheduler.client.action.SendLoginAction;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidLoginStrings;
@@ -11,9 +12,9 @@ import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.presenter.LoginPresenter;
 import org.dselent.course_load_scheduler.client.view.LoginView;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.inject.Inject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class LoginPresenterImpl extends BasePresenterImpl implements LoginPresenter

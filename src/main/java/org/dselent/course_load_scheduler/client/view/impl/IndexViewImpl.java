@@ -5,6 +5,7 @@ import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.*;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
+import org.dselent.course_load_scheduler.client.presenter.impl.AdminPresenterImpl;
 import org.dselent.course_load_scheduler.client.view.IndexView;
 
 public class IndexViewImpl extends BaseViewImpl<IndexPresenter> implements IndexView
@@ -40,7 +41,7 @@ public class IndexViewImpl extends BaseViewImpl<IndexPresenter> implements Index
 	}
 
 	@Override
-	public void setPresenter(IndexPresenter presenter)
+    public void setPresenter(AdminPresenterImpl presenter)
 	{
 		this.presenter = presenter;
 	}

@@ -1,18 +1,17 @@
 package org.dselent.course_load_scheduler.client.presenter.impl;
 
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-
-import org.dselent.course_load_scheduler.client.event_handler.EventHandlerAdapter;
-import org.dselent.course_load_scheduler.client.model.Model;
-import org.dselent.course_load_scheduler.client.presenter.BasePresenter;
-
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.inject.Inject;
+import org.dselent.course_load_scheduler.client.event_handler.EventHandlerAdapter;
+import org.dselent.course_load_scheduler.client.model.Model;
+import org.dselent.course_load_scheduler.client.presenter.BasePresenter;
+
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
 
 // Override methods in subclasses as necessary
 public abstract class BasePresenterImpl extends EventHandlerAdapter implements BasePresenter
@@ -30,9 +29,13 @@ public abstract class BasePresenterImpl extends EventHandlerAdapter implements B
 	{
 		eventBusRegistration = new HashMap<>();
 	}
-	
+
 	@Override
 	public void init(){};
+
+//
+//	@Override
+//	public void getView(){};
 	
 	@Override
 	public Model getModel()
