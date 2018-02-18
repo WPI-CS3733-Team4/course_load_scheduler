@@ -4,24 +4,24 @@ public interface BuilderPresenter extends BasePresenter{
 
 	IndexPresenter getParentPresenter();
 	void setParentPresenter(IndexPresenter parentPresenter);
-	void AddCourses();
-	void ModifyCourses();
-	void RemoveCourses();
-	void AddSections();
-	void ModifySections();
-	void RemoveSections();
-	void AddCourseSectionTimes();
-	void ModifyCourseSectionTimes();
-	void RemoveCourseSectionTimes();
-	void AddLocations();
-	void ModifyLocations();
-	void RemoveLocations();
-	void AddDepartments();
-	void ModifyDepartments();
-	void RemoveDepartments();
-	void AddTerms();
-	void ModifyTerms();
-	void RemoveTerms();
-	void ComfirmRequest();
+	void addCourses();
+	void modifyCourses();
+	void removeCourses();
+	void addCourseSections();
+	void modifyCourseSections();
+	void removeCourseSections();
+	void addCourseSectionTimes();
+	void modifyCourseSectionTimes();
+	void removeCourseSectionTimes();
+	void addLocations();
+	void modifyLocations();
+	void removeLocations();
+	void addDepartments();
+	void modifyDepartments();
+	void removeDepartments();
+	void addTerms();
+	void modifyTerms();
+	void removeTerms();
+	void confirmRequest();
 	
 }

@@ -5,14 +5,18 @@
 
 <ui:style>
      	
-	.register-button
+	.admin-button
 	{
 		float: right;
 		font-color: #000;
-		font-size: 16pt;
+		font-size: 14pt;
 		font-style: bold;
-		height: 50px;
+		height: 35px;
 		width: 150px;
+		margin-right: 8px;
+		margin-left: 8px;
+		margin-top: 5px;
+		margin-bottom: 5px;
 	}
 	
 </ui:style>
@@ -22,63 +26,69 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-3"></div>
-			<div class="col-md-6"> <h2>Register an Account</h2> </div>
+			<div class="col-md-6"><h2>Admin Panel</h2></div>
 			<div class="col-md-3"></div>
 		</div>
 		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6">
-				<div class="card" id="registerMenu">
-					<form>
-					<div class="form-group">
-					    <label>UserId</label>
-						<g:TextBox ui:field="userIdTextBox" addStyleNames="form-control"></g:TextBox>
-					  </div>
-					  <div class="form-group">
-					    <label>Username</label>
-						<g:TextBox ui:field="userNameTextBox" addStyleNames="form-control"></g:TextBox>
-					  </div>
-					  <div class="form-group">
-					    <label>First Name</label>
-					    <g:TextBox ui:field="firstNameTextBox" addStyleNames="form-control"></g:TextBox>
-					  </div>
-					  <div class="form-group">
-					    <label>Last Name</label>
-					    <g:TextBox ui:field="lastNameTextBox" addStyleNames="form-control"></g:TextBox>
-					  </div>
-					  <div class="form-group">
-					    <label>E-Mail</label>
-					    <g:TextBox ui:field="emailTextBox" addStyleNames="form-control"></g:TextBox>
-					  </div>
-					  <div class="form-group">
-					    <label>Password</label>
-					    <g:TextBox ui:field="passwordTextBox" addStyleNames="form-control"></g:TextBox>
-					    <small class="form-text text-muted">Warning! Your information will appear as plain text and is not encrypted.</small>
-					  </div>
-					  <g:Button ui:field="addUserButton" addStyleNames="{style.register-button} btn">Add User</g:Button>
-					  <g:Button ui:field="modifyUserButton" addStyleNames="{style.register-button} btn">Modify User</g:Button>
-					  <g:Button ui:field="removeUserButton" addStyleNames="{style.register-button} btn">Remove User</g:Button>
-					</form>
-					<form>
-					<div class="form-group">
-					    <label>User Role ID</label>
-						<g:TextBox ui:field="userRoleIdTextBox" addStyleNames="form-control"></g:TextBox>
-					  </div>
-					  <div class="form-group">
-					    <label>User ID</label>
-						<g:TextBox ui:field="userTextBox" addStyleNames="form-control"></g:TextBox>
-					  </div>
-					  <div class="form-group">
-					    <label>Role</label>
-					    <g:TextBox ui:field="roleTextBox" addStyleNames="form-control"></g:TextBox>
-					  </div>
-					  <g:Button ui:field="changeRoleButton" addStyleNames="{style.register-button} btn">Change Role</g:Button>
-					</form>
+			<div class="col-md-4">FlexTable Placeholder</div>
+			<div class="col-md-4">FlexTable Placeholder</div>
+			<div class="col-md-4">FlexTable Placeholder</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card container" style="margin-top:40px;">
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
+							<h3 style="margin-top:20px;"> Modify Users</h3>
+						</div>
+						<div class="col-md-3"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-2"><p>User ID:</p></div>
+						<div class="col-md-2"><p>User Name:</p></div>
+						<div class="col-md-2"><p>First Name:</p></div>
+						<div class="col-md-2"><p>Last Name:</p></div>
+						<div class="col-md-2"><p>E-Mail:</p></div>
+						<div class="col-md-2"><p>Password:</p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-2"><g:TextBox ui:field="userIdTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-2"><g:TextBox ui:field="userNameTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-2"><g:TextBox ui:field="firstNameTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-2"><g:TextBox ui:field="lastNameTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-2"><g:TextBox ui:field="emailTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-2"><g:TextBox ui:field="passwordTextBox" addStyleNames="form-control"/></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"></div>
+						<div class="col-md-6">
+							<g:Button ui:field="addUserButton" addStyleNames="{style.admin-button} btn">Add User</g:Button>
+							<g:Button ui:field="modifyUserButton" addStyleNames="{style.admin-button} btn">Modify User</g:Button>
+							<g:Button ui:field="removeUserButton" addStyleNames="{style.admin-button} btn">Remove User</g:Button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4"><p>User Role ID:</p></div>
+						<div class="col-md-4"><p>User:</p></div>
+						<div class="col-md-4"><p>Role:</p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4"><g:TextBox ui:field="userRoleIdTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-4"><g:TextBox ui:field="userTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-4"><g:TextBox ui:field="roleTextBox" addStyleNames="form-control"/></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"></div>
+						<div class="col-md-6">
+							<g:Button ui:field="changeRoleButton" addStyleNames="{style.admin-button} btn">Change Role</g:Button>
+						</div>
+					</div>
 				</div>
 			</div>
-			<div class="col-md-3"></div>
 		</div>
-	</div>
+	</div>	 
+	
 
 </g:HTMLPanel>
 

@@ -33,6 +33,7 @@ public class InjectorModule extends AbstractGinModule
         bind(RegisterPresenter.class).to(RegisterPresenterImpl.class).in(Singleton.class);
         bind(FacultyPresenter.class).to(FacultyPresenterImpl.class).in(Singleton.class);
         bind(AdminPresenter.class).to(AdminPresenterImpl.class).in(Singleton.class);
+        bind(BuilderPresenter.class).to(BuilderPresenterImpl.class).in(Singleton.class);
         
         // views
         bind(IndexView.class).to(IndexViewImpl.class).in(Singleton.class);
@@ -40,6 +41,7 @@ public class InjectorModule extends AbstractGinModule
         bind(RegisterView.class).to(RegisterViewImpl.class).in(Singleton.class);
         bind(FacultyView.class).to(FacultyViewImpl.class).in(Singleton.class);
         bind(AdminView.class).to(AdminViewImpl.class).in(Singleton.class);
+        bind(BuilderView.class).to(BuilderViewImpl.class).in(Singleton.class);
 
     }
 	

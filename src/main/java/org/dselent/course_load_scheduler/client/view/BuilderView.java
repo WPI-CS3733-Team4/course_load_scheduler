@@ -82,8 +82,8 @@ public interface BuilderView extends BaseView<BuilderPresenter>{
 	void setModifyTermsButton(Button modifyTermsButton);
 	Button getRemoveTermsButton();
 	void setRemoveTermsButton(Button removeTermsButton);
-	Button getComfirmRequestButton();
-	void setComfirmRequestButton(Button comfirmRequestButton);
+	Button getConfirmRequestButton();
+	void setConfirmRequestButton(Button confirmRequestButton);
 	
 
 }

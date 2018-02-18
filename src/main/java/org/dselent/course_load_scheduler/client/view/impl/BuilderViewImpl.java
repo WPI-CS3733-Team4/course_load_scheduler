@@ -15,7 +15,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 /* Created by Michael Capobianco */
@@ -40,13 +40,13 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	TextBox courseDescriptionTextBox;
 		
 	@UiField
-	Button AddCoursesButton;
+	Button addCoursesButton;
 	
 	@UiField
-	Button ModifyCoursesButton;
+	Button modifyCoursesButton;
 	
 	@UiField
-	Button RemoveCoursesButton;
+	Button removeCoursesButton;
 
 	
 	//Course Sections
@@ -60,13 +60,13 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	TextBox sectionTypeTextBox;
 	
 	@UiField
-	Button AddSectionsButton;
+	Button addSectionsButton;
 	
 	@UiField
-	Button ModifySectionsButton;
+	Button modifySectionsButton;
 	
 	@UiField
-	Button RemoveSectionsButton;
+	Button removeSectionsButton;
 	
 	//Course Section Times
 	@UiField
@@ -88,13 +88,13 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	TextBox locationTextBox;
 	
 	@UiField
-	Button AddCourseSectionTimesButton;
+	Button addCourseSectionTimesButton;
 	
 	@UiField
-	Button ModifyCourseSectionTimesButton;
+	Button modifyCourseSectionTimesButton;
 	
 	@UiField
-	Button RemoveCourseSectionTimesButton;
+	Button removeCourseSectionTimesButton;
 	
 	
 	//Locations
@@ -111,13 +111,13 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	TextBox roomSizeTextBox;
 	
 	@UiField
-	Button AddLocationsButton;
+	Button addLocationsButton;
 	
 	@UiField
-	Button ModifyLocationsButton;
+	Button modifyLocationsButton;
 	
 	@UiField
-	Button RemoveLocationsButton;
+	Button removeLocationsButton;
 	
 	//Departments
 	@UiField
@@ -127,13 +127,13 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	TextBox departmentTextBox;
 	
 	@UiField
-	Button AddDepartmentsButton;
+	Button addDepartmentsButton;
 	
 	@UiField
-	Button ModifyDepartmentsButton;
+	Button modifyDepartmentsButton;
 	
 	@UiField
-	Button RemoveDepartmentsButton;
+	Button removeDepartmentsButton;
 	
 	//Terms
 	@UiField
@@ -143,19 +143,19 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	TextBox termNameTextBox;
 	
 	@UiField
-	Button AddTermsButton;
+	Button addTermsButton;
 	
 	@UiField
-	Button ModifyTermsButton;
+	Button modifyTermsButton;
 	
 	@UiField
-	Button RemoveTermsButton;
+	Button removeTermsButton;
 	
 	@UiField
-	VerticalPanel builderPanel;	
+	HTMLPanel builderPanel;	
 	
 	@UiField
-	Button ComfirmRequestButton;
+	Button confirmRequestButton;
 
 	
 	/*
@@ -351,164 +351,164 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 	*/
 	
-	public VerticalPanel getBuilderPanel() {
+	public HTMLPanel getBuilderPanel() {
 		return builderPanel;
 	}
 
-	public void setBuilderPanel(VerticalPanel builderPanel) {
+	public void setBuilderPanel(HTMLPanel builderPanel) {
 		this.builderPanel = builderPanel;
 	}
 
 	public Button getAddCoursesButton() {
-		return AddCoursesButton;
+		return addCoursesButton;
 	}
 
 	public void setAddCoursesButton(Button addCoursesButton) {
-		AddCoursesButton = addCoursesButton;
+		addCoursesButton = addCoursesButton;
 	}
 
 	public Button getModifyCoursesButton() {
-		return ModifyCoursesButton;
+		return modifyCoursesButton;
 	}
 
 	public void setModifyCoursesButton(Button modifyCoursesButton) {
-		ModifyCoursesButton = modifyCoursesButton;
+		modifyCoursesButton = modifyCoursesButton;
 	}
 
 	public Button getRemoveCoursesButton() {
-		return RemoveCoursesButton;
+		return removeCoursesButton;
 	}
 
 	public void setRemoveCoursesButton(Button removeCoursesButton) {
-		RemoveCoursesButton = removeCoursesButton;
+		removeCoursesButton = removeCoursesButton;
 	}
 
 	public Button getAddSectionsButton() {
-		return AddSectionsButton;
+		return addSectionsButton;
 	}
 
 	public void setAddSectionsButton(Button addSectionsButton) {
-		AddSectionsButton = addSectionsButton;
+		addSectionsButton = addSectionsButton;
 	}
 
 	public Button getModifySectionsButton() {
-		return ModifySectionsButton;
+		return modifySectionsButton;
 	}
 
 	public void setModifySectionsButton(Button modifySectionsButton) {
-		ModifySectionsButton = modifySectionsButton;
+		modifySectionsButton = modifySectionsButton;
 	}
 
 	public Button getRemoveSectionsButton() {
-		return RemoveSectionsButton;
+		return removeSectionsButton;
 	}
 
 	public void setRemoveSectionsButton(Button removeSectionsButton) {
-		RemoveSectionsButton = removeSectionsButton;
+		removeSectionsButton = removeSectionsButton;
 	}
 
 	public Button getAddCourseSectionTimesButton() {
-		return AddCourseSectionTimesButton;
+		return addCourseSectionTimesButton;
 	}
 
 	public void setAddCourseSectionTimesButton(Button addCourseSectionTimesButton) {
-		AddCourseSectionTimesButton = addCourseSectionTimesButton;
+		addCourseSectionTimesButton = addCourseSectionTimesButton;
 	}
 
 	public Button getModifyCourseSectionTimesButton() {
-		return ModifyCourseSectionTimesButton;
+		return modifyCourseSectionTimesButton;
 	}
 
 	public void setModifyCourseSectionTimesButton(Button modifyCourseSectionTimesButton) {
-		ModifyCourseSectionTimesButton = modifyCourseSectionTimesButton;
+		modifyCourseSectionTimesButton = modifyCourseSectionTimesButton;
 	}
 
 	public Button getRemoveCourseSectionTimesButton() {
-		return RemoveCourseSectionTimesButton;
+		return removeCourseSectionTimesButton;
 	}
 
 	public void setRemoveCourseSectionTimesButton(Button removeCourseSectionTimesButton) {
-		RemoveCourseSectionTimesButton = removeCourseSectionTimesButton;
+		removeCourseSectionTimesButton = removeCourseSectionTimesButton;
 	}
 
 	public Button getAddLocationsButton() {
-		return AddLocationsButton;
+		return addLocationsButton;
 	}
 
 	public void setAddLocationsButton(Button addLocationsButton) {
-		AddLocationsButton = addLocationsButton;
+		addLocationsButton = addLocationsButton;
 	}
 
 	public Button getModifyLocationsButton() {
-		return ModifyLocationsButton;
+		return modifyLocationsButton;
 	}
 
 	public void setModifyLocationsButton(Button modifyLocationsButton) {
-		ModifyLocationsButton = modifyLocationsButton;
+		modifyLocationsButton = modifyLocationsButton;
 	}
 
 	public Button getRemoveLocationsButton() {
-		return RemoveLocationsButton;
+		return removeLocationsButton;
 	}
 
 	public void setRemoveLocationsButton(Button removeLocationsButton) {
-		RemoveLocationsButton = removeLocationsButton;
+		removeLocationsButton = removeLocationsButton;
 	}
 
 	public Button getAddDepartmentsButton() {
-		return AddDepartmentsButton;
+		return addDepartmentsButton;
 	}
 
 	public void setAddDepartmentsButton(Button addDepartmentsButton) {
-		AddDepartmentsButton = addDepartmentsButton;
+		addDepartmentsButton = addDepartmentsButton;
 	}
 
 	public Button getModifyDepartmentsButton() {
-		return ModifyDepartmentsButton;
+		return modifyDepartmentsButton;
 	}
 
 	public void setModifyDepartmentsButton(Button modifyDepartmentsButton) {
-		ModifyDepartmentsButton = modifyDepartmentsButton;
+		modifyDepartmentsButton = modifyDepartmentsButton;
 	}
 
 	public Button getRemoveDepartmentsButton() {
-		return RemoveDepartmentsButton;
+		return removeDepartmentsButton;
 	}
 
 	public void setRemoveDepartmentsButton(Button removeDepartmentsButton) {
-		RemoveDepartmentsButton = removeDepartmentsButton;
+		removeDepartmentsButton = removeDepartmentsButton;
 	}
 
 	public Button getAddTermsButton() {
-		return AddTermsButton;
+		return addTermsButton;
 	}
 
 	public void setAddTermsButton(Button addTermsButton) {
-		AddTermsButton = addTermsButton;
+		addTermsButton = addTermsButton;
 	}
 
 	public Button getModifyTermsButton() {
-		return ModifyTermsButton;
+		return modifyTermsButton;
 	}
 
 	public void setModifyTermsButton(Button modifyTermsButton) {
-		ModifyTermsButton = modifyTermsButton;
+		modifyTermsButton = modifyTermsButton;
 	}
 
 	public Button getRemoveTermsButton() {
-		return RemoveTermsButton;
+		return removeTermsButton;
 	}
 
 	public void setRemoveTermsButton(Button removeTermsButton) {
-		RemoveTermsButton = removeTermsButton;
+		removeTermsButton = removeTermsButton;
 	}
 
-	public Button getComfirmRequestButton() {
-		return ComfirmRequestButton;
+	public Button getConfirmRequestButton() {
+		return confirmRequestButton;
 	}
 
-	public void setComfirmRequestButton(Button comfirmRequestButton) {
-		ComfirmRequestButton = comfirmRequestButton;
+	public void setConfirmRequestButton(Button confirmRequestButton) {
+		confirmRequestButton = confirmRequestButton;
 	}
 
 	@Override
