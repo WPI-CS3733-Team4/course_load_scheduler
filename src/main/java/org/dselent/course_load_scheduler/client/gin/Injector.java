@@ -35,10 +35,12 @@ public interface Injector extends Ginjector
     public LoginPresenterImpl getLoginPresenter();
     public RegisterPresenterImpl getRegisterPresenter();
     public FacultyPresenterImpl getFacultyPresenter();
+    public AdminPresenterImpl getAdminPresenter();
     
     //views
     public IndexViewImpl getIndexView();
     public LoginViewImpl getLoginView();
     public RegisterViewImpl getRegisterView();
     public FacultyViewImpl getFacultyView();
+    public AdminViewImpl getAdminView();
 }
