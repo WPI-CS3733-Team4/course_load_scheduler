@@ -63,15 +63,17 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	{
 		initWidget(uiBinder.createAndBindUi(this));
 		
-		FlexTable requestTable = new FlexTable();
-		requestTable.setText(0, 0, "Request Id");
-		requestTable.setText(0, 1, "Faculty Id");
-		requestTable.setText(0, 2, "Course Section Id");
+		requestTable.setText(0, 0, "Request Id:");
+		requestTable.setText(0, 1, "Faculty Id:");
+		requestTable.setText(0, 2, "Course Section Id:");
+		requestTable.setText(1, 0, "This");
+		requestTable.setText(1, 1, "Is a");
+		requestTable.setText(1, 2, "Test");
 		
 		//use CourseRequest models to populate the rest of the table
 		
-		setRequestTable(requestTable);
-	
+
+
 	}
 	
 	@Override
@@ -166,7 +168,7 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	@UiHandler("unrequestButton")
 	void onUnrequestButtonClicked(ClickEvent evt)
 	{
-		presenter.requestCourse();
+		presenter.unrequestCourse();
 	}
 
 }
