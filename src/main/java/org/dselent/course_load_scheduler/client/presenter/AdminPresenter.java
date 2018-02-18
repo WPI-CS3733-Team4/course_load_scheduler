@@ -9,7 +9,7 @@ public interface AdminPresenter extends BasePresenter {
 	void addUser();
 	void modifyUser();
 	void removeUser();
-	void changeRole;
+	changeRole;
 }
 
 
