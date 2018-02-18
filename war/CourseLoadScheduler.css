@@ -5,22 +5,37 @@
   font-family: 'Open Sans', sans-serif;
   color: #000;
   font-size: 16pt;
-  text-align: center;
+  text-align: left;
 }
 
-/** Example rules used by the template application (remove for your app) */
-h1 {
-  font-size: 2em;
-  font-weight: bold;
-  color: #777777;
-  margin: 40px 0px 70px;
-  text-align: center;
+#index{
+
 }
 
-.sendButton {
-  display: block;
-  font-size: 16pt;
+h2{
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 24pt;
+
+ }
+
+#registerMenu{
+  padding: 20px;
+  background-color: #D0D0D0;
 }
+.navbar-brand{
+  margin-right: 150px;
+}
+
+.nav-item{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.gwt-TextBox{
+  font-size: 20pt;
+ }
 
 /** Most GWT widgets already have a style name defined */
 .gwt-DialogBox {
