@@ -98,6 +98,16 @@
 					<g:FlexTable ui:field="requestTable" width="100%" height="100%"/>
 				</g:customCell>
 			</g:row>
+			<g:row>
+				<g:customCell>
+					<g:FlexTable ui:field="courseSectionTable" width="100%" height="100%"/>
+				</g:customCell>
+			</g:row>
+			<g:row>
+				<g:customCell>
+					<g:FlexTable ui:field="courseTable" width="100%" height="100%"/>
+				</g:customCell>
+			</g:row>
 		</g:Grid>
 		<g:Grid>
 			<g:row>

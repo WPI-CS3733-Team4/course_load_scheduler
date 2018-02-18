@@ -11,6 +11,8 @@ public interface FacultyView extends BaseView<FacultyPresenter>
 {
 	FlexTable getRequestTable();
 	void setRequestTable(FlexTable requestTable);
+	FlexTable getCourseSectionTable();
+	void setCourseSectionTable(FlexTable courseSectionTable);
 	TextBox getRequestIdTextBox();
 	void setRequestIdTextBox(TextBox requestIdTextBox);
 	TextBox getFacultyIdTextBox();

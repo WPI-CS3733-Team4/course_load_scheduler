@@ -59,6 +59,12 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	@UiField
 	FlexTable requestTable;
 	
+	@UiField
+	FlexTable courseSectionTable;
+	
+	@UiField
+	FlexTable courseTable;
+	
 	public FacultyViewImpl()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
@@ -69,6 +75,14 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 		requestTable.setText(1, 0, "This");
 		requestTable.setText(1, 1, "Is a");
 		requestTable.setText(1, 2, "Test");
+		
+		courseSectionTable.setText(0, 0, "Course Section Id");
+		courseSectionTable.setText(0, 1, "Course Id");
+		courseSectionTable.setText(0, 2, "Section Type");
+		
+		courseTable.setText(0, 0, "Course Id");
+		courseTable.setText(0, 1, "Course Name");
+		courseTable.setText(0, 2, "Course Description");
 		
 		//use CourseRequest models to populate the rest of the table
 		
@@ -133,6 +147,16 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	@Override
 	public void setRequestTable(FlexTable requestTable) {
 		this.requestTable = requestTable;
+	}
+	
+	@Override
+	public FlexTable getCourseSectionTable() {
+		return courseSectionTable;
+	}
+	
+	@Override
+	public void setCourseSectionTable(FlexTable courseSectionTable) {
+		this.courseSectionTable = courseSectionTable;
 	}
 
 	@Override
