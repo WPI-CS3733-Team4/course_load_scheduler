@@ -4,7 +4,10 @@ import org.dselent.course_load_scheduler.client.presenter.BuilderPresenter;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.TextBox;
 
-	public interface BuilderView extends BaseView<BuilderPresenter>{
+public interface BuilderView extends BaseView<BuilderPresenter>{
+	
+	TextBox getCourseTextBox();	
+	void setCourseTextBox(TextBox courseTextBox);
 	TextBox getCourseIdTextBox();
 	void setCourseIdTextBox(TextBox courseIdTextBox);
 	TextBox getCourseNameTextBox();

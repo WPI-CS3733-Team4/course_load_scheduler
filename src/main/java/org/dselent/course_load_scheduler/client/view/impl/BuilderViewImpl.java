@@ -172,7 +172,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 		return courseTextBox;
 	}
 	
-	void setCourseTextBox() {
+	void setCourseTextBox(TextBox courseTextBox) {
 		this.courseTextBox = courseTextBox;
 	}
 
