@@ -1,8 +1,7 @@
 package org.dselent.course_load_scheduler.client.presenter.impl;
 
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.inject.Inject;
+import java.util.ArrayList;
+import java.util.List;
 import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
 import org.dselent.course_load_scheduler.client.action.RequestAction;
 import org.dselent.course_load_scheduler.client.action.UnrequestAction;
@@ -10,12 +9,13 @@ import org.dselent.course_load_scheduler.client.errorstring.InvalidRequestString
 import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
 import org.dselent.course_load_scheduler.client.event.RequestEvent;
 import org.dselent.course_load_scheduler.client.event.UnrequestEvent;
-import org.dselent.course_load_scheduler.client.presenter.FacultyPresenter;
+import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
+import org.dselent.course_load_scheduler.client.presenter.FacultyPresenter;
 import org.dselent.course_load_scheduler.client.view.FacultyView;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.inject.Inject;
 
 /* Created by Nathan Siegel */
 

@@ -1,15 +1,22 @@
 package org.dselent.course_load_scheduler.client.view.impl;
 
+import org.dselent.course_load_scheduler.client.presenter.FacultyPresenter;
+import org.dselent.course_load_scheduler.client.view.FacultyView;
+
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
-import com.google.gwt.user.client.ui.*;
-import org.dselent.course_load_scheduler.client.presenter.FacultyPresenter;
-import org.dselent.course_load_scheduler.client.presenter.impl.AdminPresenterImpl;
-import org.dselent.course_load_scheduler.client.view.FacultyView;
+import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.Widget;
+
+import com.google.gwt.user.client.ui.FlexTable;
 
 /* Created by Nathan Siegel */
 
@@ -156,7 +163,7 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	}
 
 	@Override
-    public void setPresenter(AdminPresenterImpl presenter)
+	public void setPresenter(FacultyPresenter presenter)
 	{
 		this.presenter = presenter;
 	}

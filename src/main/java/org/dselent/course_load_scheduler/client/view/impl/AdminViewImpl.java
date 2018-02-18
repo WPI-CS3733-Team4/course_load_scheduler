@@ -13,7 +13,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 /* Created by Krishna Madhurkar*/
@@ -24,42 +24,6 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	
 	interface AdminViewImplUiBinder extends UiBinder<Widget, AdminViewImpl>{}
 			
-	@UiField
-	Label viewLabel;
-	
-	@UiField
-	Label userIdLabel;
-	
-	@UiField
-	Label userNameLabel;
-	
-	@UiField
-	Label firstNameLabel;
-	
-	@UiField
-	Label lastNameLabel;
-	
-	@UiField
-	Label emailLabel;
-	
-	@UiField
-	Label addUserLabel;
-	
-	@UiField
-	Label modifyUserLabel;
-	
-	@UiField
-	Label removeUserLabel;
-	
-	@UiField
-	Label changeRoleLabel;
-	
-	@UiField
-	Label passwordLabel;
-	
-	@UiField
-	Label warningLabel;
-	
 	//User
 	@UiField
 	TextBox userIdTextBox;
@@ -103,7 +67,7 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	Button changeRoleButton;
 	
 	@UiField
-	VerticalPanel adminPanel;
+	HTMLPanel adminPanel;
 	
 	public AdminViewImpl()
 	{
