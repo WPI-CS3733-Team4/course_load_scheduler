@@ -15,7 +15,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 /* Created by Michael Capobianco */
@@ -152,7 +152,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	Button removeTermsButton;
 	
 	@UiField
-	VerticalPanel builderPanel;	
+	HTMLPanel builderPanel;	
 	
 	@UiField
 	Button confirmRequestButton;
@@ -351,11 +351,11 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 	*/
 	
-	public VerticalPanel getBuilderPanel() {
+	public HTMLPanel getBuilderPanel() {
 		return builderPanel;
 	}
 
-	public void setBuilderPanel(VerticalPanel builderPanel) {
+	public void setBuilderPanel(HTMLPanel builderPanel) {
 		this.builderPanel = builderPanel;
 	}
 
