@@ -87,9 +87,9 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 		courseTable.setText(0, 1, "Course Name");
 		courseTable.setText(0, 2, "Course Description");
 		
-		//use CourseRequest models to populate the rest of the table
+		//TODO:
+		//use CourseRequest, CourseSection, and CourseTable models to populate the fields in the tables
 		
-
 
 	}
 	
