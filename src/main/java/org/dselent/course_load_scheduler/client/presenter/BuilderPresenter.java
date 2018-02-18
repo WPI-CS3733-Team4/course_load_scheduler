@@ -10,9 +10,9 @@ public interface BuilderPresenter extends BasePresenter{
 	void AddSections();
 	void ModifySections();
 	void RemoveSections();
-	void AddCoursSectionTimes();
-	void ModifyoursSectionTimes();
-	void RemoveoursSectionTimes();
+	void AddCourseSectionTimes();
+	void ModifyCourseSectionTimes();
+	void RemoveCourseSectionTimes();
 	void AddLocations();
 	void ModifyLocations();
 	void RemoveLocations();
