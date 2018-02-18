@@ -50,6 +50,7 @@ import org.dselent.course_load_scheduler.client.event.TermModifyEvent;
 import org.dselent.course_load_scheduler.client.action.TermModifyAction;
 import org.dselent.course_load_scheduler.client.event.TermRemoveEvent;
 import org.dselent.course_load_scheduler.client.action.TermRemoveAction;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidTimeStrings;
 
 /* Created by Michael Capobianco */
 
@@ -257,7 +258,6 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 			try 
 			{
 				checkEmptyString(courseName = view.getCourseNameTextBox().getText());
-				fieldsAreValid = false;
 			}
 			catch(EmptyStringException e)
 			{
@@ -328,59 +328,70 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	}
 	
 	@Override
-	public void AddSections()
+	public void AddCourseSectionTimes()
 	{
-		if(!addSectionsClickInProgress) 
+		if(!addTimeClickInProgress) 
 		{
-			addSectionsClickInProgress = true;
-			view.getAddSectionsButton().setEnabled(false);
+			addTimeClickInProgress = true;
+			view.getAddCourseSectionTimesButton().setEnabled(false);
 			parentPresenter.showLoadScreen();
 			
-			Integer courseId = null;
-			String sectionType = null;
-			String term = null;
+			Integer courseSectionId = null;
+			Integer dayOfWeek = null;
+			Integer startTime = null;
+			Integer endTime = null;
+			String location = null;
 			boolean fieldsAreValid = true;
 			List<String> invalidReasonList = new ArrayList<>();
 			try
 			{
-				courseId = Integer.parseInt(view.getCourseIdTextBox().getText());
+				courseSectionId = Integer.parseInt(view.getCourseSectionIdTextBox().getText());
 			}
 			catch(NumberFormatException e)
 			{
-				invalidReasonList.add(InvalidCourseStrings.NULL_ID);
+				invalidReasonList.add(InvalidTimeStrings.NULL_SECTION);
 				fieldsAreValid = false;
 			}
-			try 
+			try
 			{
-				checkEmptyString( = view.getCourseDeptTextBox().getText());
+				dayOfWeek = Integer.parseInt(view.getDayOfWeekTextBox().getText());
 			}
-			catch(EmptyStringException e)
+			catch(NumberFormatException e)
 			{
-				invalidReasonList.add(InvalidCourseStrings.NULL_DEPT);
+				invalidReasonList.add(InvalidTimeStrings.NULL_DAY);
 				fieldsAreValid = false;
 			}
-			try 
+			try
 			{
-				checkEmptyString(courseDescription = view.getCourseDescriptionTextBox().getText());
+				startTime = Integer.parseInt(view.getStartTimeTextBox().getText());
 			}
-			catch(EmptyStringException e)
+			catch(NumberFormatException e)
 			{
-				invalidReasonList.add(InvalidCourseStrings.NULL_DESCRIPTION);
+				invalidReasonList.add(InvalidTimeStrings.NULL_START);
 				fieldsAreValid = false;
 			}
-			try 
+			try
 			{
-				checkEmptyString(courseName = view.getCourseNameTextBox().getText());
+				endTime = Integer.parseInt(view.getEndTimeTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidTimeStrings.NULL_END);
 				fieldsAreValid = false;
 			}
-			catch(EmptyStringException e)
+			try
 			{
-				invalidReasonList.add(InvalidCourseStrings.NULL_NAME);
+				checkEmptyString(location = view.getLocationTextBox().getText());
+			}
+			catch (EmptyStringException e) 
+			{
+				invalidReasonList.add(InvalidTimeStrings.NULL_LOCATION);
 				fieldsAreValid = false;
 			}
+			
 			if (fieldsAreValid) 
 			{
-				sendModifyCourse(courseId, courseName, courseDept, courseDescription);
+				sendAddCourseSectionsTimes(courseSectionId, dayOfWeek, startTime, endTime, location);
 			}
 			else
 			{
@@ -391,13 +402,146 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 		}
 	}
 	
-	
-	public void sendModifyCourse(Integer courseId, String courseName, String courseDept, String courseDescription) 
+	public void sendAddCourseSectionsTimes(Integer courseSectionId, Integer dayOfWeek, Integer startTime, Integer endTime, String location) 
 	{
-		CourseModifyAction sla = new CourseModifyAction(courseId, courseName, courseDept, courseDescription);
-		CourseModifyEvent sle = new CourseModifyEvent(sla);
+		CourseSectionTimeAddAction sla = new CourseSectionTimeAddAction(courseSectionId, dayOfWeek, startTime, endTime, location);
+		CourseSectionTimeAddEvent sle = new CourseSectionTimeAddEvent(sla);
 		eventBus.fireEvent(sle);
 	}
 	
+	
+	@Override
+	public void ModifyCourseSectionTimes()
+	{
+		if(!modifyTimeClickInProgress) 
+		{
+			modifyTimeClickInProgress = true;
+			view.getModifyCourseSectionTimesButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			Integer courseSectionTimeId = null;
+			Integer courseSectionId = null;
+			Integer dayOfWeek = null;
+			Integer startTime = null;
+			Integer endTime = null;
+			String location = null;
+			boolean fieldsAreValid = true;
+			List<String> invalidReasonList = new ArrayList<>();
+			try
+			{
+				courseSectionTimeId = Integer.parseInt(view.getCourseSectionTimeIdTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidTimeStrings.NULL_TIME_ID);
+				fieldsAreValid = false;
+			}
+			try
+			{
+				courseSectionId = Integer.parseInt(view.getCourseSectionIdTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidTimeStrings.NULL_SECTION);
+				fieldsAreValid = false;
+			}
+			try
+			{
+				dayOfWeek = Integer.parseInt(view.getDayOfWeekTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidTimeStrings.NULL_DAY);
+				fieldsAreValid = false;
+			}
+			try
+			{
+				startTime = Integer.parseInt(view.getStartTimeTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidTimeStrings.NULL_START);
+				fieldsAreValid = false;
+			}
+			try
+			{
+				endTime = Integer.parseInt(view.getEndTimeTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidTimeStrings.NULL_END);
+				fieldsAreValid = false;
+			}
+			try
+			{
+				checkEmptyString(location = view.getLocationTextBox().getText());
+			}
+			catch (EmptyStringException e) 
+			{
+				invalidReasonList.add(InvalidTimeStrings.NULL_LOCATION);
+				fieldsAreValid = false;
+			}
+			
+			if (fieldsAreValid) 
+			{
+				sendModifyCourseSectionsTimes(courseSectionTimeId, courseSectionId, dayOfWeek, startTime, endTime, location);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendModifyCourseSectionsTimes(Integer courseSectionTimeId, Integer courseSectionId, Integer dayOfWeek, Integer startTime, Integer endTime, String location) 
+	{
+		CourseSectionTimeModifyAction sla = new CourseSectionTimeModifyAction(courseSectionTimeId, courseSectionId, dayOfWeek, startTime, endTime, location);
+		CourseSectionTimeModifyEvent sle = new CourseSectionTimeModifyEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	@Override
+	public void RemoveCourseSectionTimes()
+	{
+		if(!removeTimeClickInProgress) 
+		{
+			removeTimeClickInProgress = true;
+			view.getRemoveCourseSectionTimesButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			Integer courseSectionTimeId = null;
+			boolean fieldsAreValid = true;
+			List<String> invalidReasonList = new ArrayList<>();
+			try
+			{
+				courseSectionTimeId = Integer.parseInt(view.getCourseSectionTimeIdTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidTimeStrings.NULL_TIME_ID);
+				fieldsAreValid = false;
+			}
+			
+			if (fieldsAreValid) 
+			{
+				sendRemoveCourseSectionsTimes(courseSectionTimeId);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendRemoveCourseSectionsTimes(Integer courseSectionTimeId) 
+	{
+		CourseSectionTimeRemoveAction sla = new CourseSectionTimeRemoveAction(courseSectionTimeId);
+		CourseSectionTimeRemoveEvent sle = new CourseSectionTimeRemoveEvent(sla);
+		eventBus.fireEvent(sle);
+	}
 	
 }
