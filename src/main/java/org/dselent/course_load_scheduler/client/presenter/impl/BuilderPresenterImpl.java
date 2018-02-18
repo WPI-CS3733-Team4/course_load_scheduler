@@ -52,6 +52,9 @@ import org.dselent.course_load_scheduler.client.event.TermRemoveEvent;
 import org.dselent.course_load_scheduler.client.action.TermRemoveAction;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidTimeStrings;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidSectionStrings;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidTermStrings;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidDepartmentStrings;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidLocationStrings;
 
 /* Created by Michael Capobianco */
 
@@ -153,7 +156,7 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	}
 	
 	@Override
-	public void AddCourses()
+	public void addCourses()
 	{
 		if(!addCourseClickInProgress) 
 		{
@@ -215,7 +218,7 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	}
 	
 	@Override
-	public void ModifyCourses()
+	public void modifyCourses()
 	{
 		if(!modifyCourseClickInProgress) 
 		{
@@ -287,7 +290,7 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	}
 	
 	@Override
-	public void RemoveCourses()
+	public void removeCourses()
 	{
 		if(!removeCourseClickInProgress) 
 		{
@@ -329,7 +332,7 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	}
 	
 	@Override
-	public void AddCourseSectionTimes()
+	public void addCourseSectionTimes()
 	{
 		if(!addTimeClickInProgress) 
 		{
@@ -412,7 +415,7 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	
 	@Override
-	public void ModifyCourseSectionTimes()
+	public void modifyCourseSectionTimes()
 	{
 		if(!modifyTimeClickInProgress) 
 		{
@@ -504,7 +507,7 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	}
 	
 	@Override
-	public void RemoveCourseSectionTimes()
+	public void removeCourseSectionTimes()
 	{
 		if(!removeTimeClickInProgress) 
 		{
@@ -546,7 +549,7 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	}
 	
 	@Override
-	public void AddSections()
+	public void addCourseSections()
 	{
 		if(!addSectionsClickInProgress) 
 		{
@@ -610,12 +613,12 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	}
 	
 	@Override
-	public void ModifySections()
+	public void modifyCourseSections()
 	{
-		if(!addSectionsClickInProgress) 
+		if(!modifySectionsClickInProgress) 
 		{
-			addSectionsClickInProgress = true;
-			view.getAddSectionsButton().setEnabled(false);
+			modifySectionsClickInProgress = true;
+			view.getModifySectionsButton().setEnabled(false);
 			parentPresenter.showLoadScreen();
 			
 			Integer courseSectionId = null;
@@ -681,5 +684,546 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 		CourseSectionModifyAction sla = new CourseSectionModifyAction(courseSectionId, course, sectionType, term);
 		CourseSectionModifyEvent sle = new CourseSectionModifyEvent(sla);
 		eventBus.fireEvent(sle);
+	}
+	@Override
+	public void removeCourseSections()
+	{
+		if(!removeSectionsClickInProgress) 
+		{
+			removeSectionsClickInProgress = true;
+			view.getRemoveSectionsButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			Integer courseSectionId = null;
+			
+			boolean fieldsAreValid = true;
+			List<String> invalidReasonList = new ArrayList<>();
+			try
+			{
+				courseSectionId = Integer.parseInt(view.getCourseSectionIdTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidSectionStrings.NULL_SECTION_ID);
+				fieldsAreValid = false;
+			}			
+			
+			if (fieldsAreValid) 
+			{
+				sendRemoveSections(courseSectionId);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendRemoveSections(Integer courseSectionId) 
+	{
+		CourseSectionRemoveAction sla = new CourseSectionRemoveAction(courseSectionId);
+		CourseSectionRemoveEvent sle = new CourseSectionRemoveEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	@Override
+	public void addLocations()
+	{
+	
+		if(!addLocationClickInProgress) 
+		{
+			addLocationClickInProgress = true;
+			view.getAddLocationsButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+		    Integer room = null;
+		    Integer roomSize = null;
+		    String building = view.getBuildingTextBox().getText();
+			
+			boolean fieldsAreValid = true;
+			
+			List<String> invalidReasonList = new ArrayList<>();
+			
+			try
+			{
+				checkEmptyString(building);
+			}
+			catch(EmptyStringException e) 
+			{
+				invalidReasonList.add(InvalidLocationStrings.INVALID_BUILDING);
+				fieldsAreValid = false;
+			}
+			
+			try
+			{
+				room = Integer.parseInt(view.getRoomTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidLocationStrings.INVALID_ROOM);
+				fieldsAreValid = false;
+			}
+			
+			try
+			{
+				roomSize = Integer.parseInt(view.getRoomSizeTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidLocationStrings.INVALID_ROOM_SIZE);
+				fieldsAreValid = false;
+			}
+			
+			if (fieldsAreValid) 
+			{
+				sendAddLocations(building, room, roomSize);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendAddLocations(String building, Integer room, Integer roomSize) 
+	{
+		LocationAddAction sla = new LocationAddAction(building, room, roomSize);
+		LocationAddEvent sle = new LocationAddEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	
+	@Override
+	public void modifyLocations()
+	{
+	
+		if(!modifyLocationClickInProgress) 
+		{
+			modifyLocationClickInProgress = true;
+			view.getModifyLocationsButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			Integer locationId = null;
+		    Integer room = null;
+		    Integer roomSize = null;
+		    String building = view.getBuildingTextBox().getText();
+			
+			boolean fieldsAreValid = true;
+			
+			List<String> invalidReasonList = new ArrayList<>();
+			
+			try
+			{
+				checkEmptyString(building);
+			}
+			catch(EmptyStringException e) 
+			{
+				invalidReasonList.add(InvalidLocationStrings.INVALID_BUILDING);
+				fieldsAreValid = false;
+			}
+			
+			try
+			{
+				locationId = Integer.parseInt(view.getLocationIdTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidLocationStrings.INVALID_LOCATION_ID);
+				fieldsAreValid = false;
+			}
+			
+			try
+			{
+				room = Integer.parseInt(view.getRoomTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidLocationStrings.INVALID_ROOM);
+				fieldsAreValid = false;
+			}
+			
+			try
+			{
+				roomSize = Integer.parseInt(view.getRoomSizeTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidLocationStrings.INVALID_ROOM_SIZE);
+				fieldsAreValid = false;
+			}
+			
+			if (fieldsAreValid) 
+			{
+				sendModifyLocations(locationId, building, room, roomSize);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendModifyLocations(Integer locationId, String building, Integer room, Integer roomSize) 
+	{
+		LocationModifyAction sla = new LocationModifyAction(locationId, building, room, roomSize);
+		LocationModifyEvent sle = new LocationModifyEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	@Override
+	public void removeLocations()
+	{
+	
+		if(!removeLocationClickInProgress) 
+		{
+			removeLocationClickInProgress = true;
+			view.getRemoveLocationsButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			Integer locationId = null;
+			
+			boolean fieldsAreValid = true;
+			
+			List<String> invalidReasonList = new ArrayList<>();
+			
+			try
+			{
+				locationId = Integer.parseInt(view.getLocationIdTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidLocationStrings.INVALID_LOCATION_ID);
+				fieldsAreValid = false;
+			}
+			
+			if (fieldsAreValid) 
+			{
+				sendRemoveLocations(locationId);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendRemoveLocations(Integer locationId) 
+	{
+		LocationRemoveAction sla = new LocationRemoveAction(locationId);
+		LocationRemoveEvent sle = new LocationRemoveEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	@Override
+	public void addDepartments()
+	{
+	
+		if(!addDepartmentClickInProgress) 
+		{
+			addDepartmentClickInProgress = true;
+			view.getAddDepartmentsButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+		    String department = view.getDepartmentTextBox().getText();
+			
+			boolean fieldsAreValid = true;
+			
+			List<String> invalidReasonList = new ArrayList<>();
+			
+			try
+			{
+				checkEmptyString(department);
+			}
+			catch(EmptyStringException e) 
+			{
+				invalidReasonList.add(InvalidDepartmentStrings.INVALID_DEPARTMENT);
+				fieldsAreValid = false;
+			}
+			
+			
+			if (fieldsAreValid) 
+			{
+				sendAddDepartments(department);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendAddDepartments(String department) 
+	{
+		DepartmentAddAction sla = new DepartmentAddAction(department);
+		DepartmentAddEvent sle = new DepartmentAddEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	@Override
+	public void modifyDepartments()
+	{
+	
+		if(!modifyDepartmentClickInProgress) 
+		{
+			modifyDepartmentClickInProgress = true;
+			view.getModifyDepartmentsButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			Integer departmentId = null;
+		    String department = view.getDepartmentTextBox().getText();
+			
+			boolean fieldsAreValid = true;
+			
+			List<String> invalidReasonList = new ArrayList<>();
+			
+			try
+			{
+				checkEmptyString(department);
+			}
+			catch(EmptyStringException e) 
+			{
+				invalidReasonList.add(InvalidDepartmentStrings.INVALID_DEPARTMENT);
+				fieldsAreValid = false;
+			}
+			
+			try
+			{
+				departmentId = Integer.parseInt(view.getDepartmentIdTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidDepartmentStrings.INVALID_DEPARTMENT_ID);
+				fieldsAreValid = false;
+			}
+			
+			if (fieldsAreValid) 
+			{
+				sendModifyDepartments(departmentId, department);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendModifyDepartments(Integer departmentId, String department) 
+	{
+		DepartmentModifyAction sla = new DepartmentModifyAction(departmentId, department);
+		DepartmentModifyEvent sle = new DepartmentModifyEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	@Override
+	public void removeDepartments()
+	{
+	
+		if(!removeDepartmentClickInProgress) 
+		{
+			removeDepartmentClickInProgress = true;
+			view.getRemoveDepartmentsButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			Integer departmentId = null;
+			
+			boolean fieldsAreValid = true;
+			
+			List<String> invalidReasonList = new ArrayList<>();
+			
+			try
+			{
+				departmentId = Integer.parseInt(view.getDepartmentIdTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidDepartmentStrings.INVALID_DEPARTMENT_ID);
+				fieldsAreValid = false;
+			}
+			
+			if (fieldsAreValid) 
+			{
+				sendRemoveDepartments(departmentId);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendRemoveDepartments(Integer departmentId) 
+	{
+		DepartmentRemoveAction sla = new DepartmentRemoveAction(departmentId);
+		DepartmentRemoveEvent sle = new DepartmentRemoveEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	@Override
+	public void addTerms()
+	{
+	
+		if(!addTermClickInProgress) 
+		{
+			addTermClickInProgress = true;
+			view.getAddTermsButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+		    String termName = view.getTermNameTextBox().getText();
+			
+			boolean fieldsAreValid = true;
+			
+			List<String> invalidReasonList = new ArrayList<>();
+			
+			try
+			{
+				checkEmptyString(termName);
+			}
+			catch(EmptyStringException e) 
+			{
+				invalidReasonList.add(InvalidTermStrings.INVALID_TERM_NAME);
+				fieldsAreValid = false;
+			}
+			
+			if (fieldsAreValid) 
+			{
+				sendAddTerms(termName);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendAddTerms(String termName) 
+	{
+		TermAddAction sla = new TermAddAction(termName);
+		TermAddEvent sle = new TermAddEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	@Override
+	public void modifyTerms()
+	{
+	
+		if(!modifyTermClickInProgress) 
+		{
+			modifyTermClickInProgress = true;
+			view.getModifyTermsButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			Integer termId = null;
+		    String termName = view.getTermNameTextBox().getText();
+			
+			boolean fieldsAreValid = true;
+			
+			List<String> invalidReasonList = new ArrayList<>();
+			
+			try
+			{
+				checkEmptyString(termName);
+			}
+			catch(EmptyStringException e) 
+			{
+				invalidReasonList.add(InvalidTermStrings.INVALID_TERM_NAME);
+				fieldsAreValid = false;
+			}
+			
+			try
+			{
+				termId = Integer.parseInt(view.getTermIdTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidTermStrings.INVALID_TERM_ID);
+				fieldsAreValid = false;
+			}
+			
+			if (fieldsAreValid) 
+			{
+				sendModifyTerms(termId, termName);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendModifyTerms(Integer termId, String termName) 
+	{
+		TermModifyAction sla = new TermModifyAction(termId, termName);
+		TermModifyEvent sle = new TermModifyEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	@Override
+	public void removeTerms()
+	{
+	
+		if(!removeTermClickInProgress) 
+		{
+			removeTermClickInProgress = true;
+			view.getRemoveTermsButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			Integer termId = null;
+			
+			boolean fieldsAreValid = true;
+			
+			List<String> invalidReasonList = new ArrayList<>();
+			
+			try
+			{
+				termId = Integer.parseInt(view.getTermIdTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidTermStrings.INVALID_TERM_ID);
+				fieldsAreValid = false;
+			}
+			
+			if (fieldsAreValid) 
+			{
+				sendRemoveTerms(termId);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendRemoveTerms(Integer termId) 
+	{
+		TermRemoveAction sla = new TermRemoveAction(termId);
+		TermRemoveEvent sle = new TermRemoveEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	@Override
+	public void confirmRequest()
+	{
+		//Haven't implemented this yet
 	}
 }
