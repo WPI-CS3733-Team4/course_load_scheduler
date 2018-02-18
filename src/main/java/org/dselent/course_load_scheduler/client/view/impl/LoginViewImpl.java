@@ -11,9 +11,8 @@ import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 
@@ -24,18 +23,6 @@ public class LoginViewImpl extends BaseViewImpl<LoginPresenter> implements Login
 	interface LoginViewImplUiBinder extends UiBinder<Widget, LoginViewImpl>{}
 			
 	@UiField
-	Label viewLabel;
-	
-	@UiField
-	Label nameLabel;
-	
-	@UiField
-	Label passwordLabel;
-	
-	@UiField
-	Label warningLabel;
-	
-	@UiField
 	TextBox nameTextBox;
 	
 	@UiField
@@ -45,7 +32,7 @@ public class LoginViewImpl extends BaseViewImpl<LoginPresenter> implements Login
 	Button loginButton;
 	
 	@UiField
-	VerticalPanel loginPanel;
+	HTMLPanel loginPanel;
 	
 	public LoginViewImpl()
 	{
