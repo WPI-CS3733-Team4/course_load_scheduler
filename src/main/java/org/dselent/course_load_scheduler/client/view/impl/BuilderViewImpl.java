@@ -26,6 +26,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	
 	interface BuilderViewImplUiBinder extends UiBinder<Widget, BuilderViewImpl>{}
 			
+	//Courses
 	@UiField
 	TextBox courseIdTextBox;
 	
@@ -37,18 +38,42 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	
 	@UiField
 	TextBox courseDescriptionTextBox;
+		
+	@UiField
+	Button AddCoursesButton;
 	
 	@UiField
-	TextBox courseSectionTextBox;
+	Button ModifyCoursesButton;
 	
 	@UiField
-	TextBox courseSectionTimeIdTextBox;
+	Button RemoveCoursesButton;
+
 	
+	//Course Sections
+	@UiField
+	TextBox courseSectionIdTextBox;
+	
+	@UiField
+	TextBox courseTextBox;
+
 	@UiField
 	TextBox sectionTypeTextBox;
 	
 	@UiField
-	TextBox courseSectionIdTextBox;
+	Button AddSectionsButton;
+	
+	@UiField
+	Button ModifySectionsButton;
+	
+	@UiField
+	Button RemoveSectionsButton;
+	
+	//Course Section Times
+	@UiField
+	TextBox courseSectionTimeIdTextBox;
+	
+	@UiField
+	TextBox courseSectionTextBox;
 	
 	@UiField
 	TextBox startTimeTextBox;
@@ -63,6 +88,17 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	TextBox locationTextBox;
 	
 	@UiField
+	Button AddCourseSectionTimesButton;
+	
+	@UiField
+	Button ModifyCourseSectionTimesButton;
+	
+	@UiField
+	Button RemoveCourseSectionTimesButton;
+	
+	
+	//Locations
+	@UiField
 	TextBox locationIdTextBox;
 	
 	@UiField
@@ -75,49 +111,6 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	TextBox roomSizeTextBox;
 	
 	@UiField
-	TextBox departmentTextBox;
-	
-	@UiField
-	TextBox departmentIdTextBox;
-	
-	@UiField
-	TextBox termIdTextBox;
-	
-	@UiField
-	TextBox termNameTextBox;
-	
-	
-	@UiField
-	VerticalPanel builderPanel;
-	
-	@UiField
-	Button AddCoursesButton;
-	
-	@UiField
-	Button ModifyCoursesButton;
-	
-	@UiField
-	Button RemoveCoursesButton;
-	
-	@UiField
-	Button AddSectionsButton;
-	
-	@UiField
-	Button ModifySectionsButton;
-	
-	@UiField
-	Button RemoveSectionsButton;
-	
-	@UiField
-	Button AddCourseSectionTimesButton;
-	
-	@UiField
-	Button ModifyCourseSectionTimesButton;
-	
-	@UiField
-	Button RemoveCourseSectionTimesButton;
-	
-	@UiField
 	Button AddLocationsButton;
 	
 	@UiField
@@ -125,6 +118,13 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	
 	@UiField
 	Button RemoveLocationsButton;
+	
+	//Departments
+	@UiField
+	TextBox departmentIdTextBox;
+	
+	@UiField
+	TextBox departmentTextBox;
 	
 	@UiField
 	Button AddDepartmentsButton;
@@ -135,6 +135,13 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	@UiField
 	Button RemoveDepartmentsButton;
 	
+	//Terms
+	@UiField
+	TextBox termIdTextBox;
+	
+	@UiField
+	TextBox termNameTextBox;
+	
 	@UiField
 	Button AddTermsButton;
 	
@@ -143,6 +150,9 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	
 	@UiField
 	Button RemoveTermsButton;
+	
+	@UiField
+	VerticalPanel builderPanel;	
 	
 	@UiField
 	Button ComfirmRequestButton;
@@ -156,6 +166,14 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	public BuilderViewImpl()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
+	}
+	
+	TextBox getCourseTextBox() {
+		return courseTextBox;
+	}
+	
+	void setCourseTextBox() {
+		this.courseTextBox = courseTextBox;
 	}
 
 	public TextBox getCourseIdTextBox() {
