@@ -1,0 +1,93 @@
+
+<!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
+<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
+        xmlns:g="urn:import:com.google.gwt.user.client.ui">
+
+<ui:style>
+     	
+	.builder-button
+	{
+		float: right;
+		font-color: #000;
+		font-size: 14pt;
+		font-style: bold;
+		height: 35px;
+		width: 150px;
+		margin-right: 8px;
+		margin-left: 8px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	
+</ui:style>
+
+<g:HTMLPanel ui:field="builderPanel">
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6"><h2>Builder Panel</h2></div>
+			<div class="col-md-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">FlexTable Placeholder</div>
+			<div class="col-md-4">FlexTable Placeholder</div>
+			<div class="col-md-4">FlexTable Placeholder</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card container" style="margin-top:40px;">
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
+							<h3 style="margin-top:20px;"> Modify Courses</h3>
+						</div>
+						<div class="col-md-3"></div>
+					</div>
+					<div class="row">
+						<div class="col-md-3"><p>Course ID:</p></div>
+						<div class="col-md-3"><p>Course Name:</p></div>
+						<div class="col-md-3"><p>Course Department:</p></div>
+						<div class="col-md-3"><p>Course Description:</p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-3"><g:TextBox ui:field="courseIdTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-3"><g:TextBox ui:field="courseNameTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-3"><g:TextBox ui:field="courseDeptTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-3"><g:TextBox ui:field="courseDescriptionTextBox" addStyleNames="form-control"/></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"></div>
+						<div class="col-md-6">
+							<g:Button ui:field="addCoursesButton" addStyleNames="{style.builder-button} btn">Add Course</g:Button>
+							<g:Button ui:field="modifyCoursesButton" addStyleNames="{style.builder-button} btn">Modify Course</g:Button>
+							<g:Button ui:field="removeCoursesButton" addStyleNames="{style.builder-button} btn">Remove Course</g:Button>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4"><p>Course Section ID:</p></div>
+						<div class="col-md-4"><p>Course:</p></div>
+						<div class="col-md-4"><p>Section:</p></div>
+					</div>
+					<div class="row">
+						<div class="col-md-4"><g:TextBox ui:field="courseSectionIdTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-4"><g:TextBox ui:field="courseTextBox" addStyleNames="form-control"/></div>
+						<div class="col-md-4"><g:TextBox ui:field="sectionTypeTextBox" addStyleNames="form-control"/></div>
+					</div>
+					<div class="row">
+						<div class="col-md-6"></div>
+						<div class="col-md-6">
+							<g:Button ui:field="addSectionButton" addStyleNames="{style.builder-button} btn">Add Section</g:Button>
+							<g:Button ui:field="modifySectionButton" addStyleNames="{style.builder-button} btn">Modify Section</g:Button>
+							<g:Button ui:field="removeSectionButton" addStyleNames="{style.builder-button} btn">Remove Section</g:Button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	 
+	
+
+</g:HTMLPanel>
+
+</ui:UiBinder>
