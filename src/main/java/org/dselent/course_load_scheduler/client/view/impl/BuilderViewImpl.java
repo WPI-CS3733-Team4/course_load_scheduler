@@ -168,11 +168,11 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 		initWidget(uiBinder.createAndBindUi(this));
 	}
 	
-	TextBox getCourseTextBox() {
+	public TextBox getCourseTextBox() {
 		return courseTextBox;
 	}
 	
-	void setCourseTextBox(TextBox courseTextBox) {
+	public void setCourseTextBox(TextBox courseTextBox) {
 		this.courseTextBox = courseTextBox;
 	}
 
