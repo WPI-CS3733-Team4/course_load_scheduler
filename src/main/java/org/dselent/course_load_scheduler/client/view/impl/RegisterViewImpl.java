@@ -13,7 +13,7 @@ import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.TextBox;
-import com.google.gwt.user.client.ui.VerticalPanel;
+import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
 
 /* Created by Nathan Siegel */
@@ -24,28 +24,6 @@ public class RegisterViewImpl extends BaseViewImpl<RegisterPresenter> implements
 	
 	interface RegisterViewImplUiBinder extends UiBinder<Widget, RegisterViewImpl>{}
 			
-	@UiField
-	Label viewLabel;
-	
-	@UiField
-	Label userNameLabel;
-	
-	@UiField
-	Label firstNameLabel;
-	
-	@UiField
-	Label lastNameLabel;
-	
-	@UiField
-	Label emailLabel;
-	
-	@UiField
-	Label passwordLabel;
-	
-	@UiField
-	Label warningLabel;
-	
-	
 	@UiField
 	TextBox userNameTextBox;
 	
@@ -65,7 +43,7 @@ public class RegisterViewImpl extends BaseViewImpl<RegisterPresenter> implements
 	Button registerButton;
 	
 	@UiField
-	VerticalPanel registerPanel;
+	HTMLPanel registerPanel;
 	
 	public RegisterViewImpl()
 	{
