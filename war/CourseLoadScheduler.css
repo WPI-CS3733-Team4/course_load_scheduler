@@ -1,19 +1,54 @@
 /** Add css rules here for your application. */
 
-
-/** Example rules used by the template application (remove for your app) */
-h1 {
-  font-size: 2em;
-  font-weight: bold;
-  color: #777777;
-  margin: 40px 0px 70px;
-  text-align: center;
-}
-
-.sendButton {
-  display: block;
+/* Default Setting */
+* {
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
   font-size: 16pt;
+  text-align: left;
 }
+
+#index{
+
+}
+
+h2{
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 24pt;
+ }
+ 
+ h3{
+ 	font-size:18pt;
+ 	text-align: center;
+ }
+ 
+ p{
+ 	font-size: 14pt;
+ 	text-align: left;
+ 	margin-bottom: 0px;
+}
+ 
+.card{
+	background-color: #D0D0D0;
+}
+
+#registerMenu{
+  padding: 20px;
+}
+.navbar-brand{
+  margin-right: 150px;
+}
+
+.nav-item{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.gwt-TextBox{
+  font-size: 20pt;
+ }
 
 /** Most GWT widgets already have a style name defined */
 .gwt-DialogBox {

@@ -2,10 +2,10 @@ package org.dselent.course_load_scheduler.client.presenter.impl;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.dselent.course_load_scheduler.client.action.InvalidLoginAction;
+import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
 import org.dselent.course_load_scheduler.client.action.SendLoginAction;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidLoginStrings;
-import org.dselent.course_load_scheduler.client.event.InvalidLoginEvent;
+import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
 import org.dselent.course_load_scheduler.client.event.SendLoginEvent;
 import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
@@ -42,8 +42,8 @@ public class LoginPresenterImpl extends BasePresenterImpl implements LoginPresen
 	{
 		HandlerRegistration registration;
 		
-		registration = eventBus.addHandler(InvalidLoginEvent.TYPE, this);
-		eventBusRegistration.put(InvalidLoginEvent.TYPE, registration);
+		registration = eventBus.addHandler(InvalidFieldEvent.TYPE, this);
+		eventBusRegistration.put(InvalidFieldEvent.TYPE, registration);
 	}
 		
 	@Override
@@ -114,8 +114,8 @@ public class LoginPresenterImpl extends BasePresenterImpl implements LoginPresen
 			}
 			else
 			{
-				InvalidLoginAction ila = new InvalidLoginAction(invalidReasonList);
-				InvalidLoginEvent ile = new InvalidLoginEvent(ila);
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
 				eventBus.fireEvent(ile);
 			}
 		}
@@ -152,13 +152,13 @@ public class LoginPresenterImpl extends BasePresenterImpl implements LoginPresen
 	 * Useful for example purposes without involving server-side
 	*/
 	@Override
-	public void onInvalidLogin(InvalidLoginEvent evt)
+	public void onInvalidField(InvalidFieldEvent evt)
 	{
 		parentPresenter.hideLoadScreen();
 		view.getLoginButton().setEnabled(true);
 		loginClickInProgress = false;
 		
-		InvalidLoginAction ila = evt.getAction();
+		InvalidFieldAction ila = evt.getAction();
 		view.showErrorMessages(ila.toString());
 	}
 }

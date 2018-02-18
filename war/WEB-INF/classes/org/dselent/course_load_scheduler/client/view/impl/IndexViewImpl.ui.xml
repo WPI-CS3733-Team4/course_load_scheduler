@@ -13,7 +13,6 @@
 		
 	.gwt-popup-panel-glass
 	{
-		background-color:rgb(0, 0, 0);
 		opacity:0.8;
 	}
 		
@@ -29,10 +28,31 @@
 	
 </ui:style>
 
-<g:VerticalPanel>
-	<g:HTMLPanel ui:field="mainPanel"/>
+<g:HTMLPanel>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	  <a class="navbar-brand" href="#">Course Load Scheduler</a>
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <div class="collapse navbar-collapse" id="navbarNav">
+	    <ul class="navbar-nav">
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Faculty</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Builder</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Admin</a>
+	      </li>
+	    </ul>
+	  </div>
+	</nav>
+	<div class="container" id="index">	
+		<g:HTMLPanel ui:field="mainPanel"/>
+	</div>
 	<g:Image ui:field="loadingImage" url="WEB-INF/classes/org/dselent/course_load_scheduler/client/view/images/loading.gif" addStyleNames="{style.loading-image}"/>
 	<g:PopupPanel ui:field="glassLoadingPanel" addStyleNames="{style.loading-glass-panel}, {style.gwt-popup-panel-glass}"/>
-</g:VerticalPanel>
+</g:HTMLPanel>
 
 </ui:UiBinder> 
