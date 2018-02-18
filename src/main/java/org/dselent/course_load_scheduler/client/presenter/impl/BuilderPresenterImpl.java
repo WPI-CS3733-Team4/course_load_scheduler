@@ -51,6 +51,7 @@ import org.dselent.course_load_scheduler.client.action.TermModifyAction;
 import org.dselent.course_load_scheduler.client.event.TermRemoveEvent;
 import org.dselent.course_load_scheduler.client.action.TermRemoveAction;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidTimeStrings;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidSectionStrings;
 
 /* Created by Michael Capobianco */
 
@@ -544,4 +545,141 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 		eventBus.fireEvent(sle);
 	}
 	
+	@Override
+	public void AddSections()
+	{
+		if(!addSectionsClickInProgress) 
+		{
+			addSectionsClickInProgress = true;
+			view.getAddSectionsButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			Integer course = null;
+			Integer sectionType = null;
+			String term = null;
+			boolean fieldsAreValid = true;
+			List<String> invalidReasonList = new ArrayList<>();
+			try
+			{
+				course = Integer.parseInt(view.getCourseTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidSectionStrings.NULL_COURSE);
+				fieldsAreValid = false;
+			}
+			try
+			{
+				sectionType = Integer.parseInt(view.getSectionTypeTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidSectionStrings.NULL_SECTION_TYPE);
+				fieldsAreValid = false;
+			}
+			try
+			{
+				term = view.getTermIdTextBox().getText();
+				checkEmptyString(term);
+			}
+			catch(EmptyStringException e)
+			{
+				invalidReasonList.add(InvalidSectionStrings.NULL_TERM);
+				fieldsAreValid = false;
+			}
+			
+			
+			if (fieldsAreValid) 
+			{
+				sendAddSections(course, sectionType, term);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendAddSections(Integer course, Integer sectionType, String term) 
+	{
+		CourseSectionAddAction sla = new CourseSectionAddAction(course, sectionType, term);
+		CourseSectionAddEvent sle = new CourseSectionAddEvent(sla);
+		eventBus.fireEvent(sle);
+	}
+	
+	@Override
+	public void ModifySections()
+	{
+		if(!addSectionsClickInProgress) 
+		{
+			addSectionsClickInProgress = true;
+			view.getAddSectionsButton().setEnabled(false);
+			parentPresenter.showLoadScreen();
+			
+			Integer courseSectionId = null;
+			Integer course = null;
+			Integer sectionType = null;
+			String term = null;
+			boolean fieldsAreValid = true;
+			List<String> invalidReasonList = new ArrayList<>();
+			try
+			{
+				courseSectionId = Integer.parseInt(view.getCourseSectionIdTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidSectionStrings.NULL_SECTION_ID);
+				fieldsAreValid = false;
+			}
+			try
+			{
+				course = Integer.parseInt(view.getCourseTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidSectionStrings.NULL_COURSE);
+				fieldsAreValid = false;
+			}
+			try
+			{
+				sectionType = Integer.parseInt(view.getSectionTypeTextBox().getText());
+			}
+			catch(NumberFormatException e)
+			{
+				invalidReasonList.add(InvalidSectionStrings.NULL_SECTION_TYPE);
+				fieldsAreValid = false;
+			}
+			try
+			{
+				term = view.getTermIdTextBox().getText();
+				checkEmptyString(term);
+			}
+			catch(EmptyStringException e)
+			{
+				invalidReasonList.add(InvalidSectionStrings.NULL_TERM);
+				fieldsAreValid = false;
+			}
+			
+			
+			if (fieldsAreValid) 
+			{
+				sendModifySections(courseSectionId, course, sectionType, term);
+			}
+			else
+			{
+				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+				eventBus.fireEvent(ile);
+			}
+		}
+	}
+	
+	public void sendModifySections(Integer courseSectionId, Integer course, Integer sectionType, String term) 
+	{
+		CourseSectionModifyAction sla = new CourseSectionModifyAction(courseSectionId, course, sectionType, term);
+		CourseSectionModifyEvent sle = new CourseSectionModifyEvent(sla);
+		eventBus.fireEvent(sle);
+	}
 }
