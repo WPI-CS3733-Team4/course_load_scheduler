@@ -78,6 +78,10 @@ public class CourseLoadScheduler implements EntryPoint
         AdminPresenterImpl adminPresenter = injector.getAdminPresenter();
         adminPresenter.init();
         AdminView adminView = adminPresenter.getView();
+        
+        BuilderPresenterImpl builderPresenter = injector.getBuilderPresenter();
+        builderPresenter.init();
+        BuilderView builderView = builderPresenter.getView();
 
         indexPresenter.go(RootPanel.get("indexContainer"));
 		indexPresenter.go(root);
@@ -85,5 +89,6 @@ public class CourseLoadScheduler implements EntryPoint
 		//registerPresenter.go(indexView.getViewRootPanel());
 		//facultyPresenter.go(indexView.getViewRootPanel());
 		adminPresenter.go(indexView.getViewRootPanel());
+		//builderPresenter.go(indexView.getViewRootPanel());
 	}
 }
