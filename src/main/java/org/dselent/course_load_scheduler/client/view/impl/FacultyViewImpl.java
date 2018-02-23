@@ -148,6 +148,16 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	public void setCourseSectionTable(FlexTable courseSectionTable) {
 		this.courseSectionTable = courseSectionTable;
 	}
+	
+	@Override
+	public FlexTable getCourseTable() {
+		return courseTable;
+	}
+	
+	@Override
+	public void setCourseTable(FlexTable courseTable) {
+		this.courseTable = courseTable;
+	}
 
 	@Override
 	public void setPresenter(FacultyPresenter presenter)
