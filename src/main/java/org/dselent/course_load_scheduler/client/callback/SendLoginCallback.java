@@ -1,8 +1,8 @@
 package org.dselent.course_load_scheduler.client.callback;
 
-import org.dselent.course_load_scheduler.client.action.InvalidLoginAction;
+import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
 import org.dselent.course_load_scheduler.client.action.ReceiveLoginAction;
-import org.dselent.course_load_scheduler.client.event.InvalidLoginEvent;
+import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
 import org.dselent.course_load_scheduler.client.event.ReceiveLoginEvent;
 import org.dselent.course_load_scheduler.client.translator.impl.LoginActionTranslatorImpl;
 import org.dselent.course_load_scheduler.client.utils.JSONHelper;
@@ -46,8 +46,8 @@ public class SendLoginCallback extends DisplayCallback<JSONValue>
 			sb.append("\n");
 		}
 		
-		InvalidLoginAction ila = new InvalidLoginAction(sb.toString());
-		InvalidLoginEvent ile = new InvalidLoginEvent(ila);
+		InvalidFieldAction ila = new InvalidFieldAction(sb.toString());
+		InvalidFieldEvent ile = new InvalidFieldEvent(ila);
 		eventBus.fireEvent(ile);
 	}
 

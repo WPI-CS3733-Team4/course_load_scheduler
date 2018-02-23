@@ -18,6 +18,11 @@ public class InvalidFieldAction extends Action
 	{
 		reasonList = new ArrayList<>();
 	}
+	public InvalidFieldAction(String reason)
+	{
+		reasonList = new ArrayList<>();
+		reasonList.add(reason);
+	}
 	
 	public InvalidFieldAction(List<String> reasonList)
 	{
