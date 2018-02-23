@@ -19,8 +19,17 @@
 		margin-bottom: 5px;
 	}
 	
+	.confirm-button
+	{
+		width: 200px;
+		float: left;
+		height: 45px;
+
+	}
+	
 </ui:style>
 
+<g:ScrollPanel width="100%" height="800px">
 <g:HTMLPanel ui:field="builderPanel">
 
 	<div class="container">
@@ -89,11 +98,11 @@
 					
 					<!--  Course Section Times -->
 					<div class="row">
-						<div class="col-md-2"><p>Course Section Time ID:</p></div>
+						<div class="col-md-2"><p>Time ID:</p></div>
 						<div class="col-md-2"><p>Course Section:</p></div>
 						<div class="col-md-2"><p>Start Time:</p></div>
 						<div class="col-md-2"><p>End Time:</p></div>
-						<div class="col-md-2"><p>Day of the Week:</p></div>
+						<div class="col-md-2"><p>Weekday:</p></div>
 						<div class="col-md-2"><p>Location:</p></div>
 					</div>
 					<div class="row">
@@ -147,9 +156,9 @@
 					<div class="row">
 						<div class="col-md-6"></div>
 						<div class="col-md-6">
-							<g:Button ui:field="addDepartmentsButton" addStyleNames="{style.builder-button} btn">Add Department</g:Button>
-							<g:Button ui:field="modifyDepartmentsButton" addStyleNames="{style.builder-button} btn">Modify Department</g:Button>
-							<g:Button ui:field="removeDepartmentsButton" addStyleNames="{style.builder-button} btn">Remove Department</g:Button>
+							<g:Button ui:field="addDepartmentsButton" addStyleNames="{style.builder-button} btn">Add Dept</g:Button>
+							<g:Button ui:field="modifyDepartmentsButton" addStyleNames="{style.builder-button} btn">Modify Dept</g:Button>
+							<g:Button ui:field="removeDepartmentsButton" addStyleNames="{style.builder-button} btn">Remove Dept</g:Button>
 						</div>
 					</div>	
 					
@@ -175,7 +184,7 @@
 					<div class="row">
 						<div class="col-md-3"></div>
 						<div class="col-md-6">
-							<g:Button ui:field="confirmRequestButton" addStyleNames="{style.builder-button} btn">Confirm Request</g:Button>
+							<g:Button ui:field="confirmRequestButton" addStyleNames="{style.builder-button} {style.confirm-button} btn">Confirm Request</g:Button>
 						</div>
 					</div>	
 					
@@ -186,5 +195,6 @@
 	
 
 </g:HTMLPanel>
+</g:ScrollPanel>
 
 </ui:UiBinder>
