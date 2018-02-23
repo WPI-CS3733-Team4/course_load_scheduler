@@ -63,7 +63,9 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 		requestTable.setText(1, 0, "This");
 		requestTable.setText(1, 1, "Is a");
 		requestTable.setText(1, 2, "Test");
-		
+		for (int i = 0; i < 30; i++) {
+		requestTable.setText(i,  0,  "Test");
+		}
 		courseSectionTable.setBorderWidth(2);
 		courseSectionTable.setText(0, 0, "Course Section Id");
 		courseSectionTable.setText(0, 1, "Course Id");
