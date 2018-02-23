@@ -22,6 +22,34 @@ public class IndexViewImpl extends BaseViewImpl<IndexPresenter> implements Index
 	@UiField
 	PopupPanel glassLoadingPanel;
 	
+	@UiField
+	Button facultyButton;
+	
+	@UiField
+	Button builderButton;
+	
+	@UiField
+	Button adminButton;
+	
+	
+	
+	public Button getFacultyButton()
+	{
+		return facultyButton;
+	}
+	
+	
+	public Button getBuilderButton()
+	{
+		return builderButton;
+	}
+	
+	
+	public Button getAdminButton()
+	{
+		return adminButton;
+	}
+	
 	public IndexViewImpl()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
