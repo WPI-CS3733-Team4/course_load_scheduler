@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class SendLoginAction extends Actions
+public class SendLoginAction extends Action
 {
 	private String userName;
 	private String password;
