@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class UserRemoveAction
+public class UserRemoveAction extends Action
 {
     private Integer userId;
 

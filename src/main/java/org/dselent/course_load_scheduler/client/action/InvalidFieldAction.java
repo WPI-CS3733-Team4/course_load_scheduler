@@ -10,7 +10,7 @@ import java.util.List;
  * @author dselent
  *
  */
-public class InvalidFieldAction 
+public class InvalidFieldAction extends Action
 {
 	private List<String> reasonList;
 	

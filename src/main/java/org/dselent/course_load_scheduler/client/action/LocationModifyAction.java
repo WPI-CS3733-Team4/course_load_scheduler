@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class LocationModifyAction
+public class LocationModifyAction extends Action
 {
     private Integer locationId;
     private String building;

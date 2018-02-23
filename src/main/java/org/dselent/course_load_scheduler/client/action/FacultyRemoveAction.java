@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class FacultyRemoveAction
+public class FacultyRemoveAction extends Action
 {
     private Integer facultyId;
 

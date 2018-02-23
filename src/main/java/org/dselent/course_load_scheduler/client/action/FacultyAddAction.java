@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class FacultyAddAction
+public class FacultyAddAction extends Action
 {
     private Integer userId;
     private Integer requiredCredits;

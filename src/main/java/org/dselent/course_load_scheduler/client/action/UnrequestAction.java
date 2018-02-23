@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class UnrequestAction
+public class UnrequestAction extends Action
 {
     private Integer courseRequestId;
 

@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class CourseSectionTimeAddAction
+public class CourseSectionTimeAddAction extends Action
 {
     private Integer courseSectionId;
     private Integer dayOfWeek;
