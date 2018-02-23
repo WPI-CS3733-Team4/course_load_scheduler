@@ -1,12 +1,10 @@
 
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-        xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 
-<ui:style>
-     
-	.faculty-button
-	{
+	<ui:style>
+	.faculty-button {
 		float: right;
 		margin-right: 6px;
 		margin-left: 10px;
@@ -18,56 +16,80 @@
 		height: 35px;
 		width: 150px;
 	}
-	
-</ui:style>
+	</ui:style>
 
-<g:ScrollPanel width="100%" height="600px">
-<g:HTMLPanel ui:field="facultyPanel">
+	<g:ScrollPanel width="100%" height="600px">
+		<g:HTMLPanel ui:field="facultyPanel">
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6"><h2>Faculty Requests</h2></div>
-			<div class="col-md-3"></div>
-		</div>
-		<div class="row">
-			<div class="col-md-4"><g:FlexTable ui:field="requestTable" width="100%"/></div>
-			<div class="col-md-4"><g:FlexTable ui:field="courseSectionTable" width="100%"/></div>
-			<div class="col-md-4"><g:FlexTable ui:field="courseTable" width="100%"/></div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="card container" style="margin-top:40px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						<h2>Faculty Requests</h2>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+				<div style="overflow-x:hidden; overflow-y: auto; height:150px;">
 					<div class="row">
-						<div class="col-md-3"></div>
-						<div class="col-md-6">
-							<h3 style="margin-top:20px;"> Modify Your Courses </h3>
+						<div class="col-md-4">
+							<g:FlexTable ui:field="requestTable" width="100%" />
 						</div>
-						<div class="col-md-3"></div>
+						<div class="col-md-4">
+							<g:FlexTable ui:field="courseSectionTable" width="100%" />
+						</div>
+						<div class="col-md-4">
+							<g:FlexTable ui:field="courseTable" width="100%" />
+						</div>
 					</div>
-					<div class="row">
-						<div class="col-md-4"><p>Request ID:</p></div>
-						<div class="col-md-4"><p>Faculty ID:</p></div>
-						<div class="col-md-4"><p>Course Section ID:</p></div>
-					</div>
-					<div class="row">
-						<div class="col-md-4"><g:TextBox ui:field="requestIdTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-4"><g:TextBox ui:field="facultyIdTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-4"><g:TextBox ui:field="courseSectionIdTextBox" addStyleNames="form-control"/></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6"></div>
-						<div class="col-md-6">
-							<g:Button ui:field="requestButton" addStyleNames="{style.faculty-button} btn">Submit Request</g:Button>
-							<g:Button ui:field="unrequestButton" addStyleNames="{style.faculty-button} btn">Remove Request</g:Button>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card container" style="margin-top:40px;">
+							<div class="row">
+								<div class="col-md-3"></div>
+								<div class="col-md-6">
+									<h3 style="margin-top:20px;"> Modify Your Courses </h3>
+								</div>
+								<div class="col-md-3"></div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<p>Request ID:</p>
+								</div>
+								<div class="col-md-4">
+									<p>Faculty ID:</p>
+								</div>
+								<div class="col-md-4">
+									<p>Course Section ID:</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<g:TextBox ui:field="requestIdTextBox" addStyleNames="form-control" />
+								</div>
+								<div class="col-md-4">
+									<g:TextBox ui:field="facultyIdTextBox" addStyleNames="form-control" />
+								</div>
+								<div class="col-md-4">
+									<g:TextBox ui:field="courseSectionIdTextBox"
+										addStyleNames="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6"></div>
+								<div class="col-md-6">
+									<g:Button ui:field="requestButton" addStyleNames="{style.faculty-button} btn">Submit
+										Request</g:Button>
+									<g:Button ui:field="unrequestButton" addStyleNames="{style.faculty-button} btn">Remove
+										Request</g:Button>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>	 
-	
-</g:HTMLPanel>
-</g:ScrollPanel>
+
+		</g:HTMLPanel>
+	</g:ScrollPanel>
 
 </ui:UiBinder>

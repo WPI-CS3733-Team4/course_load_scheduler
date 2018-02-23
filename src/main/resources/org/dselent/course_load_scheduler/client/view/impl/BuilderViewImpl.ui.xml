@@ -1,12 +1,10 @@
 
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-        xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	xmlns:g="urn:import:com.google.gwt.user.client.ui">
 
-<ui:style>
-     	
-	.builder-button
-	{
+	<ui:style>
+	.builder-button {
 		float: right;
 		font-color: #000;
 		font-size: 14pt;
@@ -19,182 +17,296 @@
 		margin-bottom: 5px;
 	}
 	
-	.confirm-button
-	{
+	.confirm-button {
 		width: 200px;
 		float: left;
 		height: 45px;
-
 	}
-	
-</ui:style>
+	</ui:style>
 
-<g:ScrollPanel width="100%" height="600px">
-<g:HTMLPanel ui:field="builderPanel">
+	<g:ScrollPanel width="100%" height="600px">
+		<g:HTMLPanel ui:field="builderPanel">
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-3"></div>
-			<div class="col-md-6"><h2>Builder Panel</h2></div>
-			<div class="col-md-3"></div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">FlexTable Placeholder</div>
-			<div class="col-md-4">FlexTable Placeholder</div>
-			<div class="col-md-4">FlexTable Placeholder</div>
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-				<div class="card container" style="margin-top:40px;">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						<h2>Builder Panel</h2>
+					</div>
+					<div class="col-md-3"></div>
+				</div>
+				<div style="overflow-x:hidden; overflow-y: auto; height:150px;">
 					<div class="row">
-						<div class="col-md-3"></div>
-						<div class="col-md-6">
-							<h3 style="margin-top:20px;"> Modify Courses</h3>
+						<div class="col-md-4">FlexTable Placeholder</div>
+						<div class="col-md-4">FlexTable Placeholder</div>
+						<div class="col-md-4">FlexTable Placeholder</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="card container" style="margin-top:40px;">
+							<div class="row">
+								<div class="col-md-3"></div>
+								<div class="col-md-6">
+									<h3 style="margin-top:20px;"> Modify Courses</h3>
+								</div>
+								<div class="col-md-3"></div>
+							</div>
+
+							<!-- Courses -->
+							<div class="row">
+								<div class="col-md-3">
+									<p>Course ID:</p>
+								</div>
+								<div class="col-md-3">
+									<p>Course Name:</p>
+								</div>
+								<div class="col-md-3">
+									<p>Course Department:</p>
+								</div>
+								<div class="col-md-3">
+									<p>Course Description:</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<g:TextBox ui:field="courseIdTextBox" addStyleNames="form-control" />
+								</div>
+								<div class="col-md-3">
+									<g:TextBox ui:field="courseNameTextBox"
+										addStyleNames="form-control" />
+								</div>
+								<div class="col-md-3">
+									<g:TextBox ui:field="courseDeptTextBox"
+										addStyleNames="form-control" />
+								</div>
+								<div class="col-md-3">
+									<g:TextBox ui:field="courseDescriptionTextBox"
+										addStyleNames="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6"></div>
+								<div class="col-md-6">
+									<g:Button ui:field="addCoursesButton" addStyleNames="{style.builder-button} btn">Add
+										Course</g:Button>
+									<g:Button ui:field="modifyCoursesButton"
+										addStyleNames="{style.builder-button} btn">Modify Course</g:Button>
+									<g:Button ui:field="removeCoursesButton"
+										addStyleNames="{style.builder-button} btn">Remove Course</g:Button>
+								</div>
+							</div>
+
+							<!-- Course Sections -->
+							<div class="row">
+								<div class="col-md-4">
+									<p>Course Section ID:</p>
+								</div>
+								<div class="col-md-4">
+									<p>Course:</p>
+								</div>
+								<div class="col-md-4">
+									<p>Section:</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-4">
+									<g:TextBox ui:field="courseSectionIdTextBox"
+										addStyleNames="form-control" />
+								</div>
+								<div class="col-md-4">
+									<g:TextBox ui:field="courseTextBox" addStyleNames="form-control" />
+								</div>
+								<div class="col-md-4">
+									<g:TextBox ui:field="sectionTypeTextBox"
+										addStyleNames="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6"></div>
+								<div class="col-md-6">
+									<g:Button ui:field="addSectionsButton" addStyleNames="{style.builder-button} btn">Add
+										Section</g:Button>
+									<g:Button ui:field="modifySectionsButton"
+										addStyleNames="{style.builder-button} btn">Modify Section</g:Button>
+									<g:Button ui:field="removeSectionsButton"
+										addStyleNames="{style.builder-button} btn">Remove Section</g:Button>
+								</div>
+							</div>
+
+							<!-- Course Section Times -->
+							<div class="row">
+								<div class="col-md-2">
+									<p>Time ID:</p>
+								</div>
+								<div class="col-md-2">
+									<p>Course Section:</p>
+								</div>
+								<div class="col-md-2">
+									<p>Start Time:</p>
+								</div>
+								<div class="col-md-2">
+									<p>End Time:</p>
+								</div>
+								<div class="col-md-2">
+									<p>Weekday:</p>
+								</div>
+								<div class="col-md-2">
+									<p>Location:</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-2">
+									<g:TextBox ui:field="courseSectionTimeIdTextBox"
+										addStyleNames="form-control" />
+								</div>
+								<div class="col-md-2">
+									<g:TextBox ui:field="courseSectionTextBox"
+										addStyleNames="form-control" />
+								</div>
+								<div class="col-md-2">
+									<g:TextBox ui:field="startTimeTextBox" addStyleNames="form-control" />
+								</div>
+								<div class="col-md-2">
+									<g:TextBox ui:field="endTimeTextBox" addStyleNames="form-control" />
+								</div>
+								<div class="col-md-2">
+									<g:TextBox ui:field="dayOfWeekTextBox" addStyleNames="form-control" />
+								</div>
+								<div class="col-md-2">
+									<g:TextBox ui:field="locationTextBox" addStyleNames="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6"></div>
+								<div class="col-md-6">
+									<g:Button ui:field="addCourseSectionTimesButton"
+										addStyleNames="{style.builder-button} btn">Add Time</g:Button>
+									<g:Button ui:field="modifyCourseSectionTimesButton"
+										addStyleNames="{style.builder-button} btn">Modify Time</g:Button>
+									<g:Button ui:field="removeCourseSectionTimesButton"
+										addStyleNames="{style.builder-button} btn">Remove Time</g:Button>
+								</div>
+							</div>
+
+							<!-- Locations -->
+							<div class="row">
+								<div class="col-md-3">
+									<p>Locaiton ID:</p>
+								</div>
+								<div class="col-md-3">
+									<p>Building:</p>
+								</div>
+								<div class="col-md-3">
+									<p>Room:</p>
+								</div>
+								<div class="col-md-3">
+									<p>Room Size:</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-3">
+									<g:TextBox ui:field="locationIdTextBox"
+										addStyleNames="form-control" />
+								</div>
+								<div class="col-md-3">
+									<g:TextBox ui:field="buildingTextBox" addStyleNames="form-control" />
+								</div>
+								<div class="col-md-3">
+									<g:TextBox ui:field="roomTextBox" addStyleNames="form-control" />
+								</div>
+								<div class="col-md-3">
+									<g:TextBox ui:field="roomSizeTextBox" addStyleNames="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6"></div>
+								<div class="col-md-6">
+									<g:Button ui:field="addLocationsButton" addStyleNames="{style.builder-button} btn">Add
+										Location</g:Button>
+									<g:Button ui:field="modifyLocationsButton"
+										addStyleNames="{style.builder-button} btn">Modify Location</g:Button>
+									<g:Button ui:field="removeLocationsButton"
+										addStyleNames="{style.builder-button} btn">Remove Location</g:Button>
+								</div>
+							</div>
+
+							<!-- Departments -->
+							<div class="row">
+								<div class="col-md-6">
+									<p>Department ID:</p>
+								</div>
+								<div class="col-md-6">
+									<p>Department:</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<g:TextBox ui:field="departmentIdTextBox"
+										addStyleNames="form-control" />
+								</div>
+								<div class="col-md-6">
+									<g:TextBox ui:field="departmentTextBox"
+										addStyleNames="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6"></div>
+								<div class="col-md-6">
+									<g:Button ui:field="addDepartmentsButton"
+										addStyleNames="{style.builder-button} btn">Add Dept</g:Button>
+									<g:Button ui:field="modifyDepartmentsButton"
+										addStyleNames="{style.builder-button} btn">Modify Dept</g:Button>
+									<g:Button ui:field="removeDepartmentsButton"
+										addStyleNames="{style.builder-button} btn">Remove Dept</g:Button>
+								</div>
+							</div>
+
+							<!-- Terms -->
+							<div class="row">
+								<div class="col-md-6">
+									<p>Term ID:</p>
+								</div>
+								<div class="col-md-6">
+									<p>Term Name:</p>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6">
+									<g:TextBox ui:field="termIdTextBox" addStyleNames="form-control" />
+								</div>
+								<div class="col-md-6">
+									<g:TextBox ui:field="termNameTextBox" addStyleNames="form-control" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6"></div>
+								<div class="col-md-6">
+									<g:Button ui:field="addTermsButton" addStyleNames="{style.builder-button} btn">Add
+										Term</g:Button>
+									<g:Button ui:field="modifyTermsButton" addStyleNames="{style.builder-button} btn">Modify
+										Term</g:Button>
+									<g:Button ui:field="removeTermsButton" addStyleNames="{style.builder-button} btn">Remove
+										Term</g:Button>
+								</div>
+							</div>
+
+							<!-- Confirm Button -->
+							<div class="row">
+								<div class="col-md-3"></div>
+								<div class="col-md-6">
+									<g:Button ui:field="confirmRequestButton"
+										addStyleNames="{style.builder-button} {style.confirm-button} btn">Confirm Request</g:Button>
+								</div>
+							</div>
+
 						</div>
-						<div class="col-md-3"></div>
 					</div>
-					
-					<!--  Courses  -->
-					<div class="row">
-						<div class="col-md-3"><p>Course ID:</p></div>
-						<div class="col-md-3"><p>Course Name:</p></div>
-						<div class="col-md-3"><p>Course Department:</p></div>
-						<div class="col-md-3"><p>Course Description:</p></div>
-					</div>
-					<div class="row">
-						<div class="col-md-3"><g:TextBox ui:field="courseIdTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-3"><g:TextBox ui:field="courseNameTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-3"><g:TextBox ui:field="courseDeptTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-3"><g:TextBox ui:field="courseDescriptionTextBox" addStyleNames="form-control"/></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6"></div>
-						<div class="col-md-6">
-							<g:Button ui:field="addCoursesButton" addStyleNames="{style.builder-button} btn">Add Course</g:Button>
-							<g:Button ui:field="modifyCoursesButton" addStyleNames="{style.builder-button} btn">Modify Course</g:Button>
-							<g:Button ui:field="removeCoursesButton" addStyleNames="{style.builder-button} btn">Remove Course</g:Button>
-						</div>
-					</div>
-					
-					<!--  Course Sections  -->
-					<div class="row">
-						<div class="col-md-4"><p>Course Section ID:</p></div>
-						<div class="col-md-4"><p>Course:</p></div>
-						<div class="col-md-4"><p>Section:</p></div>
-					</div>
-					<div class="row">
-						<div class="col-md-4"><g:TextBox ui:field="courseSectionIdTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-4"><g:TextBox ui:field="courseTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-4"><g:TextBox ui:field="sectionTypeTextBox" addStyleNames="form-control"/></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6"></div>
-						<div class="col-md-6">
-							<g:Button ui:field="addSectionsButton" addStyleNames="{style.builder-button} btn">Add Section</g:Button>
-							<g:Button ui:field="modifySectionsButton" addStyleNames="{style.builder-button} btn">Modify Section</g:Button>
-							<g:Button ui:field="removeSectionsButton" addStyleNames="{style.builder-button} btn">Remove Section</g:Button>
-						</div>
-					</div>
-					
-					<!--  Course Section Times -->
-					<div class="row">
-						<div class="col-md-2"><p>Time ID:</p></div>
-						<div class="col-md-2"><p>Course Section:</p></div>
-						<div class="col-md-2"><p>Start Time:</p></div>
-						<div class="col-md-2"><p>End Time:</p></div>
-						<div class="col-md-2"><p>Weekday:</p></div>
-						<div class="col-md-2"><p>Location:</p></div>
-					</div>
-					<div class="row">
-						<div class="col-md-2"><g:TextBox ui:field="courseSectionTimeIdTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-2"><g:TextBox ui:field="courseSectionTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-2"><g:TextBox ui:field="startTimeTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-2"><g:TextBox ui:field="endTimeTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-2"><g:TextBox ui:field="dayOfWeekTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-2"><g:TextBox ui:field="locationTextBox" addStyleNames="form-control"/></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6"></div>
-						<div class="col-md-6">
-							<g:Button ui:field="addCourseSectionTimesButton" addStyleNames="{style.builder-button} btn">Add Time</g:Button>
-							<g:Button ui:field="modifyCourseSectionTimesButton" addStyleNames="{style.builder-button} btn">Modify Time</g:Button>
-							<g:Button ui:field="removeCourseSectionTimesButton" addStyleNames="{style.builder-button} btn">Remove Time</g:Button>
-						</div>
-					</div>
-					
-					<!--  Locations  -->
-					<div class="row">
-						<div class="col-md-3"><p>Locaiton ID:</p></div>
-						<div class="col-md-3"><p>Building:</p></div>
-						<div class="col-md-3"><p>Room:</p></div>
-						<div class="col-md-3"><p>Room Size:</p></div>
-					</div>
-					<div class="row">
-						<div class="col-md-3"><g:TextBox ui:field="locationIdTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-3"><g:TextBox ui:field="buildingTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-3"><g:TextBox ui:field="roomTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-3"><g:TextBox ui:field="roomSizeTextBox" addStyleNames="form-control"/></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6"></div>
-						<div class="col-md-6">
-							<g:Button ui:field="addLocationsButton" addStyleNames="{style.builder-button} btn">Add Location</g:Button>
-							<g:Button ui:field="modifyLocationsButton" addStyleNames="{style.builder-button} btn">Modify Location</g:Button>
-							<g:Button ui:field="removeLocationsButton" addStyleNames="{style.builder-button} btn">Remove Location</g:Button>
-						</div>
-					</div>
-					
-					<!--  Departments  -->
-					<div class="row">
-						<div class="col-md-6"><p>Department ID:</p></div>
-						<div class="col-md-6"><p>Department:</p></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6"><g:TextBox ui:field="departmentIdTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-6"><g:TextBox ui:field="departmentTextBox" addStyleNames="form-control"/></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6"></div>
-						<div class="col-md-6">
-							<g:Button ui:field="addDepartmentsButton" addStyleNames="{style.builder-button} btn">Add Dept</g:Button>
-							<g:Button ui:field="modifyDepartmentsButton" addStyleNames="{style.builder-button} btn">Modify Dept</g:Button>
-							<g:Button ui:field="removeDepartmentsButton" addStyleNames="{style.builder-button} btn">Remove Dept</g:Button>
-						</div>
-					</div>	
-					
-					<!--  Terms  -->
-					<div class="row">
-						<div class="col-md-6"><p>Term ID:</p></div>
-						<div class="col-md-6"><p>Term Name:</p></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6"><g:TextBox ui:field="termIdTextBox" addStyleNames="form-control"/></div>
-						<div class="col-md-6"><g:TextBox ui:field="termNameTextBox" addStyleNames="form-control"/></div>
-					</div>
-					<div class="row">
-						<div class="col-md-6"></div>
-						<div class="col-md-6">
-							<g:Button ui:field="addTermsButton" addStyleNames="{style.builder-button} btn">Add Term</g:Button>
-							<g:Button ui:field="modifyTermsButton" addStyleNames="{style.builder-button} btn">Modify Term</g:Button>
-							<g:Button ui:field="removeTermsButton" addStyleNames="{style.builder-button} btn">Remove Term</g:Button>
-						</div>
-					</div>	
-					
-					<!--  Confirm Button  -->
-					<div class="row">
-						<div class="col-md-3"></div>
-						<div class="col-md-6">
-							<g:Button ui:field="confirmRequestButton" addStyleNames="{style.builder-button} {style.confirm-button} btn">Confirm Request</g:Button>
-						</div>
-					</div>	
-					
 				</div>
 			</div>
-		</div>
-	</div>	 
-	
 
-</g:HTMLPanel>
-</g:ScrollPanel>
+
+		</g:HTMLPanel>
+	</g:ScrollPanel>
 
 </ui:UiBinder>
