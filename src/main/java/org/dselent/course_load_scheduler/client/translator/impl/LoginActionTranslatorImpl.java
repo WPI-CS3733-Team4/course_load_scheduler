@@ -1,7 +1,6 @@
 package org.dselent.course_load_scheduler.client.translator.impl;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 import org.dselent.course_load_scheduler.client.action.ReceiveLoginAction;
 import org.dselent.course_load_scheduler.client.action.SendLoginAction;
@@ -47,7 +46,6 @@ public class LoginActionTranslatorImpl implements ActionTranslator<SendLoginActi
 		Long createdAt = JSONHelper.getLongValue(userObject, JSONHelper.convertKeyName(ReceiveLoginKeys.CREATED_AT));
 		Long updatedAt = JSONHelper.getLongValue(userObject, JSONHelper.convertKeyName(ReceiveLoginKeys.UPDATED_AT));
 		
-		// TODO look into time conversion more
 		// put into JSONHelper?
 		
 		User user = new User();
