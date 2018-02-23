@@ -21,6 +21,7 @@
 	
 </ui:style>
 
+	<g:ScrollPanel width="100%" height="800px">
 <g:HTMLPanel ui:field="facultyPanel">
 
 	<div class="container">
@@ -67,5 +68,6 @@
 	</div>	 
 	
 </g:HTMLPanel>
+	</g:ScrollPanel>
 
 </ui:UiBinder>
