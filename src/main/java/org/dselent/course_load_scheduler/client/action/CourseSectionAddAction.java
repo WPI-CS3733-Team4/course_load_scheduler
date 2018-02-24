@@ -12,11 +12,11 @@ public class CourseSectionAddAction extends Action
         this.term = term;
     }
 
-    public Integer getcourseId() {
+    public Integer getCourseId() {
         return courseId;
     }
 
-    public Integer getsectionType() {
+    public Integer getSectionType() {
         return sectionType;
     }
 
