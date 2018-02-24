@@ -1,6 +1,8 @@
 package org.dselent.course_load_scheduler.client.event;
 
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.ui.HasWidgets;
+
 import org.dselent.course_load_scheduler.client.action.SendLogoutAction;
 import org.dselent.course_load_scheduler.client.event_handler.SendLogoutEventHandler;
 
@@ -19,4 +21,8 @@ public class SendLogoutEvent extends GwtEvent<SendLogoutEventHandler> {
 
     @Override
     protected void dispatch(SendLogoutEventHandler handler) {handler.onSendLogout(this);}
+    
+    public HasWidgets getContainer() {
+		return this.getContainer();
+	}
 }
