@@ -12,6 +12,7 @@ import org.dselent.course_load_scheduler.client.translator.impl.LoginActionTrans
 
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.json.client.JSONObject;
+import org.dselent.course_load_scheduler.client.translator.impl.UserAddActionTranslatorImpl;
 
 public class UserServiceImpl extends BaseServiceImpl implements UserService
 {
