@@ -1,33 +1,34 @@
 package org.dselent.course_load_scheduler.client.translator.impl;
 
-import java.util.Date;
-
 import org.dselent.course_load_scheduler.client.action.ReceiveLoginAction;
 import org.dselent.course_load_scheduler.client.action.UserAddAction;
-import org.dselent.course_load_scheduler.client.model.User;
-import org.dselent.course_load_scheduler.client.receive.jsonkeys.ReceiveLoginKeys;
-import org.dselent.course_load_scheduler.client.send.jsonkeys.SendLoginKeys;
+import org.dselent.course_load_scheduler.client.send.jsonkeys.UserAddKeys;
 import org.dselent.course_load_scheduler.client.translator.ActionTranslator;
 import org.dselent.course_load_scheduler.client.utils.JSONHelper;
 
 import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONValue;
 
-public class UserAddActionTranslatorImpl implements ActionTranslator<SendLoginAction, ReceiveLoginAction>
+/* Created by Nathan Siegel */
+
+public class UserAddActionTranslatorImpl implements ActionTranslator<UserAddAction, UserAddAction>
 {
 	@Override
 	public JSONObject translateToJson(UserAddAction action)
 	{
 		JSONObject jsonObject = new JSONObject();
 		
-		JSONHelper.putStringValue(jsonObject, JSONHelper.convertKeyName(SendLoginKeys.USER_NAME), action.getUserName());
-		JSONHelper.putStringValue(jsonObject, JSONHelper.convertKeyName(SendLoginKeys.PASSWORD), action.getPassword());
+		JSONHelper.putStringValue(jsonObject, JSONHelper.convertKeyName(UserAddKeys.USER_NAME), action.getUserName());
+		JSONHelper.putStringValue(jsonObject, JSONHelper.convertKeyName(UserAddKeys.FIRST_NAME), action.getFirstName());
+		JSONHelper.putStringValue(jsonObject, JSONHelper.convertKeyName(UserAddKeys.LAST_NAME), action.getLastName());
+		JSONHelper.putStringValue(jsonObject, JSONHelper.convertKeyName(UserAddKeys.EMAIL), action.getEmail());
+		JSONHelper.putStringValue(jsonObject, JSONHelper.convertKeyName(UserAddKeys.PASSWORD), action.getPassword());
 		
 		return jsonObject;
 	}
 	
 	@Override
-	public ReceiveLoginAction translateToAction(JSONObject json)
+	public UserAddAction translateToAction(JSONObject json)
 	{		
 		// null values will not have their keys sent back from the sever
 		// this will throw an exception here
@@ -38,27 +39,15 @@ public class UserAddActionTranslatorImpl implements ActionTranslator<SendLoginAc
 		JSONValue jsonObject = json.get("success");
 		JSONObject userObject = jsonObject.isArray().get(0).isObject();
 		
-		Integer id = JSONHelper.getIntValue(userObject, JSONHelper.convertKeyName(ReceiveLoginKeys.ID));
-		String userName = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(ReceiveLoginKeys.USER_NAME));
-		String firstName = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(ReceiveLoginKeys.FIRST_NAME));
-		String lastName = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(ReceiveLoginKeys.LAST_NAME));
-		String email = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(ReceiveLoginKeys.EMAIL));
-		Long createdAt = JSONHelper.getLongValue(userObject, JSONHelper.convertKeyName(ReceiveLoginKeys.CREATED_AT));
-		Long updatedAt = JSONHelper.getLongValue(userObject, JSONHelper.convertKeyName(ReceiveLoginKeys.UPDATED_AT));
+		String userName = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(UserAddKeys.USER_NAME));
+		String firstName = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(UserAddKeys.FIRST_NAME));
+		String lastName = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(UserAddKeys.LAST_NAME));
+		String email = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(UserAddKeys.EMAIL));
+		String password = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(UserAddKeys.PASSWORD));
 		
-		// put into JSONHelper?
-		
-		User user = new User();
-		user.setId(id);
-		user.setUserName(userName);
-		user.setFirstName(firstName);
-		user.setLastName(lastName);
-		user.setEmail(email);
-		user.setCreatedAt(new Date(createdAt));
-		user.setUpdatedAt(new Date(updatedAt));
 		
 		// possibly use builder pattern if it is a lot of data
-		ReceiveLoginAction action = new ReceiveLoginAction(user);	
+		UserAddAction action = new UserAddAction(userName, firstName, lastName, email, password);	
 	
 		return action;
 	}
