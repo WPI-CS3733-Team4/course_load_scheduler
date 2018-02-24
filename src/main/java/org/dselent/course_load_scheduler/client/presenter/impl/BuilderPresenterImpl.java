@@ -1224,4 +1224,51 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	{
 		//Haven't implemented this yet
 	}
+	
+	@Override
+	public void onInvalidField(InvalidFieldEvent evt)
+	{
+		parentPresenter.hideLoadScreen();
+		view.getAddCoursesButton().setEnabled(true);
+		view.getModifyCoursesButton().setEnabled(true);
+		view.getRemoveCoursesButton().setEnabled(true);
+		view.getAddSectionsButton().setEnabled(true);
+		view.getModifySectionsButton().setEnabled(true);
+		view.getRemoveSectionsButton().setEnabled(true);
+		view.getAddCourseSectionTimesButton().setEnabled(true);
+		view.getModifyCourseSectionTimesButton().setEnabled(true);
+		view.getRemoveCourseSectionTimesButton().setEnabled(true);
+		view.getAddLocationsButton().setEnabled(true);
+		view.getModifyLocationsButton().setEnabled(true);
+		view.getRemoveLocationsButton().setEnabled(true);
+		view.getAddDepartmentsButton().setEnabled(true);
+		view.getModifyDepartmentsButton().setEnabled(true);
+		view.getRemoveDepartmentsButton().setEnabled(true);
+		view.getAddTermsButton().setEnabled(true);
+		view.getModifyTermsButton().setEnabled(true);
+		view.getRemoveTermsButton().setEnabled(true);
+		view.getConfirmRequestButton().setEnabled(true);
+		addCourseClickInProgress = false;
+		modifyCourseClickInProgress = false;
+		removeCourseClickInProgress = false;
+		addSectionsClickInProgress = false;
+		modifySectionsClickInProgress = false;
+		removeSectionsClickInProgress = false;
+		addTimeClickInProgress = false;
+		modifyTimeClickInProgress = false;
+		removeTimeClickInProgress = false;
+		addLocationClickInProgress = false;
+		modifyLocationClickInProgress = false;
+		removeLocationClickInProgress = false;
+		addDepartmentClickInProgress = false;
+		modifyDepartmentClickInProgress = false;
+		removeDepartmentClickInProgress = false;
+		addTermClickInProgress = false;
+		modifyTermClickInProgress = false;
+		removeTermClickInProgress = false;
+		
+		
+		InvalidFieldAction ila = evt.getAction();
+		view.showErrorMessages(ila.toString());
+	}
 }

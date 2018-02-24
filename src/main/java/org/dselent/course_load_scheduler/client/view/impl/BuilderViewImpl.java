@@ -419,7 +419,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setAddCoursesButton(Button addCoursesButton) {
-		addCoursesButton = addCoursesButton;
+		this.addCoursesButton = addCoursesButton;
 	}
 
 	public Button getModifyCoursesButton() {
@@ -427,7 +427,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setModifyCoursesButton(Button modifyCoursesButton) {
-		modifyCoursesButton = modifyCoursesButton;
+		this.modifyCoursesButton = modifyCoursesButton;
 	}
 
 	public Button getRemoveCoursesButton() {
@@ -435,7 +435,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setRemoveCoursesButton(Button removeCoursesButton) {
-		removeCoursesButton = removeCoursesButton;
+		this.removeCoursesButton = removeCoursesButton;
 	}
 
 	public Button getAddSectionsButton() {
@@ -443,7 +443,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setAddSectionsButton(Button addSectionsButton) {
-		addSectionsButton = addSectionsButton;
+		this.addSectionsButton = addSectionsButton;
 	}
 
 	public Button getModifySectionsButton() {
@@ -451,7 +451,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setModifySectionsButton(Button modifySectionsButton) {
-		modifySectionsButton = modifySectionsButton;
+		this.modifySectionsButton = modifySectionsButton;
 	}
 
 	public Button getRemoveSectionsButton() {
@@ -459,7 +459,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setRemoveSectionsButton(Button removeSectionsButton) {
-		removeSectionsButton = removeSectionsButton;
+		this.removeSectionsButton = removeSectionsButton;
 	}
 
 	public Button getAddCourseSectionTimesButton() {
@@ -467,7 +467,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setAddCourseSectionTimesButton(Button addCourseSectionTimesButton) {
-		addCourseSectionTimesButton = addCourseSectionTimesButton;
+		this.addCourseSectionTimesButton = addCourseSectionTimesButton;
 	}
 
 	public Button getModifyCourseSectionTimesButton() {
@@ -475,7 +475,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setModifyCourseSectionTimesButton(Button modifyCourseSectionTimesButton) {
-		modifyCourseSectionTimesButton = modifyCourseSectionTimesButton;
+		this.modifyCourseSectionTimesButton = modifyCourseSectionTimesButton;
 	}
 
 	public Button getRemoveCourseSectionTimesButton() {
@@ -483,7 +483,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setRemoveCourseSectionTimesButton(Button removeCourseSectionTimesButton) {
-		removeCourseSectionTimesButton = removeCourseSectionTimesButton;
+		this.removeCourseSectionTimesButton = removeCourseSectionTimesButton;
 	}
 
 	public Button getAddLocationsButton() {
@@ -491,7 +491,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setAddLocationsButton(Button addLocationsButton) {
-		addLocationsButton = addLocationsButton;
+		this.addLocationsButton = addLocationsButton;
 	}
 
 	public Button getModifyLocationsButton() {
@@ -499,7 +499,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setModifyLocationsButton(Button modifyLocationsButton) {
-		modifyLocationsButton = modifyLocationsButton;
+		this.modifyLocationsButton = modifyLocationsButton;
 	}
 
 	public Button getRemoveLocationsButton() {
@@ -507,7 +507,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setRemoveLocationsButton(Button removeLocationsButton) {
-		removeLocationsButton = removeLocationsButton;
+		this.removeLocationsButton = removeLocationsButton;
 	}
 
 	public Button getAddDepartmentsButton() {
@@ -515,7 +515,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setAddDepartmentsButton(Button addDepartmentsButton) {
-		addDepartmentsButton = addDepartmentsButton;
+		this.addDepartmentsButton = addDepartmentsButton;
 	}
 
 	public Button getModifyDepartmentsButton() {
@@ -523,7 +523,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setModifyDepartmentsButton(Button modifyDepartmentsButton) {
-		modifyDepartmentsButton = modifyDepartmentsButton;
+		this.modifyDepartmentsButton = modifyDepartmentsButton;
 	}
 
 	public Button getRemoveDepartmentsButton() {
@@ -531,7 +531,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setRemoveDepartmentsButton(Button removeDepartmentsButton) {
-		removeDepartmentsButton = removeDepartmentsButton;
+		this.removeDepartmentsButton = removeDepartmentsButton;
 	}
 
 	public Button getAddTermsButton() {
@@ -539,7 +539,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setAddTermsButton(Button addTermsButton) {
-		addTermsButton = addTermsButton;
+		this.addTermsButton = addTermsButton;
 	}
 
 	public Button getModifyTermsButton() {
@@ -547,7 +547,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setModifyTermsButton(Button modifyTermsButton) {
-		modifyTermsButton = modifyTermsButton;
+		this.modifyTermsButton = modifyTermsButton;
 	}
 
 	public Button getRemoveTermsButton() {
@@ -555,7 +555,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setRemoveTermsButton(Button removeTermsButton) {
-		removeTermsButton = removeTermsButton;
+		this.removeTermsButton = removeTermsButton;
 	}
 
 	public Button getConfirmRequestButton() {
@@ -563,7 +563,7 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	}
 
 	public void setConfirmRequestButton(Button confirmRequestButton) {
-		confirmRequestButton = confirmRequestButton;
+		this.confirmRequestButton = confirmRequestButton;
 	}
 
 	@Override
@@ -578,6 +578,10 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 		return builderPanel;
 	}
 	
-	
+	@Override
+	public void showErrorMessages(String errorMessages)
+	{
+		Window.alert(errorMessages);
+	}
 
 }
