@@ -1,5 +1,6 @@
 package org.dselent.course_load_scheduler.client.view.impl;
 
+import org.dselent.course_load_scheduler.client.presenter.AdminPresenter;
 import org.dselent.course_load_scheduler.client.presenter.BuilderPresenter;
 import org.dselent.course_load_scheduler.client.presenter.FacultyPresenter;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
@@ -577,6 +578,106 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	{
 		return builderPanel;
 	}
+	
+	
+	@UiHandler("addCoursesButton")
+	void onAddCoursesButtonClicked(ClickEvent evt) {
+		presenter.addCourses();
+	}
+	
+	@UiHandler("modifyCoursesButton")
+	void onModifyCoursesButtonClicked(ClickEvent evt) {
+		presenter.modifyCourses();
+	}
+	
+	@UiHandler("removeCoursesButton")
+	void onremoveCoursesButtonClicked(ClickEvent evt) {
+		presenter.removeCourses();
+	}
+	
+	@UiHandler("addSectionsButton")
+	void onAddSectionsButtonClicked(ClickEvent evt) {
+		presenter.addCourseSections();
+	}
+	
+	@UiHandler("modifySectionsButton")
+	void onModifySectionsButtonClicked(ClickEvent evt) {
+		presenter.modifyCourseSections();
+	}
+	
+	@UiHandler("removeSectionsButton")
+	void onremoveSectionsButtonClicked(ClickEvent evt) {
+		presenter.removeCourseSections();
+	}
+	
+	@UiHandler("addCourseSectionTimesButton")
+	void onAddCourseSectionTimesButtonClicked(ClickEvent evt) {
+		presenter.addCourseSectionTimes();
+	}
+	
+	@UiHandler("modifyCourseSectionTimesButton")
+	void onModifyCourseSectionTimesButtonClicked(ClickEvent evt) {
+		presenter.modifyCourseSectionTimes();
+	}
+	
+	@UiHandler("removeCourseSectionTimesButton")
+	void onremoveCourseSectionTimesButtonClicked(ClickEvent evt) {
+		presenter.removeCourseSectionTimes();
+	}
+	
+	@UiHandler("addLocationsButton")
+	void onAddLocationsButtonClicked(ClickEvent evt) {
+		presenter.addLocations();
+	}
+	
+	@UiHandler("modifyLocationsButton")
+	void onModifyLocationsButtonClicked(ClickEvent evt) {
+		presenter.modifyLocations();
+	}
+	
+	@UiHandler("removeLocationsButton")
+	void onremoveLocationsButtonClicked(ClickEvent evt) {
+		presenter.removeLocations();
+	}
+	
+	@UiHandler("addDepartmentsButton")
+	void onAddDepartmentsButtonClicked(ClickEvent evt) {
+		presenter.addDepartments();
+	}
+	
+	@UiHandler("modifyDepartmentsButton")
+	void onModifyDepartmentsButtonClicked(ClickEvent evt) {
+		presenter.modifyDepartments();
+	}
+	
+	@UiHandler("removeDepartmentsButton")
+	void onremoveDepartmentsButtonClicked(ClickEvent evt) {
+		presenter.removeDepartments();
+	}
+	
+	@UiHandler("addTermsButton")
+	void onAddTermsButtonClicked(ClickEvent evt) {
+		presenter.addTerms();
+	}
+	
+	@UiHandler("removeTermsButton")
+	void onremoveTermsButtonClicked(ClickEvent evt) {
+		presenter.removeTerms();
+	}
+	
+	@UiHandler("modifyTermsButton")
+	void onModifyTermsButtonClicked(ClickEvent evt) {
+		presenter.modifyTerms();
+	}
+	
+	@UiHandler("confirmRequestButton")
+	void onConfirmRequestButtonClicked(ClickEvent evt) {
+		presenter.confirmRequest();
+	}
+	
+	
+	
+	
 	
 	@Override
 	public void showErrorMessages(String errorMessages)
