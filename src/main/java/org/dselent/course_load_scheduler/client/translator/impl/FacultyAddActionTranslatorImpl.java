@@ -1,6 +1,7 @@
 package org.dselent.course_load_scheduler.client.translator.impl;
 
 import org.dselent.course_load_scheduler.client.action.ReceiveLoginAction;
+import org.dselent.course_load_scheduler.client.receive.jsonkeys.ReceiveLoginKeys;
 import org.dselent.course_load_scheduler.client.action.FacultyAddAction;
 import org.dselent.course_load_scheduler.client.send.jsonkeys.FacultyAddKeys;
 import org.dselent.course_load_scheduler.client.translator.ActionTranslator;
@@ -18,8 +19,8 @@ public class FacultyAddActionTranslatorImpl implements ActionTranslator<FacultyA
 	{
 		JSONObject jsonObject = new JSONObject();
 		
-		JSONHelper.putIntegerValue(jsonObject, JSONHelper.convertKeyName(FacultyAddKeys.USER_ID), action.getUserId());
-		JSONHelper.putStringValue(jsonObject, JSONHelper.convertKeyName(FacultyAddKeys.REQUIRED_CREDITS), action.getRequiredCredits());
+		JSONHelper.putIntValue(jsonObject, JSONHelper.convertKeyName(FacultyAddKeys.USER_ID), action.getUserId());
+		JSONHelper.putIntValue(jsonObject, JSONHelper.convertKeyName(FacultyAddKeys.REQUIRED_CREDITS), action.getRequiredCredits());
 		
 		
 		return jsonObject;
@@ -37,15 +38,14 @@ public class FacultyAddActionTranslatorImpl implements ActionTranslator<FacultyA
 		JSONValue jsonObject = json.get("success");
 		JSONObject userObject = jsonObject.isArray().get(0).isObject();
 		
-		Integer userId = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(UserAddKeys.USER_NAME));
-		Integer requiredCredits = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(UserAddKeys.FIRST_NAME));
-		String lastName = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(UserAddKeys.LAST_NAME));
-		String email = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(UserAddKeys.EMAIL));
-		String password = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(UserAddKeys.PASSWORD));
+
+		Integer userId = JSONHelper.getIntValue(userObject, JSONHelper.convertKeyName(FacultyAddKeys.USER_ID));
+		Integer requiredCredits = JSONHelper.getIntValue(userObject, JSONHelper.convertKeyName(FacultyAddKeys.REQUIRED_CREDITS));
+	
 		
 		
 		// possibly use builder pattern if it is a lot of data
-		UserAddAction action = new UserAddAction(userName, firstName, lastName, email, password);	
+		FacultyAddAction action = new FacultyAddAction(userId, requiredCredits);	
 	
 		return action;
 	}
