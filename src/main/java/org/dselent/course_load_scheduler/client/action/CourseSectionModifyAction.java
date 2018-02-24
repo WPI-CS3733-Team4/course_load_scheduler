@@ -14,15 +14,15 @@ public class CourseSectionModifyAction extends Action
         this.term = term;
     }
 
-    public Integer getcourseSectionId() {
+    public Integer getCourseSectionId() {
         return courseSectionId;
     }
 
-    public Integer getcourseId() {
+    public Integer getCourseId() {
         return courseId;
     }
 
-    public Integer getsectionType() {
+    public Integer getSectionType() {
         return sectionType;
     }
 
