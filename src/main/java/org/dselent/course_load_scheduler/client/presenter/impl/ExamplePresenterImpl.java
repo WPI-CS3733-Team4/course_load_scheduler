@@ -46,10 +46,9 @@ public class ExamplePresenterImpl extends BasePresenterImpl implements ExamplePr
 		view.getFirstNameField().setText(userModel.getFirstName());
 		view.getLastNameField().setText(userModel.getLastName());
 		view.getEmailField().setText(userModel.getEmail());
-		view.getUserStateIdField().setText(Integer.toString(userModel.getUserStateId()));
+		view.getUserStateIdField().setText("Unused");
 		view.getCreatedAtField().setText(userModel.getCreatedAt().toString());
 		view.getUpdatedAtField().setText(userModel.getUpdatedAt().toString());
-		
 		container.clear();
 		container.add(view.getWidgetContainer());
 	}
@@ -66,7 +65,7 @@ public class ExamplePresenterImpl extends BasePresenterImpl implements ExamplePr
 		HasWidgets container = evt.getContainer();
 		ReceiveLoginAction rla = evt.getAction();
 
-		userModel = rla.getModel();
+		userModel = rla.getUser();
 		
 		// show myself
 		go(container);

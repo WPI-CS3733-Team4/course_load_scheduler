@@ -19,7 +19,7 @@ implements UserRemoveEventHandler, UserModifyEventHandler, UserAddEventHandler, 
 		FacultyAddEventHandler, DepartmentRemoveEventHandler, DepartmentModifyEventHandler, DepartmentAddEventHandler, CourseSectionTimeRemoveEventHandler,
 		CourseSectionTimeModifyEventHandler, CourseSectionTimeAddEventHandler, CourseSectionRemoveEventHandler, CourseSectionModifyEventHandler, 
 		CourseSectionAddEventHandler, CourseRemoveEventHandler, CourseModifyEventHandler, CourseDepartmentRemoveEventHandler, CourseDepartmentModifyEventHandler,
-		CourseDepartmentAddEventHandler, CourseAddEventHandler, ConfirmUserEventHandler, ChangeRoleEventHandler
+		CourseDepartmentAddEventHandler, CourseAddEventHandler, ConfirmUserEventHandler, ChangeRoleEventHandler, ReceiveLoginEventHandler
 {
 
 	@Override
@@ -126,6 +126,7 @@ implements UserRemoveEventHandler, UserModifyEventHandler, UserAddEventHandler, 
 	@Override
 	public void onChangeRole(ChangeRoleEvent evt) {}
 
-
+	@Override
+	public void onReceiveLogin(ReceiveLoginEvent evt) {}
 
 }
