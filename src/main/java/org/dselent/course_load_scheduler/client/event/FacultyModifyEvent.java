@@ -4,6 +4,7 @@ import org.dselent.course_load_scheduler.client.action.FacultyModifyAction;
 import org.dselent.course_load_scheduler.client.event_handler.FacultyModifyEventHandler;
 
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -40,6 +41,10 @@ public class FacultyModifyEvent extends GwtEvent<FacultyModifyEventHandler>{
 	protected void dispatch(FacultyModifyEventHandler handler)
 	{
 		handler.onFacultyModify(this);
+	}
+	
+	public HasWidgets getContainer() {
+		return this.getContainer();
 	}
 
 }
