@@ -10,11 +10,11 @@ public class FacultyAddAction extends Action
         this.requiredCredits = requiredCredits;
     }
 
-    public Integer getuserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public Integer getrequiredCredits() {
+    public Integer getRequiredCredits() {
         return requiredCredits;
     }
 
