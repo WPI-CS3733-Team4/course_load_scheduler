@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.translator.impl;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 import org.dselent.course_load_scheduler.client.action.ReceiveLoginAction;
 import org.dselent.course_load_scheduler.client.action.SendLoginAction;
@@ -54,8 +54,8 @@ public class LoginActionTranslatorImpl implements ActionTranslator<SendLoginActi
 		user.setFirstName(firstName);
 		user.setLastName(lastName);
 		user.setEmail(email);
-		user.setCreatedAt(new Timestamp(createdAt));
-		user.setUpdatedAt(new Timestamp(updatedAt));
+		user.setCreatedAt(new Date(createdAt));
+		user.setUpdatedAt(new Date(updatedAt));
 		
 		// possibly use builder pattern if it is a lot of data
 		ReceiveLoginAction action = new ReceiveLoginAction(user);	
