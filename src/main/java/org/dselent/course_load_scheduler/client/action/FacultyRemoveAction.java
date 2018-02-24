@@ -8,7 +8,7 @@ public class FacultyRemoveAction extends Action
         this.facultyId = facultyId;
     }
 
-    public Integer getfacultyId() {
+    public Integer getFacultyId() {
         return facultyId;
     }
 
