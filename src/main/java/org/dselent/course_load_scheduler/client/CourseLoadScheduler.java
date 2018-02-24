@@ -89,11 +89,11 @@ public class CourseLoadScheduler implements EntryPoint
 		//registerPresenter.go(indexView.getViewRootPanel());
 
 		//facultyPresenter.go(indexView.getViewRootPanel());
-		adminPresenter.go(indexView.getViewRootPanel());
+		//adminPresenter.go(indexView.getViewRootPanel());
 
-		facultyPresenter.go(indexView.getViewRootPanel());
+		//facultyPresenter.go(indexView.getViewRootPanel());
 		//adminPresenter.go(indexView.getViewRootPanel());
  
-		//builderPresenter.go(indexView.getViewRootPanel());
+		builderPresenter.go(indexView.getViewRootPanel());
 	}
 }
