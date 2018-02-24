@@ -18,23 +18,23 @@ public class CourseSectionTimeModifyAction extends Action
         this.location = location;
     }
 
-    public Integer getcourseSectionTimeId() {
+    public Integer getCourseSectionTimeId() {
         return courseSectionTimeId;
     }
 
-    public Integer getcourseSectionId() {
+    public Integer getCourseSectionId() {
         return courseSectionId;
     }
 
-    public Integer getdayOfWeek() {
+    public Integer getDayOfWeek() {
         return dayOfWeek;
     }
 
-    public Integer getstartTime() {
+    public Integer getStartTime() {
         return startTime;
     }
 
-    public Integer getendTime() {
+    public Integer getEndTime() {
         return endTime;
     }
 
