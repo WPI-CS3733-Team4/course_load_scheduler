@@ -4,6 +4,7 @@ import org.dselent.course_load_scheduler.client.action.UserAddAction;
 import org.dselent.course_load_scheduler.client.event_handler.UserAddEventHandler;
 
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -40,6 +41,10 @@ public class UserAddEvent extends GwtEvent<UserAddEventHandler>{
 	protected void dispatch(UserAddEventHandler handler)
 	{
 		handler.onUserAdd(this);
+	}
+	
+	public HasWidgets getContainer() {
+		return this.getContainer();
 	}
 
 }

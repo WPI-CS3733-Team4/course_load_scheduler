@@ -8,7 +8,7 @@ public class CourseSectionTimeRemoveAction extends Action
         this.courseSectionTimeId = courseSectionTimeId;
     }
 
-    public Integer getcourseSectionTimeId() {
+    public Integer getCourseSectionTimeId() {
         return courseSectionTimeId;
     }
 
