@@ -1,8 +1,10 @@
 package org.dselent.course_load_scheduler.client.service.impl;
 
 import org.dselent.course_load_scheduler.client.action.SendLoginAction;
+import org.dselent.course_load_scheduler.client.action.UserAddAction;
 import org.dselent.course_load_scheduler.client.callback.SendLoginCallback;
 import org.dselent.course_load_scheduler.client.event.SendLoginEvent;
+import org.dselent.course_load_scheduler.client.event.UserAddEvent;
 import org.dselent.course_load_scheduler.client.network.NetworkRequest;
 import org.dselent.course_load_scheduler.client.network.NetworkRequestStrings;
 import org.dselent.course_load_scheduler.client.service.UserService;
@@ -43,5 +45,17 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService
 		
 		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.LOGIN, loginCallback, json);
 		request.send();
+	}
+	
+	@Override
+	public void onUserAdd(UserAddEvent evt) 
+	{
+		UserAddAction action = evt.getAction();
+		UserAddActionTranslatorImpl addActionTranslator = new UserAddActionTranslatorImpl();
+		JSONObject json = addActionTranslator.translateToJson(action);
+		UserAddCallback userAddCallback = new UserAddCallback(eventBus, evt.getContainer());
+		
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.USER_ADD, userAddCallback, json);
+		request.sent();
 	}
 }
