@@ -12,15 +12,15 @@ public class FacultyModifyAction extends Action
         this.requiredCredits = requiredCredits;
     }
 
-    public Integer getfacultyId() {
+    public Integer getFacultyId() {
         return facultyId;
     }
 
-    public Integer getuserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public Integer getrequiredCredits() {
+    public Integer getRequiredCredits() {
         return requiredCredits;
     }
 
