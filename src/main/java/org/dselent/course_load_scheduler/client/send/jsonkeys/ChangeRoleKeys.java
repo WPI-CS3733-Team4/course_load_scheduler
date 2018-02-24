@@ -1,9 +1,7 @@
 package org.dselent.course_load_scheduler.client.send.jsonkeys;
 
-
-public enum FacultyModifyKeys {
-	FACULTY_ID,
+public enum ChangeRoleKeys {
+	USER_ROLE_ID,
 	USER_ID,
-	REQUIRED_CREDITS;
-
+	ROLE
 }
