@@ -57,6 +57,6 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService
 		UserAddCallback userAddCallback = new UserAddCallback(eventBus, evt.getContainer());
 		
 		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.USER_ADD, userAddCallback, json);
-		request.sent();
+		request.send();
 	}
 }
