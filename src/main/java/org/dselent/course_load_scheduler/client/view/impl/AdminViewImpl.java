@@ -272,7 +272,7 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	@UiHandler("removeUserButton")
 	void onRemoveUserButtonClicked(ClickEvent evt)
 	{
-		presenter.modifyUser();
+		presenter.removeUser();
 	}
 	
 	@UiHandler("changeRoleButton")
