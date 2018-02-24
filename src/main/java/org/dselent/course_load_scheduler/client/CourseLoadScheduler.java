@@ -85,7 +85,7 @@ public class CourseLoadScheduler implements EntryPoint
 
         indexPresenter.go(RootPanel.get("indexContainer"));
 		indexPresenter.go(root);
-		//loginPresenter.go(indexView.getViewRootPanel());
+		loginPresenter.go(indexView.getViewRootPanel());
 		//registerPresenter.go(indexView.getViewRootPanel());
 
 		//facultyPresenter.go(indexView.getViewRootPanel());
@@ -94,7 +94,7 @@ public class CourseLoadScheduler implements EntryPoint
 		//facultyPresenter.go(indexView.getViewRootPanel());
 		//adminPresenter.go(indexView.getViewRootPanel());
  
-		builderPresenter.go(indexView.getViewRootPanel());
+		//builderPresenter.go(indexView.getViewRootPanel());
 		
 		
 		
@@ -165,5 +165,49 @@ public class CourseLoadScheduler implements EntryPoint
 		indexPresenter.go(root);
 	
 		builderPresenter.go(indexView.getViewRootPanel());
+	}
+	
+	static public void registerScreen() {
+
+		RootLayoutPanel root = RootLayoutPanel.get();
+
+		final Injector injector = Injector.INSTANCE;
+		
+		IndexPresenterImpl indexPresenter = injector.getIndexPresenter(); // on-demand injection
+		indexPresenter.init();
+        IndexView indexView = indexPresenter.getView();
+
+        RegisterPresenterImpl registerPresenter = injector.getRegisterPresenter();
+        registerPresenter.init();
+        RegisterView registerView = registerPresenter.getView();
+        
+      
+
+        indexPresenter.go(RootPanel.get("indexContainer"));
+		indexPresenter.go(root);
+	
+		registerPresenter.go(indexView.getViewRootPanel());
+	}
+	
+	static public void loginScreen() {
+
+		RootLayoutPanel root = RootLayoutPanel.get();
+
+		final Injector injector = Injector.INSTANCE;
+		
+		IndexPresenterImpl indexPresenter = injector.getIndexPresenter(); // on-demand injection
+		indexPresenter.init();
+        IndexView indexView = indexPresenter.getView();
+
+        LoginPresenterImpl loginPresenter = injector.getLoginPresenter();
+        loginPresenter.init();
+        LoginView loginView = loginPresenter.getView();
+        
+      
+
+        indexPresenter.go(RootPanel.get("indexContainer"));
+		indexPresenter.go(root);
+	
+		loginPresenter.go(indexView.getViewRootPanel());
 	}
 }
