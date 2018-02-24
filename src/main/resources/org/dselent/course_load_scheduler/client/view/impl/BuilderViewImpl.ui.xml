@@ -7,7 +7,7 @@
 	.builder-button {
 		float: right;
 		font-color: #000;
-		font-size: 14pt;
+		font-size: 13pt;
 		font-style: bold;
 		height: 35px;
 		width: 150px;
