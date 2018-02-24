@@ -4,6 +4,7 @@ import org.dselent.course_load_scheduler.client.action.TermAddAction;
 import org.dselent.course_load_scheduler.client.event_handler.TermAddEventHandler;
 
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -40,6 +41,10 @@ public class TermAddEvent extends GwtEvent<TermAddEventHandler>{
 	protected void dispatch(TermAddEventHandler handler)
 	{
 		handler.onTermAdd(this);
+	}
+	
+	public HasWidgets getContainer() {
+		return this.getContainer();
 	}
 
 }

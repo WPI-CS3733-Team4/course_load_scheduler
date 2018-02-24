@@ -4,6 +4,7 @@ import org.dselent.course_load_scheduler.client.action.TermRemoveAction;
 import org.dselent.course_load_scheduler.client.event_handler.TermRemoveEventHandler;
 
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -40,6 +41,10 @@ public class TermRemoveEvent extends GwtEvent<TermRemoveEventHandler>{
 	protected void dispatch(TermRemoveEventHandler handler)
 	{
 		handler.onTermRemove(this);
+	}
+	
+	public HasWidgets getContainer() {
+		return this.getContainer();
 	}
 
 }
