@@ -1,11 +1,20 @@
 package org.dselent.course_load_scheduler.client.view.impl;
 
 import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
+import com.google.gwt.uibinder.client.UiHandler;
 import com.google.gwt.user.client.ui.*;
-import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.view.IndexView;
+
+import org.dselent.course_load_scheduler.client.gin.Injector;
+import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
+import org.dselent.course_load_scheduler.client.presenter.impl.AdminPresenterImpl;
+import org.dselent.course_load_scheduler.client.presenter.impl.IndexPresenterImpl;
+import org.dselent.course_load_scheduler.client.view.AdminView;
+import org.dselent.course_load_scheduler.client.view.IndexView;
+import org.dselent.course_load_scheduler.client.CourseLoadScheduler;
 
 public class IndexViewImpl extends BaseViewImpl<IndexPresenter> implements IndexView
 {
@@ -95,6 +104,23 @@ public class IndexViewImpl extends BaseViewImpl<IndexPresenter> implements Index
 	public HasWidgets getViewRootPanel()
 	{
 		return mainPanel;
+	}
+	 
+	
+
+	@UiHandler("adminButton")
+	void onAdminButtonClicked(ClickEvent evt) {
+		CourseLoadScheduler.adminScreen();
+	}
+	
+	@UiHandler("facultyButton")
+	void onFacultyButtonClicked(ClickEvent evt) {
+		CourseLoadScheduler.facultyScreen();
+	}
+	
+	@UiHandler("builderButton")
+	void onBuilderButtonClicked(ClickEvent evt) {
+		CourseLoadScheduler.builderScreen();
 	}
 
 }
