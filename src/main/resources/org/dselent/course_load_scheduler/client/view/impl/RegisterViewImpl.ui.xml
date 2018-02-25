@@ -15,6 +15,16 @@
 		width: 150px;
 	}
 	
+	.login-button
+	{
+		float: left;
+		font-color: #000;
+		font-size: 16pt;
+		font-style: bold;
+		height: 50px;
+		width: 150px;
+	}
+	
 </ui:style>
 
 <g:HTMLPanel ui:field="registerPanel">
@@ -52,6 +62,7 @@
 					    <small class="form-text text-muted">Warning! Your information will appear as plain text and is not encrypted.</small>
 					  </div>
 					  <g:Button ui:field="registerButton" addStyleNames="{style.register-button} btn">Register</g:Button>
+					  <g:Button ui:field="loginButton" addStyleNames="{style.login-button} btn">Login</g:Button>
 					</form>
 				</div>
 			</div>
