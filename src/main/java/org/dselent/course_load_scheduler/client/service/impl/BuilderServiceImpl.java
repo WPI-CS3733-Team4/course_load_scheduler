@@ -125,7 +125,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		CourseModifyActionTranslatorImpl courseModifyActionTranslator = new CourseModifyActionTranslatorImpl();
 		JSONObject json = courseModifyActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_MODIFY, facultyCallback, json);
 		request.send();
 	}
 	
@@ -136,7 +136,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		CourseRemoveActionTranslatorImpl courseRemoveActionTranslator = new CourseRemoveActionTranslatorImpl();
 		JSONObject json = courseRemoveActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_REMOVE, facultyCallback, json);
 		request.send();
 	}
 	
@@ -147,7 +147,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		CourseSectionAddActionTranslatorImpl courseSectionAddActionTranslator = new CourseSectionAddActionTranslatorImpl();
 		JSONObject json = courseSectionAddActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_SECTION_ADD, facultyCallback, json);
 		request.send();
 	}
 	
@@ -158,7 +158,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		CourseSectionModifyActionTranslatorImpl courseSectionModifyActionTranslator = new CourseSectionModifyActionTranslatorImpl();
 		JSONObject json = courseSectionModifyActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_SECTION_MODIFY, facultyCallback, json);
 		request.send();
 	}
 	
@@ -169,7 +169,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		CourseSectionRemoveActionTranslatorImpl courseSectionRemoveActionTranslator = new CourseSectionRemoveActionTranslatorImpl();
 		JSONObject json = courseSectionRemoveActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_SECTION_REMOVE, facultyCallback, json);
 		request.send();
 	}
 	
@@ -180,7 +180,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		CourseSectionTimeAddActionTranslatorImpl courseSectionTimeAddActionTranslator = new CourseSectionTimeAddActionTranslatorImpl();
 		JSONObject json = courseSectionTimeAddActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_SECTION_TIMES_ADD, facultyCallback, json);
 		request.send();
 	}
 	
@@ -191,7 +191,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		CourseSectionTimeModifyActionTranslatorImpl courseSectionTimeModifyActionTranslator = new CourseSectionTimeModifyActionTranslatorImpl();
 		JSONObject json = courseSectionTimeModifyActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_SECTION_TIMES_MODIFY, facultyCallback, json);
 		request.send();
 	}
 	
@@ -202,7 +202,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		CourseSectionTimeRemoveActionTranslatorImpl courseSectionTimeRemoveActionTranslator = new CourseSectionTimeRemoveActionTranslatorImpl();
 		JSONObject json = courseSectionTimeRemoveActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_SECTION_TIMES_REMOVE, facultyCallback, json);
 		request.send();
 	}
 	
@@ -213,7 +213,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		LocationAddActionTranslatorImpl locationAddActionTranslator = new LocationAddActionTranslatorImpl();
 		JSONObject json = locationAddActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.LOCATION_ADD, facultyCallback, json);
 		request.send();
 	}
 	
@@ -224,7 +224,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		LocationModifyActionTranslatorImpl locationModifyActionTranslator = new LocationModifyActionTranslatorImpl();
 		JSONObject json = locationModifyActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.LOCATION_MODIFY, facultyCallback, json);
 		request.send();
 	}
 	
@@ -235,7 +235,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		LocationRemoveActionTranslatorImpl locationRemoveActionTranslator = new LocationRemoveActionTranslatorImpl();
 		JSONObject json = locationRemoveActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.LOCATION_REMOVE, facultyCallback, json);
 		request.send();
 	}
 	
@@ -246,7 +246,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		DepartmentAddActionTranslatorImpl departmentAddActionTranslator = new DepartmentAddActionTranslatorImpl();
 		JSONObject json = departmentAddActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.DEPARTMENT_ADD, facultyCallback, json);
 		request.send();
 	}
 	
@@ -257,7 +257,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		DepartmentModifyActionTranslatorImpl departmentModifyActionTranslator = new DepartmentModifyActionTranslatorImpl();
 		JSONObject json = departmentModifyActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.DEPARTMENT_MODIFY, facultyCallback, json);
 		request.send();
 	}
 	
@@ -268,7 +268,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		DepartmentRemoveActionTranslatorImpl departmentRemoveActionTranslator = new DepartmentRemoveActionTranslatorImpl();
 		JSONObject json = departmentRemoveActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.DEPARTMENT_REMOVE, facultyCallback, json);
 		request.send();
 	}
 	
@@ -279,7 +279,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		TermAddActionTranslatorImpl termAddActionTranslator = new TermAddActionTranslatorImpl();
 		JSONObject json = termAddActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.TERM_ADD, facultyCallback, json);
 		request.send();
 	}
 	
@@ -290,7 +290,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		TermModifyActionTranslatorImpl termModifyActionTranslator = new TermModifyActionTranslatorImpl();
 		JSONObject json = termModifyActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.TERM_MODIFY, facultyCallback, json);
 		request.send();
 	}
 	
@@ -301,7 +301,7 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		TermRemoveActionTranslatorImpl termRemoveActionTranslator = new TermRemoveActionTranslatorImpl();
 		JSONObject json = termRemoveActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.TERM_REMOVE, facultyCallback, json);
 		request.send();
 	}
 }
