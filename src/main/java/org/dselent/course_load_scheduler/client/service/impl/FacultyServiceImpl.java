@@ -52,7 +52,7 @@ public class FacultyServiceImpl extends BaseServiceImpl implements FacultyServic
 		RequestActionTranslatorImpl requestActionTranslator = new RequestActionTranslatorImpl();
 		JSONObject json = requestActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_REQUEST_ADD, facultyCallback, json);
 		request.send();
 	}
 	
@@ -63,7 +63,7 @@ public class FacultyServiceImpl extends BaseServiceImpl implements FacultyServic
 		UnrequestActionTranslatorImpl unrequestActionTranslator = new UnrequestActionTranslatorImpl();
 		JSONObject json = unrequestActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_REQUEST_REMOVE, facultyCallback, json);
 		request.send();
 	}
 	
