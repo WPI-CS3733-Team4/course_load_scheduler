@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
 import org.dselent.course_load_scheduler.client.action.CourseAddAction;
-import org.dselent.course_load_scheduler.client.action.UnrequestAction;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidCourseStrings;
 import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
 import org.dselent.course_load_scheduler.client.event.CourseAddEvent;
-import org.dselent.course_load_scheduler.client.event.UnrequestEvent;
 import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.presenter.BuilderPresenter;
@@ -1225,5 +1223,52 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	public void confirmRequest()
 	{
 		//Haven't implemented this yet
+	}
+	
+	@Override
+	public void onInvalidField(InvalidFieldEvent evt)
+	{
+		parentPresenter.hideLoadScreen();
+		view.getAddCoursesButton().setEnabled(true);
+		view.getModifyCoursesButton().setEnabled(true);
+		view.getRemoveCoursesButton().setEnabled(true);
+		view.getAddSectionsButton().setEnabled(true);
+		view.getModifySectionsButton().setEnabled(true);
+		view.getRemoveSectionsButton().setEnabled(true);
+		view.getAddCourseSectionTimesButton().setEnabled(true);
+		view.getModifyCourseSectionTimesButton().setEnabled(true);
+		view.getRemoveCourseSectionTimesButton().setEnabled(true);
+		view.getAddLocationsButton().setEnabled(true);
+		view.getModifyLocationsButton().setEnabled(true);
+		view.getRemoveLocationsButton().setEnabled(true);
+		view.getAddDepartmentsButton().setEnabled(true);
+		view.getModifyDepartmentsButton().setEnabled(true);
+		view.getRemoveDepartmentsButton().setEnabled(true);
+		view.getAddTermsButton().setEnabled(true);
+		view.getModifyTermsButton().setEnabled(true);
+		view.getRemoveTermsButton().setEnabled(true);
+		view.getConfirmRequestButton().setEnabled(true);
+		addCourseClickInProgress = false;
+		modifyCourseClickInProgress = false;
+		removeCourseClickInProgress = false;
+		addSectionsClickInProgress = false;
+		modifySectionsClickInProgress = false;
+		removeSectionsClickInProgress = false;
+		addTimeClickInProgress = false;
+		modifyTimeClickInProgress = false;
+		removeTimeClickInProgress = false;
+		addLocationClickInProgress = false;
+		modifyLocationClickInProgress = false;
+		removeLocationClickInProgress = false;
+		addDepartmentClickInProgress = false;
+		modifyDepartmentClickInProgress = false;
+		removeDepartmentClickInProgress = false;
+		addTermClickInProgress = false;
+		modifyTermClickInProgress = false;
+		removeTermClickInProgress = false;
+		
+		
+		InvalidFieldAction ila = evt.getAction();
+		view.showErrorMessages(ila.toString());
 	}
 }

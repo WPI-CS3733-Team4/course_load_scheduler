@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class CourseSectionTimeAddAction
+public class CourseSectionTimeAddAction extends Action
 {
     private Integer courseSectionId;
     private Integer dayOfWeek;
@@ -16,19 +16,19 @@ public class CourseSectionTimeAddAction
         this.location = location;
     }
 
-    public Integer getcourseSectionId() {
+    public Integer getCourseSectionId() {
         return courseSectionId;
     }
 
-    public Integer getdayOfWeek() {
+    public Integer getDayOfWeek() {
         return dayOfWeek;
     }
 
-    public Integer getstartTime() {
+    public Integer getStartTime() {
         return startTime;
     }
 
-    public Integer getendTime() {
+    public Integer getEndTime() {
         return endTime;
     }
 

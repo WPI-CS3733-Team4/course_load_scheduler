@@ -4,6 +4,7 @@ import org.dselent.course_load_scheduler.client.action.LocationModifyAction;
 import org.dselent.course_load_scheduler.client.event_handler.LocationModifyEventHandler;
 
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -40,6 +41,10 @@ public class LocationModifyEvent extends GwtEvent<LocationModifyEventHandler>{
 	protected void dispatch(LocationModifyEventHandler handler)
 	{
 		handler.onLocationModify(this);
+	}
+	
+	public HasWidgets getContainer() {
+		return this.getContainer();
 	}
 
 }

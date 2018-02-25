@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class ChangeRoleAction
+public class ChangeRoleAction extends Action
 {
 	private Integer userRoleId;
     private Integer userId;

@@ -2,6 +2,7 @@ package org.dselent.course_load_scheduler.client.view.impl;
 
 import org.dselent.course_load_scheduler.client.presenter.LoginPresenter;
 import org.dselent.course_load_scheduler.client.view.LoginView;
+import org.dselent.course_load_scheduler.client.CourseLoadScheduler;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -30,6 +31,9 @@ public class LoginViewImpl extends BaseViewImpl<LoginPresenter> implements Login
 	
 	@UiField
 	Button loginButton;
+	
+	@UiField
+	Button registerButton;
 	
 	@UiField
 	HTMLPanel loginPanel;
@@ -97,6 +101,11 @@ public class LoginViewImpl extends BaseViewImpl<LoginPresenter> implements Login
 	void onloginButtonClicked(ClickEvent evt)
 	{
 		presenter.login();
+	}
+	
+	@UiHandler("registerButton")
+	void onRegisterButtonClicked(ClickEvent evt) {
+		CourseLoadScheduler.registerScreen();
 	}
 
 }

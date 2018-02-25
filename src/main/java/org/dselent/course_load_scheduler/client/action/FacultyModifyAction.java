@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class FacultyModifyAction
+public class FacultyModifyAction extends Action
 {
     private Integer facultyId;
     private Integer userId;
@@ -12,15 +12,15 @@ public class FacultyModifyAction
         this.requiredCredits = requiredCredits;
     }
 
-    public Integer getfacultyId() {
+    public Integer getFacultyId() {
         return facultyId;
     }
 
-    public Integer getuserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public Integer getrequiredCredits() {
+    public Integer getRequiredCredits() {
         return requiredCredits;
     }
 

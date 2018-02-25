@@ -2,6 +2,7 @@ package org.dselent.course_load_scheduler.client.view;
 
 import org.dselent.course_load_scheduler.client.presenter.AdminPresenter;
 import com.google.gwt.user.client.ui.Button;
+import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.TextBox;
 
 /* Created by Krishna Madhurkar */
@@ -27,6 +28,13 @@ public interface AdminView extends BaseView<AdminPresenter>
 	void setUserTextBox(TextBox userTextBox);
 	TextBox getRoleTextBox();
 	void setRoleTextBox(TextBox roleTextBox);
+	
+	/*
+	FlexTable getUserTable();
+	void setUserTable(FlexTable userTable);
+	FlexTable getUserRoleTable();
+	void setUserRoleTable(FlexTable userRoleTable);
+	*/
 	
 	Button getAddUserButton();
 	Button getModifyUserButton();

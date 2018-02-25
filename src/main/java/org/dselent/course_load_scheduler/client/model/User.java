@@ -1,7 +1,6 @@
 package org.dselent.course_load_scheduler.client.model;
 
-import java.sql.Timestamp;
-import java.time.Instant;
+import java.util.Date;
 
 
 public class User extends Model
@@ -15,8 +14,8 @@ public class User extends Model
 	private String email;
 	private String encryptedPassword;
 	private String salt;
-	private Instant createdAt;
-	private Instant updatedAt;
+	private Date createdAt;
+	private Date updatedAt;
 
 	// methods
 		
@@ -92,6 +91,28 @@ public class User extends Model
 		this.salt = salt;
 	}
 
+	
+	public Date getCreatedAt()
+	{
+		return createdAt;
+	}
+
+	public void setCreatedAt(Date createdAt)
+	{
+		this.createdAt = createdAt;
+	}
+
+	public Date getUpdatedAt()
+	{
+		return updatedAt;
+	}
+
+	public void setUpdatedAt(Date updatedAt)
+	{
+		this.updatedAt = updatedAt;
+	}
+	
+	/*
 	public Instant getCreatedAt()
 	{
 		return createdAt;
@@ -127,6 +148,7 @@ public class User extends Model
 			this.updatedAt = updatedAt.toInstant();
 		}
 	}
+	*/
 
 	@Override
 	public int hashCode()

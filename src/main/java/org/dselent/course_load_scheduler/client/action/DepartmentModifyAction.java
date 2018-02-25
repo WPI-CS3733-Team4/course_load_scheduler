@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class DepartmentModifyAction
+public class DepartmentModifyAction extends Action
 {
     private Integer departmentId;
     private String department;
@@ -10,7 +10,7 @@ public class DepartmentModifyAction
         this.department = department;
     }
 
-    public Integer getdepartmentId() {
+    public Integer getDepartmentId() {
         return departmentId;
     }
 

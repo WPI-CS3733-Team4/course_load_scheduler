@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class ConfirmUserAction
+public class ConfirmUserAction extends Action
 {
     private Integer userId;
 

@@ -10,13 +10,18 @@ import java.util.List;
  * @author dselent
  *
  */
-public class InvalidFieldAction 
+public class InvalidFieldAction extends Action
 {
 	private List<String> reasonList;
 	
 	public InvalidFieldAction()
 	{
 		reasonList = new ArrayList<>();
+	}
+	public InvalidFieldAction(String reason)
+	{
+		reasonList = new ArrayList<>();
+		reasonList.add(reason);
 	}
 	
 	public InvalidFieldAction(List<String> reasonList)

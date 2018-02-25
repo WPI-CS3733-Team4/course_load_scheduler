@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class CourseDepartmentAddAction
+public class CourseDepartmentAddAction extends Action
 {
     private Integer courseId;
     private Integer departmentId;

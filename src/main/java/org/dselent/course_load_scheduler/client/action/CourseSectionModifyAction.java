@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class CourseSectionModifyAction
+public class CourseSectionModifyAction extends Action
 {
     private Integer courseSectionId;
     private Integer courseId;
@@ -14,15 +14,15 @@ public class CourseSectionModifyAction
         this.term = term;
     }
 
-    public Integer getcourseSectionId() {
+    public Integer getCourseSectionId() {
         return courseSectionId;
     }
 
-    public Integer getcourseId() {
+    public Integer getCourseId() {
         return courseId;
     }
 
-    public Integer getsectionType() {
+    public Integer getSectionType() {
         return sectionType;
     }
 

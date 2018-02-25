@@ -4,6 +4,7 @@ import org.dselent.course_load_scheduler.client.action.CourseSectionModifyAction
 import org.dselent.course_load_scheduler.client.event_handler.CourseSectionModifyEventHandler;
 
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -40,6 +41,10 @@ public class CourseSectionModifyEvent extends GwtEvent<CourseSectionModifyEventH
 	protected void dispatch(CourseSectionModifyEventHandler handler)
 	{
 		handler.onCourseSectionModify(this);
+	}
+	
+	public HasWidgets getContainer() {
+		return this.getContainer();
 	}
 
 }

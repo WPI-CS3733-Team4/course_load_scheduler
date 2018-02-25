@@ -85,5 +85,5 @@ public interface BuilderView extends BaseView<BuilderPresenter>{
 	Button getConfirmRequestButton();
 	void setConfirmRequestButton(Button confirmRequestButton);
 	
-
+	void showErrorMessages(String errorMessages);
 }

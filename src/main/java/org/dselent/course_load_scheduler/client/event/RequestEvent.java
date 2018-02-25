@@ -4,6 +4,7 @@ import org.dselent.course_load_scheduler.client.action.RequestAction;
 import org.dselent.course_load_scheduler.client.event_handler.RequestEventHandler;
 
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -40,6 +41,10 @@ public class RequestEvent extends GwtEvent<RequestEventHandler>{
 	protected void dispatch(RequestEventHandler handler)
 	{
 		handler.onRequest(this);
+	}
+	
+	public HasWidgets getContainer() {
+		return this.getContainer();
 	}
 
 }

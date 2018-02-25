@@ -4,8 +4,11 @@ import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.*;
-import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.view.IndexView;
+import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
+
+import org.dselent.course_load_scheduler.client.widgets.NavBarWidget;
+
 
 public class IndexViewImpl extends BaseViewImpl<IndexPresenter> implements IndexView
 {
@@ -21,6 +24,9 @@ public class IndexViewImpl extends BaseViewImpl<IndexPresenter> implements Index
 	
 	@UiField
 	PopupPanel glassLoadingPanel;
+	
+	@UiField
+	NavBarWidget navbar;
 	
 	public IndexViewImpl()
 	{

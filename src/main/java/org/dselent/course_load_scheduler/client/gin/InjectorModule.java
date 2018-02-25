@@ -3,6 +3,14 @@ package org.dselent.course_load_scheduler.client.gin;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.presenter.*;
 import org.dselent.course_load_scheduler.client.presenter.impl.IndexPresenterImpl;
+import org.dselent.course_load_scheduler.client.service.AdminService;
+import org.dselent.course_load_scheduler.client.service.BuilderService;
+import org.dselent.course_load_scheduler.client.service.FacultyService;
+import org.dselent.course_load_scheduler.client.service.UserService;
+import org.dselent.course_load_scheduler.client.service.impl.AdminServiceImpl;
+import org.dselent.course_load_scheduler.client.service.impl.BuilderServiceImpl;
+import org.dselent.course_load_scheduler.client.service.impl.FacultyServiceImpl;
+import org.dselent.course_load_scheduler.client.service.impl.UserServiceImpl;
 import org.dselent.course_load_scheduler.client.presenter.impl.*;
 import org.dselent.course_load_scheduler.client.view.IndexView;
 import org.dselent.course_load_scheduler.client.view.*;
@@ -42,6 +50,12 @@ public class InjectorModule extends AbstractGinModule
         bind(FacultyView.class).to(FacultyViewImpl.class).in(Singleton.class);
         bind(AdminView.class).to(AdminViewImpl.class).in(Singleton.class);
         bind(BuilderView.class).to(BuilderViewImpl.class).in(Singleton.class);
+        
+        //services
+        bind(UserService.class).to(UserServiceImpl.class).in(Singleton.class);
+        bind(AdminService.class).to(AdminServiceImpl.class).in(Singleton.class);
+        bind(BuilderService.class).to(BuilderServiceImpl.class).in(Singleton.class);
+        bind(FacultyService.class).to(FacultyServiceImpl.class).in(Singleton.class);
 
     }
 	

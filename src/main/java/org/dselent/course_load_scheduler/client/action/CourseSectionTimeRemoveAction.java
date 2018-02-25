@@ -1,6 +1,6 @@
 package org.dselent.course_load_scheduler.client.action;
 
-public class CourseSectionTimeRemoveAction
+public class CourseSectionTimeRemoveAction extends Action
 {
     private Integer courseSectionTimeId;
 
@@ -8,7 +8,7 @@ public class CourseSectionTimeRemoveAction
         this.courseSectionTimeId = courseSectionTimeId;
     }
 
-    public Integer getcourseSectionTimeId() {
+    public Integer getCourseSectionTimeId() {
         return courseSectionTimeId;
     }
 
