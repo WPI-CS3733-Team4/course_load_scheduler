@@ -29,10 +29,12 @@ public interface AdminView extends BaseView<AdminPresenter>
 	TextBox getRoleTextBox();
 	void setRoleTextBox(TextBox roleTextBox);
 	
+	/*
 	FlexTable getUserTable();
 	void setUserTable(FlexTable userTable);
 	FlexTable getUserRoleTable();
 	void setUserRoleTable(FlexTable userRoleTable);
+	*/
 	
 	Button getAddUserButton();
 	Button getModifyUserButton();
