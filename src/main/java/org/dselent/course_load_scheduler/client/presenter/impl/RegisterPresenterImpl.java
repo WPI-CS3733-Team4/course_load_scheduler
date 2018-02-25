@@ -159,10 +159,9 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 	
 	private void sendRegister(String userName, String firstName, String lastName, String email, String password)
 	{
+        HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		UserAddAction sla = new UserAddAction(userName, firstName, lastName, email, password);
-		UserAddEvent sle = new UserAddEvent(sla);
-//		System.out.println("send REACHED");
-
+        UserAddEvent sle = new UserAddEvent(sla, container);
         GWT.log("SendRegister Reached");
 		eventBus.fireEvent(sle);
 	}

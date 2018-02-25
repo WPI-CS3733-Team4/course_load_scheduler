@@ -2,6 +2,7 @@ package org.dselent.course_load_scheduler.client.service.impl;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.dselent.course_load_scheduler.client.action.*;
 import org.dselent.course_load_scheduler.client.callback.AdminCallback;
 import org.dselent.course_load_scheduler.client.event.*;
@@ -44,13 +45,22 @@ public class AdminServiceImpl extends BaseServiceImpl implements AdminService
 	public void onUserAdd(UserAddEvent evt)
 	{
 
-		GWT.log("On User Add Reached");
+		GWT.log("On User Add Reached1");
 		UserAddAction action = evt.getAction();
+		GWT.log("On User Add Reached2");
 		UserAddActionTranslatorImpl userAddActionTranslator = new UserAddActionTranslatorImpl();
+		GWT.log("On User Add Reached3");
+		GWT.log(action.toString());
 		JSONObject json = userAddActionTranslator.translateToJson(action);
-		AdminCallback adminCallback = new AdminCallback(eventBus, evt.getContainer());
+		GWT.log("On User Add Reached4");
+		HasWidgets c = evt.getContainer();
+		GWT.log("On User Add Reached4.1");
+		AdminCallback adminCallback = new AdminCallback(eventBus, c);
+		GWT.log("On User Add Reached5");
 		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.USER_ADD, adminCallback, json);
+		GWT.log("On User Add Reached6");
 		request.send();
+		GWT.log("On User Add Reached7");
 	}
 	
 	@Override
