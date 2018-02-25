@@ -1,5 +1,6 @@
 package org.dselent.course_load_scheduler.client.view.impl;
 
+import org.dselent.course_load_scheduler.client.CourseLoadScheduler;
 import org.dselent.course_load_scheduler.client.presenter.RegisterPresenter;
 import org.dselent.course_load_scheduler.client.view.RegisterView;
 
@@ -37,6 +38,9 @@ public class RegisterViewImpl extends BaseViewImpl<RegisterPresenter> implements
 	
 	@UiField
 	TextBox passwordTextBox;
+	
+	@UiField
+	Button loginButton;
 	
 	@UiField
 	Button registerButton;
@@ -140,9 +144,16 @@ public class RegisterViewImpl extends BaseViewImpl<RegisterPresenter> implements
 	}
 	
 	@UiHandler("registerButton")
-	void onloginButtonClicked(ClickEvent evt)
+	void onRegisterButtonClicked(ClickEvent evt)
 	{
 		presenter.register();
 	}
+	
+	@UiHandler("loginButton")
+	void onLoginButtonClicked(ClickEvent evt) {
+		CourseLoadScheduler.loginScreen();
+	}
+	
+	
 
 }
