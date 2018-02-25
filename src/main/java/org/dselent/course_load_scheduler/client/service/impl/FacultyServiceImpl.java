@@ -1,16 +1,24 @@
 package org.dselent.course_load_scheduler.client.service.impl;
 
 
-import org.dselent.course_load_scheduler.client.action.FacultyAddAction;
-import org.dselent.course_load_scheduler.client.action.FacultyModifyAction;
-import org.dselent.course_load_scheduler.client.action.FacultyRemoveAction;
-import org.dselent.course_load_scheduler.client.event.FacultyAddEvent;
-import org.dselent.course_load_scheduler.client.event.FacultyModifyEvent;
-import org.dselent.course_load_scheduler.client.event.FacultyRemoveEvent;
+import org.dselent.course_load_scheduler.client.action.CourseAddAction;
+import org.dselent.course_load_scheduler.client.action.RequestAction;
+import org.dselent.course_load_scheduler.client.action.UnrequestAction;
+import org.dselent.course_load_scheduler.client.callback.FacultyCallback;
+import org.dselent.course_load_scheduler.client.event.CourseAddEvent;
+import org.dselent.course_load_scheduler.client.event.RequestEvent;
+import org.dselent.course_load_scheduler.client.event.UnrequestEvent;
 import org.dselent.course_load_scheduler.client.network.NetworkRequest;
 import org.dselent.course_load_scheduler.client.network.NetworkRequestStrings;
+import org.dselent.course_load_scheduler.client.service.FacultyService;
 import org.dselent.course_load_scheduler.client.service.UserService;
+import org.dselent.course_load_scheduler.client.translator.impl.CourseAddActionTranslatorImpl;
 import org.dselent.course_load_scheduler.client.translator.impl.LoginActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.RequestActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.UnrequestActionTranslatorImpl;
+
+
+
 
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.json.client.JSONObject;
@@ -31,23 +39,34 @@ public class FacultyServiceImpl extends BaseServiceImpl implements FacultyServic
 	@Override
 	public void bind()
 	{
-		HandlerRegistration registration;
 		
-		registration = eventBus.addHandler(SendFacEvent.TYPE, this);
-		eventBusRegistration.put(SendLoginEvent.TYPE, registration);
+		eventBusRegistration.put(RequestEvent.TYPE, eventBus.addHandler(RequestEvent.TYPE, this));
+		eventBusRegistration.put(UnrequestEvent.TYPE, eventBus.addHandler(UnrequestEvent.TYPE, this));
+	
 	}
 	
 	@Override
-	public void onFacultyAdd(FacultyAddEvent. evt)
+	public void onRequest(RequestEvent. evt)
 	{
-		FacultyAddAction action = evt.getAction();
-		FacultyAddActionTranslatorImpl facultyAddActionTranslator = new LoginActionTranslatorImpl();
+		RequestAction action = evt.getAction();
+		RequestActionTranslatorImpl facultyAddActionTranslator = new LoginActionTranslatorImpl();
 		JSONObject json = loginActionTranslator.translateToJson(action);
 		FacultyAddCallback facultyAddCallback = new FacultyAddCallback(eventBus, evt.getContainer());
 		
 		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.LOGIN, facultyAddCallback, json);
 		request.send();
 	}
+	@Override
+	public void onUnrequest(UnrequestEvent evt)
+	{
+		UnrequestAction action = evt.getAction();
+		UnrequestActionTranslatorImpl courseAddActionTranslator = new UnrequestActionTranslatorImpl();
+		JSONObject json = unrequestActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.UNREQUEST, facultyCallback, json);
+		request.send();
+	}
+	
 }
 
 	
