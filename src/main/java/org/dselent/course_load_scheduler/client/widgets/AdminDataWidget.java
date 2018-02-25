@@ -30,11 +30,11 @@ public class AdminDataWidget extends Composite {
 		userTable.setText(0, 5, "Password:");
 		userTable.setText(0, 6, "Salt:");
 		
-		/*
+		
 		for (int i = 0; i < 30; i++) {
 			userRoleTable.setText(i, 0,  "Test");
 		}
-		*/
+		
 		
 		userRoleTable.setBorderWidth(2);
 		userRoleTable.setText(0, 0, "Role Id:");
