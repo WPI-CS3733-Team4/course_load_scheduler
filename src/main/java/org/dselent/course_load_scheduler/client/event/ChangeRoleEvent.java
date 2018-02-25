@@ -1,4 +1,4 @@
-package org.dselent.course_load_scheduler.client.event;
+	package org.dselent.course_load_scheduler.client.event;
 
 import org.dselent.course_load_scheduler.client.action.ChangeRoleAction;
 import org.dselent.course_load_scheduler.client.event_handler.ChangeRoleEventHandler;
@@ -9,15 +9,15 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /* Created by Nathan Siegel */
 
-public class ChangeRoleEvent extends GwtEvent<ChangeRoleEventHandler>{
+public class ChangeRoleEvent extends DisplayEvent<ChangeRoleAction,ChangeRoleEventHandler>{
 
     public static Type<ChangeRoleEventHandler> TYPE = new Type<ChangeRoleEventHandler>();
 
     private ChangeRoleAction action;
 
-    public ChangeRoleEvent(ChangeRoleAction action)
+    public ChangeRoleEvent(ChangeRoleAction action, HasWidgets container)
     {
-        this.action = action;
+        super(action,container);
     }
 
     public ChangeRoleAction getAction()
@@ -42,9 +42,5 @@ public class ChangeRoleEvent extends GwtEvent<ChangeRoleEventHandler>{
     {
         handler.onChangeRole(this);
     }
-    
-    public HasWidgets getContainer() {
-		return this.getContainer();
-	}
 
 }
