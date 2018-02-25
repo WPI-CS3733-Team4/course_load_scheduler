@@ -1,7 +1,5 @@
 package org.dselent.course_load_scheduler.client.translator.impl;
 
-import org.dselent.course_load_scheduler.client.action.ReceiveLoginAction;
-import org.dselent.course_load_scheduler.client.receive.jsonkeys.ReceiveLoginKeys;
 import org.dselent.course_load_scheduler.client.action.CourseSectionAddAction;
 import org.dselent.course_load_scheduler.client.send.jsonkeys.CourseSectionAddKeys;
 import org.dselent.course_load_scheduler.client.translator.ActionTranslator;
