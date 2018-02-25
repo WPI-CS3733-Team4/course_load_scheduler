@@ -1,21 +1,17 @@
 package org.dselent.course_load_scheduler.client.network;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.dselent.course_load_scheduler.client.exceptions.StatusCodeException;
-import org.dselent.course_load_scheduler.client.utils.JSONHelper;
-import org.dselent.course_load_scheduler.client.utils.ToStringHelper;
-
-import com.google.gwt.http.client.Request;
-import com.google.gwt.http.client.RequestBuilder;
-import com.google.gwt.http.client.RequestCallback;
-import com.google.gwt.http.client.RequestException;
-import com.google.gwt.http.client.Response;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.http.client.*;
 import com.google.gwt.json.client.JSONException;
 import com.google.gwt.json.client.JSONParser;
 import com.google.gwt.json.client.JSONValue;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import org.dselent.course_load_scheduler.client.exceptions.StatusCodeException;
+import org.dselent.course_load_scheduler.client.utils.JSONHelper;
+import org.dselent.course_load_scheduler.client.utils.ToStringHelper;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 
@@ -41,6 +37,7 @@ public class NetworkRequest implements RequestCallback
 
 	public NetworkRequest(String url, AsyncCallback<JSONValue> callback, JSONValue requestData)
 	{
+
 		String allUrl = NetworkRequestStrings.SERVER_LOCATION + NetworkRequestStrings.BASE_REQUEST + url;
 		requestBuilder = new RequestBuilder(RequestBuilder.POST, allUrl);
 		
@@ -54,6 +51,8 @@ public class NetworkRequest implements RequestCallback
 
 	public void send()
 	{
+
+        GWT.log("Send Request Reached");
 		String json = requestData.toString();
 
 		// Since the server expects a non-empty json payload, we'll only

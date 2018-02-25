@@ -1,34 +1,14 @@
 package org.dselent.course_load_scheduler.client.service.impl;
 
-import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.json.client.JSONObject;
-
-import org.dselent.course_load_scheduler.client.action.UserAddAction;
-import org.dselent.course_load_scheduler.client.action.UserModifyAction;
-import org.dselent.course_load_scheduler.client.action.UserRemoveAction;
-import org.dselent.course_load_scheduler.client.action.FacultyAddAction;
-import org.dselent.course_load_scheduler.client.action.FacultyModifyAction;
-import org.dselent.course_load_scheduler.client.action.FacultyRemoveAction;
-import org.dselent.course_load_scheduler.client.action.ChangeRoleAction;
+import org.dselent.course_load_scheduler.client.action.*;
 import org.dselent.course_load_scheduler.client.callback.AdminCallback;
-import org.dselent.course_load_scheduler.client.event.UserAddEvent;
-import org.dselent.course_load_scheduler.client.event.UserModifyEvent;
-import org.dselent.course_load_scheduler.client.event.UserRemoveEvent;
-import org.dselent.course_load_scheduler.client.event.FacultyAddEvent;
-import org.dselent.course_load_scheduler.client.event.FacultyModifyEvent;
-import org.dselent.course_load_scheduler.client.event.FacultyRemoveEvent;
-import org.dselent.course_load_scheduler.client.event.ChangeRoleEvent;
-import org.dselent.course_load_scheduler.client.event.ConfirmUserEvent;
+import org.dselent.course_load_scheduler.client.event.*;
 import org.dselent.course_load_scheduler.client.network.NetworkRequest;
 import org.dselent.course_load_scheduler.client.network.NetworkRequestStrings;
 import org.dselent.course_load_scheduler.client.service.AdminService;
-import org.dselent.course_load_scheduler.client.translator.impl.UserAddActionTranslatorImpl;
-import org.dselent.course_load_scheduler.client.translator.impl.UserModifyActionTranslatorImpl;
-import org.dselent.course_load_scheduler.client.translator.impl.UserRemoveActionTranslatorImpl;
-import org.dselent.course_load_scheduler.client.translator.impl.FacultyAddActionTranslatorImpl;
-import org.dselent.course_load_scheduler.client.translator.impl.FacultyModifyActionTranslatorImpl;
-import org.dselent.course_load_scheduler.client.translator.impl.FacultyRemoveActionTranslatorImpl;
-import org.dselent.course_load_scheduler.client.translator.impl.ChangeRoleActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.*;
 
 /* Created by Michael Capobianco */
 
@@ -63,6 +43,8 @@ public class AdminServiceImpl extends BaseServiceImpl implements AdminService
 	@Override
 	public void onUserAdd(UserAddEvent evt)
 	{
+
+		GWT.log("On User Add Reached");
 		UserAddAction action = evt.getAction();
 		UserAddActionTranslatorImpl userAddActionTranslator = new UserAddActionTranslatorImpl();
 		JSONObject json = userAddActionTranslator.translateToJson(action);

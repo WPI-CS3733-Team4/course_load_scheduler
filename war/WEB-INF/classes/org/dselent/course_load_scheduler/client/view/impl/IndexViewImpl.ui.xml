@@ -31,12 +31,13 @@
 <g:HTMLPanel>
 	
 	<navbar:NavBarWidget ui:field="navbar"/>
+	<g:Image ui:field="loadingImage" url="WEB-INF/classes/org/dselent/course_load_scheduler/client/view/images/loading-alternate.gif" addStyleNames="{style.loading-image}"/>
+	
 	
 	<div class="container" id="index">	
 		<g:HTMLPanel ui:field="mainPanel"/>
 	</div>
 	
-	<g:Image ui:field="loadingImage" url="WEB-INF/classes/org/dselent/course_load_scheduler/client/view/images/loading.gif" addStyleNames="{style.loading-image}"/>
 	<g:PopupPanel ui:field="glassLoadingPanel" addStyleNames="{style.loading-glass-panel}, {style.gwt-popup-panel-glass}"/>
 	
 </g:HTMLPanel>
