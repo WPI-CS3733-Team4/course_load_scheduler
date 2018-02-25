@@ -4,6 +4,17 @@ import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.json.client.JSONObject;
 
 import org.dselent.course_load_scheduler.client.action.CourseAddAction;
+import org.dselent.course_load_scheduler.client.action.CourseModifyAction;
+import org.dselent.course_load_scheduler.client.action.CourseRemoveAction;
+import org.dselent.course_load_scheduler.client.action.CourseSectionAddAction;
+import org.dselent.course_load_scheduler.client.action.CourseSectionModifyAction;
+import org.dselent.course_load_scheduler.client.action.CourseSectionRemoveAction;
+import org.dselent.course_load_scheduler.client.action.CourseSectionTimeAddAction;
+import org.dselent.course_load_scheduler.client.action.CourseSectionTimeModifyAction;
+import org.dselent.course_load_scheduler.client.action.CourseSectionTimeRemoveAction;
+import org.dselent.course_load_scheduler.client.action.LocationAddAction;
+import org.dselent.course_load_scheduler.client.action.LocationModifyAction;
+import org.dselent.course_load_scheduler.client.action.LocationRemoveAction;
 import org.dselent.course_load_scheduler.client.callback.FacultyCallback;
 import org.dselent.course_load_scheduler.client.event.CourseAddEvent;
 import org.dselent.course_load_scheduler.client.event.CourseModifyEvent;
@@ -27,7 +38,20 @@ import org.dselent.course_load_scheduler.client.network.NetworkRequest;
 import org.dselent.course_load_scheduler.client.network.NetworkRequestStrings;
 import org.dselent.course_load_scheduler.client.service.BuilderService;
 import org.dselent.course_load_scheduler.client.translator.impl.CourseAddActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.CourseModifyActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.CourseRemoveActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.CourseSectionAddActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.CourseSectionModifyActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.CourseSectionRemoveActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.CourseSectionTimeAddActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.CourseSectionTimeModifyActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.CourseSectionTimeRemoveActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.LocationAddActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.LocationModifyActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.LocationRemoveActionTranslatorImpl;
 import org.dselent.course_load_scheduler.client.translator.impl.UserAddActionTranslatorImpl;
+
+/* Created by Nathan Siegel */
 
 public class BuilderServiceImpl extends BaseServiceImpl implements BuilderService
 {
@@ -82,4 +106,157 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		request.send();
 	}
 	
+	@Override
+	public void onCourseModify(CourseModifyEvent evt)
+	{
+		CourseModifyAction action = evt.getAction();
+		CourseModifyActionTranslatorImpl courseModifyActionTranslator = new CourseModifyActionTranslatorImpl();
+		JSONObject json = courseModifyActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onCourseRemove(CourseRemoveEvent evt)
+	{
+		CourseRemoveAction action = evt.getAction();
+		CourseRemoveActionTranslatorImpl courseRemoveActionTranslator = new CourseRemoveActionTranslatorImpl();
+		JSONObject json = courseRemoveActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onCourseSectionAdd(CourseSectionAddEvent evt)
+	{
+		CourseSectionAddAction action = evt.getAction();
+		CourseSectionAddActionTranslatorImpl courseSectionAddActionTranslator = new CourseSectionAddActionTranslatorImpl();
+		JSONObject json = courseSectionAddActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onCourseSectionModify(CourseSectionModifyEvent evt)
+	{
+		CourseSectionModifyAction action = evt.getAction();
+		CourseSectionModifyActionTranslatorImpl courseSectionModifyActionTranslator = new CourseSectionModifyActionTranslatorImpl();
+		JSONObject json = courseSectionModifyActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onCourseSectionRemove(CourseSectionRemoveEvent evt)
+	{
+		CourseSectionRemoveAction action = evt.getAction();
+		CourseSectionRemoveActionTranslatorImpl courseSectionRemoveActionTranslator = new CourseSectionRemoveActionTranslatorImpl();
+		JSONObject json = courseSectionRemoveActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onCourseSectionTimeAdd(CourseSectionTimeAddEvent evt)
+	{
+		CourseSectionTimeAddAction action = evt.getAction();
+		CourseSectionTimeAddActionTranslatorImpl courseSectionTimeAddActionTranslator = new CourseSectionTimeAddActionTranslatorImpl();
+		JSONObject json = courseSectionTimeAddActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onCourseSectionTimeModify(CourseSectionTimeModifyEvent evt)
+	{
+		CourseSectionTimeModifyAction action = evt.getAction();
+		CourseSectionTimeModifyActionTranslatorImpl courseSectionTimeModifyActionTranslator = new CourseSectionTimeModifyActionTranslatorImpl();
+		JSONObject json = courseSectionTimeModifyActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onCourseSectionTimeRemove(CourseSectionTimeRemoveEvent evt)
+	{
+		CourseSectionTimeRemoveAction action = evt.getAction();
+		CourseSectionTimeRemoveActionTranslatorImpl courseSectionTimeRemoveActionTranslator = new CourseSectionTimeRemoveActionTranslatorImpl();
+		JSONObject json = courseSectionTimeRemoveActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onLocationAdd(LocationAddEvent evt)
+	{
+		LocationAddAction action = evt.getAction();
+		LocationAddActionTranslatorImpl locationAddActionTranslator = new LocationAddActionTranslatorImpl();
+		JSONObject json = locationAddActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onLocationModify(LocationModifyEvent evt)
+	{
+		LocationModifyAction action = evt.getAction();
+		LocationModifyActionTranslatorImpl locationModifyActionTranslator = new LocationModifyActionTranslatorImpl();
+		JSONObject json = locationModifyActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onLocationRemove(LocationRemoveEvent evt)
+	{
+		LocationRemoveAction action = evt.getAction();
+		LocationRemoveActionTranslatorImpl locationRemoveActionTranslator = new LocationRemoveActionTranslatorImpl();
+		JSONObject json = locationRemoveActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onDepartmentAdd(DepartmentAddEvent evt)
+	{
+		DepartmentAddAction action = evt.getAction();
+		DepartmentAddActionTranslatorImpl departmentAddActionTranslator = new DepartmentAddActionTranslatorImpl();
+		JSONObject json = departmentAddActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onDepartmentModify(DepartmentModifyEvent evt)
+	{
+		DepartmentModifyAction action = evt.getAction();
+		DepartmentModifyActionTranslatorImpl departmentModifyActionTranslator = new LocationModifyActionTranslatorImpl();
+		JSONObject json = locationModifyActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onDepartmentRemove(DepartmentRemoveEvent evt)
+	{
+		LocationRemoveAction action = evt.getAction();
+		LocationRemoveActionTranslatorImpl locationRemoveActionTranslator = new LocationRemoveActionTranslatorImpl();
+		JSONObject json = locationRemoveActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
+		request.send();
+	}
 }
