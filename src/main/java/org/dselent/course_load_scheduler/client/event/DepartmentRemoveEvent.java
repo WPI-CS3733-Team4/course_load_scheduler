@@ -4,6 +4,7 @@ import org.dselent.course_load_scheduler.client.action.DepartmentRemoveAction;
 import org.dselent.course_load_scheduler.client.event_handler.DepartmentRemoveEventHandler;
 
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -40,6 +41,9 @@ public class DepartmentRemoveEvent extends GwtEvent<DepartmentRemoveEventHandler
 	protected void dispatch(DepartmentRemoveEventHandler handler)
 	{
 		handler.onDepartmentRemove(this);
+	}
+	public HasWidgets getContainer() {
+		return this.getContainer();
 	}
 
 }

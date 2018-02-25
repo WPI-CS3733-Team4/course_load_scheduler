@@ -4,6 +4,7 @@ import org.dselent.course_load_scheduler.client.action.CourseAddAction;
 import org.dselent.course_load_scheduler.client.event_handler.CourseAddEventHandler;
 
 import com.google.gwt.event.shared.GwtEvent;
+import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -41,5 +42,9 @@ public class CourseAddEvent extends GwtEvent<CourseAddEventHandler>{
     {
         handler.onCourseAdd(this);
     }
+    
+    public HasWidgets getContainer() {
+		return this.getContainer();
+	}
 
 }
