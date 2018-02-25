@@ -46,24 +46,24 @@ public class FacultyServiceImpl extends BaseServiceImpl implements FacultyServic
 	}
 	
 	@Override
-	public void onRequest(RequestEvent. evt)
+	public void onRequest(RequestEvent evt)
 	{
 		RequestAction action = evt.getAction();
-		RequestActionTranslatorImpl facultyAddActionTranslator = new LoginActionTranslatorImpl();
-		JSONObject json = loginActionTranslator.translateToJson(action);
-		FacultyAddCallback facultyAddCallback = new FacultyAddCallback(eventBus, evt.getContainer());
-		
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.LOGIN, facultyAddCallback, json);
+		RequestActionTranslatorImpl requestActionTranslator = new RequestActionTranslatorImpl();
+		JSONObject json = requestActionTranslator.translateToJson(action);
+		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
 		request.send();
 	}
+	
 	@Override
 	public void onUnrequest(UnrequestEvent evt)
 	{
 		UnrequestAction action = evt.getAction();
-		UnrequestActionTranslatorImpl courseAddActionTranslator = new UnrequestActionTranslatorImpl();
+		UnrequestActionTranslatorImpl unrequestActionTranslator = new UnrequestActionTranslatorImpl();
 		JSONObject json = unrequestActionTranslator.translateToJson(action);
 		FacultyCallback facultyCallback = new FacultyCallback(eventBus, evt.getContainer());
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.UNREQUEST, facultyCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.COURSE_ADD, facultyCallback, json);
 		request.send();
 	}
 	
