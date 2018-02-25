@@ -9,15 +9,15 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /* Created by Nathan Siegel */
 
-public class CourseRemoveEvent extends GwtEvent<CourseRemoveEventHandler>{
+public class CourseRemoveEvent extends DisplayEvent<CourseRemoveAction,CourseRemoveEventHandler>{
 	
 	public static Type<CourseRemoveEventHandler> TYPE = new Type<CourseRemoveEventHandler>();
 	
 	private CourseRemoveAction action;
 	
-	public CourseRemoveEvent(CourseRemoveAction action)
+	public CourseRemoveEvent(CourseRemoveAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action, container);
 	}
 	
 	public CourseRemoveAction getAction()
@@ -43,8 +43,5 @@ public class CourseRemoveEvent extends GwtEvent<CourseRemoveEventHandler>{
 		handler.onCourseRemove(this);
 	}
 	
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
 
 }
