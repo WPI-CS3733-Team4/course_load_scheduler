@@ -2,9 +2,11 @@ package org.dselent.course_load_scheduler.client.service.impl;
 
 import org.dselent.course_load_scheduler.client.action.SendLoginAction;
 import org.dselent.course_load_scheduler.client.action.UserAddAction;
+import org.dselent.course_load_scheduler.client.action.UserRegisterAction;
 import org.dselent.course_load_scheduler.client.callback.SendLoginCallback;
 import org.dselent.course_load_scheduler.client.event.SendLoginEvent;
 import org.dselent.course_load_scheduler.client.event.UserAddEvent;
+import org.dselent.course_load_scheduler.client.event.UserRegisterEvent;
 import org.dselent.course_load_scheduler.client.network.NetworkRequest;
 import org.dselent.course_load_scheduler.client.network.NetworkRequestStrings;
 import org.dselent.course_load_scheduler.client.service.UserService;
@@ -51,12 +53,12 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService
 	@Override
 	public void onUserRegister(UserRegisterEvent evt) 
 	{
-		UserRegisterAction action = evt.getAction();
-		UserRegisterActionTranslatorImpl registerActionTranslator = new UserRegisterActionTranslatorImpl();
+		UserAddAction action = evt.getAction();
+		UserAddActionTranslatorImpl registerActionTranslator = new UserAddActionTranslatorImpl();
 		JSONObject json = registerActionTranslator.translateToJson(action);
-		UserRegisterCallback userRegisterCallback = new UserRegisterCallback(eventBus, evt.getContainer());
+		RegisterCallback registerCallback = new RegisterCallback(eventBus, evt.getContainer());
 		
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.USER_ADD, userRegisterCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.USER_ADD, registerCallback, json);
 		request.send();
 	}
 }
