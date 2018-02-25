@@ -2,8 +2,8 @@ package org.dselent.course_load_scheduler.client.network;
 
 public final class NetworkRequestStrings
 {
-	public static final String SERVER_LOCATION = "http://localhost:8080/";
-	public static final String BASE_REQUEST = "course_load_scheduler/";
+	public static final String SERVER_LOCATION = "https://20180225t161356-dot-softenggroup4.appspot.com/";
+	public static final String BASE_REQUEST = "";
 	
 	public static String LOGIN = "user/login";
 	public static String USER_ADD = "user/register";

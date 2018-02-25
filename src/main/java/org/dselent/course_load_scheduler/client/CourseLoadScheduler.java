@@ -4,12 +4,8 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import org.dselent.course_load_scheduler.client.gin.Injector;
-import org.dselent.course_load_scheduler.client.presenter.impl.IndexPresenterImpl;
 import org.dselent.course_load_scheduler.client.presenter.impl.*;
-import org.dselent.course_load_scheduler.client.view.IndexView;
 import org.dselent.course_load_scheduler.client.view.*;
-
-import com.google.gwt.user.cellview.client.CellList;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -20,7 +16,9 @@ public class CourseLoadScheduler implements EntryPoint
 	/**
 	 * This is the entry point method.
 	 */
-	public void onModuleLoad()
+
+
+    public void onModuleLoad()
 	{
 		RootLayoutPanel root = RootLayoutPanel.get();
 
@@ -211,3 +209,5 @@ public class CourseLoadScheduler implements EntryPoint
 		loginPresenter.go(indexView.getViewRootPanel());
 	}
 }
+
+
