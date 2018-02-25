@@ -49,14 +49,14 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService
 	}
 	
 	@Override
-	public void onUserAdd(UserAddEvent evt) 
+	public void onUserRegister(UserRegisterEvent evt) 
 	{
-		UserAddAction action = evt.getAction();
-		UserAddActionTranslatorImpl addActionTranslator = new UserAddActionTranslatorImpl();
-		JSONObject json = addActionTranslator.translateToJson(action);
-		UserAddCallback userAddCallback = new UserAddCallback(eventBus, evt.getContainer());
+		UserRegisterAction action = evt.getAction();
+		UserRegisterActionTranslatorImpl registerActionTranslator = new UserRegisterActionTranslatorImpl();
+		JSONObject json = registerActionTranslator.translateToJson(action);
+		UserRegisterCallback userRegisterCallback = new UserRegisterCallback(eventBus, evt.getContainer());
 		
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.USER_ADD, userAddCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.USER_ADD, userRegisterCallback, json);
 		request.send();
 	}
 }
