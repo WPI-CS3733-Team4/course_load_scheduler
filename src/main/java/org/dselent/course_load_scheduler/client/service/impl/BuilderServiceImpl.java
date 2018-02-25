@@ -52,6 +52,9 @@ import org.dselent.course_load_scheduler.client.translator.impl.CourseSectionRem
 import org.dselent.course_load_scheduler.client.translator.impl.CourseSectionTimeAddActionTranslatorImpl;
 import org.dselent.course_load_scheduler.client.translator.impl.CourseSectionTimeModifyActionTranslatorImpl;
 import org.dselent.course_load_scheduler.client.translator.impl.CourseSectionTimeRemoveActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.DepartmentAddActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.DepartmentModifyActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.translator.impl.DepartmentRemoveActionTranslatorImpl;
 import org.dselent.course_load_scheduler.client.translator.impl.LocationAddActionTranslatorImpl;
 import org.dselent.course_load_scheduler.client.translator.impl.LocationModifyActionTranslatorImpl;
 import org.dselent.course_load_scheduler.client.translator.impl.LocationRemoveActionTranslatorImpl;
