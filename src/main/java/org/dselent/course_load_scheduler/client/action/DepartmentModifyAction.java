@@ -10,7 +10,7 @@ public class DepartmentModifyAction extends Action
         this.department = department;
     }
 
-    public Integer getdepartmentId() {
+    public Integer getDepartmentId() {
         return departmentId;
     }
 

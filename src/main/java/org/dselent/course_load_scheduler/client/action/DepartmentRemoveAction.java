@@ -8,7 +8,7 @@ public class DepartmentRemoveAction extends Action
         this.departmentId = departmentId;
     }
 
-    public Integer getdepartmentId() {
+    public Integer getDepartmentId() {
         return departmentId;
     }
 
