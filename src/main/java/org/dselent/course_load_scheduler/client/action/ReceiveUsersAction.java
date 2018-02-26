@@ -20,8 +20,4 @@ public class ReceiveUsersAction extends Action{
 	public String toString() {
 		return "ReceiveUsersAction [listOfUsers=" + listOfUsers + "]";
 	}
-
-	
-	
-	
 }
