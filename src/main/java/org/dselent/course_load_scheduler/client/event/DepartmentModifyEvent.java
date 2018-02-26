@@ -9,15 +9,15 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /* Created by Nathan Siegel */
 
-public class DepartmentModifyEvent extends GwtEvent<DepartmentModifyEventHandler>{
+public class DepartmentModifyEvent extends DisplayEvent<DepartmentModifyAction,DepartmentModifyEventHandler>{
 	
 	public static Type<DepartmentModifyEventHandler> TYPE = new Type<DepartmentModifyEventHandler>();
 	
 	private DepartmentModifyAction action;
 	
-	public DepartmentModifyEvent(DepartmentModifyAction action)
+	public DepartmentModifyEvent(DepartmentModifyAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action,container);
 	}
 	
 	public DepartmentModifyAction getAction()
