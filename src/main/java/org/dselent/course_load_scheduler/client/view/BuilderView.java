@@ -1,8 +1,8 @@
 package org.dselent.course_load_scheduler.client.view;
 
-import org.dselent.course_load_scheduler.client.presenter.BuilderPresenter;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.TextBox;
+import org.dselent.course_load_scheduler.client.presenter.BuilderPresenter;
 
 public interface BuilderView extends BaseView<BuilderPresenter>{
 	
@@ -90,4 +90,9 @@ public interface BuilderView extends BaseView<BuilderPresenter>{
 	void setConfirmRequestButton(Button confirmRequestButton);
 	
 	void showErrorMessages(String errorMessages);
+
+
+	public TextBox getCourseSectionTextBox();
+
+	public void setCourseSectionTextBox(TextBox courseSectionTextBox);
 }

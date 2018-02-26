@@ -316,7 +316,7 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 			List<String> invalidReasonList = new ArrayList<>();
 			try
 			{
-				courseSectionId = Integer.parseInt(view.getCourseSectionIdTextBox().getText());
+                courseSectionId = Integer.parseInt(view.getCourseSectionTextBox().getText());
 			}
 			catch(NumberFormatException e)
 			{
@@ -552,13 +552,15 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 			}
 			try
 			{
-				term = view.getTermIdTextBox().getText();
+                term = view.getTermTextBox().getText();
+
 				checkEmptyString(term);
 			}
 			catch(EmptyStringException e)
 			{
 				invalidReasonList.add(InvalidSectionStrings.NULL_TERM);
 				fieldsAreValid = false;
+                GWT.log(e.toString());
 			}
 			
 			
@@ -627,7 +629,7 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 			}
 			try
 			{
-				term = view.getTermIdTextBox().getText();
+                term = view.getTermTextBox().getText();
 				checkEmptyString(term);
 			}
 			catch(EmptyStringException e)
