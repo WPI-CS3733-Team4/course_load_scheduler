@@ -1,5 +1,6 @@
 package org.dselent.course_load_scheduler.client.callback;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.json.client.JSONValue;
 import com.google.gwt.user.client.ui.HasWidgets;
@@ -16,6 +17,7 @@ public class BuilderCallback extends DisplayCallback<JSONValue>
 	@Override
 	public void onSuccess(JSONValue result)
 	{
+        GWT.log("success");
 		/*
 		JSONObject json = JSONHelper.getObjectValue(result);
 		LoginActionTranslatorImpl loginActionTranslator = new LoginActionTranslatorImpl();
