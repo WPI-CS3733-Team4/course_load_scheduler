@@ -14,8 +14,8 @@ public class LocationRemoveAction extends Action
 
     @Override
     public String toString() {
-        return "LocationRemoveAction{" +
-                "locationId=" + locationId +
+        return "{" +
+                "\'locationId\'=\'" + locationId + "\'" +
                 '}';
     }
 }
