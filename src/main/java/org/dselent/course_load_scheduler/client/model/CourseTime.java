@@ -16,7 +16,22 @@ public class CourseTime extends Model {
     private Date createdAt;
     private Date updatedAt;
 
-    public Integer getId() {
+    
+    
+    public CourseTime(Integer id, Integer courseSectionsId, Integer dayOfWeek, Integer startTime, Integer endTime,
+			Integer locationID, Date createdAt, Date updatedAt) {
+		super();
+		this.id = id;
+		this.courseSectionsId = courseSectionsId;
+		this.dayOfWeek = dayOfWeek;
+		this.startTime = startTime;
+		this.endTime = endTime;
+		this.locationID = locationID;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+
+	public Integer getId() {
         return id;
     }
 
