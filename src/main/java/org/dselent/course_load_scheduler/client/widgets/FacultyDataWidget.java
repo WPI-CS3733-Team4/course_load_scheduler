@@ -1,72 +1,112 @@
 package org.dselent.course_load_scheduler.client.widgets;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import org.dselent.course_load_scheduler.client.model.CourseSection;
+import org.dselent.course_load_scheduler.client.model.FacultyCourse;
+import org.dselent.course_load_scheduler.client.model.Course;
 
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.uibinder.client.UiBinder;
+import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.cellview.client.CellTable;
-import com.google.gwt.user.client.ui.Composite;
-import com.google.gwt.user.cellview.client.HasKeyboardSelectionPolicy.KeyboardSelectionPolicy;
 import com.google.gwt.user.cellview.client.TextColumn;
-import com.google.gwt.view.client.SingleSelectionModel;
-import com.google.gwt.xml.client.Comment;
+import com.google.gwt.user.client.ui.Composite;
+import com.google.gwt.user.client.ui.Widget;
 
-public class FacultyDataWidget extends Composite {
+public class FacultyDataWidget extends Composite{
+	
+	interface FacultyDataWidgetBinder extends UiBinder<Widget, FacultyDataWidget>{}
+	
+	private static UiBinder<Widget, FacultyDataWidget> binder = GWT.create(FacultyDataWidgetBinder.class);
+	
+	@UiField
+	static CellTable<FacultyCourse> facultyCourseTable;
+	
+	@UiField
+	static CellTable<Course> courseTable;
+	
+	@UiField
+	static CellTable<CourseSection> courseSectionTable;
+	
+	// Constructor
+	public FacultyDataWidget() {
+		initWidget(binder.createAndBindUi(this));
+			 
+		createFacultyHeaders();		
+		createCourseHeaders();
+		createSectionHeaders();
+	}
+	
+	private void createFacultyHeaders() {
+		TextColumn<FacultyCourse> idColumn = new TextColumn<FacultyCourse>() {
+			@Override
+			public String getValue(FacultyCourse object) {
+				return object.getId().toString();
+			}
+		};
+		
+		TextColumn<FacultyCourse> courseIdColumn = new TextColumn<FacultyCourse>() {
+			@Override
+			public String getValue(FacultyCourse object) {
+				return object.getCourseSectionID().toString();
+			}
+		};
+		
+		facultyCourseTable.addColumn(idColumn, "ID:");
+		facultyCourseTable.addColumn(courseIdColumn, "Section ID:");
+	}
+	
+	private void createCourseHeaders() {
+		TextColumn<Course> idColumn = new TextColumn<Course>() {
+			@Override
+			public String getValue(Course object) {
+				return object.getId().toString();
+			}
+		};
+		
+		TextColumn<Course> nameColumn = new TextColumn<Course>() {
+			@Override
+			public String getValue(Course object) {
+				return object.getCourseName();
+			}
+		};
+		
+		TextColumn<Course> descriptionColumn = new TextColumn<Course>() {
+			@Override
+			public String getValue(Course object) {
+				return object.getCourseDescription();
+			}
+		};
+		
+		courseTable.addColumn(idColumn, "ID:");
+		courseTable.addColumn(nameColumn, "Name:");
+		courseTable.addColumn(descriptionColumn, "Description:");
+	}
 
-  /**
-   * A simple data type that represents a contact.
-   */
-  private static class Contact {
-    private final String address;
-    private final String name;
-
-    public Contact(String name, String address) {
-      this.name = name;
-      this.address = address;
-    }
-  }
-
-  /**
-   * The list of data to display.
-   */
-  private static final List<Contact> CONTACTS = Arrays.asList(
-      new Contact("John", "123 Fourth Avenue"),
-      new Contact("Joe", "22 Lance Ln"),
-      new Contact("George", "1600 Pennsylvania Avenue"));
-
-  public void onModuleLoad() {
-    // Create a CellTable.
-    CellTable<Contact> table = new CellTable<Contact>();
-    table.setKeyboardSelectionPolicy(KeyboardSelectionPolicy.ENABLED);
-
-    // Add a text column to show the name.
-    TextColumn<Contact> nameColumn = new TextColumn<Contact>() {
-      @Override
-      public String getValue(Contact object) {
-        return object.name;
-      }
-    };
-    table.addColumn(nameColumn, "Name");
-
-    // Add a text column to show the address.
-    TextColumn<Contact> addressColumn = new TextColumn<Contact>() {
-      @Override
-      public String getValue(Contact object) {
-        return object.address;
-      }
-    };
-    table.addColumn(addressColumn, "Address");
-
-
-    // Set the total row count. This isn't strictly necessary, but it affects
-    // paging calculations, so its good habit to keep the row count up to date.
-    table.setRowCount(CONTACTS.size(), true);
-
-    // Push the data into the widget.
-    table.setRowData(0, CONTACTS);
-
-    // Add it to the root panel.
-    
-    RootPanel.get().add(table);
-  }
+	
+	private void createSectionHeaders() {
+		TextColumn<CourseSection> idColumn = new TextColumn<CourseSection>() {
+			@Override
+			public String getValue(CourseSection object) {
+				return object.getId().toString();
+			}
+		};
+		
+		TextColumn<CourseSection> courseIdColumn = new TextColumn<CourseSection>() {
+			@Override
+			public String getValue(CourseSection object) {
+				return object.getCoursesId().toString();
+			}
+		};
+		
+		TextColumn<CourseSection> sectionTypeColumn = new TextColumn<CourseSection>() {
+			@Override
+			public String getValue(CourseSection object) {
+				return object.getSectionType();
+			}
+		};
+		
+		courseSectionTable.addColumn(idColumn, "ID:");
+		courseSectionTable.addColumn(courseIdColumn, "Course ID:");
+		courseSectionTable.addColumn(sectionTypeColumn, "Section:");
+	}
 }
