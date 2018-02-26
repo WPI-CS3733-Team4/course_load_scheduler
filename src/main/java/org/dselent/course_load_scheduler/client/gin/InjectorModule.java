@@ -1,25 +1,14 @@
 package org.dselent.course_load_scheduler.client.gin;
 
-import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
-import org.dselent.course_load_scheduler.client.presenter.*;
-import org.dselent.course_load_scheduler.client.presenter.impl.IndexPresenterImpl;
-import org.dselent.course_load_scheduler.client.service.AdminService;
-import org.dselent.course_load_scheduler.client.service.BuilderService;
-import org.dselent.course_load_scheduler.client.service.FacultyService;
-import org.dselent.course_load_scheduler.client.service.UserService;
-import org.dselent.course_load_scheduler.client.service.impl.AdminServiceImpl;
-import org.dselent.course_load_scheduler.client.service.impl.BuilderServiceImpl;
-import org.dselent.course_load_scheduler.client.service.impl.FacultyServiceImpl;
-import org.dselent.course_load_scheduler.client.service.impl.UserServiceImpl;
-import org.dselent.course_load_scheduler.client.presenter.impl.*;
-import org.dselent.course_load_scheduler.client.view.IndexView;
-import org.dselent.course_load_scheduler.client.view.*;
-import org.dselent.course_load_scheduler.client.view.impl.IndexViewImpl;
-import org.dselent.course_load_scheduler.client.view.impl.*;
-
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.inject.client.AbstractGinModule;
 import com.google.inject.Singleton;
+import org.dselent.course_load_scheduler.client.presenter.*;
+import org.dselent.course_load_scheduler.client.presenter.impl.*;
+import org.dselent.course_load_scheduler.client.service.*;
+import org.dselent.course_load_scheduler.client.service.impl.*;
+import org.dselent.course_load_scheduler.client.view.*;
+import org.dselent.course_load_scheduler.client.view.impl.*;
 
 /**
  * Module where all to-be-injected dependencies are defined
@@ -56,6 +45,7 @@ public class InjectorModule extends AbstractGinModule
         bind(AdminService.class).to(AdminServiceImpl.class).in(Singleton.class);
         bind(BuilderService.class).to(BuilderServiceImpl.class).in(Singleton.class);
         bind(FacultyService.class).to(FacultyServiceImpl.class).in(Singleton.class);
+        bind(TableService.class).to(TableServiceImpl.class).in(Singleton.class);
 
     }
 	

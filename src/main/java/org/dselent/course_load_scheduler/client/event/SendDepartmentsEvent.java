@@ -13,6 +13,7 @@ public class SendDepartmentsEvent extends DisplayEvent<SendDepartmentsAction,Sen
 	public SendDepartmentsEvent(SendDepartmentsAction action, HasWidgets container)
 	{
 		super(action,container);
+        this.action = action;
 	}
 	
 	public SendDepartmentsAction getAction()

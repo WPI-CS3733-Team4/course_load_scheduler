@@ -1,18 +1,12 @@
 package org.dselent.course_load_scheduler.client.gin;
 
-import org.dselent.course_load_scheduler.client.presenter.impl.IndexPresenterImpl;
-import org.dselent.course_load_scheduler.client.service.impl.AdminServiceImpl;
-import org.dselent.course_load_scheduler.client.service.impl.BuilderServiceImpl;
-import org.dselent.course_load_scheduler.client.service.impl.FacultyServiceImpl;
-import org.dselent.course_load_scheduler.client.service.impl.UserServiceImpl;
-import org.dselent.course_load_scheduler.client.presenter.impl.*;
-import org.dselent.course_load_scheduler.client.view.impl.IndexViewImpl;
-import org.dselent.course_load_scheduler.client.view.impl.*;
-
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.SimpleEventBus;
 import com.google.gwt.inject.client.GinModules;
 import com.google.gwt.inject.client.Ginjector;
+import org.dselent.course_load_scheduler.client.presenter.impl.*;
+import org.dselent.course_load_scheduler.client.service.impl.*;
+import org.dselent.course_load_scheduler.client.view.impl.*;
 
 /**
  * Interface required by gin due to lack of runtime reflections
@@ -30,7 +24,8 @@ public interface Injector extends Ginjector
 	// GWT.create uses deferred bindings where many permutations are created but only one
 	// is used at runtime (the one for the specific browser)
     public static final Injector INSTANCE = GWT.create(Injector.class);
- 
+
+    //
     // event bus
     public SimpleEventBus getEventBus();
     
@@ -52,6 +47,8 @@ public interface Injector extends Ginjector
     
     //services
     public UserServiceImpl getUserService();
+
+    public TableServiceImpl getTableService();
     public AdminServiceImpl getAdminService();
     public BuilderServiceImpl getBuilderService();
     public FacultyServiceImpl getFacultyService();
