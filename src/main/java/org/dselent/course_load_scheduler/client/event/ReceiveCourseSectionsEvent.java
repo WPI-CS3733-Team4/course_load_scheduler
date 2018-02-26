@@ -1,43 +1,31 @@
-package org.dselent.course_load_scheduler.client.event;
-import com.google.gwt.user.client.ui.HasWidgets;
-import org.dselent.course_load_scheduler.client.action.ReceiveCourseSectionsAction;
-import org.dselent.course_load_scheduler.client.event_handler.ReceiveCourseSectionsEventHandler;
+
 
 /* Created by Krishna Madhurkar*/
 
-public class ReceiveCourseSectionsEvent extends DisplayEvent<ReceiveCourseSectionsAction,ReceiveCourseSectionsEventHandler>{
+package org.dselent.course_load_scheduler.client.event;
 
-public static Type<ReceiveCourseSectionsEventHandler> TYPE = new Type<ReceiveCourseSectionsEventHandler>();
+import org.dselent.course_load_scheduler.client.action.ReceiveCourseSectionsAction;
+import org.dselent.course_load_scheduler.client.event_handler.ReceiveCourseSectionsEventHandler;
+import com.google.gwt.user.client.ui.HasWidgets;
 
-private ReceiveCourseSectionsAction action;
-
-public ReceiveCourseSectionsEvent(ReceiveCourseSectionsAction action, HasWidgets container)
+public class ReceiveCourseSectionsEvent extends DisplayEvent<ReceiveCourseSectionsAction, ReceiveCourseSectionsEventHandler>
 {
-    super(action, container);
-    this.action = action;
-}
+	public static Type<ReceiveCourseSectionsEventHandler> TYPE = new Type<ReceiveCourseSectionsEventHandler>();
+	
+	public ReceiveCourseSectionsEvent(ReceiveCourseSectionsAction action, HasWidgets container)
+	{
+		super(action, container);
+	}
+	
+	@Override
+	public Type<ReceiveCourseSectionsEventHandler> getAssociatedType()
+	{
+		return TYPE;
+	}
 
-public ReceiveCourseSectionsAction getAction()
-{
-    return action;
-}
-
-/*
- *
- */
-@Override
-public Type<ReceiveCourseSectionsEventHandler> getAssociatedType()
-{
-    return TYPE;
-}
-
-/*
- *
- */
-@Override
-protected void dispatch(ReceiveCourseSectionsEventHandler handler)
-{
-    handler.onReceiveCourseSections(this);
-}
-
+	@Override
+	protected void dispatch(ReceiveCourseSectionsEventHandler handler)
+	{
+		handler.onReceiveCourseSections(this);
+	}
 }
