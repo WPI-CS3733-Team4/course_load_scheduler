@@ -1,9 +1,20 @@
 package org.dselent.course_load_scheduler.client.service.impl;
 
+import org.dselent.course_load_scheduler.client.event.ReceiveCourseRequestsEvent;
+import org.dselent.course_load_scheduler.client.event.ReceiveCourseSectionsEvent;
+import org.dselent.course_load_scheduler.client.event.ReceiveCourseTimesEvent;
+import org.dselent.course_load_scheduler.client.event.ReceiveCoursesEvent;
+import org.dselent.course_load_scheduler.client.event.ReceiveDepartmentsEvent;
+import org.dselent.course_load_scheduler.client.event.ReceiveLocationsEvent;
+import org.dselent.course_load_scheduler.client.event.ReceiveTermsEvent;
+import org.dselent.course_load_scheduler.client.event.ReceiveUserRolesEvent;
+import org.dselent.course_load_scheduler.client.event.ReceiveUsersEvent;
+import org.dselent.course_load_scheduler.client.event.SendCourseRequestsEvent;
 import org.dselent.course_load_scheduler.client.event.SendCourseSectionsEvent;
 import org.dselent.course_load_scheduler.client.event.SendCourseTimesEvent;
 import org.dselent.course_load_scheduler.client.event.SendCoursesEvent;
 import org.dselent.course_load_scheduler.client.event.SendDepartmentEvent;
+import org.dselent.course_load_scheduler.client.event.SendDepartmentsEvent;
 import org.dselent.course_load_scheduler.client.event.SendLocationsEvent;
 import org.dselent.course_load_scheduler.client.event.SendTermsEvent;
 import org.dselent.course_load_scheduler.client.event.SendUserRolesEvent;
@@ -40,10 +51,20 @@ public class TableServiceImpl extends BaseServiceImpl implements TableService
 		eventBusRegistration.put(SendUsersEvent.TYPE, eventBus.addHandler(SendUsersEvent.TYPE, this));
 		eventBusRegistration.put(SendUserRolesEvent.TYPE, eventBus.addHandler(SendUserRolesEvent.TYPE, this));
 		eventBusRegistration.put(SendLocationsEvent.TYPE, eventBus.addHandler(SendLocationsEvent.TYPE, this));
-		eventBusRegistration.put(SendDepartmentEvent.TYPE, eventBus.addHandler(SendDepartmentEvent.TYPE, this));
+		eventBusRegistration.put(SendDepartmentsEvent.TYPE, eventBus.addHandler(SendDepartmentsEvent.TYPE, this));
 		eventBusRegistration.put(SendTermsEvent.TYPE, eventBus.addHandler(SendTermsEvent.TYPE, this));
 		eventBusRegistration.put(SendCourseTimesEvent.TYPE, eventBus.addHandler(SendCourseTimesEvent.TYPE, this));
-		eventBusRegistration.put(SendCoursesEvent.TYPE, eventBus.addHandler(SendCourseRsEvent.TYPE, this));
+		eventBusRegistration.put(SendCourseRequestsEvent.TYPE, eventBus.addHandler(SendCourseRequestsEvent.TYPE, this));
+		
+		eventBusRegistration.put(ReceiveCoursesEvent.TYPE, eventBus.addHandler(ReceiveCoursesEvent.TYPE, this));
+		eventBusRegistration.put(ReceiveCourseSectionsEvent.TYPE, eventBus.addHandler(ReceiveCourseSectionsEvent.TYPE, this));
+		eventBusRegistration.put(ReceiveUsersEvent.TYPE, eventBus.addHandler(ReceiveUsersEvent.TYPE, this));
+		eventBusRegistration.put(ReceiveUserRolesEvent.TYPE, eventBus.addHandler(ReceiveUserRolesEvent.TYPE, this));
+		eventBusRegistration.put(ReceiveLocationsEvent.TYPE, eventBus.addHandler(ReceiveLocationsEvent.TYPE, this));
+		eventBusRegistration.put(ReceiveDepartmentsEvent.TYPE, eventBus.addHandler(ReceiveDepartmentsEvent.TYPE, this));
+		eventBusRegistration.put(ReceiveTermsEvent.TYPE, eventBus.addHandler(ReceiveTermsEvent.TYPE, this));
+		eventBusRegistration.put(ReceiveCourseTimesEvent.TYPE, eventBus.addHandler(ReceiveCourseTimesEvent.TYPE, this));
+		eventBusRegistration.put(ReceiveCourseRequestsEvent.TYPE, eventBus.addHandler(ReceiveCourseRequestsEvent.TYPE, this));
 		
 		
 		
