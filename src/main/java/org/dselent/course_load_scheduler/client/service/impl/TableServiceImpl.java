@@ -91,7 +91,7 @@ public class TableServiceImpl extends BaseServiceImpl implements TableService
 		JSONObject json = new JSONObject();
 		SendCoursesCallback coursesCallback = new SendCoursesCallback(eventBus, evt.getContainer());
 		
-		NetworkRequest request = new NetworkRequest(NetworkRsequestStrings.SEND_COURSES, coursesCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.SEND_COURSES, coursesCallback, json);
 		request.send();
 	}
 	
