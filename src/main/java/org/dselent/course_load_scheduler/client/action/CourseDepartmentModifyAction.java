@@ -32,11 +32,10 @@ public class CourseDepartmentModifyAction extends Action
 
     @Override
     public String toString() {
-        return "CourseDepartmentModifyAction{" +
-                "courseDepartmentId=" + courseDepartmentId +
-                ", courseId=" + courseId +
-                ", departmentId=" + departmentId +
-                ", courseNumber=" + courseNumber +
-                '}';
+        return "{"+"\'courseDepartmentId\'=\'" + courseDepartmentId + "\'"+
+                ",\' courseId \'=\'" + courseId + "\'"+
+                ",\' departmentId\'=\'" + departmentId + "\'"+
+                ", \'courseNumber\'=\'" + courseNumber + "\'" +
+                "}";
     }
 }

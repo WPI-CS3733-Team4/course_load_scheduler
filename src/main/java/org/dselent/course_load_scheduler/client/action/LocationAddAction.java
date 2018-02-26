@@ -26,7 +26,7 @@ public class LocationAddAction extends Action
 
     @Override
     public String toString() {
-        return "{" + '\'' +
+        return "{" +
                 "\'building\'=\'" + building + '\'' +
                 ", \'room\'=\'" + room + '\'' +
                 ", \'roomSize\'=\'" + roomSize + '\'' +
