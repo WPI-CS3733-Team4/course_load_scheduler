@@ -17,7 +17,8 @@ public interface BuilderView extends BaseView<BuilderPresenter>{
 	TextBox getCourseDescriptionTextBox();
 	void setCourseDescriptionTextBox(TextBox courseDescriptionTextBox);
 	TextBox getCourseSectionIdTextBox();
-	void setCourseSectionIdTextBox(TextBox courseSectionTextBox);
+
+    void setCourseSectionIdTextBox(TextBox courseSectionIdTextBox);
 	TextBox getCourseSectionTimeIdTextBox();
 	void setCourseSectionTimeIdTextBox(TextBox courseSectionTimeId);
 	TextBox getSectionTypeTextBox();
@@ -92,7 +93,7 @@ public interface BuilderView extends BaseView<BuilderPresenter>{
 	void showErrorMessages(String errorMessages);
 
 
-	public TextBox getCourseSectionTextBox();
+    TextBox getCourseSectionTextBox();
 
-	public void setCourseSectionTextBox(TextBox courseSectionTextBox);
+    void setCourseSectionTextBox(TextBox courseSectionTextBox);
 }
