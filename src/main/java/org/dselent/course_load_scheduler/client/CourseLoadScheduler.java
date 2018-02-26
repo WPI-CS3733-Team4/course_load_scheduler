@@ -7,6 +7,9 @@ import com.google.gwt.user.client.ui.RootPanel;
 import org.dselent.course_load_scheduler.client.gin.Injector;
 import org.dselent.course_load_scheduler.client.presenter.impl.*;
 import org.dselent.course_load_scheduler.client.service.impl.AdminServiceImpl;
+import org.dselent.course_load_scheduler.client.service.impl.BuilderServiceImpl;
+import org.dselent.course_load_scheduler.client.service.impl.FacultyServiceImpl;
+import org.dselent.course_load_scheduler.client.service.impl.UserServiceImpl;
 import org.dselent.course_load_scheduler.client.view.*;
 
 /**
@@ -118,6 +121,12 @@ public class CourseLoadScheduler implements EntryPoint
 
         AdminServiceImpl adminService = injector.getAdminService();
         adminService.init();
+        BuilderServiceImpl builderService = injector.getBuilderService();
+        builderService.init();
+        FacultyServiceImpl facultyService = injector.getFacultyService();
+        facultyService.init();
+        UserServiceImpl userService = injector.getUserService();
+        userService.init();
 
 
 

@@ -22,7 +22,7 @@ public class TermModifyAction extends Action
     public String toString() {
         return "{" +
                 "\'termId\'=\'" + termId + "\'" +
-                ", \'termName=\'" + termName + '\'' +
+                ", \'termName\'=\'" + termName + '\'' +
                 '}';
     }
 }
