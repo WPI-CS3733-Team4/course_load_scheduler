@@ -1,5 +1,6 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import org.dselent.course_load_scheduler.client.action.UserAddAction;
 import org.dselent.course_load_scheduler.client.action.UserRemoveAction;
 import org.dselent.course_load_scheduler.client.event_handler.UserRemoveEventHandler;
 
@@ -9,15 +10,15 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /* Created by Nathan Siegel */
 
-public class UserRemoveEvent extends GwtEvent<UserRemoveEventHandler>{
+public class UserRemoveEvent extends DisplayEvent<UserRemoveAction,UserRemoveEventHandler>{
 	
 	public static Type<UserRemoveEventHandler> TYPE = new Type<UserRemoveEventHandler>();
 	
 	private UserRemoveAction action;
 	
-	public UserRemoveEvent(UserRemoveAction action)
+	public UserRemoveEvent(UserRemoveAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action, container);
 	}
 	
 	public UserRemoveAction getAction()

@@ -9,15 +9,15 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /* Created by Nathan Siegel */
 
-public class UserRegisterEvent extends GwtEvent<UserRegisterEventHandler>{
+public class UserRegisterEvent extends DisplayEvent<UserAddAction,UserRegisterEventHandler>{
 	
 	public static Type<UserRegisterEventHandler> TYPE = new Type<UserRegisterEventHandler>();
 	
 	private UserAddAction action;
 	
-	public UserRegisterEvent(UserAddAction action)
+	public UserRegisterEvent(UserAddAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action, container);
 	}
 	
 	public UserAddAction getAction()
@@ -41,10 +41,6 @@ public class UserRegisterEvent extends GwtEvent<UserRegisterEventHandler>{
 	protected void dispatch(UserRegisterEventHandler handler)
 	{
 		handler.onUserRegister(this);
-	}
-	
-	public HasWidgets getContainer() {
-		return this.getContainer();
 	}
 
 }
