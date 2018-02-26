@@ -127,8 +127,9 @@ public class FacultyPresenterImpl extends BasePresenterImpl implements FacultyPr
 	
 	private void sendRequest(Integer facultyId, Integer courseSectionId)
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		RequestAction sla = new RequestAction(facultyId, courseSectionId);
-		RequestEvent sle = new RequestEvent(sla);
+		RequestEvent sle = new RequestEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -172,8 +173,9 @@ public class FacultyPresenterImpl extends BasePresenterImpl implements FacultyPr
 	
 	private void sendUnrequest(Integer requestId)
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		UnrequestAction sla = new UnrequestAction(requestId);
-		UnrequestEvent sle = new UnrequestEvent(sla);
+		UnrequestEvent sle = new UnrequestEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	/*
