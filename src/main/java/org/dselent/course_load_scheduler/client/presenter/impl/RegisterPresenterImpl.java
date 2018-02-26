@@ -9,7 +9,6 @@ import org.dselent.course_load_scheduler.client.action.UserAddAction;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidUserStrings;
 import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
 import org.dselent.course_load_scheduler.client.event.UserAddEvent;
-import org.dselent.course_load_scheduler.client.event.UserRegisterEvent;
 import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.presenter.RegisterPresenter;
@@ -162,10 +161,10 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 	{
 		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		UserAddAction sla = new UserAddAction(userName, firstName, lastName, email, password);
-		UserRegisterEvent sle = new UserRegisterEvent(sla,container);
+		UserAddEvent sle = new UserAddEvent(sla, container);
 //		System.out.println("send REACHED");
 
-        GWT.log("SendRegister Reached");
+		GWT.log("Send Register Reached");
 		eventBus.fireEvent(sle);
 	}
 	

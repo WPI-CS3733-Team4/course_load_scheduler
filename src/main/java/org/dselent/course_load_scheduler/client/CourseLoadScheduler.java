@@ -4,13 +4,12 @@ import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import org.dselent.course_load_scheduler.client.gin.Injector;
-import org.dselent.course_load_scheduler.client.presenter.impl.IndexPresenterImpl;
 import org.dselent.course_load_scheduler.client.presenter.impl.*;
-import org.dselent.course_load_scheduler.client.view.IndexView;
+import org.dselent.course_load_scheduler.client.service.impl.BuilderServiceImpl;
+import org.dselent.course_load_scheduler.client.service.impl.FacultyServiceImpl;
+import org.dselent.course_load_scheduler.client.service.impl.UserServiceImpl;
 import org.dselent.course_load_scheduler.client.view.*;
-
 import org.dselent.course_load_scheduler.client.widgets.AdminDataWidget;
-import org.dselent.course_load_scheduler.client.widgets.FacultyDataWidget;
 
 
 /**
@@ -60,7 +59,16 @@ public class CourseLoadScheduler implements EntryPoint
 //
 //		 Get the injector, which injected objects can be retrieved from
 		final Injector injector = Injector.INSTANCE;
-		
+
+
+		BuilderServiceImpl builderService = injector.getBuilderService();
+		builderService.init();
+		FacultyServiceImpl facultyService = injector.getFacultyService();
+		facultyService.init();
+		UserServiceImpl userService = injector.getUserService();
+		userService.init();
+
+
 		IndexPresenterImpl indexPresenter = injector.getIndexPresenter(); // on-demand injection
 		indexPresenter.init();
         IndexView indexView = indexPresenter.getView();

@@ -1,5 +1,8 @@
 package org.dselent.course_load_scheduler.client.service.impl;
 
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.json.client.JSONObject;
 import org.dselent.course_load_scheduler.client.action.SendLoginAction;
 import org.dselent.course_load_scheduler.client.action.UserAddAction;
 import org.dselent.course_load_scheduler.client.callback.RegisterCallback;
@@ -10,9 +13,6 @@ import org.dselent.course_load_scheduler.client.network.NetworkRequest;
 import org.dselent.course_load_scheduler.client.network.NetworkRequestStrings;
 import org.dselent.course_load_scheduler.client.service.UserService;
 import org.dselent.course_load_scheduler.client.translator.impl.LoginActionTranslatorImpl;
-
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.json.client.JSONObject;
 import org.dselent.course_load_scheduler.client.translator.impl.UserAddActionTranslatorImpl;
 
 public class UserServiceImpl extends BaseServiceImpl implements UserService
@@ -58,6 +58,7 @@ public class UserServiceImpl extends BaseServiceImpl implements UserService
 		RegisterCallback registerCallback = new RegisterCallback(eventBus, evt.getContainer());
 		
 		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.USER_ADD, registerCallback, json);
+        GWT.log("user reg sent" + json.toString());
 		request.send();
 	}
 }

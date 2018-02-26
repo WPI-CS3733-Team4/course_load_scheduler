@@ -18,13 +18,15 @@ public class BuilderCallback extends DisplayCallback<JSONValue>
 	public void onSuccess(JSONValue result)
 	{
         GWT.log("success");
-		/*
-		JSONObject json = JSONHelper.getObjectValue(result);
-		LoginActionTranslatorImpl loginActionTranslator = new LoginActionTranslatorImpl();
-		ReceiveLoginAction action = loginActionTranslator.translateToAction(json);
-		
-		ReceiveLoginEvent event = new ReceiveLoginEvent(action, getContainer());
-		eventBus.fireEvent(event);*/
+        GWT.log(result.toString());
+//
+//
+//		JSONObject json = JSONHelper.getObjectValue(result);
+//		JSONValue successList = json.get("success");
+//
+//        JSONArray  ja = (JSONArray) successList;
+//
+//        GWT.log(ja.get(0).toString());
 //		CourseLoadScheduler.builderScreen();
 	
 	}

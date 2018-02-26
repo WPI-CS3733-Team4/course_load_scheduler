@@ -37,7 +37,7 @@ public class ReceiveLoginActionTranslatorImpl implements ActionTranslator<Receiv
         String username = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(ReceiveLoginKeys.USER_NAME));
         String password = JSONHelper.getStringValue(userObject, JSONHelper.convertKeyName(ReceiveLoginKeys.PASSWORD));
 
-        User u = new User();
+        User u = new User(null, null);
         u.setUserName(username);
         u.setEncryptedPassword(password);
         // possibly use builder pattern if it is a lot of data

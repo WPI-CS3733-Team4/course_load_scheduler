@@ -4,6 +4,7 @@ public final class NetworkRequestStrings
 {
 	//	public static final String SERVER_LOCATION = "http://localhost:8081/";
 	public static final String SERVER_LOCATION = "https://20180226t030941-dot-softenggroup4.appspot.com/";
+
 	public static final String BASE_REQUEST = "";
 	
 	public static String LOGIN = "user/login";
