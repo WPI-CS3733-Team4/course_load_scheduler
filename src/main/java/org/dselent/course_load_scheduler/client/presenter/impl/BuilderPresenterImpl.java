@@ -1142,7 +1142,8 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 		
 		
 		InvalidFieldAction ila = evt.getAction();
-		view.showErrorMessages(ila.toString());
+        GWT.log(ila.toString());
+//		view.showErrorMessages(ila.toString());
         parentPresenter.hideLoadScreen();
 	}
 }

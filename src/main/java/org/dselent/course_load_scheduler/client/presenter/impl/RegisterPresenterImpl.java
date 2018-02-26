@@ -172,6 +172,7 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 		registerClickInProgress = false;
 		
 		InvalidFieldAction ila = evt.getAction();
-		view.showErrorMessages(ila.toString());
+		GWT.log(ila.toString());
+//		view.showErrorMessages(ila.toString());
 	}
 }

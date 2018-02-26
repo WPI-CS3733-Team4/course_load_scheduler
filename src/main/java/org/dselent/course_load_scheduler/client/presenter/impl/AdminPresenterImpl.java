@@ -1,5 +1,6 @@
 package org.dselent.course_load_scheduler.client.presenter.impl;
 
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.inject.Inject;
@@ -382,7 +383,8 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		changeRoleClickInProgress = false;
 		
 		InvalidFieldAction ila = evt.getAction();
-		view.showErrorMessages(ila.toString());
+		GWT.log(ila.toString());
+//		view.showErrorMessages(ila.toString());
 	}
 }
 // end
