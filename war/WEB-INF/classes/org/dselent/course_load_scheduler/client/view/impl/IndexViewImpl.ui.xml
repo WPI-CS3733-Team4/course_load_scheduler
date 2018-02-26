@@ -33,6 +33,7 @@
 	<navbar:NavBarWidget ui:field="navbar"/>
 	<g:Image ui:field="loadingImage" url="WEB-INF/classes/org/dselent/course_load_scheduler/client/view/images/loading-alternate.gif" addStyleNames="{style.loading-image}"/>
 	
+	
 	<div class="container" id="index">	
 		<g:HTMLPanel ui:field="mainPanel"/>
 	</div>
