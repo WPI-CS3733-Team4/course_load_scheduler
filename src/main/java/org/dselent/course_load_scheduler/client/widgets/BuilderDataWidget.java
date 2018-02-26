@@ -5,6 +5,12 @@ import java.util.List;
 import org.dselent.course_load_scheduler.client.model.Course;
 import org.dselent.course_load_scheduler.client.model.CourseSection;
 import org.dselent.course_load_scheduler.client.model.CourseTime;
+import org.dselent.course_load_scheduler.client.model.Location;
+import org.dselent.course_load_scheduler.client.model.Department;
+import org.dselent.course_load_scheduler.client.model.Term;
+
+
+
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
@@ -29,6 +35,15 @@ public class BuilderDataWidget extends Composite{
 	@UiField
 	static CellTable<CourseTime> courseTimeTable;
 	
+	@UiField
+	static CellTable<Location> locationTable;
+	
+	@UiField
+	static CellTable<Department> departmentTable;
+	
+	@UiField
+	static CellTable<Term> termTable;
+	
 	// Constructor
 	public BuilderDataWidget() {
 		initWidget(binder.createAndBindUi(this));
@@ -36,6 +51,10 @@ public class BuilderDataWidget extends Composite{
 		createCourseHeaders();		
 		createSectionHeaders();
 		createTimeHeaders();
+		
+		createLocationHeaders();
+		createDepartmentHeaders();
+		createTermHeaders();
 	}
 	
 	private void createCourseHeaders() {
@@ -143,6 +162,79 @@ public class BuilderDataWidget extends Composite{
 		courseTimeTable.addColumn(locationColumn, "Location ID:");
 	}
 	
+	private void createLocationHeaders() {
+		TextColumn<Location> idColumn = new TextColumn<Location>() {
+			@Override
+			public String getValue(Location object) {
+				return object.getId().toString();
+			}
+		};
+		
+		TextColumn<Location> buildingColumn = new TextColumn<Location>() {
+			@Override
+			public String getValue(Location object) {
+				return object.getBuilding();
+			}
+		};
+		
+		TextColumn<Location> roomColumn = new TextColumn<Location>() {
+			@Override
+			public String getValue(Location object) {
+				return object.getRoom();
+			}
+		};
+		
+		TextColumn<Location> sizeColumn = new TextColumn<Location>() {
+			@Override
+			public String getValue(Location object) {
+				return object.getRoomSize().toString();
+			}
+		};
+		
+		locationTable.addColumn(idColumn, "ID:");
+		locationTable.addColumn(buildingColumn, "Building:");
+		locationTable.addColumn(roomColumn, "Room:");
+		locationTable.addColumn(sizeColumn, "Size:");
+	}
+	
+	private void createDepartmentHeaders() {
+		TextColumn<Department> idColumn = new TextColumn<Department>() {
+			@Override
+			public String getValue(Department object) {
+				return object.getId().toString();
+			}
+		};
+		
+		TextColumn<Department> departmentColumn = new TextColumn<Department>() {
+			@Override
+			public String getValue(Department object) {
+				return object.getDepartment();
+			}
+		};
+		
+		departmentTable.addColumn(idColumn, "ID:");
+		departmentTable.addColumn(departmentColumn, "Dept:");
+	}
+	
+	private void createTermHeaders() {
+		TextColumn<Term> idColumn = new TextColumn<Term>() {
+			@Override
+			public String getValue(Term object) {
+				return object.getId().toString();
+			}
+		};
+		
+		TextColumn<Term> nameColumn = new TextColumn<Term>() {
+			@Override
+			public String getValue(Term object) {
+				return object.getTermName();
+			}
+		};
+		
+		termTable.addColumn(idColumn, "ID:");
+		termTable.addColumn(nameColumn, "Term Name:");
+	}
+	
 	public static void populateCourseTable(List<Course> courseList) {
 		courseTable.setRowCount(8, true);
 		courseTable.setRowData(0, courseList);
@@ -158,4 +250,15 @@ public class BuilderDataWidget extends Composite{
 		courseTimeTable.setRowData(0, timeList);
 	}
 
+	public static void populateLocationTable(List<Location> locationList) {
+		locationTable.setRowData(0, locationList);
+	}
+	
+	public static void populateDepartmentTable(List<Department> departmentList) {
+		departmentTable.setRowData(0, departmentList);
+	}
+	
+	public static void populateTermTable(List<Term> termList) {
+		termTable.setRowData(0, termList);
+	}
 }

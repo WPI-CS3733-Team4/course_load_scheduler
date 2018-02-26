@@ -21,10 +21,10 @@
     		</div>
 	  	</div>
 	  	<div class="row">
-	  		<div class="col-md-4">
+	  		<div class="col-md-5">
 	  			<t:CellTable ui:field="locationTable"/>
 	  		</div>
-	  		<div class="col-md-4">
+	  		<div class="col-md-3">
 	  			<t:CellTable ui:field="departmentTable"/>
 	  		</div>
 	  		<div class="col-md-4">

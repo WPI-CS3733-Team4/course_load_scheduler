@@ -112,7 +112,6 @@ public class AdminDataWidget extends Composite {
 	}
 	
 	public static void populateUserTable(List<User> userList) {
-		userTable.setRowCount(8, true);
 		userTable.setRowData(0, userList);
 	}
 	

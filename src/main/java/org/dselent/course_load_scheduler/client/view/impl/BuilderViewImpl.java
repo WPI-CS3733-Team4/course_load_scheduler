@@ -169,38 +169,10 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	@UiField
 	BuilderDataWidget builderData;
 	
-	@UiField 
-	FlexTable locationTable;
-
-	@UiField 
-	FlexTable deptTable;
-
-	@UiField 
-	FlexTable termTable;
-	
-	
-	/*
-	@UiField
-	VerticalPanel facultyPanel;
-	*/
 	
 	public BuilderViewImpl()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
-		
-		locationTable.setBorderWidth(2);
-		locationTable.setText(0, 0, "Location ID");
-		locationTable.setText(0, 1, "Building");
-		locationTable.setText(0, 2, "Room");
-		locationTable.setText(0,3, "Room Size");
-		
-		deptTable.setBorderWidth(2);
-		deptTable.setText(0, 0, "Department ID");
-		deptTable.setText(0, 1, "Department");
-		
-		termTable.setBorderWidth(2);
-		termTable.setText(0, 0, "Term ID");
-		termTable.setText(0, 1, "Term Name");
 	}
 	
 	public TextBox getCourseTextBox() {
