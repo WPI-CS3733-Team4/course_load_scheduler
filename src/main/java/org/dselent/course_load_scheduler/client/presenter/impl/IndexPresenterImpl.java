@@ -2,9 +2,15 @@ package org.dselent.course_load_scheduler.client.presenter.impl;
 
 import javax.inject.Inject;
 
+import org.dselent.course_load_scheduler.client.action.SendUsersAction;
+import org.dselent.course_load_scheduler.client.action.UserAddAction;
+import org.dselent.course_load_scheduler.client.event.SendUsersEvent;
+import org.dselent.course_load_scheduler.client.event.UserAddEvent;
 import org.dselent.course_load_scheduler.client.model.Model;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.view.IndexView;
+
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.HasWidgets;
 
@@ -54,5 +60,16 @@ public class IndexPresenterImpl extends BasePresenterImpl implements IndexPresen
 	{
 		view.getLoadingImage().getElement().getStyle().setVisibility(Style.Visibility.HIDDEN);
 		view.getGlassLoadingPanel().getElement().getStyle().setVisibility(Style.Visibility.HIDDEN);
+	}
+	
+	public void sendTableRequests()
+	{
+		HasWidgets container = this.getView().getViewRootPanel();
+		SendUsersAction sla = new SendUsersAction();
+		SendUsersEvent sle = new SendUsersEvent(sla, container);
+//		System.out.println("send REACHED");
+
+		GWT.log("Send Table Requests Reached");
+		eventBus.fireEvent(sle);
 	}
 }
