@@ -39,7 +39,7 @@ public class ReceiveTermsActionTranslatorImpl implements ActionTranslator<Receiv
 			Integer id = JSONHelper.getIntValue(Termstring, JSONHelper.convertKeyName(ReceiveTermsActionKeys.ID));
 			String termName = JSONHelper.getStringValue(Termstring, JSONHelper.convertKeyName(ReceiveTermsActionKeys.TERM_NAME));
 			
-			tempTermList.add(new Term(id, termName));
+			tempTermList.add(new Term(id, termName, null, null));
 		}
 		
 		ReceiveTermsAction action = new ReceiveTermsAction(tempTermList);

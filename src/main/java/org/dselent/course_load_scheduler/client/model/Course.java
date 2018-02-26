@@ -13,6 +13,14 @@ public class Course extends Model
     private String courseDescription;
     private Date createdAt;
     private Date updatedAt;
+    
+	public Course(Integer id, String courseName, String courseDescription, Date createdAt, Date updatedAt) {
+		this.id = id;
+		this.courseName = courseName;
+		this.courseDescription = courseDescription;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
 
     public Integer getId() {
         return id;
