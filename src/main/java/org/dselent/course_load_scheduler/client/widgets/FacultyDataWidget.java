@@ -113,15 +113,18 @@ public class FacultyDataWidget extends Composite{
 	}
 
 	public static void populateFacutly(List<FacultyCourse> facultyList) {
-		
+		facultyCourseTable.setRowCount(8, true);
+		facultyCourseTable.setRowData(0, facultyList);
 	}
 	
 	public static void populateCourse(List<Course> courseList) {
-		
+		courseTable.setRowCount(8, true);
+		courseTable.setRowData(0, courseList);
 	}
 	
 	public static void populateSection(List<CourseSection> sectionList) {
-		
+		courseSectionTable.setRowCount(8, true);
+		courseSectionTable.setRowData(0, sectionList);
 	}
 
 
