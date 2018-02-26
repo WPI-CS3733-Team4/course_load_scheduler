@@ -1,58 +1,19 @@
 package org.dselent.course_load_scheduler.client.presenter.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
-import org.dselent.course_load_scheduler.client.action.CourseAddAction;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidCourseStrings;
-import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
-import org.dselent.course_load_scheduler.client.event.CourseAddEvent;
-import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
-import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
-import org.dselent.course_load_scheduler.client.presenter.BuilderPresenter;
-import org.dselent.course_load_scheduler.client.view.BuilderView;
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.inject.Inject;
-import org.dselent.course_load_scheduler.client.event.CourseModifyEvent;
-import org.dselent.course_load_scheduler.client.action.CourseModifyAction;
-import org.dselent.course_load_scheduler.client.event.CourseRemoveEvent;
-import org.dselent.course_load_scheduler.client.action.CourseRemoveAction;
-import org.dselent.course_load_scheduler.client.event.CourseSectionAddEvent;
-import org.dselent.course_load_scheduler.client.action.CourseSectionAddAction;
-import org.dselent.course_load_scheduler.client.event.CourseSectionModifyEvent;
-import org.dselent.course_load_scheduler.client.action.CourseSectionModifyAction;
-import org.dselent.course_load_scheduler.client.event.CourseSectionRemoveEvent;
-import org.dselent.course_load_scheduler.client.action.CourseSectionRemoveAction;
-import org.dselent.course_load_scheduler.client.event.CourseSectionTimeAddEvent;
-import org.dselent.course_load_scheduler.client.action.CourseSectionTimeAddAction;
-import org.dselent.course_load_scheduler.client.event.CourseSectionTimeModifyEvent;
-import org.dselent.course_load_scheduler.client.action.CourseSectionTimeModifyAction;
-import org.dselent.course_load_scheduler.client.event.CourseSectionTimeRemoveEvent;
-import org.dselent.course_load_scheduler.client.action.CourseSectionTimeRemoveAction;
-import org.dselent.course_load_scheduler.client.event.LocationAddEvent;
-import org.dselent.course_load_scheduler.client.action.LocationAddAction;
-import org.dselent.course_load_scheduler.client.event.LocationModifyEvent;
-import org.dselent.course_load_scheduler.client.action.LocationModifyAction;
-import org.dselent.course_load_scheduler.client.event.LocationRemoveEvent;
-import org.dselent.course_load_scheduler.client.action.LocationRemoveAction;
-import org.dselent.course_load_scheduler.client.event.DepartmentAddEvent;
-import org.dselent.course_load_scheduler.client.action.DepartmentAddAction;
-import org.dselent.course_load_scheduler.client.event.DepartmentModifyEvent;
-import org.dselent.course_load_scheduler.client.action.DepartmentModifyAction;
-import org.dselent.course_load_scheduler.client.event.DepartmentRemoveEvent;
-import org.dselent.course_load_scheduler.client.action.DepartmentRemoveAction;
-import org.dselent.course_load_scheduler.client.event.TermAddEvent;
-import org.dselent.course_load_scheduler.client.action.TermAddAction;
-import org.dselent.course_load_scheduler.client.event.TermModifyEvent;
-import org.dselent.course_load_scheduler.client.action.TermModifyAction;
-import org.dselent.course_load_scheduler.client.event.TermRemoveEvent;
-import org.dselent.course_load_scheduler.client.action.TermRemoveAction;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidTimeStrings;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidSectionStrings;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidTermStrings;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidDepartmentStrings;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidLocationStrings;
+import org.dselent.course_load_scheduler.client.action.*;
+import org.dselent.course_load_scheduler.client.errorstring.*;
+import org.dselent.course_load_scheduler.client.event.*;
+import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
+import org.dselent.course_load_scheduler.client.presenter.BuilderPresenter;
+import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
+import org.dselent.course_load_scheduler.client.view.BuilderView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /* Created by Michael Capobianco and Nathan Siegel */
 
@@ -188,12 +149,15 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 			try 
 			{
 				checkEmptyString(courseName = view.getCourseNameTextBox().getText());
-				fieldsAreValid = false;
+
 			}
 			catch(EmptyStringException e)
 			{
 				invalidReasonList.add(InvalidCourseStrings.NULL_NAME);
+				fieldsAreValid = false;
 			}
+
+
 			if (fieldsAreValid) 
 			{
 				sendAddCourse(courseName, courseDept, courseDescription);
@@ -201,6 +165,8 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 			}
 			else
 			{
+				GWT.log("invFieldForAddCourse");
+				GWT.log(invalidReasonList.toString());
 				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
 				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
 				eventBus.fireEvent(ile);
