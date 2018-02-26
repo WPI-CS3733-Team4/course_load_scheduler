@@ -1,11 +1,8 @@
 package org.dselent.course_load_scheduler.client.event;
 
-import org.dselent.course_load_scheduler.client.action.LocationModifyAction;
-import org.dselent.course_load_scheduler.client.action.UserAddAction;
-import org.dselent.course_load_scheduler.client.event_handler.LocationModifyEventHandler;
-
-import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.ui.HasWidgets;
+import org.dselent.course_load_scheduler.client.action.LocationModifyAction;
+import org.dselent.course_load_scheduler.client.event_handler.LocationModifyEventHandler;
 
 
 /* Created by Nathan Siegel */
@@ -19,6 +16,7 @@ public class LocationModifyEvent extends DisplayEvent<LocationModifyAction,Locat
 	public LocationModifyEvent(LocationModifyAction action, HasWidgets container)
 	{
 		super(action, container);
+		this.action = action;
 	}
 	
 	public LocationModifyAction getAction()

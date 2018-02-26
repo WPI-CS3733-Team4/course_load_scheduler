@@ -1,11 +1,8 @@
 package org.dselent.course_load_scheduler.client.event;
 
-import org.dselent.course_load_scheduler.client.action.LocationRemoveAction;
-import org.dselent.course_load_scheduler.client.action.UserAddAction;
-import org.dselent.course_load_scheduler.client.event_handler.LocationRemoveEventHandler;
-
-import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.ui.HasWidgets;
+import org.dselent.course_load_scheduler.client.action.LocationRemoveAction;
+import org.dselent.course_load_scheduler.client.event_handler.LocationRemoveEventHandler;
 
 
 /* Created by Nathan Siegel */
@@ -19,6 +16,7 @@ public class LocationRemoveEvent extends DisplayEvent<LocationRemoveAction,Locat
 	public LocationRemoveEvent(LocationRemoveAction action, HasWidgets container)
 	{
 		super(action, container);
+		this.action = action;
 	}
 	
 	public LocationRemoveAction getAction()
