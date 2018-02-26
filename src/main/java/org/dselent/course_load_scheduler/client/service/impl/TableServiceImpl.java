@@ -2,7 +2,16 @@ package org.dselent.course_load_scheduler.client.service.impl;
 
 import org.dselent.course_load_scheduler.client.action.SendCoursesAction;
 import org.dselent.course_load_scheduler.client.action.SendLoginAction;
+import org.dselent.course_load_scheduler.client.callback.SendCourseRequestsCallback;
+import org.dselent.course_load_scheduler.client.callback.SendCourseSectionsCallback;
+import org.dselent.course_load_scheduler.client.callback.SendCourseTimesCallback;
+import org.dselent.course_load_scheduler.client.callback.SendCoursesCallback;
+import org.dselent.course_load_scheduler.client.callback.SendDepartmentsCallback;
+import org.dselent.course_load_scheduler.client.callback.SendLocationsCallback;
 import org.dselent.course_load_scheduler.client.callback.SendLoginCallback;
+import org.dselent.course_load_scheduler.client.callback.SendTermsCallback;
+import org.dselent.course_load_scheduler.client.callback.SendUserRolesCallback;
+import org.dselent.course_load_scheduler.client.callback.SendUsersCallback;
 import org.dselent.course_load_scheduler.client.event.ReceiveCourseRequestsEvent;
 import org.dselent.course_load_scheduler.client.event.ReceiveCourseSectionsEvent;
 import org.dselent.course_load_scheduler.client.event.ReceiveCourseTimesEvent;
@@ -82,7 +91,7 @@ public class TableServiceImpl extends BaseServiceImpl implements TableService
 		JSONObject json = new JSONObject();
 		SendCoursesCallback coursesCallback = new SendCoursesCallback(eventBus, evt.getContainer());
 		
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.SEND_COURSES, coursesCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRsequestStrings.SEND_COURSES, coursesCallback, json);
 		request.send();
 	}
 	
@@ -160,7 +169,7 @@ public class TableServiceImpl extends BaseServiceImpl implements TableService
 	public void onSendCourseRequests(SendCourseRequestsEvent evt)
 	{
 		JSONObject json = new JSONObject();
-		SendCourseRequestsCallback coursesCallback = new SendCoursesCallback(eventBus, evt.getContainer());
+		SendCourseRequestsCallback coursesCallback = new SendCourseRequestsCallback(eventBus, evt.getContainer());
 		
 		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.SEND_COURSE_REQUESTS, coursesCallback, json);
 		request.send();
