@@ -26,6 +26,9 @@ import org.dselent.course_load_scheduler.client.network.NetworkRequest;
 import org.dselent.course_load_scheduler.client.network.NetworkRequestStrings;
 import org.dselent.course_load_scheduler.client.service.TableService;
 import org.dselent.course_load_scheduler.client.translator.impl.LoginActionTranslatorImpl;
+import org.dselent.course_load_scheduler.client.widgets.AdminDataWidget;
+import org.dselent.course_load_scheduler.client.widgets.BuilderDataWidget;
+import org.dselent.course_load_scheduler.client.widgets.FacultyDataWidget;
 
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.json.client.JSONObject;
@@ -167,53 +170,63 @@ public class TableServiceImpl extends BaseServiceImpl implements TableService
 	public void onReceiveCourses(ReceiveCoursesEvent evt)
 	{
 		//do stuff
+		BuilderDataWidget.populateCourseTable(evt.getAction().getListOfCourses());
+		FacultyDataWidget.populateCourse(evt.getAction().getListOfCourses());
 	}
 	
 	@Override
 	public void onReceiveCourseSections(ReceiveCourseSectionsEvent evt)
 	{
-		//do stuff
+		BuilderDataWidget.populateSectionTable(evt.getAction().getListOfCourseSections());
+		FacultyDataWidget.populateSection(evt.getAction().getListOfCourseSections());
 	}
 	
 	@Override
 	public void onReceiveUsers(ReceiveUsersEvent evt)
 	{
 		//do stuff
+		AdminDataWidget.populateUserTable(evt.getAction().getListOfUsers());
 	}
 	
 	@Override
 	public void onReceiveUserRoles(ReceiveUserRolesEvent evt)
 	{
 		//do stuff
+		AdminDataWidget.populateUserPermissionTable(evt.getAction().getListOfUserRoles());
 	}
 	
 	@Override
 	public void onReceiveLocations(ReceiveLocationsEvent evt)
 	{
 		//do stuff
+		BuilderDataWidget.populateLocationTable(evt.getAction().getListOfLocations());
 	}
 	
 	@Override
 	public void onReceiveDepartments(ReceiveDepartmentsEvent evt)
 	{
 		//do stuff
+		BuilderDataWidget.populateDepartmentTable(evt.getAction().getListOfDepartments());
 	}
 	
 	@Override
 	public void onReceiveTerms(ReceiveTermsEvent evt)
 	{
 		//do stuff
+		BuilderDataWidget.populateTermTable(evt.getAction().getListOfTerms());
 	}
 	
 	@Override
 	public void onReceiveCourseTimes(ReceiveCourseTimesEvent evt)
 	{
 		//do stuff
+		BuilderDataWidget.populateTimeTable(evt.getAction().getListOfCourseTimes());
 	}
 	
 	@Override
 	public void onReceiveCourseRequests(ReceiveCourseRequestsEvent evt)
 	{
 		//do stuff
+		//FacultyDataWidget.populateSection(evt.getAction().getListOfCourseRequests());
 	}
 }

@@ -4,17 +4,18 @@ package org.dselent.course_load_scheduler.client.action;
 
 import java.util.List;
 
+import org.dselent.course_load_scheduler.client.model.Term;
 import org.dselent.course_load_scheduler.client.model.User;
 
 public class ReceiveTermsAction extends Action{
 
-	private List<User> listOfTerms;
+	private List<Term> listOfTerms;
 	
-	public ReceiveTermsAction(List<User> listOfTerms) {
+	public ReceiveTermsAction(List<Term> listOfTerms) {
 		this.listOfTerms = listOfTerms;
 	}
 
-	public List<User> getListOfTerms() {
+	public List<Term> getListOfTerms() {
 		return listOfTerms;
 	}
 

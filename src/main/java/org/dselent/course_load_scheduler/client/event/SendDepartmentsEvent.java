@@ -29,6 +29,6 @@ public class SendDepartmentsEvent extends DisplayEvent<SendDepartmentsAction,Sen
 	@Override
 	protected void dispatch(SendDepartmentsEventHandler handler)
 	{
-		handler.onSendDepartment(this);
+		handler.onSendDepartments(this);
 	}
 }
