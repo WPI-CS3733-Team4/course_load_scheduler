@@ -17,7 +17,7 @@
     			<t:CellTable ui:field="courseSectionTable"/>
     		</div>
     		<div class="col-md-4">
-    			<t:CellTable ui:field="courseSectionInfoTable"/>
+    			<t:CellTable ui:field="courseTimeTable"/>
     		</div>
 	  	</div>
     </g:HTMLPanel>

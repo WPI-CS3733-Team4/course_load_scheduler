@@ -10,6 +10,7 @@ import org.dselent.course_load_scheduler.client.view.IndexView;
 import org.dselent.course_load_scheduler.client.view.*;
 
 import org.dselent.course_load_scheduler.client.widgets.AdminDataWidget;
+import org.dselent.course_load_scheduler.client.widgets.FacultyDataWidget;
 
 
 /**
@@ -149,6 +150,8 @@ public class CourseLoadScheduler implements EntryPoint
 		indexPresenter.go(root);
 	
 		facultyPresenter.go(indexView.getViewRootPanel());
+		
+		
 	}
 	
 	static public void builderScreen() {

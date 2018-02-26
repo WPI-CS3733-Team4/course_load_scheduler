@@ -1,5 +1,8 @@
 package org.dselent.course_load_scheduler.client.widgets;
 
+
+import java.util.List;
+
 import org.dselent.course_load_scheduler.client.model.CourseSection;
 import org.dselent.course_load_scheduler.client.model.FacultyCourse;
 import org.dselent.course_load_scheduler.client.model.Course;
@@ -82,7 +85,6 @@ public class FacultyDataWidget extends Composite{
 		courseTable.addColumn(descriptionColumn, "Description:");
 	}
 
-	
 	private void createSectionHeaders() {
 		TextColumn<CourseSection> idColumn = new TextColumn<CourseSection>() {
 			@Override
@@ -109,4 +111,20 @@ public class FacultyDataWidget extends Composite{
 		courseSectionTable.addColumn(courseIdColumn, "Course ID:");
 		courseSectionTable.addColumn(sectionTypeColumn, "Section:");
 	}
+
+	public static void populateFacutly(List<FacultyCourse> facultyList) {
+		
+	}
+	
+	public static void populateCourse(List<Course> courseList) {
+		
+	}
+	
+	public static void populateSection(List<CourseSection> sectionList) {
+		
+	}
+
+
+
+
 }

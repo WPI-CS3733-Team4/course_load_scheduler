@@ -11,7 +11,7 @@
     <g:HTMLPanel>
     	<div class="row">
     		<div class="col-md-4">
-    			<t:CellTable ui:field="facultyTable"/>
+    			<t:CellTable ui:field="facultyCourseTable"/>
     		</div>
     		<div class="col-md-4">
     			<t:CellTable ui:field="courseTable"/>
