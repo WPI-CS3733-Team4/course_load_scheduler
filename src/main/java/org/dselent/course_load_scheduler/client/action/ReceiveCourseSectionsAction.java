@@ -1,44 +1,30 @@
-package org.dselent.course_load_scheduler.client.action;
 
 /* Created by Krishna Madhurkar*/
 
-public class ReceiveCourseSectionsAction extends Action
-{
-    private Integer courseSectionId;
-    private Integer courseId;
-    private Integer sectionType;
-    private String term;
+package org.dselent.course_load_scheduler.client.action;
 
-    public ReceiveCourseSectionsAction(Integer courseSectionId, Integer courseId, Integer sectionType, String term) {
-        this.courseSectionId = courseSectionId;
-        this.courseId = courseId;
-        this.sectionType = sectionType;
-        this.term = term;
-    }
+import java.util.List;
 
-    public Integer getCourseSectionId() {
-        return courseSectionId;
-    }
+import org.dselent.course_load_scheduler.client.model.User;
 
-    public Integer getCourseId() {
-        return courseId;
-    }
+public class ReceiveCourseSectionsAction extends Action{
 
-    public Integer getSectionType() {
-        return sectionType;
-    }
+	private List<User> listOfCourseSections;
+	
+	public ReceiveCourseSectionsAction(List<User> listOfCourseSections) {
+		this.listOfCourseSections = listOfCourseSections;
+	}
 
-    public String getTerm() {
-        return term;
-    }
+	public List<User> getListOfCourseSections() {
+		return listOfCourseSections;
+	}
 
-    @Override
-    public String toString() {
-        return "{" +
-                "\'courseSectionId\'=\'"+courseSectionId+"\'"+
-                ",\'courseId\'=\'"+courseId+"\'"+
-                ",\'sectionType\'=\'" +sectionType+"\'"+
-                ",\'term\'=\'"+term+"\'"+
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "ReceiveCourseSectionsAction [listOfCourseSections=" + listOfCourseSections + "]";
+	}
+
+	
+	
+	
 }

@@ -1,31 +1,29 @@
 
+/* Created by Krishna Madhurkar */
 package org.dselent.course_load_scheduler.client.action;
 
-/* Created by Krishna Madhurkar */
+import java.util.List;
 
-public class ReceiveTermsAction extends Action
-{
-    private Integer termId;
-    private String termName;
+import org.dselent.course_load_scheduler.client.model.User;
 
-    public ReceiveTermsAction(Integer termId, String termName) {
-        this.termId = termId;
-        this.termName = termName;
-    }
+public class ReceiveTermsAction extends Action{
 
-    public Integer getTermId() {
-        return termId;
-    }
+	private List<User> listOfTerms;
+	
+	public ReceiveTermsAction(List<User> listOfTerms) {
+		this.listOfTerms = listOfTerms;
+	}
 
-    public String getTermName() {
-        return termName;
-    }
+	public List<User> getListOfTerms() {
+		return listOfTerms;
+	}
 
-    @Override
-    public String toString() {
-        return "{"+
-                "\'termId\'=\'"+termId+"\'"+
-                ",\'termName\'=\'"+termName+"\'"+
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "ReceiveTermsAction [listOfTerms=" + listOfTerms + "]";
+	}
+
+	
+	
+	
 }
