@@ -20,6 +20,17 @@
     			<t:CellTable ui:field="courseTimeTable"/>
     		</div>
 	  	</div>
+	  	<div class="row">
+	  		<div class="col-md-4">
+	  			<t:CellTable ui:field="locationTable"/>
+	  		</div>
+	  		<div class="col-md-4">
+	  			<t:CellTable ui:field="departmentTable"/>
+	  		</div>
+	  		<div class="col-md-4">
+	  			<t:CellTable ui:field="termTable"/>
+	  		</div>
+	  	</div>
     </g:HTMLPanel>
     
 </ui:UiBinder>
