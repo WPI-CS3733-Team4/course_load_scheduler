@@ -27,7 +27,7 @@ public class CourseDepartmentAddAction extends Action
     @Override
     public String toString() {
         return "{" +
-                ",\'courseI\'d=\'" + courseId + "\'"+
+                ",\'courseId\'=\'" + courseId + "\'" +
                 ",\' departmentId\'=\'" + departmentId + "\'"+
                 ",\'courseNumber\'= \'" + courseNumber + "\'"+
                 '}';
