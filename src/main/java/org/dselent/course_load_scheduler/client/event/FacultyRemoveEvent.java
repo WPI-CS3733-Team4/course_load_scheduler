@@ -1,5 +1,6 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import org.dselent.course_load_scheduler.client.action.FacultyAddAction;
 import org.dselent.course_load_scheduler.client.action.FacultyRemoveAction;
 import org.dselent.course_load_scheduler.client.event_handler.FacultyRemoveEventHandler;
 
@@ -8,16 +9,17 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
+/* Modified by Krishna Madhurkar */
 
-public class FacultyRemoveEvent extends GwtEvent<FacultyRemoveEventHandler>{
+public class FacultyRemoveEvent extends DisplayEvent<FacultyRemoveAction, FacultyRemoveEventHandler>{
 	
 	public static Type<FacultyRemoveEventHandler> TYPE = new Type<FacultyRemoveEventHandler>();
 	
 	private FacultyRemoveAction action;
 	
-	public FacultyRemoveEvent(FacultyRemoveAction action)
+	public FacultyRemoveEvent(FacultyRemoveAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action,container);
 	}
 	
 	public FacultyRemoveAction getAction()
@@ -43,8 +45,5 @@ public class FacultyRemoveEvent extends GwtEvent<FacultyRemoveEventHandler>{
 		handler.onFacultyRemove(this);
 	}
 	
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
 
 }
