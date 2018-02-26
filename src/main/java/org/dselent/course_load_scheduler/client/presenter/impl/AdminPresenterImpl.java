@@ -169,8 +169,9 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	
 	private void addUser(String userName, String firstName, String lastName, String email, String password)
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		UserAddAction sla = new UserAddAction(userName, firstName, lastName, email, password);
-		UserAddEvent sle = new UserAddEvent(sla);
+		UserAddEvent sle = new UserAddEvent(sla, container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -272,8 +273,9 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	
 	private void sendModifyUser(Integer userId, String userName, String firstName, String lastName, String email, String password)
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		UserModifyAction sla = new UserModifyAction(userId, userName, firstName, lastName, email, password);
-		UserModifyEvent sle = new UserModifyEvent(sla);
+		UserModifyEvent sle = new UserModifyEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -328,8 +330,9 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	
 	private void sendRemoveUser(Integer userId)
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		UserRemoveAction sla = new UserRemoveAction(userId);
-		UserRemoveEvent sle = new UserRemoveEvent(sla);
+		UserRemoveEvent sle = new UserRemoveEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -396,8 +399,9 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	
 	private void sendChangeRole(Integer userRoleId, Integer userId, String changeRole)
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		ChangeRoleAction sla = new ChangeRoleAction(userRoleId, userId, changeRole);
-		ChangeRoleEvent sle = new ChangeRoleEvent(sla);
+		ChangeRoleEvent sle = new ChangeRoleEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
