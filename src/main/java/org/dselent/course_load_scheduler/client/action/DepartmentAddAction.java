@@ -14,8 +14,8 @@ public class DepartmentAddAction extends Action
 
     @Override
     public String toString() {
-        return "DepartmentAddAction{" +
-                "department='" + department + '\'' +
+        return "{" +
+                "\'department\'=\'" + department + '\'' +
                 '}';
     }
 }
