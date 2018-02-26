@@ -1,7 +1,5 @@
 package org.dselent.course_load_scheduler.client.widgets;
 
-
-
 import java.util.ArrayList;
 import java.util.List;
 
