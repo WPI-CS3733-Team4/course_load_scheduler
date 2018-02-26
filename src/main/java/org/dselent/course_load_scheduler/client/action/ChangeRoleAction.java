@@ -26,9 +26,9 @@ public class ChangeRoleAction extends Action
 
     @Override
     public String toString() {
-        return "ChangeRoleAction{" +
-                "userId=" + userId +
-                ", role='" + role + '\'' +
+        return "{" +
+                "\'userId\'=\'" + userId + '\'' +
+                ", \'role\'=\'" + role + '\'' +
                 '}';
     }
 }
