@@ -13,8 +13,19 @@ public class CourseSection extends Model {
     private String sectionType;
     private Date createdAt;
     private Date updatedAt;
+    
+    
 
-    public Integer getId() {
+    public CourseSection(Integer id, Integer coursesId, String sectionType, Date createdAt, Date updatedAt) {
+		super();
+		this.id = id;
+		this.coursesId = coursesId;
+		this.sectionType = sectionType;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+
+	public Integer getId() {
         return id;
     }
 
