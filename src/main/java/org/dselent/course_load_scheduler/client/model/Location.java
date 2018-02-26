@@ -12,6 +12,15 @@ public class Location extends Model
     private Integer roomSize;
     private Date createdAt;
     private Date updatedAt;
+    
+    public Location(Integer id, String building, String room, Integer roomSize, Date createdAt, Date updatedAt) {
+    	this.id = id;
+    	this.building = building;
+    	this.room = room;
+    	this.roomSize = roomSize;
+    	this.createdAt = createdAt;
+    	this.updatedAt = updatedAt;
+    }
 
     public Integer getId() {
         return id;

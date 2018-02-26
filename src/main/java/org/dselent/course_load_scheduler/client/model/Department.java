@@ -6,10 +6,20 @@ import java.util.Objects;
 public class Department extends Model {
     // attributes
 
-    private Integer id;
+	private Integer id;
     private String department;
     private Date createdAt;
     private Date updatedAt;
+    
+    public Department(Integer id, String department, Date createdAt, Date updatedAt) {
+		super();
+		this.id = id;
+		this.department = department;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+
+	
 
     // methods
 
