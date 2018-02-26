@@ -42,8 +42,4 @@ public class TermRemoveEvent extends DisplayEvent<TermRemoveAction,TermRemoveEve
 		handler.onTermRemove(this);
 	}
 	
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
-
 }

@@ -41,8 +41,5 @@ public class DepartmentModifyEvent extends DisplayEvent<DepartmentModifyAction,D
 	{
 		handler.onDepartmentModify(this);
 	}
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
 
 }

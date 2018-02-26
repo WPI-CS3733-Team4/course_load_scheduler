@@ -41,8 +41,4 @@ public class TermModifyEvent extends DisplayEvent<TermModifyAction,TermModifyEve
 	{
 		handler.onTermModify(this);
 	}
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
-
 }

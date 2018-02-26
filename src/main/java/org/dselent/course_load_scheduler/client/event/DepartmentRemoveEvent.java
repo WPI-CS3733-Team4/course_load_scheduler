@@ -40,8 +40,6 @@ public class DepartmentRemoveEvent extends DisplayEvent<DepartmentRemoveAction,D
 	{
 		handler.onDepartmentRemove(this);
 	}
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
+	
 
 }

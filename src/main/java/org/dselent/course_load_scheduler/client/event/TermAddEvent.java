@@ -41,9 +41,5 @@ public class TermAddEvent extends DisplayEvent<TermAddAction,TermAddEventHandler
 	{
 		handler.onTermAdd(this);
 	}
-	
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
 
 }
