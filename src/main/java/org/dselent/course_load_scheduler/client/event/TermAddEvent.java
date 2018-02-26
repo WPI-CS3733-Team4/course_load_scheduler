@@ -3,7 +3,6 @@ package org.dselent.course_load_scheduler.client.event;
 import org.dselent.course_load_scheduler.client.action.TermAddAction;
 import org.dselent.course_load_scheduler.client.event_handler.TermAddEventHandler;
 
-import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.ui.HasWidgets;
 
 
