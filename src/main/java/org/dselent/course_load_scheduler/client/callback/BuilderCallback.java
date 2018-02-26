@@ -1,17 +1,11 @@
 package org.dselent.course_load_scheduler.client.callback;
 
-import org.dselent.course_load_scheduler.client.CourseLoadScheduler;
-import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
-import org.dselent.course_load_scheduler.client.action.ReceiveLoginAction;
-import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
-import org.dselent.course_load_scheduler.client.event.ReceiveLoginEvent;
-import org.dselent.course_load_scheduler.client.translator.impl.LoginActionTranslatorImpl;
-import org.dselent.course_load_scheduler.client.utils.JSONHelper;
-
+import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.shared.SimpleEventBus;
-import com.google.gwt.json.client.JSONObject;
 import com.google.gwt.json.client.JSONValue;
 import com.google.gwt.user.client.ui.HasWidgets;
+import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
+import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
 
 public class BuilderCallback extends DisplayCallback<JSONValue>
 {
@@ -23,14 +17,17 @@ public class BuilderCallback extends DisplayCallback<JSONValue>
 	@Override
 	public void onSuccess(JSONValue result)
 	{
-		/*
-		JSONObject json = JSONHelper.getObjectValue(result);
-		LoginActionTranslatorImpl loginActionTranslator = new LoginActionTranslatorImpl();
-		ReceiveLoginAction action = loginActionTranslator.translateToAction(json);
-		
-		ReceiveLoginEvent event = new ReceiveLoginEvent(action, getContainer());
-		eventBus.fireEvent(event);*/
-		CourseLoadScheduler.builderScreen();
+        GWT.log("success");
+        GWT.log(result.toString());
+//
+//
+//		JSONObject json = JSONHelper.getObjectValue(result);
+//		JSONValue successList = json.get("success");
+//
+//        JSONArray  ja = (JSONArray) successList;
+//
+//        GWT.log(ja.get(0).toString());
+//		CourseLoadScheduler.builderScreen();
 	
 	}
 	  

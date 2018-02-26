@@ -26,10 +26,10 @@ public class CourseAddAction extends Action
 
     @Override
     public String toString() {
-        return "CourseAddAction{" +
-                "courseName='" + courseName + '\'' +
-                ", courseDept='" + courseDept + '\'' +
-                ", courseDescription='" + courseDescription + '\'' +
+        return "{"+
+                "\'courseName\'=\'" + courseName + "\'" +
+                ",\'courseDept\'=\'" + courseDept + "\'" +
+                ",\'courseDescription\'=\'"+courseDescription+"\'"+ 
                 '}';
     }
 }

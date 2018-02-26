@@ -1,23 +1,22 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.dselent.course_load_scheduler.client.action.TermModifyAction;
 import org.dselent.course_load_scheduler.client.event_handler.TermModifyEventHandler;
-
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
 
-public class TermModifyEvent extends GwtEvent<TermModifyEventHandler>{
+public class TermModifyEvent extends DisplayEvent<TermModifyAction,TermModifyEventHandler>{
 	
 	public static Type<TermModifyEventHandler> TYPE = new Type<TermModifyEventHandler>();
 	
 	private TermModifyAction action;
 	
-	public TermModifyEvent(TermModifyAction action)
+	public TermModifyEvent(TermModifyAction action, HasWidgets container)
 	{
-		this.action = action;
+        super(action, container);
+        this.action = action;
 	}
 	
 	public TermModifyAction getAction()
@@ -42,8 +41,4 @@ public class TermModifyEvent extends GwtEvent<TermModifyEventHandler>{
 	{
 		handler.onTermModify(this);
 	}
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
-
 }

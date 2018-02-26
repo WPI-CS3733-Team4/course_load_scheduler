@@ -1,22 +1,21 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.dselent.course_load_scheduler.client.action.TermRemoveAction;
 import org.dselent.course_load_scheduler.client.event_handler.TermRemoveEventHandler;
-
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
 
-public class TermRemoveEvent extends GwtEvent<TermRemoveEventHandler>{
+public class TermRemoveEvent extends DisplayEvent<TermRemoveAction,TermRemoveEventHandler>{
 	
 	public static Type<TermRemoveEventHandler> TYPE = new Type<TermRemoveEventHandler>();
 	
 	private TermRemoveAction action;
 	
-	public TermRemoveEvent(TermRemoveAction action)
+	public TermRemoveEvent(TermRemoveAction action, HasWidgets container)
 	{
+		super(action, container);
 		this.action = action;
 	}
 	
@@ -43,8 +42,4 @@ public class TermRemoveEvent extends GwtEvent<TermRemoveEventHandler>{
 		handler.onTermRemove(this);
 	}
 	
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
-
 }

@@ -1,16 +1,25 @@
 package org.dselent.course_load_scheduler.client.model;
 
-import java.sql.Timestamp;
-import java.time.Instant;
+import java.util.Date;
 import java.util.Objects;
 
 public class Department extends Model {
     // attributes
 
-    private Integer id;
+	private Integer id;
     private String department;
-    private Instant createdAt;
-    private Instant updatedAt;
+    private Date createdAt;
+    private Date updatedAt;
+    
+    public Department(Integer id, String department, Date createdAt, Date updatedAt) {
+		super();
+		this.id = id;
+		this.department = department;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+
+	
 
     // methods
 
@@ -27,33 +36,25 @@ public class Department extends Model {
     }
 
 
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
+    public Date getCreatedAt()
+	{
+		return createdAt;
+	}
 
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
+	public void setCreatedAt(Date createdAt)
+	{
+		this.createdAt = createdAt;
+	}
 
-    public void setCreatedAt(Timestamp createdAt) {
-        if (createdAt != null) {
-            this.createdAt = createdAt.toInstant();
-        }
-    }
+	public Date getUpdatedAt()
+	{
+		return updatedAt;
+	}
 
-    public Instant getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Instant updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt) {
-        if (updatedAt != null) {
-            this.updatedAt = updatedAt.toInstant();
-        }
-    }
+	public void setUpdatedAt(Date updatedAt)
+	{
+		this.updatedAt = updatedAt;
+	}
 
     @Override
     public boolean equals(Object o) {

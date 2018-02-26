@@ -44,13 +44,13 @@ public class UserModifyAction extends Action
 
     @Override
     public String toString() {
-        return "UserModifyAction{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+        return "{"+
+                "\'userId\'=\'"+userId+
+                ",\'userName\'=\'"+userName+"\'"+
+                ",\'firstName\'=\'"+firstName+"\'"+
+                ",\'lastName\'=\'"+lastName+"\'"+
+                ",\'email\'=\'"+email+"\'"+
+                ",\'password=\'"+password+"\'"+
                 '}';
     }
 }

@@ -1,6 +1,7 @@
 package org.dselent.course_load_scheduler.client.event;
 
 import org.dselent.course_load_scheduler.client.action.ConfirmUserAction;
+import org.dselent.course_load_scheduler.client.action.UserAddAction;
 import org.dselent.course_load_scheduler.client.event_handler.ConfirmUserEventHandler;
 
 import com.google.gwt.event.shared.GwtEvent;
@@ -9,15 +10,15 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /* Created by Nathan Siegel */
 
-public class ConfirmUserEvent extends GwtEvent<ConfirmUserEventHandler>{
+public class ConfirmUserEvent extends DisplayEvent<ConfirmUserAction,ConfirmUserEventHandler>{
 
     public static Type<ConfirmUserEventHandler> TYPE = new Type<ConfirmUserEventHandler>();
 
     private ConfirmUserAction action;
 
-    public ConfirmUserEvent(ConfirmUserAction action)
+    public ConfirmUserEvent(ConfirmUserAction action, HasWidgets container)
     {
-        this.action = action;
+        super(action, container);
     }
 
     public ConfirmUserAction getAction()
@@ -42,9 +43,5 @@ public class ConfirmUserEvent extends GwtEvent<ConfirmUserEventHandler>{
     {
         handler.onConfirmUser(this);
     }
-    
-    public HasWidgets getContainer() {
-		return this.getContainer();
-	}
 
 }

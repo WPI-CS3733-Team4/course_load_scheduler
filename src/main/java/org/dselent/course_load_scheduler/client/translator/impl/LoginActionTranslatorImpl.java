@@ -1,7 +1,7 @@
 package org.dselent.course_load_scheduler.client.translator.impl;
 
-import java.util.Date;
-
+import com.google.gwt.json.client.JSONObject;
+import com.google.gwt.json.client.JSONValue;
 import org.dselent.course_load_scheduler.client.action.ReceiveLoginAction;
 import org.dselent.course_load_scheduler.client.action.SendLoginAction;
 import org.dselent.course_load_scheduler.client.model.User;
@@ -10,8 +10,7 @@ import org.dselent.course_load_scheduler.client.send.jsonkeys.SendLoginKeys;
 import org.dselent.course_load_scheduler.client.translator.ActionTranslator;
 import org.dselent.course_load_scheduler.client.utils.JSONHelper;
 
-import com.google.gwt.json.client.JSONObject;
-import com.google.gwt.json.client.JSONValue;
+import java.util.Date;
 
 public class LoginActionTranslatorImpl implements ActionTranslator<SendLoginAction, ReceiveLoginAction>
 {
@@ -47,8 +46,8 @@ public class LoginActionTranslatorImpl implements ActionTranslator<SendLoginActi
 		Long updatedAt = JSONHelper.getLongValue(userObject, JSONHelper.convertKeyName(ReceiveLoginKeys.UPDATED_AT));
 		
 		// put into JSONHelper?
-		
-		User user = new User();
+
+        User user = new User(null, null);
 		user.setId(id);
 		user.setUserName(userName);
 		user.setFirstName(firstName);

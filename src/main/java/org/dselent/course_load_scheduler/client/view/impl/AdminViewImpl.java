@@ -82,6 +82,7 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	
 	public AdminViewImpl()
 	{
+		//presenter.sendTableRequests();
 		initWidget(uiBinder.createAndBindUi(this));
 		/*
 		userTable.setBorderWidth(2);
@@ -103,6 +104,7 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 		userRoleTable.setText(0, 1, "User Id:");
 		userRoleTable.setText(0, 2, "Role:");
 		*/
+		
 	}
 	
 	@Override
@@ -267,6 +269,7 @@ public class AdminViewImpl extends BaseViewImpl<AdminPresenter> implements Admin
 	void onAddUserButtonClicked(ClickEvent evt)
 	{
 		presenter.addUser();
+		
 	}
 	
 	@UiHandler("modifyUserButton")

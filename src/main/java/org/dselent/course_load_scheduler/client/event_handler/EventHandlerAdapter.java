@@ -19,7 +19,11 @@ implements UserRemoveEventHandler, UserModifyEventHandler, UserAddEventHandler, 
 		FacultyAddEventHandler, DepartmentRemoveEventHandler, DepartmentModifyEventHandler, DepartmentAddEventHandler, CourseSectionTimeRemoveEventHandler,
 		CourseSectionTimeModifyEventHandler, CourseSectionTimeAddEventHandler, CourseSectionRemoveEventHandler, CourseSectionModifyEventHandler, 
 		CourseSectionAddEventHandler, CourseRemoveEventHandler, CourseModifyEventHandler, CourseDepartmentRemoveEventHandler, CourseDepartmentModifyEventHandler,
-		CourseDepartmentAddEventHandler, CourseAddEventHandler, ConfirmUserEventHandler, ChangeRoleEventHandler, ReceiveLoginEventHandler, UserRegisterEventHandler
+		CourseDepartmentAddEventHandler, CourseAddEventHandler, ConfirmUserEventHandler, ChangeRoleEventHandler, ReceiveLoginEventHandler, UserRegisterEventHandler, 
+		ReceiveCourseRequestsEventHandler, ReceiveCourseSectionsEventHandler, ReceiveCoursesEventHandler, ReceiveCourseTimesEventHandler, ReceiveLocationsEventHandler,
+		ReceiveTermsEventHandler, ReceiveUserRolesEventHandler, ReceiveUsersEventHandler, ReceiveDepartmentsEventHandler, SendCourseRequestsEventHandler,
+		SendCourseSectionsEventHandler, SendCoursesEventHandler, SendCourseTimesEventHandler, SendLocationsEventHandler,
+		SendTermsEventHandler, SendUserRolesEventHandler, SendUsersEventHandler, SendDepartmentsEventHandler
 {
 
 	@Override
@@ -131,5 +135,62 @@ implements UserRemoveEventHandler, UserModifyEventHandler, UserAddEventHandler, 
 	
 	@Override
 	public void onUserRegister(UserRegisterEvent evt) {}
+	
+	@Override
+	public void onReceiveCourseRequests(ReceiveCourseRequestsEvent evt) {}
+	
+	@Override
+	public void onReceiveCourseSections(ReceiveCourseSectionsEvent evt) {}
+	
+	@Override
+	public void onReceiveCourses(ReceiveCoursesEvent evt) {}
+	
+	@Override
+	public void onReceiveDepartments(ReceiveDepartmentsEvent evt) {}
+	
+	@Override
+	public void onReceiveLocations(ReceiveLocationsEvent evt) {}
+	
+	@Override
+	public void onReceiveTerms(ReceiveTermsEvent evt) {}
+	
+	@Override
+	public void onReceiveUserRoles(ReceiveUserRolesEvent evt) {}
+	
+	@Override
+	public void onReceiveUsers(ReceiveUsersEvent evt) {}
+	
+	@Override
+	public void onReceiveCourseTimes(ReceiveCourseTimesEvent evt) {}
+	
+	//send
+	
+	@Override
+	public void onSendCourseRequests(SendCourseRequestsEvent evt) {}
+	
+	@Override
+	public void onSendCourseSections(SendCourseSectionsEvent evt) {}
+	
+	@Override
+	public void onSendCourses(SendCoursesEvent evt) {}
+	
+	@Override
+	public void onSendDepartments(SendDepartmentsEvent evt) {}
+	
+	@Override
+	public void onSendLocations(SendLocationsEvent evt) {}
+	
+	@Override
+	public void onSendTerms(SendTermsEvent evt) {}
+	
+	@Override
+	public void onSendUserRoles(SendUserRolesEvent evt) {}
+	
+	@Override
+	public void onSendUsers(SendUsersEvent evt) {}
+	
+	@Override
+	public void onSendCourseTimes(SendCourseTimesEvent evt) {}
+	
 
 }

@@ -2,6 +2,7 @@ package org.dselent.course_load_scheduler.client.view.impl;
 
 import org.dselent.course_load_scheduler.client.presenter.FacultyPresenter;
 import org.dselent.course_load_scheduler.client.view.FacultyView;
+import org.dselent.course_load_scheduler.client.widgets.FacultyDataWidget;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -44,42 +45,12 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	HTMLPanel facultyPanel;
 	
 	@UiField
-	FlexTable requestTable;
-	
-	@UiField
-	FlexTable courseSectionTable;
-	
-	@UiField
-	FlexTable courseTable;
+	FacultyDataWidget facultyData;
 	
 	public FacultyViewImpl()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
-		
-		requestTable.setBorderWidth(2);
-		requestTable.setText(0, 0, "Request Id:");
-		requestTable.setText(0, 1, "Faculty Id:");
-		requestTable.setText(0, 2, "Course Section Id:");
-		requestTable.setText(1, 0, "This");
-		requestTable.setText(1, 1, "Is a");
-		requestTable.setText(1, 2, "Test");
-		for (int i = 0; i < 30; i++) {
-		requestTable.setText(i,  0,  "Test");
-		}
-		courseSectionTable.setBorderWidth(2);
-		courseSectionTable.setText(0, 0, "Course Section Id");
-		courseSectionTable.setText(0, 1, "Course Id");
-		courseSectionTable.setText(0, 2, "Section Type");
-		
-		courseTable.setBorderWidth(2);
-		courseTable.setText(0, 0, "Course Id");
-		courseTable.setText(0, 1, "Course Name");
-		courseTable.setText(0, 2, "Course Description");
-		
-		//TODO:
-		//use CourseRequest, CourseSection, and CourseTable models to populate the fields in the tables
-		
-
+				
 	}
 	
 	@Override
@@ -129,37 +100,7 @@ public class FacultyViewImpl extends BaseViewImpl<FacultyPresenter> implements F
 	public Button getUnrequestButton()
 	{
 		return unrequestButton;
-	}
-	
-	@Override
-	public FlexTable getRequestTable() {
-		return requestTable;
-	}
-	
-	@Override
-	public void setRequestTable(FlexTable requestTable) {
-		this.requestTable = requestTable;
-	}
-	
-	@Override
-	public FlexTable getCourseSectionTable() {
-		return courseSectionTable;
-	}
-	
-	@Override
-	public void setCourseSectionTable(FlexTable courseSectionTable) {
-		this.courseSectionTable = courseSectionTable;
-	}
-	
-	@Override
-	public FlexTable getCourseTable() {
-		return courseTable;
-	}
-	
-	@Override
-	public void setCourseTable(FlexTable courseTable) {
-		this.courseTable = courseTable;
-	}
+	}	
 
 	@Override
 	public void setPresenter(FacultyPresenter presenter)

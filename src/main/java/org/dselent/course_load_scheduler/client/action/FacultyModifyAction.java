@@ -26,10 +26,10 @@ public class FacultyModifyAction extends Action
 
     @Override
     public String toString() {
-        return "FacultyModifyAction{" +
-                "facultyId=" + facultyId +
-                ", userId=" + userId +
-                ", requiredCredits=" + requiredCredits +
+        return "{"+
+                "\'facultyId\'=\'"+facultyId+"\'"+
+                ",\'userId\'=\'"+userId+"\'"+
+                ",\'requiredCredits\'=\'"+requiredCredits+"\'"+
                 '}';
     }
 }

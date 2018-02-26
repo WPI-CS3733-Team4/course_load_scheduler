@@ -1,20 +1,19 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.dselent.course_load_scheduler.client.action.SendLoginAction;
 import org.dselent.course_load_scheduler.client.event_handler.SendLoginEventHandler;
 
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.user.client.ui.HasWidgets;
-
-public class SendLoginEvent extends GwtEvent<SendLoginEventHandler>
+public class SendLoginEvent extends DisplayEvent<SendLoginAction, SendLoginEventHandler>
 {
 	public static Type<SendLoginEventHandler> TYPE = new Type<SendLoginEventHandler>();
 	
 	private SendLoginAction action;
 	
-	public SendLoginEvent(SendLoginAction action)
+	public SendLoginEvent(SendLoginAction action,HasWidgets container)
 	{
-		this.action = action;
+        super(action, container);
+        this.action = action;
 	}
 	
 	public SendLoginAction getAction()
@@ -22,26 +21,18 @@ public class SendLoginEvent extends GwtEvent<SendLoginEventHandler>
 		return action;
 	}
 	
-	/*
-	 * 
-	 */
+
 	@Override
 	public Type<SendLoginEventHandler> getAssociatedType()
 	{
 		return TYPE;
 	}
 
-	/*
-	 * 
-	 */
 	@Override
 	protected void dispatch(SendLoginEventHandler handler)
 	{
 		handler.onSendLogin(this);
 	}
 
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
-
+	
 }

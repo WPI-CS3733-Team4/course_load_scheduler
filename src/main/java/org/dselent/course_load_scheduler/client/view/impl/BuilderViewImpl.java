@@ -5,6 +5,7 @@ import org.dselent.course_load_scheduler.client.presenter.BuilderPresenter;
 import org.dselent.course_load_scheduler.client.presenter.FacultyPresenter;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.view.BuilderView;
+import org.dselent.course_load_scheduler.client.widgets.BuilderDataWidget;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;
@@ -62,6 +63,9 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	TextBox sectionTypeTextBox;
 	
 	@UiField
+	TextBox termTextBox;
+	
+	@UiField
 	Button addSectionsButton;
 	
 	@UiField
@@ -69,6 +73,9 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	
 	@UiField
 	Button removeSectionsButton;
+	
+	
+	
 	
 	//Course Section Times
 	@UiField
@@ -159,69 +166,13 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	@UiField
 	Button confirmRequestButton;
 	
-	@UiField 
-	FlexTable courseTable;
-	
-	@UiField 
-	FlexTable sectionTable;
-
-	@UiField 
-	FlexTable timeTable;
-
-	@UiField 
-	FlexTable locationTable;
-
-	@UiField 
-	FlexTable deptTable;
-
-	@UiField 
-	FlexTable termTable;
-	
-	
-	/*
 	@UiField
-	VerticalPanel facultyPanel;
-	*/
+	BuilderDataWidget builderData;
+	
 	
 	public BuilderViewImpl()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
-		
-		courseTable.setBorderWidth(2);
-		courseTable.setText(0,0, "Course ID");
-		courseTable.setText(0,1, "Course Name");
-		courseTable.setText(0,2, "Course Dept");
-		courseTable.setText(0, 3, "Course Description");
-		
-		sectionTable.setBorderWidth(2);
-		sectionTable.setText(0, 0, "Course Section ID");
-		sectionTable.setText(0,1, "Course");
-		sectionTable.setText(0, 2, "Section");
-		for(int i = 1; i < 30; i++) {
-			sectionTable.setText(i, 0, "Test");
-		}
-		
-		timeTable.setBorderWidth(2);
-		timeTable.setText(0, 0, "Time ID");
-		timeTable.setText(0, 1, "Course Section");
-		timeTable.setText(0, 2, "Start Time");
-		timeTable.setText(0, 3, "End Time");
-		timeTable.setText(0, 4, "Weekday");
-		timeTable.setText(0, 5, "Location");
-		
-		locationTable.setBorderWidth(2);
-		locationTable.setText(0, 0, "Location ID");
-		locationTable.setText(0, 1, "Building");
-		locationTable.setText(0, 2, "Room");
-		locationTable.setText(0,3, "Room Size");
-		
-		deptTable.setBorderWidth(2);
-		deptTable.setText(0, 0, "Department ID");
-		deptTable.setText(0, 1, "Department");
-		
-		termTable.setBorderWidth(2);
-		termTable.setText(0, 0, "Term ID");
-		termTable.setText(0, 1, "Term Name");
 	}
 	
 	public TextBox getCourseTextBox() {
@@ -390,6 +341,13 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 
 	public void setCourseSectionIdTextBox(TextBox courseSectionIdTextBox) {
 		this.courseSectionIdTextBox = courseSectionIdTextBox;
+	}
+	
+	public TextBox getTermTextBox() {
+		return termTextBox;
+	}
+	public void setTermTextBox(TextBox termTextBox) {
+		this.termTextBox = termTextBox;
 	}
 	
 	@Override

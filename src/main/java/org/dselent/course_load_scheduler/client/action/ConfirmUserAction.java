@@ -14,8 +14,8 @@ public class ConfirmUserAction extends Action
 
     @Override
     public String toString() {
-        return "ConfirmUserAction{" +
-                "userId=" + userId +
+        return "{" +
+                "\'userId\'=\'"+userId+"\'"+
                 '}';
     }
 }

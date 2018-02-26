@@ -5,4 +5,7 @@ public interface IndexPresenter extends BasePresenter
 {
 	public void showLoadScreen();
 	public void hideLoadScreen();
+	public void sendAdminTableRequests();
+	public void sendFacultyTableRequests();
+	public void sendBuilderTableRequests();
 }

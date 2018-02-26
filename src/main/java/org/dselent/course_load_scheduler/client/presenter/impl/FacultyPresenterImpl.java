@@ -1,7 +1,9 @@
 package org.dselent.course_load_scheduler.client.presenter.impl;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.gwt.core.client.GWT;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.inject.Inject;
 import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
 import org.dselent.course_load_scheduler.client.action.RequestAction;
 import org.dselent.course_load_scheduler.client.action.UnrequestAction;
@@ -9,13 +11,12 @@ import org.dselent.course_load_scheduler.client.errorstring.InvalidRequestString
 import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
 import org.dselent.course_load_scheduler.client.event.RequestEvent;
 import org.dselent.course_load_scheduler.client.event.UnrequestEvent;
-import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
-import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.presenter.FacultyPresenter;
+import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.view.FacultyView;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.inject.Inject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /* Created by Nathan Siegel */
 
@@ -79,101 +80,90 @@ public class FacultyPresenterImpl extends BasePresenterImpl implements FacultyPr
 	@Override
 	public void requestCourse()
 	{
-		if(!requestClickInProgress)
-		{
+		if(!requestClickInProgress) {
 			requestClickInProgress = true;
 			view.getRequestButton().setEnabled(false);
 			parentPresenter.showLoadScreen();
-			
+
 			Integer facultyId = null;
 			Integer courseSectionId = null;
-			
+
 			boolean fieldsAreValid = true;
 
 			List<String> invalidReasonList = new ArrayList<>();
-			try
-			{
+			try {
 				facultyId = Integer.parseInt(view.getFacultyIdTextBox().getText());
-			    
-			}
-			catch(NumberFormatException e)
-			{
+
+			} catch(NumberFormatException e) {
 				invalidReasonList.add(InvalidRequestStrings.INVALID_FACULTY_ID);
 				fieldsAreValid = false;
 			}
-			
-			try
-			{
-				courseSectionId = Integer.parseInt(view.getCourseSectionIdTextBox().getText());    
-			}
-			catch(NumberFormatException e)
-			{
+
+			try {
+				courseSectionId = Integer.parseInt(view.getCourseSectionIdTextBox().getText());
+			} catch(NumberFormatException e) {
 				invalidReasonList.add(InvalidRequestStrings.INVALID_COURSE_SECTION_ID);
 				fieldsAreValid = false;
 			}
-			
-			if(fieldsAreValid)
-			{
+
+			if(fieldsAreValid) {
 				sendRequest(facultyId, courseSectionId);
-			}
-			else
-			{
+			} else {
 				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
 				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
 				eventBus.fireEvent(ile);
 			}
+		} else {
+			getParentPresenter().hideLoadScreen();
 		}
 	}
 	
 	private void sendRequest(Integer facultyId, Integer courseSectionId)
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		RequestAction sla = new RequestAction(facultyId, courseSectionId);
-		RequestEvent sle = new RequestEvent(sla);
+		RequestEvent sle = new RequestEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
 	@Override
 	public void unrequestCourse()
 	{
-		if(!unrequestClickInProgress)
-		{
+		if(!unrequestClickInProgress) {
 			unrequestClickInProgress = true;
 			view.getUnrequestButton().setEnabled(false);
 			parentPresenter.showLoadScreen();
-			
+
 			Integer requestId = null;
-			
+
 			boolean fieldsAreValid = true;
 
 			List<String> invalidReasonList = new ArrayList<>();
-			try
-			{
+			try {
 				requestId = Integer.parseInt(view.getRequestIdTextBox().getText());
-			    
-			}
-			catch(NumberFormatException e)
-			{
+
+			} catch(NumberFormatException e) {
 				invalidReasonList.add(InvalidRequestStrings.INVALID_REQUEST_ID);
 				fieldsAreValid = false;
 			}
-			
-			if(fieldsAreValid)
-			{
+
+			if(fieldsAreValid) {
 				sendUnrequest(requestId);
-			}
-			else
-			{
+			} else {
 				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
 				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
 				eventBus.fireEvent(ile);
 			}
+		} else {
+			getParentPresenter().hideLoadScreen();
 		}
 	}
 	
 	private void sendUnrequest(Integer requestId)
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		UnrequestAction sla = new UnrequestAction(requestId);
-		UnrequestEvent sle = new UnrequestEvent(sla);
+		UnrequestEvent sle = new UnrequestEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	/*
@@ -191,6 +181,7 @@ public class FacultyPresenterImpl extends BasePresenterImpl implements FacultyPr
 		unrequestClickInProgress = false;
 		
 		InvalidFieldAction ila = evt.getAction();
-		view.showErrorMessages(ila.toString());
+        GWT.log(ila.toString());
+//		view.showErrorMessages(ila.toString());
 	}
 }

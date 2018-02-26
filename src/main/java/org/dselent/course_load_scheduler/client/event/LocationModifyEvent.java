@@ -1,22 +1,21 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.dselent.course_load_scheduler.client.action.LocationModifyAction;
 import org.dselent.course_load_scheduler.client.event_handler.LocationModifyEventHandler;
-
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
 
-public class LocationModifyEvent extends GwtEvent<LocationModifyEventHandler>{
+public class LocationModifyEvent extends DisplayEvent<LocationModifyAction,LocationModifyEventHandler>{
 	
 	public static Type<LocationModifyEventHandler> TYPE = new Type<LocationModifyEventHandler>();
 	
 	private LocationModifyAction action;
 	
-	public LocationModifyEvent(LocationModifyAction action)
+	public LocationModifyEvent(LocationModifyAction action, HasWidgets container)
 	{
+		super(action, container);
 		this.action = action;
 	}
 	
@@ -41,10 +40,6 @@ public class LocationModifyEvent extends GwtEvent<LocationModifyEventHandler>{
 	protected void dispatch(LocationModifyEventHandler handler)
 	{
 		handler.onLocationModify(this);
-	}
-	
-	public HasWidgets getContainer() {
-		return this.getContainer();
 	}
 
 }

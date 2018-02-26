@@ -20,9 +20,9 @@ public class RequestAction extends Action
 
     @Override
     public String toString() {
-        return "RequestAction{" +
-                "facultyId=" + facultyId +
-                ", courseSectionId=" + courseSectionId +
+        return "{"+
+                "\'facultyId\'=\'"+facultyId+"\'"+
+                ",\'courseSectionId\'=\'"+courseSectionId+"\'"+
                 '}';
     }
 }

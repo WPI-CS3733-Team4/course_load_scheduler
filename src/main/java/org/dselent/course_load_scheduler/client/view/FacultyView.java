@@ -9,12 +9,6 @@ import com.google.gwt.user.client.ui.FlexTable;
 
 public interface FacultyView extends BaseView<FacultyPresenter>
 {
-	FlexTable getRequestTable();
-	void setRequestTable(FlexTable requestTable);
-	FlexTable getCourseSectionTable();
-	void setCourseSectionTable(FlexTable courseSectionTable);
-	FlexTable getCourseTable();
-	void setCourseTable(FlexTable courseTable);
 	TextBox getRequestIdTextBox();
 	void setRequestIdTextBox(TextBox requestIdTextBox);
 	TextBox getFacultyIdTextBox();

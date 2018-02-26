@@ -17,33 +17,32 @@ public class UserAddAction extends Action
     }
 
     public String getUserName() {
-        return userName;
+        return this.userName;
     }
 
     public String getFirstName() {
-        return firstName;
+        return this.firstName;
     }
 
     public String getLastName() {
-        return lastName;
+        return this.lastName;
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     @Override
     public String toString() {
-        return "UserAddAction{" +
-                "userName='" + userName + '\'' +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return "{\'userName\'=\'"+this.userName+"\'"+
+                ",\'firstName\'=\'" + this.firstName+"\'"+
+                ",\'lastName\'=\'" + this.lastName+"\'"+
+                ",\'email\'=\'" + this.email+"\'"+
+                ",\'password\'=\'" + this.password+"\'"+
+                "}";
     }
 }

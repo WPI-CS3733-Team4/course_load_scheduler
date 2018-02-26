@@ -1,23 +1,22 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.dselent.course_load_scheduler.client.action.DepartmentAddAction;
 import org.dselent.course_load_scheduler.client.event_handler.DepartmentAddEventHandler;
-
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
 
-public class DepartmentAddEvent extends GwtEvent<DepartmentAddEventHandler>{
+public class DepartmentAddEvent extends DisplayEvent<DepartmentAddAction,DepartmentAddEventHandler>{
 	
 	public static Type<DepartmentAddEventHandler> TYPE = new Type<DepartmentAddEventHandler>();
 	
 	private DepartmentAddAction action;
 	
-	public DepartmentAddEvent(DepartmentAddAction action)
+	public DepartmentAddEvent(DepartmentAddAction action,HasWidgets container)
 	{
-		this.action = action;
+        super(action, container);
+        this.action = action;
 	}
 	
 	public DepartmentAddAction getAction()
@@ -43,8 +42,5 @@ public class DepartmentAddEvent extends GwtEvent<DepartmentAddEventHandler>{
 		handler.onDepartmentAdd(this);
 	}
 	
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
 
 }

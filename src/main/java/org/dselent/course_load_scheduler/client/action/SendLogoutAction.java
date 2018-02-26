@@ -14,8 +14,8 @@ public class SendLogoutAction extends Action
 
     @Override
     public String toString() {
-        return "SendLogoutAction{" +
-                "userId=" + userId +
+        return "{"+
+                "\'userId\'=\'"+userId+"\'"+
                 '}';
     }
 }

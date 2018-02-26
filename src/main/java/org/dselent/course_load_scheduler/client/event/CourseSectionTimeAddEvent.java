@@ -1,23 +1,22 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.dselent.course_load_scheduler.client.action.CourseSectionTimeAddAction;
 import org.dselent.course_load_scheduler.client.event_handler.CourseSectionTimeAddEventHandler;
-
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
 
-public class CourseSectionTimeAddEvent extends GwtEvent<CourseSectionTimeAddEventHandler>{
+public class CourseSectionTimeAddEvent extends DisplayEvent<CourseSectionTimeAddAction,CourseSectionTimeAddEventHandler>{
 	
 	public static Type<CourseSectionTimeAddEventHandler> TYPE = new Type<CourseSectionTimeAddEventHandler>();
 	
 	private CourseSectionTimeAddAction action;
 	
-	public CourseSectionTimeAddEvent(CourseSectionTimeAddAction action)
+	public CourseSectionTimeAddEvent(CourseSectionTimeAddAction action, HasWidgets container)
 	{
-		this.action = action;
+        super(action, container);
+        this.action = action;
 	}
 	
 	public CourseSectionTimeAddAction getAction()
@@ -41,10 +40,6 @@ public class CourseSectionTimeAddEvent extends GwtEvent<CourseSectionTimeAddEven
 	protected void dispatch(CourseSectionTimeAddEventHandler handler)
 	{
 		handler.onCourseSectionTimeAdd(this);
-	}
-	
-	public HasWidgets getContainer() {
-		return this.getContainer();
 	}
 
 }

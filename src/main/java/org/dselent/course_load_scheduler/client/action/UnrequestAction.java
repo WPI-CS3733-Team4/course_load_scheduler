@@ -14,8 +14,8 @@ public class UnrequestAction extends Action
 
     @Override
     public String toString() {
-        return "UnrequestAction{" +
-                "courseRequestId=" + courseRequestId +
+        return "{"+
+                "\'courseRequestId\'=\'"+courseRequestId+"\'"+
                 '}';
     }
 }

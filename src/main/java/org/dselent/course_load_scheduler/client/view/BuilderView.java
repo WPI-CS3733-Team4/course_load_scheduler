@@ -1,8 +1,8 @@
 package org.dselent.course_load_scheduler.client.view;
 
-import org.dselent.course_load_scheduler.client.presenter.BuilderPresenter;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.TextBox;
+import org.dselent.course_load_scheduler.client.presenter.BuilderPresenter;
 
 public interface BuilderView extends BaseView<BuilderPresenter>{
 	
@@ -17,7 +17,8 @@ public interface BuilderView extends BaseView<BuilderPresenter>{
 	TextBox getCourseDescriptionTextBox();
 	void setCourseDescriptionTextBox(TextBox courseDescriptionTextBox);
 	TextBox getCourseSectionIdTextBox();
-	void setCourseSectionIdTextBox(TextBox courseSectionTextBox);
+
+    void setCourseSectionIdTextBox(TextBox courseSectionIdTextBox);
 	TextBox getCourseSectionTimeIdTextBox();
 	void setCourseSectionTimeIdTextBox(TextBox courseSectionTimeId);
 	TextBox getSectionTypeTextBox();
@@ -46,6 +47,10 @@ public interface BuilderView extends BaseView<BuilderPresenter>{
 	void setTermIdTextBox(TextBox termIdTextBox);
 	TextBox getTermNameTextBox();
 	void setTermNameTextBox(TextBox termNameTextBox);
+	
+	TextBox getTermTextBox();
+	void setTermTextBox(TextBox termTextBox);
+	
 	Button getAddCoursesButton();
 	void setAddCoursesButton(Button addCoursesButton);
 	Button getModifyCoursesButton();
@@ -86,4 +91,9 @@ public interface BuilderView extends BaseView<BuilderPresenter>{
 	void setConfirmRequestButton(Button confirmRequestButton);
 	
 	void showErrorMessages(String errorMessages);
+
+
+    TextBox getCourseSectionTextBox();
+
+    void setCourseSectionTextBox(TextBox courseSectionTextBox);
 }

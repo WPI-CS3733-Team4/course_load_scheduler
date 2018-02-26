@@ -1,22 +1,21 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.dselent.course_load_scheduler.client.action.CourseModifyAction;
 import org.dselent.course_load_scheduler.client.event_handler.CourseModifyEventHandler;
-
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
 
-public class CourseModifyEvent extends GwtEvent<CourseModifyEventHandler>{
+public class CourseModifyEvent extends DisplayEvent<CourseModifyAction,CourseModifyEventHandler>{
 	
 	public static Type<CourseModifyEventHandler> TYPE = new Type<CourseModifyEventHandler>();
 	
 	private CourseModifyAction action;
 	
-	public CourseModifyEvent(CourseModifyAction action)
+	public CourseModifyEvent(CourseModifyAction action, HasWidgets container)
 	{
+		super(action, container);
 		this.action = action;
 	}
 	
@@ -41,10 +40,6 @@ public class CourseModifyEvent extends GwtEvent<CourseModifyEventHandler>{
 	protected void dispatch(CourseModifyEventHandler handler)
 	{
 		handler.onCourseModify(this);
-	}
-	
-	public HasWidgets getContainer() {
-		return this.getContainer();
 	}
 
 }
