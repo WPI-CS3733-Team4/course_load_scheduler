@@ -1,8 +1,6 @@
 package org.dselent.course_load_scheduler.client.model;
 
-import java.sql.Timestamp;
-import java.time.Instant;
-import java.lang.*;
+import java.util.Date;
 
 /* Created by Nathan Siegel */
 
@@ -12,8 +10,8 @@ public class FacultyCourse extends Model {
     private Integer id;
     private Integer facultyID;
     private Integer courseSectionID;
-    private Instant createdAt;
-    private Instant updatedAt;
+    private Date createdAt;
+    private Date updatedAt;
 
     public Integer getId() {
         return id;
@@ -39,37 +37,25 @@ public class FacultyCourse extends Model {
         this.courseSectionID = courseSectionID;
     }
 
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
+    public Date getCreatedAt()
+	{
+		return createdAt;
+	}
 
-    public void setCreatedAt(Instant createdAt) {
-        this.createdAt = createdAt;
-    }
+	public void setCreatedAt(Date createdAt)
+	{
+		this.createdAt = createdAt;
+	}
 
-    public void setCreatedAt(Timestamp createdAt)
-    {
-        if(createdAt != null)
-        {
-            this.createdAt = createdAt.toInstant();
-        }
-    }
+	public Date getUpdatedAt()
+	{
+		return updatedAt;
+	}
 
-    public Instant getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Instant updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public void setUpdatedAt(Timestamp updatedAt)
-    {
-        if(updatedAt != null)
-        {
-            this.updatedAt = updatedAt.toInstant();
-        }
-    }
+	public void setUpdatedAt(Date updatedAt)
+	{
+		this.updatedAt = updatedAt;
+	}
 
     @Override
     public boolean equals(Object object) {

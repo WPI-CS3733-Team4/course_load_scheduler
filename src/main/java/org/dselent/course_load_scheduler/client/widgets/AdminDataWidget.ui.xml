@@ -1,18 +1,22 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder 
 	xmlns:ui="urn:ui:com.google.gwt.uibinder"
+	xmlns:t="urn:import:com.google.gwt.user.cellview.client"
     xmlns:g="urn:import:com.google.gwt.user.client.ui">
     
     <ui:Style>
     </ui:Style>
     
+    
     <g:HTMLPanel>
-    	<div style="overflow-x:hidden; overflow-y: auto; height:150px;">
-			<div class="row">
-				<div class="col-md-8"><g:FlexTable ui:field="userTable" width="100%"/></div>
-				<div class="col-md-4"><g:FlexTable ui:field="userRoleTable" width="100%"/></div>
-			</div>
-		</div>
+    	<div class="row">
+    		<div class="col-md-8">
+    			<t:CellTable ui:field="userTable"/>
+    		</div>
+    		<div class="col-md-4">
+    			<t:CellTable ui:field="userPermissionTable"/>
+    		</div>
+	  	</div>
     </g:HTMLPanel>
     
 </ui:UiBinder>

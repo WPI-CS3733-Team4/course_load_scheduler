@@ -16,10 +16,29 @@ public class User extends Model
 	private String salt;
 	private Date createdAt;
 	private Date updatedAt;
+	
+	public User(Integer id, String userName, String firstName, String lastName, String email, String password, String salt, Date createdAt, Date updatedAt) {
+		this.id = id;
+		this.userName = userName;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.encryptedPassword = password;
+		this.salt = salt;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
+	}
+	
+	// For testing
+	public User(Integer id, String userName) {
+		this.id = id;
+		this.userName = userName;
+		this.firstName = "First Name";
+		this.lastName = "Last Name";
+		this.email = "User Email";
+	}
 
 	// methods
-		
-	
 	public Integer getId()
 	{
 		return id;
@@ -32,7 +51,7 @@ public class User extends Model
 
 	public String getUserName()
 	{
-		return this.userName;
+		return userName;
 	}
 
 	public void setUserName(String userName)
@@ -90,7 +109,6 @@ public class User extends Model
 	{
 		this.salt = salt;
 	}
-
 	
 	public Date getCreatedAt()
 	{
@@ -111,44 +129,6 @@ public class User extends Model
 	{
 		this.updatedAt = updatedAt;
 	}
-	
-	/*
-	public Instant getCreatedAt()
-	{
-		return createdAt;
-	}
-
-	public void setCreatedAt(Instant createdAt)
-	{
-		this.createdAt = createdAt;
-	}
-	
-	public void setCreatedAt(Timestamp createdAt)
-	{
-		if(createdAt != null)
-		{
-			this.createdAt = createdAt.toInstant();
-		}
-	}
-
-	public Instant getUpdatedAt()
-	{
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Instant updatedAt)
-	{
-		this.updatedAt = updatedAt;
-	}
-	
-	public void setUpdatedAt(Timestamp updatedAt)
-	{
-		if(updatedAt != null)
-		{
-			this.updatedAt = updatedAt.toInstant();
-		}
-	}
-	*/
 
 	@Override
 	public int hashCode()
