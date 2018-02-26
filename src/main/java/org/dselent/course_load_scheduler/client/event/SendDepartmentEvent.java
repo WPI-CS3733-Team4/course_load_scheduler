@@ -1,10 +1,11 @@
 package org.dselent.course_load_scheduler.client.event;
-
 import com.google.gwt.user.client.ui.HasWidgets;
+import org.dselent.course_load_scheduler.client.action.SendDepartmentAction;
+import org.dselent.course_load_scheduler.client.event_handler.SendDepartmentEventHandler;
 
 /* Created by Thananart Piyajarawong*/
 
-public class SendDepartmentEvent extends DisplayEvent<SendDepartmentAction,SendDepartmentEventHandler>
+public class SendDepartmentEvent extends DisplayEvent<SendDepartmentAction,SendDepartmentEventHandler>{
 	public static Type<SendDepartmentEventHandler> TYPE = new Type<SendDepartmentEventHandler>();
 	
 	private SendDepartmentAction action;
