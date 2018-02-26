@@ -25,19 +25,14 @@ public class UserRemoveEvent extends DisplayEvent<UserRemoveAction,UserRemoveEve
 	{
 		return action;
 	}
-	
-	/*
-	 * 
-	 */
+
 	@Override
 	public Type<UserRemoveEventHandler> getAssociatedType()
 	{
 		return TYPE;
 	}
 
-	/*
-	 * 
-	 */
+
 	@Override
 	protected void dispatch(UserRemoveEventHandler handler)
 	{
