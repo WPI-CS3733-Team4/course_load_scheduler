@@ -12,16 +12,20 @@ public final class NetworkRequestStrings
 	public static String USER_MODIFY = "user/modify";
 	public static String USER_REMOVE = "user/deactivate";
 	public static String LOGOUT = "user/logout";
+	public static String SEND_USERS = "user/getUsers";
 	
 	public static String USER_PERMISSION_MODIFY = "admin/changeUserRole";
+	public static String SEND_USER_ROLES = "admin/getUserPermissions";
 	
 	public static String TERM_ADD = "term/add";
 	public static String TERM_MODIFY = "term/modify";
 	public static String TERM_REMOVE = "term/remove";
+	public static String SEND_TERMS = "term/getTerms";
 	
 	public static String LOCATION_ADD = "location/add";
 	public static String LOCATION_MODIFY = "location/modify";
 	public static String LOCATION_REMOVE = "location/remove";
+	public static String SEND_LOCATIONS = "location/getLocations";
 	
 	public static String FACULTY_ADD = "faculty/add";
 	public static String FACULTY_MODIFY = "faculty/modify";
@@ -30,22 +34,27 @@ public final class NetworkRequestStrings
 	public static String DEPARTMENT_ADD = "department/add";
 	public static String DEPARTMENT_MODIFY = "department/modify";
 	public static String DEPARTMENT_REMOVE = "department/remove";
+	public static String SEND_DEPARTMENTS = "department/getDepartments";
 	
 	public static String COURSE_SECTION_TIMES_ADD = "courseSectionTime/add";
 	public static String COURSE_SECTION_TIMES_MODIFY = "courseSectionTime/modify";
 	public static String COURSE_SECTION_TIMES_REMOVE = "courseSectionTime/remove";
+	public static String SEND_COURSE_TIMES = "courseSectionTime/getCourseSectionTimes";
 	
 	public static String COURSE_SECTION_ADD = "courseSection/add";
 	public static String COURSE_SECTION_MODIFY = "courseSection/modify";
 	public static String COURSE_SECTION_REMOVE = "courseSection/remove";
+	public static String SEND_COURSE_SECTIONS = "courseSection/getCourseSections";
 	
 	public static String COURSE_ADD = "course/add";
 	public static String COURSE_MODIFY = "course/modify";
 	public static String COURSE_REMOVE = "course/remove";
+	public static String SEND_COURSES = "course/getCourses";
 	
 	public static String COURSE_REQUEST_ADD = "courseRequests/add";
 	public static String COURSE_REQUEST_MODIFY = "courseRequests/modify";
 	public static String COURSE_REQUEST_REMOVE = "courseRequests/remove";
+	public static String SEND_COURSE_REQUESTS = "courseRequests/getCourseRequests";
 	
 	public static String COURSE_DEPARTMENT_ADD = "courseDepartments/add";
 	public static String COURSE_DEPARTMENT_REMOVE = "courseDepartments/modify";
