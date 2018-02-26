@@ -15,7 +15,7 @@ public class UserRemoveAction extends Action
     @Override
     public String toString() {
         return "{" +
-                "\'userId\'=\'" + userId + '\'' +
+                "\'userId\'=\'"+userId +"\'"+
                 '}';
     }
 }

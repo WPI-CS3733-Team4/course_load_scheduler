@@ -33,10 +33,10 @@ public class CourseModifyAction extends Action
     @Override
     public String toString() {
         return "{" +
-                "\'courseId\'=\'" + courseId + "\'" +
-                ",\' courseName='" + courseName + "\'" +
-                ", \'courseDept='" + courseDept + "\'" +
-                ", \'courseDescription='" + courseDescription + "\'" +
+                "\'courseId\'=\'"+courseId+"\'"+
+                ",\'courseName\'=\'"+courseName+ "\'"+
+                ",\'courseDept\'=\'"+courseDept+"\'"+
+                ",\'courseDescription\'=\'"+courseDescription+"\'"+
                 '}';
     }
 }

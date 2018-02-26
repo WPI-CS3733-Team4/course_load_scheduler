@@ -27,9 +27,9 @@ public class CourseSectionAddAction extends Action
     @Override
     public String toString() {
         return "{" +
-                "\'courseId\'=\'" + courseId + "\'"+
-                ",\' sectionType\'=\'" + sectionType + "\'" +
-                ", \'term\'=\'" + term + "\'" +
+                "\'courseId\'=\'"+courseId +"\'"+
+                ",\'sectionType\'=\'"+sectionType+"\'"+
+                ",\'term\'=\'"+term +"\'"+
                 '}';
     }
 }

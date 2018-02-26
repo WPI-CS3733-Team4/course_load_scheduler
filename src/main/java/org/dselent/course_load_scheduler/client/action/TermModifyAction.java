@@ -20,9 +20,9 @@ public class TermModifyAction extends Action
 
     @Override
     public String toString() {
-        return "{" +
-                "\'termId\'=\'" + termId + "\'" +
-                ", \'termName\'=\'" + termName + '\'' +
+        return "{"+
+                "\'termId\'=\'"+termId+"\'"+
+                ",\'termName\'=\'"+termName+"\'"+
                 '}';
     }
 }

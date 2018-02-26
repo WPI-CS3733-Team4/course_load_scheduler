@@ -15,7 +15,7 @@ public class CourseSectionTimeRemoveAction extends Action
     @Override
     public String toString() {
         return "{" +
-                "\'courseSectionTimeId\'=\'" + courseSectionTimeId + "\'"+
+                "\'courseSectionTimeId\'=\'"+courseSectionTimeId+"\'"+
                 '}';
     }
 }

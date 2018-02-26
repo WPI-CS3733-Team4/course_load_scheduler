@@ -14,8 +14,8 @@ public class CourseRemoveAction extends Action
 
     @Override
     public String toString() {
-        return "{" +
-                "\'courseId\'=\'" + courseId + "\'"+
+        return "{"+
+                "\'courseId\'=\'"+courseId+"\'"+
                 '}';
     }
 }

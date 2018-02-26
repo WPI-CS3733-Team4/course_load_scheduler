@@ -14,8 +14,8 @@ public class TermAddAction extends Action
 
     @Override
     public String toString() {
-        return "{" +
-                "\'termName\'=\'" + termName + '\'' +
+        return "{"+
+                "\'termName\'=\'"+termName+"\'"+
                 '}';
     }
 }

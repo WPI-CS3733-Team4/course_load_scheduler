@@ -45,12 +45,12 @@ public class CourseSectionTimeModifyAction extends Action
     @Override
     public String toString() {
         return "{" +
-                "\'courseSectionTimeId\'=\'" + courseSectionTimeId + "\'"+
-                ",\'courseSectionId\'=\'" + courseSectionId + "\'"+
-                ",\'dayOfWeek\'=\'" + dayOfWeek + "\'"+
-                ",\'startTime\'=\'" + startTime + "\'"+
-                ",\'endTime\'=\'" + endTime + "\'" +
-                ",\'location\'=\'" + location + "\'" +
+                "\'courseSectionTimeId\'=\'"+courseSectionTimeId+"\'"+
+                ",\'courseSectionId\'=\'"+courseSectionId+"\'"+
+                ",\'dayOfWeek\'=\'"+dayOfWeek+"\'"+
+                ",\'startTime\'=\'"+startTime+"\'"+
+                ",\'endTime\'=\'"+endTime+"\'"+
+                ",\'location\'=\'"+location+"\'"+
                 '}';
     }
 }

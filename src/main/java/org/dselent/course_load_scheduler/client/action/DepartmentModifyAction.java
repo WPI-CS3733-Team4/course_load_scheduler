@@ -21,8 +21,8 @@ public class DepartmentModifyAction extends Action
     @Override
     public String toString() {
         return "{" +
-                "\'departmentId\'=\'" + departmentId + "\'" +
-                ", \'department\'=\''" + department + '\'' +
+                "\'departmentId\'=\'"+departmentId+"\'" +
+                ",\'department\'=\'"+department+"\'" +
                 '}';
     }
 }

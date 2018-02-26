@@ -39,11 +39,11 @@ public class CourseSectionTimeAddAction extends Action
     @Override
     public String toString() {
         return "{" +
-                "\'courseSectionId\'=\'" + courseSectionId + "\'"+
-                ",\' dayOfWeek\'=\'" + dayOfWeek + "\'"+
-                ",\'startTime\'=\'" + startTime + "\'"+
-                ",\'endTime\'=\'" + endTime + "\'" +
-                ",\'location\'=\'" + location + "\'" +
+                "\'courseSectionId\'=\'"+courseSectionId+"\'"+
+                ",\'dayOfWeek\'=\'"+dayOfWeek+"\'"+
+                ",\'startTime\'=\'"+startTime+"\'"+
+                ",\'endTime\'=\'"+endTime+"\'"+
+                ",\'location\'=\'"+location+"\'"+
                 '}';
     }
 }

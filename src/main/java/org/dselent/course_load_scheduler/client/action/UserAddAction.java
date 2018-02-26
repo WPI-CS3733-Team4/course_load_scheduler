@@ -38,11 +38,11 @@ public class UserAddAction extends Action
 
     @Override
     public String toString() {
-        return "{\'userName\'=\'" + this.userName + '\'' +
-                ", \'firstName\'=\'" + this.firstName + '\'' +
-                ", \'lastName\'=\'" + this.lastName + '\'' +
-                ", \'email\'=\'" + this.email + '\'' +
-                ", \'password\'=\'" + this.password + '\'' +
+        return "{\'userName\'=\'"+this.userName+"\'"+
+                ",\'firstName\'=\'" + this.firstName+"\'"+
+                ",\'lastName\'=\'" + this.lastName+"\'"+
+                ",\'email\'=\'" + this.email+"\'"+
+                ",\'password\'=\'" + this.password+"\'"+
                 "}";
     }
 }

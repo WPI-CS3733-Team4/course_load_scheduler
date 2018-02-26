@@ -32,11 +32,11 @@ public class LocationModifyAction extends Action
 
     @Override
     public String toString() {
-        return "{" +
-                "\'locationId\'=\'" + locationId + '\'' +
-                ", \'building\'=\''" + building + '\'' +
-                ", \'room\'=\'" + room + '\'' +
-                ", \'roomSize\'=\'" + roomSize + '\'' +
+        return "{"+
+                "\'locationId\'=\'"+locationId+"\'"+
+                ",\'building\'=\'"+building+"\'"+
+                ",\'room\'=\'"+ room +"\'"+
+                ",\'roomSize\'=\'"+roomSize+"\'"+
                 '}';
     }
 }

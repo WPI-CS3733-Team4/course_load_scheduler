@@ -20,9 +20,9 @@ public class FacultyAddAction extends Action
 
     @Override
     public String toString() {
-        return "{" +
-                "\'userId\'=\'" + userId + "\'" +
-                ", \'requiredCredits\'=\'" + requiredCredits + "\'" +
+        return "{"+
+                "\'userId\'=\'"+userId+"\'"+
+                ",\'requiredCredits\'=\'"+requiredCredits+"\'"+
                 '}';
     }
 }

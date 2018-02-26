@@ -14,8 +14,8 @@ public class TermRemoveAction extends Action
 
     @Override
     public String toString() {
-        return "{" +
-                "\'termId\'=\'" + termId + "\'" +
+        return "{"+
+                "\'termId\'=\'"+termId+"\'"+
                 '}';
     }
 }
