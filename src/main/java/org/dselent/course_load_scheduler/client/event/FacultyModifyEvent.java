@@ -8,16 +8,17 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
+/* Modified by Krishna Madhurkar */
 
-public class FacultyModifyEvent extends GwtEvent<FacultyModifyEventHandler>{
+public class FacultyModifyEvent extends DisplayEvent<FacultyModifyAction, FacultyModifyEventHandler>{
 	
 	public static Type<FacultyModifyEventHandler> TYPE = new Type<FacultyModifyEventHandler>();
 	
 	private FacultyModifyAction action;
 	
-	public FacultyModifyEvent(FacultyModifyAction action)
+	public FacultyModifyEvent(FacultyModifyAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action,container);
 	}
 	
 	public FacultyModifyAction getAction()
@@ -43,8 +44,5 @@ public class FacultyModifyEvent extends GwtEvent<FacultyModifyEventHandler>{
 		handler.onFacultyModify(this);
 	}
 	
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
 
 }

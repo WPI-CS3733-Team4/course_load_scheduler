@@ -8,16 +8,17 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
+/* Modified by Krishna Madhurkar */
 
-public class CourseSectionAddEvent extends GwtEvent<CourseSectionAddEventHandler>{
+public class CourseSectionAddEvent extends DisplayEvent<CourseSectionAddAction,CourseSectionAddEventHandler>{
 	
 	public static Type<CourseSectionAddEventHandler> TYPE = new Type<CourseSectionAddEventHandler>();
 	
 	private CourseSectionAddAction action;
 	
-	public CourseSectionAddEvent(CourseSectionAddAction action)
+	public CourseSectionAddEvent(CourseSectionAddAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action,container);
 	}
 	
 	public CourseSectionAddAction getAction()
@@ -43,8 +44,6 @@ public class CourseSectionAddEvent extends GwtEvent<CourseSectionAddEventHandler
 		handler.onCourseSectionAdd(this);
 	}
 	
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
+	
 
 }

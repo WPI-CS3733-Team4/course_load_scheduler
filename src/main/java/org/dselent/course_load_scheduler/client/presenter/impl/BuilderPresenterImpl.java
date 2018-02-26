@@ -210,8 +210,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendAddCourse(String courseName, String courseDept, String courseDescription) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		CourseAddAction sla = new CourseAddAction(courseName, courseDept, courseDescription);
-		CourseAddEvent sle = new CourseAddEvent(sla);
+		CourseAddEvent sle = new CourseAddEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -282,8 +283,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendModifyCourse(Integer courseId, String courseName, String courseDept, String courseDescription) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		CourseModifyAction sla = new CourseModifyAction(courseId, courseName, courseDept, courseDescription);
-		CourseModifyEvent sle = new CourseModifyEvent(sla);
+		CourseModifyEvent sle = new CourseModifyEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -324,8 +326,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendRemoveCourse(Integer courseId) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		CourseRemoveAction sla = new CourseRemoveAction(courseId);
-		CourseRemoveEvent sle = new CourseRemoveEvent(sla);
+		CourseRemoveEvent sle = new CourseRemoveEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -406,8 +409,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendAddCourseSectionsTimes(Integer courseSectionId, Integer dayOfWeek, Integer startTime, Integer endTime, String location) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		CourseSectionTimeAddAction sla = new CourseSectionTimeAddAction(courseSectionId, dayOfWeek, startTime, endTime, location);
-		CourseSectionTimeAddEvent sle = new CourseSectionTimeAddEvent(sla);
+		CourseSectionTimeAddEvent sle = new CourseSectionTimeAddEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -499,8 +503,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendModifyCourseSectionsTimes(Integer courseSectionTimeId, Integer courseSectionId, Integer dayOfWeek, Integer startTime, Integer endTime, String location) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		CourseSectionTimeModifyAction sla = new CourseSectionTimeModifyAction(courseSectionTimeId, courseSectionId, dayOfWeek, startTime, endTime, location);
-		CourseSectionTimeModifyEvent sle = new CourseSectionTimeModifyEvent(sla);
+		CourseSectionTimeModifyEvent sle = new CourseSectionTimeModifyEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -541,8 +546,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendRemoveCourseSectionsTimes(Integer courseSectionTimeId) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		CourseSectionTimeRemoveAction sla = new CourseSectionTimeRemoveAction(courseSectionTimeId);
-		CourseSectionTimeRemoveEvent sle = new CourseSectionTimeRemoveEvent(sla);
+		CourseSectionTimeRemoveEvent sle = new CourseSectionTimeRemoveEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -605,8 +611,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendAddSections(Integer course, Integer sectionType, String term) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		CourseSectionAddAction sla = new CourseSectionAddAction(course, sectionType, term);
-		CourseSectionAddEvent sle = new CourseSectionAddEvent(sla);
+		CourseSectionAddEvent sle = new CourseSectionAddEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -679,8 +686,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendModifySections(Integer courseSectionId, Integer course, Integer sectionType, String term) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		CourseSectionModifyAction sla = new CourseSectionModifyAction(courseSectionId, course, sectionType, term);
-		CourseSectionModifyEvent sle = new CourseSectionModifyEvent(sla);
+		CourseSectionModifyEvent sle = new CourseSectionModifyEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	@Override
@@ -721,8 +729,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendRemoveSections(Integer courseSectionId) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		CourseSectionRemoveAction sla = new CourseSectionRemoveAction(courseSectionId);
-		CourseSectionRemoveEvent sle = new CourseSectionRemoveEvent(sla);
+		CourseSectionRemoveEvent sle = new CourseSectionRemoveEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -789,8 +798,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendAddLocations(String building, Integer room, Integer roomSize) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		LocationAddAction sla = new LocationAddAction(building, room, roomSize);
-		LocationAddEvent sle = new LocationAddEvent(sla);
+		LocationAddEvent sle = new LocationAddEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -869,8 +879,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendModifyLocations(Integer locationId, String building, Integer room, Integer roomSize) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		LocationModifyAction sla = new LocationModifyAction(locationId, building, room, roomSize);
-		LocationModifyEvent sle = new LocationModifyEvent(sla);
+		LocationModifyEvent sle = new LocationModifyEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -915,8 +926,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendRemoveLocations(Integer locationId) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		LocationRemoveAction sla = new LocationRemoveAction(locationId);
-		LocationRemoveEvent sle = new LocationRemoveEvent(sla);
+		LocationRemoveEvent sle = new LocationRemoveEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -962,8 +974,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendAddDepartments(String department) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		DepartmentAddAction sla = new DepartmentAddAction(department);
-		DepartmentAddEvent sle = new DepartmentAddEvent(sla);
+		DepartmentAddEvent sle = new DepartmentAddEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -1019,8 +1032,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendModifyDepartments(Integer departmentId, String department) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		DepartmentModifyAction sla = new DepartmentModifyAction(departmentId, department);
-		DepartmentModifyEvent sle = new DepartmentModifyEvent(sla);
+		DepartmentModifyEvent sle = new DepartmentModifyEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -1065,8 +1079,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendRemoveDepartments(Integer departmentId) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		DepartmentRemoveAction sla = new DepartmentRemoveAction(departmentId);
-		DepartmentRemoveEvent sle = new DepartmentRemoveEvent(sla);
+		DepartmentRemoveEvent sle = new DepartmentRemoveEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -1111,8 +1126,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendAddTerms(String termName) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		TermAddAction sla = new TermAddAction(termName);
-		TermAddEvent sle = new TermAddEvent(sla);
+		TermAddEvent sle = new TermAddEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -1168,8 +1184,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendModifyTerms(Integer termId, String termName) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		TermModifyAction sla = new TermModifyAction(termId, termName);
-		TermModifyEvent sle = new TermModifyEvent(sla);
+		TermModifyEvent sle = new TermModifyEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -1214,8 +1231,9 @@ public class BuilderPresenterImpl extends BasePresenterImpl implements BuilderPr
 	
 	public void sendRemoveTerms(Integer termId) 
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		TermRemoveAction sla = new TermRemoveAction(termId);
-		TermRemoveEvent sle = new TermRemoveEvent(sla);
+		TermRemoveEvent sle = new TermRemoveEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	

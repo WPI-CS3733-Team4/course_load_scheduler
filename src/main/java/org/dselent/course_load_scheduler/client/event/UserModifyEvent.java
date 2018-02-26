@@ -1,5 +1,6 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import org.dselent.course_load_scheduler.client.action.UserAddAction;
 import org.dselent.course_load_scheduler.client.action.UserModifyAction;
 import org.dselent.course_load_scheduler.client.event_handler.UserModifyEventHandler;
 
@@ -9,15 +10,15 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /* Created by Nathan Siegel */
 
-public class UserModifyEvent extends GwtEvent<UserModifyEventHandler>{
+public class UserModifyEvent extends DisplayEvent<UserModifyAction,UserModifyEventHandler>{
 	
 	public static Type<UserModifyEventHandler> TYPE = new Type<UserModifyEventHandler>();
 	
 	private UserModifyAction action;
 	
-	public UserModifyEvent(UserModifyAction action)
+	public UserModifyEvent(UserModifyAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action, container);
 	}
 	
 	public UserModifyAction getAction()
@@ -41,9 +42,6 @@ public class UserModifyEvent extends GwtEvent<UserModifyEventHandler>{
 	protected void dispatch(UserModifyEventHandler handler)
 	{
 		handler.onUserModify(this);
-	}
-	public HasWidgets getContainer() {
-		return this.getContainer();
 	}
 
 }

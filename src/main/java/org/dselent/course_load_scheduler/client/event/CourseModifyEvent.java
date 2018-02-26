@@ -1,6 +1,7 @@
 package org.dselent.course_load_scheduler.client.event;
 
 import org.dselent.course_load_scheduler.client.action.CourseModifyAction;
+import org.dselent.course_load_scheduler.client.action.UserAddAction;
 import org.dselent.course_load_scheduler.client.event_handler.CourseModifyEventHandler;
 
 import com.google.gwt.event.shared.GwtEvent;
@@ -9,15 +10,15 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /* Created by Nathan Siegel */
 
-public class CourseModifyEvent extends GwtEvent<CourseModifyEventHandler>{
+public class CourseModifyEvent extends DisplayEvent<CourseModifyAction,CourseModifyEventHandler>{
 	
 	public static Type<CourseModifyEventHandler> TYPE = new Type<CourseModifyEventHandler>();
 	
 	private CourseModifyAction action;
 	
-	public CourseModifyEvent(CourseModifyAction action)
+	public CourseModifyEvent(CourseModifyAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action, container);
 	}
 	
 	public CourseModifyAction getAction()
@@ -41,10 +42,6 @@ public class CourseModifyEvent extends GwtEvent<CourseModifyEventHandler>{
 	protected void dispatch(CourseModifyEventHandler handler)
 	{
 		handler.onCourseModify(this);
-	}
-	
-	public HasWidgets getContainer() {
-		return this.getContainer();
 	}
 
 }

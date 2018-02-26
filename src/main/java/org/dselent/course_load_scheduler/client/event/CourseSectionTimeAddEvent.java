@@ -9,15 +9,15 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /* Created by Nathan Siegel */
 
-public class CourseSectionTimeAddEvent extends GwtEvent<CourseSectionTimeAddEventHandler>{
+public class CourseSectionTimeAddEvent extends DisplayEvent<CourseSectionTimeAddAction,CourseSectionTimeAddEventHandler>{
 	
 	public static Type<CourseSectionTimeAddEventHandler> TYPE = new Type<CourseSectionTimeAddEventHandler>();
 	
 	private CourseSectionTimeAddAction action;
 	
-	public CourseSectionTimeAddEvent(CourseSectionTimeAddAction action)
+	public CourseSectionTimeAddEvent(CourseSectionTimeAddAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action,container);
 	}
 	
 	public CourseSectionTimeAddAction getAction()
@@ -41,10 +41,6 @@ public class CourseSectionTimeAddEvent extends GwtEvent<CourseSectionTimeAddEven
 	protected void dispatch(CourseSectionTimeAddEventHandler handler)
 	{
 		handler.onCourseSectionTimeAdd(this);
-	}
-	
-	public HasWidgets getContainer() {
-		return this.getContainer();
 	}
 
 }

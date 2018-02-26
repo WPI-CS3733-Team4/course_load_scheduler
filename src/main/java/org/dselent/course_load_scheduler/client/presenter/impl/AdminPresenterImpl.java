@@ -1,20 +1,26 @@
 package org.dselent.course_load_scheduler.client.presenter.impl;
 
-import com.google.gwt.core.client.GWT;
+import java.util.ArrayList;
+import java.util.List;
+import org.dselent.course_load_scheduler.client.action.UserAddAction;
+import org.dselent.course_load_scheduler.client.action.UserModifyAction;
+import org.dselent.course_load_scheduler.client.action.UserRemoveAction;
+import org.dselent.course_load_scheduler.client.action.ChangeRoleAction;
+import org.dselent.course_load_scheduler.client.event.UserAddEvent;
+import org.dselent.course_load_scheduler.client.event.UserModifyEvent;
+import org.dselent.course_load_scheduler.client.event.UserRemoveEvent;
+import org.dselent.course_load_scheduler.client.event.ChangeRoleEvent;
+import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
+import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidUserStrings;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidUserRoleStrings;
+import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
+import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
+import org.dselent.course_load_scheduler.client.presenter.AdminPresenter;
+import org.dselent.course_load_scheduler.client.view.AdminView;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.inject.Inject;
-import org.dselent.course_load_scheduler.client.action.*;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidUserRoleStrings;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidUserStrings;
-import org.dselent.course_load_scheduler.client.event.*;
-import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
-import org.dselent.course_load_scheduler.client.presenter.AdminPresenter;
-import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
-import org.dselent.course_load_scheduler.client.view.AdminView;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /* Created by Krishna Mddhurkar */
 
@@ -163,11 +169,9 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	
 	private void addUser(String userName, String firstName, String lastName, String email, String password)
 	{
-
-        HasWidgets container = parentPresenter.getView().getViewRootPanel();
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		UserAddAction sla = new UserAddAction(userName, firstName, lastName, email, password);
-        UserAddEvent sle = new UserAddEvent(sla, container);
-        GWT.log("SendRegister Reached");
+		UserAddEvent sle = new UserAddEvent(sla, container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -269,8 +273,9 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	
 	private void sendModifyUser(Integer userId, String userName, String firstName, String lastName, String email, String password)
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		UserModifyAction sla = new UserModifyAction(userId, userName, firstName, lastName, email, password);
-		UserModifyEvent sle = new UserModifyEvent(sla);
+		UserModifyEvent sle = new UserModifyEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -325,8 +330,9 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	
 	private void sendRemoveUser(Integer userId)
 	{
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
 		UserRemoveAction sla = new UserRemoveAction(userId);
-		UserRemoveEvent sle = new UserRemoveEvent(sla);
+		UserRemoveEvent sle = new UserRemoveEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
@@ -393,9 +399,9 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	
 	private void sendChangeRole(Integer userRoleId, Integer userId, String changeRole)
 	{
-        HasWidgets container = parentPresenter.getView().getViewRootPanel();
-        ChangeRoleAction sla = new ChangeRoleAction(userRoleId, userId, changeRole);
-        ChangeRoleEvent sle = new ChangeRoleEvent(sla, container);
+		HasWidgets container = parentPresenter.getView().getViewRootPanel();
+		ChangeRoleAction sla = new ChangeRoleAction(userRoleId, userId, changeRole);
+		ChangeRoleEvent sle = new ChangeRoleEvent(sla,container);
 		eventBus.fireEvent(sle);
 	}
 	
