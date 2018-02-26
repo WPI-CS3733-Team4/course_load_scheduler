@@ -96,8 +96,8 @@ public class CourseLoadScheduler implements EntryPoint
 		
 		
 		// Populate the cell table
-		AdminDataWidget.populateUserTable(AdminDataWidget.testingUserTable());
-		AdminDataWidget.populateUserPermissionTable(AdminDataWidget.testingUserPermissionTable());
+		//AdminDataWidget.populateUserTable(AdminDataWidget.testingUserTable());
+		//AdminDataWidget.populateUserPermissionTable(AdminDataWidget.testingUserPermissionTable());
 	}
 	
 	static public void facultyScreen() {
