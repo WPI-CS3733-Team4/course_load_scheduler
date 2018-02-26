@@ -2,11 +2,11 @@ package org.dselent.course_load_scheduler.client.action;
 
 /*Created by Thananart Piyajarawong*/
 
-public class SendDepartmentAction extends Action{
+public class SendDepartmentsAction extends Action{
 	 private Integer departmentId;
 	    private String department;
 
-	    public SendDepartmentAction(Integer departmentId, String department) {
+	    public SendDepartmentsAction(Integer departmentId, String department) {
 	        this.departmentId = departmentId;
 	        this.department = department;
 	    }
