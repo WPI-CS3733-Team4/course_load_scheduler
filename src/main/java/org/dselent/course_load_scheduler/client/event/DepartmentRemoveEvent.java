@@ -9,15 +9,15 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /* Created by Nathan Siegel */
 
-public class DepartmentRemoveEvent extends GwtEvent<DepartmentRemoveEventHandler>{
+public class DepartmentRemoveEvent extends DisplayEvent<DepartmentRemoveAction,DepartmentRemoveEventHandler>{
 	
 	public static Type<DepartmentRemoveEventHandler> TYPE = new Type<DepartmentRemoveEventHandler>();
 	
 	private DepartmentRemoveAction action;
 	
-	public DepartmentRemoveEvent(DepartmentRemoveAction action)
+	public DepartmentRemoveEvent(DepartmentRemoveAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action,container);
 	}
 	
 	public DepartmentRemoveAction getAction()
