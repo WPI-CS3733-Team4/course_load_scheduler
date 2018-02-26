@@ -17,7 +17,16 @@ public class CourseRequest extends Model {
     private Date createdAt;
     private Date updatedAt;
 
-    public Integer getId() {
+    public CourseRequest(Integer id2, Integer faculty_id, Integer course_section_id, Object object, Object object2) {
+		// TODO Auto-generated constructor stub
+    	super();
+    	this.courseSectionsId=id;
+    	this.facultyId = faculty_id;
+    	this.createdAt = createdAt;
+    	this.updatedAt = updatedAt;
+	}
+
+	public Integer getId() {
         return id;
     }
 

@@ -3,6 +3,7 @@ package org.dselent.course_load_scheduler.client.model;
 import java.util.Date;
 
 /* Created by Nathan Siegel */
+/* Modified by Krishna Madhurkar */
 
 public class Term extends Model {
 
@@ -14,9 +15,11 @@ public class Term extends Model {
     private Date updatedAt;
 	
 	// For testing
-	public Term(Integer id, String userName) {
+	public Term(Integer id, String userName, Date createdAt, Date updatedAt) {
 		this.id = id;
 		this.termName = userName;
+		this.createdAt = createdAt;
+		this.updatedAt = updatedAt;
 		
 	
 	}
