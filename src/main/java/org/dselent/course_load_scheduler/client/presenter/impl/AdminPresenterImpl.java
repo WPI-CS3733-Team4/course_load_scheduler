@@ -1,26 +1,19 @@
 package org.dselent.course_load_scheduler.client.presenter.impl;
 
-import java.util.ArrayList;
-import java.util.List;
-import org.dselent.course_load_scheduler.client.action.UserAddAction;
-import org.dselent.course_load_scheduler.client.action.UserModifyAction;
-import org.dselent.course_load_scheduler.client.action.UserRemoveAction;
-import org.dselent.course_load_scheduler.client.action.ChangeRoleAction;
-import org.dselent.course_load_scheduler.client.event.UserAddEvent;
-import org.dselent.course_load_scheduler.client.event.UserModifyEvent;
-import org.dselent.course_load_scheduler.client.event.UserRemoveEvent;
-import org.dselent.course_load_scheduler.client.event.ChangeRoleEvent;
-import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
-import org.dselent.course_load_scheduler.client.event.InvalidFieldEvent;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidUserStrings;
-import org.dselent.course_load_scheduler.client.errorstring.InvalidUserRoleStrings;
-import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
-import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
-import org.dselent.course_load_scheduler.client.presenter.AdminPresenter;
-import org.dselent.course_load_scheduler.client.view.AdminView;
 import com.google.gwt.event.shared.HandlerRegistration;
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.inject.Inject;
+import org.dselent.course_load_scheduler.client.action.*;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidUserRoleStrings;
+import org.dselent.course_load_scheduler.client.errorstring.InvalidUserStrings;
+import org.dselent.course_load_scheduler.client.event.*;
+import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
+import org.dselent.course_load_scheduler.client.presenter.AdminPresenter;
+import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
+import org.dselent.course_load_scheduler.client.view.AdminView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /* Created by Krishna Mddhurkar */
 
@@ -65,6 +58,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	{
 		container.clear();
 		container.add(view.getWidgetContainer());
+
 	}
 
 	@Override
@@ -180,95 +174,75 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	@Override
 	public void modifyUser()
 	{
-		if(!modifyUserClickInProgress)
-		{
-			modifyUserClickInProgress = true;
-			view.getModifyUserButton().setEnabled(false);
-			parentPresenter.showLoadScreen();
-			
-			Integer userId = null;
-			
-			String userName = view.getUserNameTextBox().getText();
-			String firstName = view.getFirstNameTextBox().getText();
-			String lastName = view.getLastNameTextBox().getText();
-			String email = view.getEmailTextBox().getText();
-			String password = view.getPasswordTextBox().getText();
-			
-			boolean fieldsAreValid = true;
+		if(!modifyUserClickInProgress) {
+            modifyUserClickInProgress = true;
+            view.getModifyUserButton().setEnabled(false);
+            parentPresenter.showLoadScreen();
 
-			List<String> invalidReasonList = new ArrayList<>();
-			
-			try
-			{
-				userId = Integer.parseInt(view.getUserIdTextBox().getText());
-			    
-			}
-			catch(NumberFormatException e)
-			{
-				invalidReasonList.add(InvalidUserStrings.INVALID_USER_ID);
-				fieldsAreValid = false;
-			}
-			try
-			{
-				checkEmptyString(userName);
-			}
-			catch(EmptyStringException e)
-			{
-				invalidReasonList.add(InvalidUserStrings.NULL_USER_NAME);
-				fieldsAreValid = false;
-			}
-			
-			try
-			{
-				checkEmptyString(firstName);
-			}
-			catch(EmptyStringException e)
-			{
-				invalidReasonList.add(InvalidUserStrings.NULL_FIRST_NAME);
-				fieldsAreValid = false;
-			}
-			
-			try
-			{
-				checkEmptyString(lastName);
-			}
-			catch(EmptyStringException e)
-			{
-				invalidReasonList.add(InvalidUserStrings.NULL_LAST_NAME);
-				fieldsAreValid = false;
-			}
-			
-			try
-			{
-				checkEmptyString(email);
-			}
-			catch(EmptyStringException e)
-			{
-				invalidReasonList.add(InvalidUserStrings.NULL_EMAIL);
-				fieldsAreValid = false;
-			}
+            Integer userId = null;
 
-			try
-			{
-				checkEmptyString(password);
-			}
-			catch(EmptyStringException e)
-			{
-				invalidReasonList.add(InvalidUserStrings.NULL_PASSWORD);
-				fieldsAreValid = false;
-			}
-			
-			if(fieldsAreValid)
-			{
-				sendModifyUser(userId, userName, firstName, lastName, email, password);
-			}
-			else
-			{
-				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
-				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
-				eventBus.fireEvent(ile);
-			}
-		}
+            String userName = view.getUserNameTextBox().getText();
+            String firstName = view.getFirstNameTextBox().getText();
+            String lastName = view.getLastNameTextBox().getText();
+            String email = view.getEmailTextBox().getText();
+            String password = view.getPasswordTextBox().getText();
+
+            boolean fieldsAreValid = true;
+
+            List<String> invalidReasonList = new ArrayList<>();
+
+            try {
+                userId = Integer.parseInt(view.getUserIdTextBox().getText());
+
+            } catch(NumberFormatException e) {
+                invalidReasonList.add(InvalidUserStrings.INVALID_USER_ID);
+                fieldsAreValid = false;
+            }
+            try {
+                checkEmptyString(userName);
+            } catch(EmptyStringException e) {
+                invalidReasonList.add(InvalidUserStrings.NULL_USER_NAME);
+                fieldsAreValid = false;
+            }
+
+            try {
+                checkEmptyString(firstName);
+            } catch(EmptyStringException e) {
+                invalidReasonList.add(InvalidUserStrings.NULL_FIRST_NAME);
+                fieldsAreValid = false;
+            }
+
+            try {
+                checkEmptyString(lastName);
+            } catch(EmptyStringException e) {
+                invalidReasonList.add(InvalidUserStrings.NULL_LAST_NAME);
+                fieldsAreValid = false;
+            }
+
+            try {
+                checkEmptyString(email);
+            } catch(EmptyStringException e) {
+                invalidReasonList.add(InvalidUserStrings.NULL_EMAIL);
+                fieldsAreValid = false;
+            }
+
+            try {
+                checkEmptyString(password);
+            } catch(EmptyStringException e) {
+                invalidReasonList.add(InvalidUserStrings.NULL_PASSWORD);
+                fieldsAreValid = false;
+            }
+
+            if(fieldsAreValid) {
+                sendModifyUser(userId, userName, firstName, lastName, email, password);
+            } else {
+                InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+                InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+                eventBus.fireEvent(ile);
+            }
+        } else {
+            getParentPresenter().hideLoadScreen();
+        }
 	}
 	
 	private void sendModifyUser(Integer userId, String userName, String firstName, String lastName, String email, String password)
@@ -291,41 +265,36 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	@Override
 	public void removeUser()
 	{
-		if(!removeUserClickInProgress)
-		{
-			removeUserClickInProgress = true;
-			view.getAddUserButton().setEnabled(false);
-			parentPresenter.showLoadScreen();
-			
-			Integer userId = null;
-			
-			
-			boolean fieldsAreValid = true;
+		if(!removeUserClickInProgress) {
+            removeUserClickInProgress = true;
+            view.getAddUserButton().setEnabled(false);
+            parentPresenter.showLoadScreen();
 
-			List<String> invalidReasonList = new ArrayList<>();
-			try
-			{
-				userId = Integer.parseInt(view.getUserIdTextBox().getText());
-			    
-			}
-			catch(NumberFormatException e)
-			{
-				invalidReasonList.add(InvalidUserStrings.INVALID_USER_ID);
-				fieldsAreValid = false;
-			}
-			
-			
-			if(fieldsAreValid)
-			{
-				sendRemoveUser(userId);
-			}
-			else
-			{
-				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
-				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
-				eventBus.fireEvent(ile);
-			}
-		}
+            Integer userId = null;
+
+
+            boolean fieldsAreValid = true;
+
+            List<String> invalidReasonList = new ArrayList<>();
+            try {
+                userId = Integer.parseInt(view.getUserIdTextBox().getText());
+
+            } catch(NumberFormatException e) {
+                invalidReasonList.add(InvalidUserStrings.INVALID_USER_ID);
+                fieldsAreValid = false;
+            }
+
+
+            if(fieldsAreValid) {
+                sendRemoveUser(userId);
+            } else {
+                InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+                InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+                eventBus.fireEvent(ile);
+            }
+        } else {
+            getParentPresenter().hideLoadScreen();
+        }
 	}
 	
 	private void sendRemoveUser(Integer userId)
@@ -339,62 +308,51 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 	@Override
 	public void changeRole()
 	{
-		if(!changeRoleClickInProgress)
-		{
-			changeRoleClickInProgress = true;
-			view.getChangeRoleButton().setEnabled(false);
-			parentPresenter.showLoadScreen();
-			
-			Integer userId = null;
-			Integer userRoleId = null;
-			
-			String role = view.getRoleTextBox().getText();
-			
-			boolean fieldsAreValid = true;
+		if(!changeRoleClickInProgress) {
+            changeRoleClickInProgress = true;
+            view.getChangeRoleButton().setEnabled(false);
+            parentPresenter.showLoadScreen();
 
-			List<String> invalidReasonList = new ArrayList<>();
-			
-			try
-			{
-				userRoleId = Integer.parseInt(view.getUserRoleIdTextBox().getText());
-			    
-			}
-			catch(NumberFormatException e)
-			{
-				invalidReasonList.add(InvalidUserRoleStrings.INVALID_USER_ROLE_ID);
-				fieldsAreValid = false;
-			}
-			
-			try
-			{
-				userId = Integer.parseInt(view.getUserTextBox().getText());
-			}
-			catch(NumberFormatException e)
-			{
-				invalidReasonList.add(InvalidUserRoleStrings.INVALID_USER_ID);
-				fieldsAreValid = false;
-			}
-			
-			try
-			{
-				checkEmptyString(role);
-			}
-			catch(EmptyStringException e)
-			{
-				invalidReasonList.add(InvalidUserRoleStrings.NULL_ROLE);
-				fieldsAreValid = false;
-			}
-			if(fieldsAreValid)
-			{
-				sendChangeRole(userRoleId, userId, role);
-			}
-			else
-			{
-				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
-				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
-				eventBus.fireEvent(ile);
-			}
-		}
+            Integer userId = null;
+            Integer userRoleId = null;
+
+            String role = view.getRoleTextBox().getText();
+
+            boolean fieldsAreValid = true;
+
+            List<String> invalidReasonList = new ArrayList<>();
+
+            try {
+                userRoleId = Integer.parseInt(view.getUserRoleIdTextBox().getText());
+
+            } catch(NumberFormatException e) {
+                invalidReasonList.add(InvalidUserRoleStrings.INVALID_USER_ROLE_ID);
+                fieldsAreValid = false;
+            }
+
+            try {
+                userId = Integer.parseInt(view.getUserTextBox().getText());
+            } catch(NumberFormatException e) {
+                invalidReasonList.add(InvalidUserRoleStrings.INVALID_USER_ID);
+                fieldsAreValid = false;
+            }
+
+            try {
+                checkEmptyString(role);
+            } catch(EmptyStringException e) {
+                invalidReasonList.add(InvalidUserRoleStrings.NULL_ROLE);
+                fieldsAreValid = false;
+            }
+            if(fieldsAreValid) {
+                sendChangeRole(userRoleId, userId, role);
+            } else {
+                InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
+                InvalidFieldEvent ile = new InvalidFieldEvent(ila);
+                eventBus.fireEvent(ile);
+            }
+        } else {
+            getParentPresenter().hideLoadScreen();
+        }
 	}
 	
 	private void sendChangeRole(Integer userRoleId, Integer userId, String changeRole)

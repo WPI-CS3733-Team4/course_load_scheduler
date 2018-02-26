@@ -250,4 +250,5 @@ public class BuilderServiceImpl extends BaseServiceImpl implements BuilderServic
 		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.TERM_REMOVE, builderCallback, json);
 		request.send();
 	}
+
 }

@@ -1,7 +1,8 @@
 package org.dselent.course_load_scheduler.client.presenter.impl;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.HasWidgets;
+import com.google.inject.Inject;
 import org.dselent.course_load_scheduler.client.action.InvalidFieldAction;
 import org.dselent.course_load_scheduler.client.action.SendLoginAction;
 import org.dselent.course_load_scheduler.client.errorstring.InvalidLoginStrings;
@@ -11,9 +12,9 @@ import org.dselent.course_load_scheduler.client.exceptions.EmptyStringException;
 import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 import org.dselent.course_load_scheduler.client.presenter.LoginPresenter;
 import org.dselent.course_load_scheduler.client.view.LoginView;
-import com.google.gwt.event.shared.HandlerRegistration;
-import com.google.gwt.user.client.ui.HasWidgets;
-import com.google.inject.Inject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class LoginPresenterImpl extends BasePresenterImpl implements LoginPresenter
@@ -74,50 +75,42 @@ public class LoginPresenterImpl extends BasePresenterImpl implements LoginPresen
 	@Override
 	public void login()
 	{
-		if(!loginClickInProgress)
-		{
+		if(!loginClickInProgress) {
 			loginClickInProgress = true;
 			view.getLoginButton().setEnabled(false);
 			parentPresenter.showLoadScreen();
-			
+
 			String userName = view.getNameTextBox().getText();
 			String password = view.getPasswordTextBox().getText();
-			
+
 			boolean validUserName = true;
 			boolean validPassword = true;
 
 			List<String> invalidReasonList = new ArrayList<>();
-			
-			try
-			{
+
+			try {
 				validateLoginUserName(userName);
-			}
-			catch(EmptyStringException e)
-			{
+			} catch(EmptyStringException e) {
 				invalidReasonList.add(InvalidLoginStrings.NULL_USER_NAME);
 				validUserName = false;
 			}
 
-			try
-			{
+			try {
 				validateLoginPassword(password);
-			}
-			catch(EmptyStringException e)
-			{
+			} catch(EmptyStringException e) {
 				invalidReasonList.add(InvalidLoginStrings.NULL_PASSWORD);
 				validPassword = false;
 			}
-			
-			if(validUserName && validPassword)
-			{
+
+			if(validUserName && validPassword) {
 				sendLogin(userName, password);
-			}
-			else
-			{
+			} else {
 				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
 				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
 				eventBus.fireEvent(ile);
 			}
+		} else {
+			getParentPresenter().hideLoadScreen();
 		}
 	}
 	

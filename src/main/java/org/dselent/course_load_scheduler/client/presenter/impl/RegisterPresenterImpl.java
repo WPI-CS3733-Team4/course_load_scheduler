@@ -77,83 +77,66 @@ public class RegisterPresenterImpl extends BasePresenterImpl implements Register
 	@Override
 	public void register()
 	{
-		if(!registerClickInProgress)
-		{
+		if(!registerClickInProgress) {
 			registerClickInProgress = true;
 			view.getRegisterButton().setEnabled(false);
 			parentPresenter.showLoadScreen();
-			
+
 			String userName = view.getUserNameTextBox().getText();
 			String firstName = view.getFirstNameTextBox().getText();
 			String lastName = view.getLastNameTextBox().getText();
 			String email = view.getEmailTextBox().getText();
 			String password = view.getPasswordTextBox().getText();
-			
+
 			boolean fieldsAreValid = true;
 
 			List<String> invalidReasonList = new ArrayList<>();
-			
-			try
-			{
+
+			try {
 				checkEmptyString(userName);
-			}
-			catch(EmptyStringException e)
-			{
+			} catch(EmptyStringException e) {
 				invalidReasonList.add(InvalidUserStrings.NULL_USER_NAME);
 				fieldsAreValid = false;
 			}
-			
-			try
-			{
+
+			try {
 				checkEmptyString(firstName);
-			}
-			catch(EmptyStringException e)
-			{
+			} catch(EmptyStringException e) {
 				invalidReasonList.add(InvalidUserStrings.NULL_FIRST_NAME);
 				fieldsAreValid = false;
 			}
-			
-			try
-			{
+
+			try {
 				checkEmptyString(lastName);
-			}
-			catch(EmptyStringException e)
-			{
+			} catch(EmptyStringException e) {
 				invalidReasonList.add(InvalidUserStrings.NULL_LAST_NAME);
 				fieldsAreValid = false;
 			}
-			
-			try
-			{
+
+			try {
 				checkEmptyString(email);
-			}
-			catch(EmptyStringException e)
-			{
+			} catch(EmptyStringException e) {
 				invalidReasonList.add(InvalidUserStrings.NULL_EMAIL);
 				fieldsAreValid = false;
 			}
 
-			try
-			{
+			try {
 				checkEmptyString(password);
-			}
-			catch(EmptyStringException e)
-			{
+			} catch(EmptyStringException e) {
 				invalidReasonList.add(InvalidUserStrings.NULL_PASSWORD);
 				fieldsAreValid = false;
 			}
 
 
-            if(fieldsAreValid)
-			{
+			if(fieldsAreValid) {
 				sendRegister(userName, firstName, lastName, email, password);
-			}
-			else
-			{
+			} else {
 				InvalidFieldAction ila = new InvalidFieldAction(invalidReasonList);
 				InvalidFieldEvent ile = new InvalidFieldEvent(ila);
 				eventBus.fireEvent(ile);
 			}
+		} else {
+			getParentPresenter().hideLoadScreen();
 		}
 	}
 	
