@@ -1,5 +1,6 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import org.dselent.course_load_scheduler.client.action.CourseSectionAddAction;
 import org.dselent.course_load_scheduler.client.action.CourseSectionRemoveAction;
 import org.dselent.course_load_scheduler.client.event_handler.CourseSectionRemoveEventHandler;
 
@@ -8,16 +9,17 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
+/* Modified by Krishna Madhurkar */
 
-public class CourseSectionRemoveEvent extends GwtEvent<CourseSectionRemoveEventHandler>{
+public class CourseSectionRemoveEvent extends DisplayEvent<CourseSectionRemoveAction, CourseSectionRemoveEventHandler>{
 	
 	public static Type<CourseSectionRemoveEventHandler> TYPE = new Type<CourseSectionRemoveEventHandler>();
 	
 	private CourseSectionRemoveAction action;
 	
-	public CourseSectionRemoveEvent(CourseSectionRemoveAction action)
+	public CourseSectionRemoveEvent(CourseSectionRemoveAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action,container);
 	}
 	
 	public CourseSectionRemoveAction getAction()
@@ -43,8 +45,5 @@ public class CourseSectionRemoveEvent extends GwtEvent<CourseSectionRemoveEventH
 		handler.onCourseSectionRemove(this);
 	}
 	
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
-
+	
 }
