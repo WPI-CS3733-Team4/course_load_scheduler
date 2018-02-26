@@ -2,4 +2,4 @@
 
 #**NEWEST CLOUD ADDRESS:**
 
-https://20180226t073357-dot-softenggroup4frontend.appspot.com/CourseLoadScheduler.html
+https://20180226t075056-dot-softenggroup4frontend.appspot.com/CourseLoadScheduler.html
