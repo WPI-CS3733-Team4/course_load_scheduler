@@ -2,6 +2,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
         xmlns:g="urn:import:com.google.gwt.user.client.ui"
+        xmlns:t="urn:import:com.google.gwt.user.cellview.client"
         xmlns:table="urn:import:org.dselent.course_load_scheduler.client.widgets">
 
 <ui:style>
@@ -34,12 +35,6 @@
 		
 		<table:AdminDataWidget ui:field="adminData"/>
 		
-		<div style="overflow-x:hidden; overflow-y: auto; height:150px;">
-			<div class="row">
-				<div class="col-md-4"><g:FlexTable ui:field="userTable" width="100%"/></div>
-				<div class="col-md-4"><g:FlexTable ui:field="userRoleTable" width="100%"/></div>
-			</div>
-		</div>
 		<div class="row">
 			<div class="col-md-12">
 				<div class="card container" style="margin-top:40px;">
@@ -75,8 +70,8 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="col-md-4"><p>User Role ID:</p></div>
-						<div class="col-md-4"><p>User:</p></div>
+						<div class="col-md-4"><p>ID:</p></div>
+						<div class="col-md-4"><p>User ID:</p></div>
 						<div class="col-md-4"><p>Role:</p></div>
 					</div>
 					<div class="row">
