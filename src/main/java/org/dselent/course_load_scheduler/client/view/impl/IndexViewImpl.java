@@ -31,7 +31,7 @@ public class IndexViewImpl extends BaseViewImpl<IndexPresenter> implements Index
 	public IndexViewImpl()
 	{
 		initWidget(uiBinder.createAndBindUi(this));
-		presenter.sendTableRequests();
+		//presenter.sendTableRequests();
 	}
 
 	@Override

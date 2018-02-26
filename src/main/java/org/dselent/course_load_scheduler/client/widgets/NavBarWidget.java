@@ -1,6 +1,7 @@
 package org.dselent.course_load_scheduler.client.widgets;
 
 import org.dselent.course_load_scheduler.client.CourseLoadScheduler;
+import org.dselent.course_load_scheduler.client.presenter.IndexPresenter;
 
 import com.google.gwt.core.client.GWT;
 import com.google.gwt.event.dom.client.ClickEvent;

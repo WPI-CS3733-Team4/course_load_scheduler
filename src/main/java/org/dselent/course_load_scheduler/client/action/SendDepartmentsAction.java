@@ -6,9 +6,7 @@ public class SendDepartmentsAction extends Action{
 	 private Integer departmentId;
 	    private String department;
 
-	    public SendDepartmentsAction(Integer departmentId, String department) {
-	        this.departmentId = departmentId;
-	        this.department = department;
+	    public SendDepartmentsAction() {
 	    }
 
 	    public Integer getDepartmentId() {

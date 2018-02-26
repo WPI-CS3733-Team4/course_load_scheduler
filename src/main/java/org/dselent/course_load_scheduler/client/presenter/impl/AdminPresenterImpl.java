@@ -386,5 +386,7 @@ public class AdminPresenterImpl extends BasePresenterImpl implements AdminPresen
 		GWT.log(ila.toString());
 //		view.showErrorMessages(ila.toString());
 	}
+	
+	
 }
 // end

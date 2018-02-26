@@ -94,6 +94,7 @@ public class CourseLoadScheduler implements EntryPoint
 	
 		adminPresenter.go(indexView.getViewRootPanel());
 		
+		indexPresenter.sendAdminTableRequests();
 		
 		// Populate the cell table
 		//AdminDataWidget.populateUserTable(AdminDataWidget.testingUserTable());
@@ -121,6 +122,7 @@ public class CourseLoadScheduler implements EntryPoint
 	
 		facultyPresenter.go(indexView.getViewRootPanel());
 		
+		indexPresenter.sendFacultyTableRequests();
 		
 	}
 	
@@ -144,6 +146,8 @@ public class CourseLoadScheduler implements EntryPoint
 		indexPresenter.go(root);
 	
 		builderPresenter.go(indexView.getViewRootPanel());
+		
+		indexPresenter.sendBuilderTableRequests();
 	}
 	
 	static public void registerScreen() {
