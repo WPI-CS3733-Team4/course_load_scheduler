@@ -34,7 +34,7 @@ public class CourseModifyAction extends Action
     public String toString() {
         return "{" +
                 "\'courseId\'=\'" + courseId + "\'" +
-                ",\' courseName='" + courseName + "\'" +
+                ",\'CourseName='" + courseName + "\'" +
                 ", \'courseDept='" + courseDept + "\'" +
                 ", \'courseDescription='" + courseDescription + "\'" +
                 '}';

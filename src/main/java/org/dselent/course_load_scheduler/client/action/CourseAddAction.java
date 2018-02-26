@@ -28,7 +28,7 @@ public class CourseAddAction extends Action
     public String toString() {
         return "{"+
                 ",\'courseName\'=\'" + courseName + "\'" +
-                ",\' courseDept\'=\'" + courseDept + "\'" +
+                ",\'courseDept\'=\'" + courseDept + "\'" +
                 ", \'courseDescription\'='" + courseDescription + "\'"+ +
                 '}';
     }
