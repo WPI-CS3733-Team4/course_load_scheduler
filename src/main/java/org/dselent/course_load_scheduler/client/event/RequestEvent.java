@@ -2,10 +2,12 @@ package org.dselent.course_load_scheduler.client.event;
 
 import org.dselent.course_load_scheduler.client.action.RequestAction;
 import org.dselent.course_load_scheduler.client.event_handler.RequestEventHandler;
+import org.dselent.course_load_scheduler.client.event_handler.SendLoginEventHandler;
+
 import com.google.gwt.user.client.ui.HasWidgets;
 
-
 /* Created by Nathan Siegel */
+/* Modified by Krishna Madhurkar */
 
 public class RequestEvent extends DisplayEvent<RequestAction,RequestEventHandler>{
 	

@@ -1,5 +1,6 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import org.dselent.course_load_scheduler.client.action.SendLoginAction;
 import org.dselent.course_load_scheduler.client.action.UnrequestAction;
 import org.dselent.course_load_scheduler.client.event_handler.UnrequestEventHandler;
 
@@ -8,16 +9,17 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
+/* Modified by Krishna Madhurkar */
 
-public class UnrequestEvent extends GwtEvent<UnrequestEventHandler>{
+public class UnrequestEvent extends DisplayEvent<UnrequestAction,UnrequestEventHandler>{
 	
 	public static Type<UnrequestEventHandler> TYPE = new Type<UnrequestEventHandler>();
 	
 	private UnrequestAction action;
 	
-	public UnrequestEvent(UnrequestAction action)
+	public UnrequestEvent(UnrequestAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action,container);
 	}
 	
 	public UnrequestAction getAction()
@@ -43,8 +45,5 @@ public class UnrequestEvent extends GwtEvent<UnrequestEventHandler>{
 		handler.onUnrequest(this);
 	}
 	
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
-
+	
 }
