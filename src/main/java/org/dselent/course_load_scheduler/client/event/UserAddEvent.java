@@ -16,7 +16,7 @@ public class UserAddEvent extends DisplayEvent<UserAddAction,UserAddEventHandler
 	
 	public UserAddEvent(UserAddAction action, HasWidgets container)
 	{
-		super(action,container);
+		super(action, container);
 		this.action = action;
 
 	}

@@ -1,11 +1,8 @@
 package org.dselent.course_load_scheduler.client.event;
 
-import org.dselent.course_load_scheduler.client.action.CourseSectionAddAction;
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.dselent.course_load_scheduler.client.action.CourseSectionRemoveAction;
 import org.dselent.course_load_scheduler.client.event_handler.CourseSectionRemoveEventHandler;
-
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -19,7 +16,8 @@ public class CourseSectionRemoveEvent extends DisplayEvent<CourseSectionRemoveAc
 	
 	public CourseSectionRemoveEvent(CourseSectionRemoveAction action, HasWidgets container)
 	{
-		super(action,container);
+        super(action, container);
+        this.action = action;
 	}
 	
 	public CourseSectionRemoveAction getAction()
