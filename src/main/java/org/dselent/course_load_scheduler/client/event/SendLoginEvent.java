@@ -1,20 +1,23 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import org.dselent.course_load_scheduler.client.action.CourseSectionRemoveAction;
 import org.dselent.course_load_scheduler.client.action.SendLoginAction;
 import org.dselent.course_load_scheduler.client.event_handler.SendLoginEventHandler;
 
 import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.ui.HasWidgets;
 
-public class SendLoginEvent extends GwtEvent<SendLoginEventHandler>
+/* Modified by Krishna Madhurkar */
+
+public class SendLoginEvent extends DisplayEvent<SendLoginAction, SendLoginEventHandler>
 {
 	public static Type<SendLoginEventHandler> TYPE = new Type<SendLoginEventHandler>();
 	
 	private SendLoginAction action;
 	
-	public SendLoginEvent(SendLoginAction action)
+	public SendLoginEvent(SendLoginAction action,HasWidgets container)
 	{
-		this.action = action;
+		super(action,container);
 	}
 	
 	public SendLoginAction getAction()
@@ -40,8 +43,6 @@ public class SendLoginEvent extends GwtEvent<SendLoginEventHandler>
 		handler.onSendLogin(this);
 	}
 
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
+	
 
 }
