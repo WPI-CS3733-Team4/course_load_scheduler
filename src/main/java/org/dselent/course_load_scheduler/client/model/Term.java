@@ -12,7 +12,15 @@ public class Term extends Model {
     private String termName;
     private Date createdAt;
     private Date updatedAt;
-
+	
+	// For testing
+	public Term(Integer id, String userName) {
+		this.id = id;
+		this.termName = userName;
+		
+	
+	}
+    
     public Integer getId() {
         return id;
     }
