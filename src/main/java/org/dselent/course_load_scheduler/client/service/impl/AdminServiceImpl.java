@@ -50,7 +50,7 @@ public class AdminServiceImpl extends BaseServiceImpl implements AdminService
 		GWT.log("On User Add Reached2");
 		UserAddActionTranslatorImpl userAddActionTranslator = new UserAddActionTranslatorImpl();
 		GWT.log("On User Add Reached3");
-		GWT.log(action.toString());
+//		GWT.log(action.toString());
 		JSONObject json = userAddActionTranslator.translateToJson(action);
 		GWT.log("On User Add Reached4");
 		HasWidgets c = evt.getContainer();

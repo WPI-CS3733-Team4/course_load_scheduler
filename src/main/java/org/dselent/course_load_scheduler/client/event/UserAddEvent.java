@@ -1,12 +1,8 @@
 package org.dselent.course_load_scheduler.client.event;
 
 import com.google.gwt.core.client.GWT;
-import com.google.gwt.event.shared.GwtEvent;
 import com.google.gwt.user.client.ui.HasWidgets;
-
-import org.dselent.course_load_scheduler.client.action.ChangeRoleAction;
 import org.dselent.course_load_scheduler.client.action.UserAddAction;
-import org.dselent.course_load_scheduler.client.event_handler.ChangeRoleEventHandler;
 import org.dselent.course_load_scheduler.client.event_handler.UserAddEventHandler;
 
 
@@ -21,11 +17,13 @@ public class UserAddEvent extends DisplayEvent<UserAddAction,UserAddEventHandler
 	public UserAddEvent(UserAddAction action, HasWidgets container)
 	{
 		super(action,container);
+		this.action = action;
+
 	}
 	
 	public UserAddAction getAction()
 	{
-		return action;
+		return this.action;
 	}
 	
 	/*
