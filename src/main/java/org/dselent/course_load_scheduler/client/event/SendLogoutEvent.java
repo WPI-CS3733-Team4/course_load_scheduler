@@ -25,6 +25,5 @@ public class SendLogoutEvent extends  DisplayEvent<SendLogoutAction,SendLogoutEv
     @Override
     protected void dispatch(SendLogoutEventHandler handler) {handler.onSendLogout(this);}
     
-   
 	
 }
