@@ -46,6 +46,10 @@ public interface BuilderView extends BaseView<BuilderPresenter>{
 	void setTermIdTextBox(TextBox termIdTextBox);
 	TextBox getTermNameTextBox();
 	void setTermNameTextBox(TextBox termNameTextBox);
+	
+	TextBox getTermTextBox();
+	void setTermTextBox(TextBox termTextBox);
+	
 	Button getAddCoursesButton();
 	void setAddCoursesButton(Button addCoursesButton);
 	Button getModifyCoursesButton();

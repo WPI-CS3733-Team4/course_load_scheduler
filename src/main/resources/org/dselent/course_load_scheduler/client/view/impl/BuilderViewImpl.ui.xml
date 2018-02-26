@@ -102,27 +102,33 @@
 
 							<!-- Course Sections -->
 							<div class="row">
-								<div class="col-md-4">
+								<div class="col-md-2">
 									<p>Course Section ID:</p>
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-2">
 									<p>Course:</p>
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-2">
 									<p>Section:</p>
+								</div>
+								<div class="col-md-2">
+									<p>Term:</p>
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-4">
+								<div class="col-md-2">
 									<g:TextBox ui:field="courseSectionIdTextBox"
 										addStyleNames="form-control" />
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-2">
 									<g:TextBox ui:field="courseTextBox" addStyleNames="form-control" />
 								</div>
-								<div class="col-md-4">
+								<div class="col-md-2">
 									<g:TextBox ui:field="sectionTypeTextBox"
 										addStyleNames="form-control" />
+								</div>
+								<div class="col-md-2">
+									<g:TextBox ui:field="termTextBox" addStyleNames="form-control" />
 								</div>
 							</div>
 							<div class="row">

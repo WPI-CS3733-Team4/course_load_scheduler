@@ -62,6 +62,9 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	TextBox sectionTypeTextBox;
 	
 	@UiField
+	TextBox termTextBox;
+	
+	@UiField
 	Button addSectionsButton;
 	
 	@UiField
@@ -69,6 +72,9 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 	
 	@UiField
 	Button removeSectionsButton;
+	
+	
+	
 	
 	//Course Section Times
 	@UiField
@@ -390,6 +396,13 @@ public class BuilderViewImpl extends BaseViewImpl<BuilderPresenter> implements B
 
 	public void setCourseSectionIdTextBox(TextBox courseSectionIdTextBox) {
 		this.courseSectionIdTextBox = courseSectionIdTextBox;
+	}
+	
+	public TextBox getTermTextBox() {
+		return termTextBox;
+	}
+	public void setTermTextBox(TextBox termTextBox) {
+		this.termTextBox = termTextBox;
 	}
 	
 	@Override
