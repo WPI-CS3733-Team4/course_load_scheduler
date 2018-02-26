@@ -9,15 +9,15 @@ import com.google.gwt.user.client.ui.HasWidgets;
 
 /* Created by Nathan Siegel */
 
-public class TermAddEvent extends GwtEvent<TermAddEventHandler>{
+public class TermAddEvent extends DisplayEvent<TermAddAction,TermAddEventHandler>{
 	
 	public static Type<TermAddEventHandler> TYPE = new Type<TermAddEventHandler>();
 	
 	private TermAddAction action;
 	
-	public TermAddEvent(TermAddAction action)
+	public TermAddEvent(TermAddAction action, HasWidgets container)
 	{
-		this.action = action;
+		super(action,container);
 	}
 	
 	public TermAddAction getAction()
