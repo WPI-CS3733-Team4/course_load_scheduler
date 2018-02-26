@@ -16,7 +16,6 @@ import org.dselent.course_load_scheduler.client.event.SendCourseRequestsEvent;
 import org.dselent.course_load_scheduler.client.event.SendCourseSectionsEvent;
 import org.dselent.course_load_scheduler.client.event.SendCourseTimesEvent;
 import org.dselent.course_load_scheduler.client.event.SendCoursesEvent;
-import org.dselent.course_load_scheduler.client.event.SendDepartmentEvent;
 import org.dselent.course_load_scheduler.client.event.SendDepartmentsEvent;
 import org.dselent.course_load_scheduler.client.event.SendLocationsEvent;
 import org.dselent.course_load_scheduler.client.event.SendLoginEvent;
@@ -80,8 +79,141 @@ public class TableServiceImpl extends BaseServiceImpl implements TableService
 		JSONObject json = new JSONObject();
 		SendCoursesCallback coursesCallback = new SendCoursesCallback(eventBus, evt.getContainer());
 		
-		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.LOGIN, coursesCallback, json);
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.SEND_COURSES, coursesCallback, json);
 		request.send();
 	}
 	
+	@Override
+	public void onSendCourseSections(SendCourseSectionsEvent evt)
+	{
+		JSONObject json = new JSONObject();
+		SendCourseSectionsCallback courseSectionsCallback = new SendCourseSectionsCallback(eventBus, evt.getContainer());
+		
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.SEND_COURSE_SECTIONS, courseSectionsCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onSendUsers(SendUsersEvent evt)
+	{
+		JSONObject json = new JSONObject();
+		SendUsersCallback usersCallback = new SendUsersCallback(eventBus, evt.getContainer());
+		
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.SEND_USERS, usersCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onSendUserRoles(SendUserRolesEvent evt)
+	{
+		JSONObject json = new JSONObject();
+		SendUserRolesCallback coursesCallback = new SendUserRolesCallback(eventBus, evt.getContainer());
+		
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.SEND_USER_ROLES, coursesCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onSendLocations(SendLocationsEvent evt)
+	{
+		JSONObject json = new JSONObject();
+		SendLocationsCallback coursesCallback = new SendLocationsCallback(eventBus, evt.getContainer());
+		
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.SEND_LOCATIONS, coursesCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onSendDepartments(SendDepartmentsEvent evt)
+	{
+		JSONObject json = new JSONObject();
+		SendDepartmentsCallback coursesCallback = new SendDepartmentsCallback(eventBus, evt.getContainer());
+		
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.SEND_DEPARTMENTS, coursesCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onSendTerms(SendTermsEvent evt)
+	{
+		JSONObject json = new JSONObject();
+		SendTermsCallback coursesCallback = new SendTermsCallback(eventBus, evt.getContainer());
+		
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.SEND_TERMS, coursesCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onSendCourseTimes(SendCourseTimesEvent evt)
+	{
+		JSONObject json = new JSONObject();
+		SendCourseTimesCallback coursesCallback = new SendCourseTimesCallback(eventBus, evt.getContainer());
+		
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.SEND_COURSE_TIMES, coursesCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onSendCourseRequests(SendCourseRequestsEvent evt)
+	{
+		JSONObject json = new JSONObject();
+		SendCourseRequestsCallback coursesCallback = new SendCoursesCallback(eventBus, evt.getContainer());
+		
+		NetworkRequest request = new NetworkRequest(NetworkRequestStrings.SEND_COURSE_REQUESTS, coursesCallback, json);
+		request.send();
+	}
+	
+	@Override
+	public void onReceiveCourses(ReceiveCoursesEvent evt)
+	{
+		//do stuff
+	}
+	
+	@Override
+	public void onReceiveCourseSections(ReceiveCourseSectionsEvent evt)
+	{
+		//do stuff
+	}
+	
+	@Override
+	public void onReceiveUsers(ReceiveUsersEvent evt)
+	{
+		//do stuff
+	}
+	
+	@Override
+	public void onReceiveUserRoles(ReceiveUserRolesEvent evt)
+	{
+		//do stuff
+	}
+	
+	@Override
+	public void onReceiveLocations(ReceiveLocationsEvent evt)
+	{
+		//do stuff
+	}
+	
+	@Override
+	public void onReceiveDepartments(ReceiveDepartmentsEvent evt)
+	{
+		//do stuff
+	}
+	
+	@Override
+	public void onReceiveTerms(ReceiveTermsEvent evt)
+	{
+		//do stuff
+	}
+	
+	@Override
+	public void onReceiveCourseTimes(ReceiveCourseTimesEvent evt)
+	{
+		//do stuff
+	}
+	
+	@Override
+	public void onReceiveCourseRequests(ReceiveCourseRequestsEvent evt)
+	{
+		//do stuff
+	}
 }
