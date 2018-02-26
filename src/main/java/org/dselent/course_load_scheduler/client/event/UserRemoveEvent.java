@@ -43,8 +43,4 @@ public class UserRemoveEvent extends DisplayEvent<UserRemoveAction,UserRemoveEve
 	{
 		handler.onUserRemove(this);
 	}
-	public HasWidgets getContainer() {
-		return this.getContainer();
-	}
-
 }
