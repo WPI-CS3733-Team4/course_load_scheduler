@@ -5,5 +5,5 @@ import com.google.gwt.event.shared.EventHandler;
 /* Created by Thananart Piyajarawong*/
 
 public interface SendDepartmentsEventHandler extends EventHandler{
-	public void onSendDepartment(SendDepartmentsEvent evt);
+	public void onSendDepartments(SendDepartmentsEvent evt);
 }
