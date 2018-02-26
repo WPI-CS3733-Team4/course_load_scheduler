@@ -40,8 +40,11 @@ public class NetworkRequest implements RequestCallback
 
 		String allUrl = NetworkRequestStrings.SERVER_LOCATION + NetworkRequestStrings.BASE_REQUEST + url;
 		requestBuilder = new RequestBuilder(RequestBuilder.POST, allUrl);
-		
-		requestBuilder.setHeader("Content-Type","application/json");
+
+        requestBuilder.setHeader("Content-Type", "application/json");
+//        requestBuilder.setHeader("Accept", "application/json");
+//        requestBuilder.setHeader("Access-Control-Allow-Origin", "*");
+//        requestBuilder.setHeader("Access-Control-Allow-Credentials", "true");
 		requestBuilder.setTimeoutMillis(DEFAULT_TIMEOUT_SECONDS * 1000);
 		requestBuilder.setCallback(this);
     
@@ -54,7 +57,7 @@ public class NetworkRequest implements RequestCallback
 
         GWT.log("Send Request Reached");
 		String json = requestData.toString();
-
+        GWT.log(json);
 		// Since the server expects a non-empty json payload, we'll only
 		// send if that was the case.
 		if (!isRequestEmpty(json))

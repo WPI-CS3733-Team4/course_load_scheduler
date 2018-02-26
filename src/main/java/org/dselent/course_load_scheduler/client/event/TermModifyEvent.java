@@ -1,9 +1,8 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.dselent.course_load_scheduler.client.action.TermModifyAction;
 import org.dselent.course_load_scheduler.client.event_handler.TermModifyEventHandler;
-
-import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -16,7 +15,8 @@ public class TermModifyEvent extends DisplayEvent<TermModifyAction,TermModifyEve
 	
 	public TermModifyEvent(TermModifyAction action, HasWidgets container)
 	{
-		super(action,container);
+        super(action, container);
+        this.action = action;
 	}
 	
 	public TermModifyAction getAction()

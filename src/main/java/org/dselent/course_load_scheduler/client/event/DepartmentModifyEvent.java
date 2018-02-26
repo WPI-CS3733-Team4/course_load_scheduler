@@ -1,9 +1,8 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.dselent.course_load_scheduler.client.action.DepartmentModifyAction;
 import org.dselent.course_load_scheduler.client.event_handler.DepartmentModifyEventHandler;
-
-import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -16,7 +15,8 @@ public class DepartmentModifyEvent extends DisplayEvent<DepartmentModifyAction,D
 	
 	public DepartmentModifyEvent(DepartmentModifyAction action, HasWidgets container)
 	{
-		super(action,container);
+        super(action, container);
+        this.action = action;
 	}
 	
 	public DepartmentModifyAction getAction()

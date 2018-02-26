@@ -1,10 +1,8 @@
 package org.dselent.course_load_scheduler.client.event;
 
+import com.google.gwt.user.client.ui.HasWidgets;
 import org.dselent.course_load_scheduler.client.action.FacultyModifyAction;
 import org.dselent.course_load_scheduler.client.event_handler.FacultyModifyEventHandler;
-
-import com.google.gwt.event.shared.GwtEvent;
-import com.google.gwt.user.client.ui.HasWidgets;
 
 
 /* Created by Nathan Siegel */
@@ -18,7 +16,8 @@ public class FacultyModifyEvent extends DisplayEvent<FacultyModifyAction, Facult
 	
 	public FacultyModifyEvent(FacultyModifyAction action, HasWidgets container)
 	{
-		super(action,container);
+        super(action, container);
+        this.action = action;
 	}
 	
 	public FacultyModifyAction getAction()

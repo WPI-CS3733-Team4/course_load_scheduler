@@ -6,7 +6,7 @@ import com.google.gwt.user.client.ui.RootLayoutPanel;
 import com.google.gwt.user.client.ui.RootPanel;
 import org.dselent.course_load_scheduler.client.gin.Injector;
 import org.dselent.course_load_scheduler.client.presenter.impl.*;
-import org.dselent.course_load_scheduler.client.service.impl.*;
+import org.dselent.course_load_scheduler.client.service.impl.AdminServiceImpl;
 import org.dselent.course_load_scheduler.client.view.*;
 
 /**
@@ -114,40 +114,12 @@ public class CourseLoadScheduler implements EntryPoint
     public void onModuleLoad() {
 		RootLayoutPanel root = RootLayoutPanel.get();
 
-//        SimplePanelExample simplePanelExample = new SimplePanelExample();
-//        root.add(simplePanelExample);
-//
-//        SimplePanelExample2 simplePanelExample2 = new SimplePanelExample2();
-//        root.add(simplePanelExample2);
-//
-//
-//        HTMLPanelExample htmlPanelExample = new HTMLPanelExample();
-//        root.add(htmlPanelExample);
-//
-//
-//        FlowPanelExample flowPanelExample = new FlowPanelExample();
-//        root.add(flowPanelExample);
-//
-//        VerticalPanelExample verticalPanelExample = new VerticalPanelExample();
-//        root.add(verticalPanelExample);
-//
-//        HorizontalPanelExample horizontalPanelExample = new HorizontalPanelExample();
-//        root.add(horizontalPanelExample);
-//
-//        DockLayoutPanelExample dockLayoutPanelExample = new DockLayoutPanelExample();
-//        root.add(dockLayoutPanelExample);
-//
-//        GridExample gridExample = new GridExample();
-//        root.add(gridExample);
-//
-//        TabLayoutPanelExample tabLayoutPanelExample = new TabLayoutPanelExample();
-//        root.add(tabLayoutPanelExample);
-//
-//        ExamplesPanel examplesPanel = new ExamplesPanel();
-//        root.add(examplesPanel);
-//
-//		 Get the injector, which injected objects can be retrieved from
 		final Injector injector = Injector.INSTANCE;
+
+        AdminServiceImpl adminService = injector.getAdminService();
+        adminService.init();
+
+
 
 		IndexPresenterImpl indexPresenter = injector.getIndexPresenter(); // on-demand injection
 		indexPresenter.init();
@@ -176,18 +148,16 @@ public class CourseLoadScheduler implements EntryPoint
         indexPresenter.go(RootPanel.get("indexContainer"));
 		indexPresenter.go(root);
         loginPresenter.go(indexView.getViewRootPanel());
-        
-        UserServiceImpl userService = injector.getUserService();
-		userService.init();
-		
-		AdminServiceImpl adminService = injector.getAdminService();
-		adminService.init();
-		
-		BuilderServiceImpl builderService = injector.getBuilderService();
-		builderService.init();
-		
-		FacultyServiceImpl facultyService = injector.getFacultyService();
-		facultyService.init();
+
+//        UserServiceImpl userService = injector.getUserService();
+//		userService.init();
+
+
+//		BuilderServiceImpl builderService = injector.getBuilderService();
+//		builderService.init();
+
+//		FacultyServiceImpl facultyService = injector.getFacultyService();
+//		facultyService.init();
         //registerPresenter.go(indexView.getViewRootPanel());
 
         //facultyPresenter.go(indexView.getViewRootPanel());
